@@ -130,7 +130,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 6 ----> Contar Registros de algun Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
             cout << "Opcion 7 ----> Comprar"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 8 ----> Vender"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 9 ----> Cargar Datos Del Dueño"<<endl;
+            cout << "Opcion 9 ----> Cargar Datos Del Duenio"<<endl;
             cout << "Opcion 10 ----> Cambiar Sueldo Cargado"<<endl;
             cout << "Opcion 0 ----> salir" << endl;                              //--> Salir a Menu Principal
             cin >> opcion;

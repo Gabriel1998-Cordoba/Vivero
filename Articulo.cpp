@@ -12,11 +12,11 @@ void Articulo::setNombre(const char *nombre)
 
 Articulo::Articulo()
 {
-_id=0;
+_idArticulo=0;
 }
 int Articulo::getID() const
 {
-    return _id;
+    return _idArticulo;
 }
 
 const char * Articulo::getNombre ()const{
@@ -25,7 +25,7 @@ const char * Articulo::getNombre ()const{
 
 void Articulo::setId(int id)
 {
-    _id = id;
+    _idArticulo = id;
 }
 
 void Articulo::setPrecio(float precio)

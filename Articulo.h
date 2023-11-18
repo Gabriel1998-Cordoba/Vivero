@@ -4,7 +4,7 @@
 class Articulo : public Fecha{
 
     private:
-    int _id;
+    int _idArticulo;
     char _nombre[30];
     float _precio;
     int _TipoDeArticulo; // cambiar a _TipoDeArticulo
