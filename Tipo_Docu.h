@@ -1,10 +1,9 @@
 #pragma once
 
-class Sujero{
+class Tipo_Docu{
 
     private:
-    
-    public:
 
+    public:
 
 };
