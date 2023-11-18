@@ -60,6 +60,8 @@ void Agroquimicos::MostrarAgroquimicos()
 {
  Articulo::Mostrar();
  cout<<"Agroquimico: "<<getTipoAgroquimico()<<endl;
+ cout<<endl;
+
 }
 
 int Agroquimicos::contarRegistros(){

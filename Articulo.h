@@ -1,6 +1,7 @@
 #pragma once
 
-class Articulo{
+#include"Fecha.h"
+class Articulo : public Fecha{
 
     private:
     int _id;

@@ -128,6 +128,10 @@ void menuDuenio(int opcion)
             cout << "Opcion 4 ----> dar de baja algun Productos" << endl;        // bool para dar de 'basa logica'
             cout << "Opcion 5 ----> Listar Datos" << endl;                       // seleccionar el archivo que quieres que abra y muestre
             cout << "Opcion 6 ----> Contar Registros de algun Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
+            cout << "Opcion 7 ----> Comprar"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 8 ----> Vender"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 9 ----> Cargar Datos Del Dueño"<<endl;
+            cout << "Opcion 10 ----> Cambiar Sueldo Cargado"<<endl;
             cout << "Opcion 0 ----> salir" << endl;                              //--> Salir a Menu Principal
             cin >> opcion;
             system("cls");
@@ -410,6 +414,7 @@ void ListarDatos(int opcion)
         case 1:
         {
             system("cls");
+            cout << "Listado de Plantas" << endl << endl;
             obtP.ListarPlanta();
             system("pause");
             // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
@@ -421,7 +426,7 @@ void ListarDatos(int opcion)
         case 2:
         {
             system("cls");
-            cout << "Listado de Herrramientas" << endl;
+            cout << "Listado de Herrramientas" << endl << endl;
             obtH.ListarHerramienta();
             system("pause");
         }
@@ -430,7 +435,7 @@ void ListarDatos(int opcion)
         case 3:
         {
             system("cls");
-            cout << "Listado de Herrramientas" << endl;
+            cout << "Listado de AgroQuimicos" << endl << endl;
             obtA.ListarAgroquimicos();
             system("pause");
         }

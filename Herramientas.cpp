@@ -31,6 +31,7 @@ void Herramientas::CargarHerramienta(int totalDeRegistros,int TipoDeArticulo){
 
 void Herramientas::MostrarHerramienta(){
     Articulo::Mostrar();
+    cout<<endl;
 }
 
 int Herramientas::contarRegistros(){

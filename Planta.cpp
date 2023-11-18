@@ -50,7 +50,7 @@ void Planta::CargarPlanta(int totalDeRegistros,int TipoDeArticulo){
 void Planta::MostrarPlanta()
 {
  Articulo::Mostrar();
- cout<<"Estacion: "<<getEstacion()<<endl;
+ cout<<"Estacion: "<<getEstacion()<<endl<<endl;
 
 }
 

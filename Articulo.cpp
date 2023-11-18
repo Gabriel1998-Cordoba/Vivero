@@ -63,7 +63,7 @@ void Articulo::Cargar(int totalDeRegistros,int TipoDeArticulo){
     float precio;
     int stock;
 
-    cout<<"AQUI1"<<endl;
+    Fecha::Cargar();
 
     totalDeRegistros++;
     cout << "ID: " << totalDeRegistros<< endl;
@@ -84,13 +84,14 @@ void Articulo::Cargar(int totalDeRegistros,int TipoDeArticulo){
 
 void Articulo::Mostrar()
 {
+    Fecha::MostrarEnLinea();
     cout << "ID: " << getID() << endl;
     cout << "Nombre: "<<getNombre()<<endl;
     cout << "Precio: "<<getPrecio()<<endl;
     cout << "Tipo De Articulo: "<<getTipoDeArticulo()<<endl;
     cout << "Stock: "<<getStock()<<endl;
     setEstado(1);
-    cout << "ESTADO: : "<<getEstado()<<endl<<endl;
+    cout << "ESTADO: : "<<getEstado()<<endl;
 
 }
 
