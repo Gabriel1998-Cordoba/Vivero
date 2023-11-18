@@ -7,6 +7,8 @@ using namespace std;
 #include "menu.h"
 #include"FuncionesGlobales.h"
 #include"Planta.h"
+#include"Herramientas.h"
+#include"Agroquimicos.h"
 
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
@@ -208,6 +210,8 @@ void CargarDatos(int opcion)
 {
 
     Planta obtP;
+    Herramientas objH;
+    Agroquimicos objA;
 
     system("cls");
 
@@ -227,6 +231,7 @@ void CargarDatos(int opcion)
         /*******************************************************************/
         case 1:
         {
+
             system("cls");
             int tam=0,cantidad;
 
@@ -248,8 +253,16 @@ void CargarDatos(int opcion)
         case 2:
         {
             system("cls");
-            cout << "OPCION 2" << endl;
-            //CargarHerramienta();
+            int tam=0,cantidad;
+
+            tam=objH.contarRegistros();
+            cout<<"ingrese Cantidad de Registros"<<endl;
+            cin>>cantidad;
+            system("cls");
+            for(int i=0; i<cantidad;i++){
+            objH.CargarArchivoHerramienta(tam,opcion);
+            tam=objH.contarRegistros();
+            }
             system("pause");
         }
         break;
@@ -257,7 +270,16 @@ void CargarDatos(int opcion)
         case 3:
         {
             system("cls");
-            cout << "OPCION 3" << endl;
+            int tam=0,cantidad;
+
+            tam=objA.contarRegistros();
+            cout<<"ingrese Cantidad de Registros"<<endl;
+            cin>>cantidad;
+            system("cls");
+            for(int i=0; i<cantidad;i++){
+            objA.CargarArchivoAgroquimicos(tam,opcion);
+            tam=objA.contarRegistros();
+            }
             system("pause");
         }
         break;
@@ -286,6 +308,8 @@ void CargarDatos(int opcion)
 void LimpiarDatos(int opcion)
 {
     Planta obtP;
+    Herramientas obtH;
+    Agroquimicos obtA;
 
     system("cls");
     cout << "Que quieres Limpiar?" << endl
@@ -319,8 +343,11 @@ void LimpiarDatos(int opcion)
     case 2:
     {
         system("cls");
-        cout << "OPCION 2" << endl;
-        //LimpiarHerramienta();
+        if(obtH.borrarRegistroHerramienta()==true){
+            cout<<"se borro Correctamente"<<endl;
+        }else{
+            cout<<"NO se pudo borrar"<<endl; 
+        }
         system("pause");
     }
     break;
@@ -328,7 +355,11 @@ void LimpiarDatos(int opcion)
     case 3:
     {
         system("cls");
-        cout << "OPCION 3" << endl;
+        if(obtA.borrarRegistroAgroquimicos()==true){
+            cout<<"se borro Correctamente"<<endl;
+        }else{
+            cout<<"NO se pudo borrar"<<endl; 
+        }
         system("pause");
     }
     break;
@@ -356,6 +387,9 @@ void LimpiarDatos(int opcion)
 void ListarDatos(int opcion)
 {
     Planta obtP;
+    Herramientas obtH;
+    Agroquimicos obtA;
+
 
     system("cls");
 
@@ -388,7 +422,7 @@ void ListarDatos(int opcion)
         {
             system("cls");
             cout << "Listado de Herrramientas" << endl;
-            //ListarHerramienta();
+            obtH.ListarHerramienta();
             system("pause");
         }
         break;
@@ -396,7 +430,8 @@ void ListarDatos(int opcion)
         case 3:
         {
             system("cls");
-            cout << "OPCION 3" << endl;
+            cout << "Listado de Herrramientas" << endl;
+            obtA.ListarAgroquimicos();
             system("pause");
         }
         break;

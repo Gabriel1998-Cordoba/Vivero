@@ -50,7 +50,7 @@ void Planta::CargarPlanta(int totalDeRegistros,int TipoDeArticulo){
 void Planta::MostrarPlanta()
 {
  Articulo::Mostrar();
- cout<<"Estacion: "<<_estacion<<endl;
+ cout<<"Estacion: "<<getEstacion()<<endl;
 
 }
 
@@ -88,14 +88,30 @@ Planta Planta::leerRegistroPlanta(int pos){
 }
 
 void Planta::ListarPlanta(){
-Planta ClassP;
-int tam=ClassP.contarRegistros();
 
-//cout<<"TAM= "<<tam<<endl;
+// Planta ClassP;
+// int tam=ClassP.contarRegistros();
 
-for(int i=0; i<tam;i++){
-    ClassP.leerRegistroPlanta(i);
-    ClassP.MostrarPlanta();
+// //cout<<"TAM= "<<tam<<endl;
+
+// for(int i=0; i<tam;i++){
+//     ClassP.leerRegistroPlanta(i);
+    // ClassP.MostrarPlanta();
+// }
+
+Planta ClassM;
+FILE *p;
+
+p=fopen("planta.dat","rb");
+if(p==NULL){
+    cout<<"ERROR de ARCHIVO"<<endl;
+    system("pause");
 }
+
+while(fread(&ClassM,sizeof (Planta),1,p)==1){
+ClassM.MostrarPlanta();
+}
+
+fclose(p);
 
 }
