@@ -3,21 +3,21 @@
 using namespace std;
 
 
-#include"Direccion.h"
+#include"Sujeto.h"
 #include"menu.h"
 
 int main(){
 
-    //menuPrincipal();
+    menuPrincipal();
 
-//     Direccion objT;
+//     Sujeto objT;
 // while(true){
 
-//     objT.CargarDireccion();
+//     objT.CargarSujeto(0,1);
 
 //     cout<<"////////////////////////"<<endl;
 
-//     objT.MostrarDireccion();
+//     objT.MostrarSujeto();
 // system("pause");
 
 // system("cls");

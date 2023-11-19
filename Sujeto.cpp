@@ -9,17 +9,13 @@ using namespace std;
 int Sujeto::getIdSujeto() const { return _idSujeto; }
 void Sujeto::setIdSujeto(int idSujeto) { _idSujeto = idSujeto; }
 
-// Tipo_Docu Sujeto::getTipoDoc() const { return _TipoDoc; }
-// void Sujeto::setTipoDoc(const Tipo_Docu &TipoDoc) { _TipoDoc = TipoDoc; }
-
 const char*Sujeto::getTelefono() const { return _telefono; }
 void Sujeto::setTelefono(const char* telefono) { strcpy(_telefono, telefono);}
 
 bool Sujeto::getEstado() const { return _estado; }
 void Sujeto::setEstado(bool estado) { _estado = estado; }
 
-// Direccion direccion() const { return _direccion; }
-// void setDireccion(const Direccion &direccion) { _direccion = direccion; }
+
 
 const char* Sujeto::getEmail() const { return _email; }
 void Sujeto::setEmail(const char* email) { strcpy(_email, email);}
@@ -42,13 +38,13 @@ Direccion::CargarDireccion();
     cargarCadena(telefono,30);
     setTelefono(telefono);
 
-    cout<<"Su estado es: ";
-    cin>>estado;
+    estado=true;
+    cout<<"Su estado es: "<<estado<<endl;
     setEstado(estado);
 
     cout<<"Su email es: ";
     cargarCadena(email,30);
-    setTelefono(email);
+    setEmail(email);
     
 
 }
