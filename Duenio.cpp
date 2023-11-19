@@ -4,15 +4,20 @@ using namespace std;
 
 #include"Duenio.h"
 
-void Duenio::CargarDuenio(){
+void Duenio::CargarDuenio(int totalDeRegistros,int TipoDeArticulo){
+
+Sujeto::CargarSujeto(totalDeRegistros,TipoDeArticulo);
+
 float sueldo;
-float idDuenio;
+
 cout<<"Su Sueldo es: ";
 cin>>sueldo;
 setSueldo(sueldo);
-cout<<"Su id Duenio es: ";
-cin>>idDuenio;
-setIdDuenio(idDuenio);
+
+totalDeRegistros++;
+cout<<"Su id Duenio es: "<< totalDeRegistros<< endl;
+setIdDuenio(totalDeRegistros);
+
 }
 
 void Duenio::MostrarDuenio(){
