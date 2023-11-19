@@ -1,7 +1,7 @@
 #pragma once
 
 #include"Fecha.h"
-
+#include"Tipo_Docu.h"
 class Sujeto{
 
     private:
@@ -18,8 +18,8 @@ class Sujeto{
         void setIdSujeto(int idSujeto);
 
 
-        //Tipo_Docu getTipoDoc();
-        //void setTipoDoc(const Tipo_Docu &TipoDoc);
+        Tipo_Docu getTipoDoc();
+        void setTipoDoc(const Tipo_Docu &TipoDoc);
 
         const char*getTelefono() const;
         void setTelefono(const char* telefono);
