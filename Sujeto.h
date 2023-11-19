@@ -2,26 +2,28 @@
 
 #include"Fecha.h"
 #include"Tipo_Docu.h"
+#include"Direccion.h"
 #include"Fecha.h"
-class Sujeto{
+class Sujeto : public Fecha,public Direccion,public Tipo_Docu{
 
     private:
+<<<<<<< HEAD
        
         //Tipo_Docu _TipoDoc[3];
+=======
+        Tipo_Docu _TipoDoc;
+        Direccion _direccion;
+        Fecha _fecha;
+        int _idSujeto;
+>>>>>>> fcb7e83b18a9b7d2476d11ee1eb81025f77be14c
         char _telefono[30];
         bool _estado;
-        //Direccion _direccion;
         char _email[30];
-        Fecha _fecha;
 
     public:
         
         int getIdSujeto() const;
         void setIdSujeto(int idSujeto);
-
-
-        Tipo_Docu getTipoDoc();
-        void setTipoDoc(const Tipo_Docu &TipoDoc);
 
         const char*getTelefono() const;
         void setTelefono(const char* telefono);
@@ -29,15 +31,19 @@ class Sujeto{
         bool getEstado() const;
         void setEstado(bool estado);
 
-        //Direccion direccion() const;
-        //void setDireccion(const Direccion &direccion);
-        
         const char* getEmail() const;
         void setEmail(const char* email);
 
-        void CargarSujeto(); //HACER
-        void MostrarSujeto(); //HACER
+        void CargarSujeto(int totalDeRegistros,int TipoDeArticulo);
+        void MostrarSujeto();
 
-        Fecha fecha() const { return _fecha; }
+        Tipo_Docu getTipoDoc() const { return _TipoDoc; }
+        void setTipoDoc(const Tipo_Docu &TipoDoc) { _TipoDoc = TipoDoc; }
+
+        Direccion getDireccion() const { return _direccion; }
+        void setDireccion(const Direccion &direccion) { _direccion = direccion; }
+
+        Fecha getFecha() const { return _fecha; }
         void setFecha(const Fecha &fecha) { _fecha = fecha; }
+
 };

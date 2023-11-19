@@ -10,6 +10,7 @@ using namespace std;
 #include"Planta.h"
 #include"Herramientas.h"
 #include"Agroquimicos.h"
+#include"Duenio.h"
 
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
@@ -132,7 +133,10 @@ void menuDuenio(int opcion)
             cout << "Opcion 7 ----> Comprar"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 8 ----> Vender"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Cargar Datos Del Duenio"<<endl;
-            cout << "Opcion 10 ----> Cambiar Sueldo Cargado"<<endl;
+            //cout << "Opcion 10 ----> Mostrar Datos Del Duenio"<<endl;
+            //cout << "Opcion 11 ----> Cambiar Sueldo Cargado"<<endl;
+            //cout << "Opcion 12 ----> Mostrar Sueldo Cargado"<<endl;
+            //cout << "Opcion 13 ----> Borrar Datos Del Duenio"<<endl;
             cout << "Opcion 0 ----> salir" << endl;                              //--> Salir a Menu Principal
             cin >> opcion;
             system("cls");
@@ -185,6 +189,39 @@ void menuDuenio(int opcion)
 
                 system("cls");
                 //ContarRegistros(opcion);
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 7:
+            {
+
+                system("cls");
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 8:
+            {
+
+                system("cls");
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 9:
+            {
+
+                system("cls");
+                CargarDatosDelDuenio(opcion);
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 10:
+            {
+
+                system("cls");
                 system("pause");
             }
             break;
@@ -439,6 +476,97 @@ void ListarDatos(int opcion)
             system("cls");
             cout << "Listado de AgroQuimicos" << endl << endl;
             obtA.ListarAgroquimicos();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+void CargarDatosDelDuenio(int opcion){
+
+Duenio objD;
+
+system("cls");
+
+    while (true)
+    {
+        system("cls");
+        cout << "Que quieres Listar?" << endl
+             << endl;
+            cout << "Opcion 1 ----> Cargar Datos Del Duenio"<<endl;
+            cout << "Opcion 2 ----> Mostrar Datos Del Duenio"<<endl;
+            cout << "Opcion 3 ----> Cambiar Sueldo Cargado"<<endl;
+            cout << "Opcion 4 ----> Mostrar Sueldo Cargado"<<endl;
+            cout << "Opcion 5 ----> Borrar Datos Del Duenio"<<endl;
+            cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+
+            int tam=0,cantidad;
+            tam=objD.contarRegistros();
+            cout<<"ingrese Cantidad de Registros"<<endl;
+            cin>>cantidad;
+            system("cls");
+            for(int i=0; i<cantidad;i++){
+            objD.CargarDatosDeDuenioEnArchivo(tam,opcion);
+            tam=objD.contarRegistros();
+            }
+            system("pause");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            objD.MostrarDatosDeDuenioEnArchivo();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            objD.BorrarDatosDelDuenio();
             system("pause");
         }
         break;

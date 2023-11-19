@@ -1,6 +1,8 @@
 #pragma once
 
-class Duenio{
+#include"Sujeto.h"
+
+class Duenio : public Sujeto{
 
     private:
     int _idDuenio;
@@ -14,12 +16,14 @@ public:
     int GetIdDuenio() const { return _idDuenio; }
     void setIdDuenio(int idDuenio) { _idDuenio = idDuenio; }
 
-    void CargarDuenio();
+    void CargarDuenio(int totalDeRegistros,int TipoDeArticulo);
     void MostrarDuenio();
 
-    void CargarDatosDeDuenioEnArchivo(); //HACER
+    void CargarDatosDeDuenioEnArchivo(int totalDeRegistros,int TipoDeArticulo); //HACER
     void MostrarDatosDeDuenioEnArchivo(); //HACER
     void CambiarSueldoCargadoEnArchivo(); //HACER
+    void BorrarDatosDelDuenio(); //HACER
 
+    int contarRegistros();
 
 };

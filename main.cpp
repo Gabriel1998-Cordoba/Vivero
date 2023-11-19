@@ -3,21 +3,21 @@
 using namespace std;
 
 
-#include"Tipo_Docu.h"
+#include"Duenio.h"
 #include"menu.h"
 
 int main(){
 
     menuPrincipal();
 
-//     Tipo_Docu objT;
+    // Duenio objT;
 // while(true){
 
-//     objT.CargarTipoDocu();
+//     objT.CargarDuenio(0,1);
 
 //     cout<<"////////////////////////"<<endl;
 
-//     objT.MostrarTipoDocu();
+//     objT.MostrarDuenio();
 // system("pause");
 
 // system("cls");
