@@ -5,9 +5,6 @@ using namespace std;
 
 #include"Sujeto.h"
 
-int Sujeto::getIdSujeto() const { return _idSujeto; }
-void Sujeto::setIdSujeto(int idSujeto) { _idSujeto = idSujeto; }
-
 //Tipo_Docu Sujeto::getTipoDoc() const { return _TipoDoc; }
 //void Sujeto::setTipoDoc(const Tipo_Docu &TipoDoc) { _TipoDoc = TipoDoc; }
 

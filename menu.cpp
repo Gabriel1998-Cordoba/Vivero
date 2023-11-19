@@ -5,6 +5,7 @@
 using namespace std;
 
 #include "menu.h"
+#include "Proveedor.h"
 #include"FuncionesGlobales.h"
 #include"Planta.h"
 #include"Herramientas.h"
@@ -174,7 +175,8 @@ void menuDuenio(int opcion)
             case 5:
             {
                 system("cls");
-                ListarDatos(opcion);
+               
+               ;
             }
             break;
                 /*******************************************************************/

@@ -6,7 +6,7 @@
 class Sujeto{
 
     private:
-        int _idSujeto;
+       
         //Tipo_Docu _TipoDoc[3];
         char _telefono[30];
         bool _estado;
