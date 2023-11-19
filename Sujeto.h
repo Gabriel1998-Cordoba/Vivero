@@ -2,6 +2,7 @@
 
 #include"Fecha.h"
 #include"Tipo_Docu.h"
+#include"Fecha.h"
 class Sujeto{
 
     private:
@@ -11,6 +12,7 @@ class Sujeto{
         bool _estado;
         //Direccion _direccion;
         char _email[30];
+        Fecha _fecha;
 
     public:
         
@@ -30,9 +32,12 @@ class Sujeto{
         //Direccion direccion() const;
         //void setDireccion(const Direccion &direccion);
         
-        const char* email() const;
+        const char* getEmail() const;
         void setEmail(const char* email);
 
         void CargarSujeto(); //HACER
         void MostrarSujeto(); //HACER
+
+        Fecha fecha() const { return _fecha; }
+        void setFecha(const Fecha &fecha) { _fecha = fecha; }
 };

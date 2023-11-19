@@ -3,13 +3,13 @@
 class Tipo_Docu{
 
     private:
-        int _TipoDoc[3]={0}; //(1 DNI, 2 Cuit, 3 Cuil)
+        int _TipoDoc[3]={-1}; //(1 DNI, 2 Cuit, 3 Cuil)
         int _numero;
 
     public:
 
     bool setTipoDoc(int index, int value) {
-        if(index >= 0 && index < 3) {
+        if(index >= 0 && index <3) {
             _TipoDoc[index] = value;
             return true;
         } else {
@@ -27,8 +27,8 @@ class Tipo_Docu{
         }
     }
 
-    int getNumero() const { return _numero; }
     void setNumero(int numero) { _numero = numero; }
+    int getNumero() const { return _numero; }
     
     void CargarTipoDocu();
     void MostrarTipoDocu();

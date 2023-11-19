@@ -20,7 +20,7 @@ void Sujeto::setEstado(bool estado) { _estado = estado; }
 //Direccion direccion() const { return _direccion; }
 //void setDireccion(const Direccion &direccion) { _direccion = direccion; }
 
-const char* Sujeto::email() const { return _email; }
+const char* Sujeto::getEmail() const { return _email; }
 void Sujeto::setEmail(const char* email) { strcpy(_email, email);}
 
 void Sujeto::CargarSujeto(){ //HACER
