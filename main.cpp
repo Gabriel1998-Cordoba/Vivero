@@ -3,21 +3,21 @@
 using namespace std;
 
 
-#include"Tipo_Docu.h"
+#include"Direccion.h"
 #include"menu.h"
 
 int main(){
 
-    menuPrincipal();
+    //menuPrincipal();
 
-//     Tipo_Docu objT;
+//     Direccion objT;
 // while(true){
 
-//     objT.CargarTipoDocu();
+//     objT.CargarDireccion();
 
 //     cout<<"////////////////////////"<<endl;
 
-//     objT.MostrarTipoDocu();
+//     objT.MostrarDireccion();
 // system("pause");
 
 // system("cls");
