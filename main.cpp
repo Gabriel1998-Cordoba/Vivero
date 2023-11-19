@@ -8,20 +8,20 @@ using namespace std;
 
 int main(){
 
-    //menuPrincipal();
+    menuPrincipal();
 
-    Duenio objT;
-while(true){
+    // Duenio objT;
+// while(true){
 
-    objT.CargarDuenio(0,1);
+//     objT.CargarDuenio(0,1);
 
-    cout<<"////////////////////////"<<endl;
+//     cout<<"////////////////////////"<<endl;
 
-    objT.MostrarDuenio();
-system("pause");
+//     objT.MostrarDuenio();
+// system("pause");
 
-system("cls");
-}
+// system("cls");
+// }
 
 
     return 0;

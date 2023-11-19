@@ -19,9 +19,11 @@ public:
     void CargarDuenio(int totalDeRegistros,int TipoDeArticulo);
     void MostrarDuenio();
 
-    void CargarDatosDeDuenioEnArchivo(); //HACER
+    void CargarDatosDeDuenioEnArchivo(int totalDeRegistros,int TipoDeArticulo); //HACER
     void MostrarDatosDeDuenioEnArchivo(); //HACER
     void CambiarSueldoCargadoEnArchivo(); //HACER
+    void BorrarDatosDelDuenio(); //HACER
 
+    int contarRegistros();
 
 };
