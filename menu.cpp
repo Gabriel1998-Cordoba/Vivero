@@ -123,16 +123,16 @@ void menuDuenio(int opcion)
         {
             system("cls");
             cout << "BIENVENIDO DUENIO" << endl;
-            cout << "Opcion 1 ----> Cargar Datos" << endl;                       //'ab' de archivos
-            cout << "Opcion 2 ----> Modificar Datos" << endl;                    //'rb' que lo lea y modifique
-            cout << "Opcion 3 ----> Borrar o Limpiar Datos" << endl;             //'wb' de archivos == 'baja Fisica'
-            cout << "Opcion 4 ----> dar de baja algun Productos" << endl;        // bool para dar de 'basa logica'
-            cout << "Opcion 5 ----> Listar Datos" << endl;                       // seleccionar el archivo que quieres que abra y muestre
-            cout << "Opcion 6 ----> Contar Registros de algun Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 8 ----> Consulta de factura "<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 1 ----> Cargar Datos" << endl;                          //'ab' de archivos
+            cout << "Opcion 2 ----> Modificar Datos" << endl;                       //'rb' que lo lea y modifique
+            cout << "Opcion 3 ----> Borrar o Limpiar Datos" << endl;                //'wb' de archivos == 'baja Fisica'
+            cout << "Opcion 4 ----> dar de baja algun Productos" << endl;           // bool para dar de 'basa logica'
+            cout << "Opcion 5 ----> Listar Datos" << endl;                          // seleccionar el archivo que quieres que abra y muestre
+            cout << "Opcion 6 ----> Contar Registros de X Producto" << endl;        // Cuenta todos los registros dentro del bloc de notas
+            cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado"<<endl;          //esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 8 ----> Consulta x de factura"<<endl;                   //esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Cargar Datos Del Duenio"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;                              //--> Salir a Menu Principal
+            cout << "Opcion 0 ----> salir" << endl;                                 //--> Salir a Menu Principal
             cin >> opcion;
             system("cls");
 
