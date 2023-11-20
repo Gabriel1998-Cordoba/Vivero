@@ -64,6 +64,34 @@ fclose(p);
 }
 
 void Duenio::CambiarSueldoCargadoEnArchivo(){
+Duenio objD;
+
+float sueldo;
+
+int tam=0,cantidad;
+tam=objD.contarRegistros();
+
+objD = objD.leerRegistro(tam-1);
+
+cout<<"Ingrese sueldo:";
+cin>>sueldo;
+
+objD.setSueldo(sueldo);
+
+objD.reemplazarRegistroDuenio(objD,(tam-1));
+
+}
+
+void Duenio::MostrarSueldoCargadoEnArchivo(){
+
+Duenio objD;
+
+int tam=0,cantidad;
+tam=objD.contarRegistros();
+
+objD = objD.leerRegistro(tam-1);
+
+cout<<"Su sueldo Es :"<<objD.getSueldo()<<endl;
 
 }
 
@@ -88,4 +116,27 @@ if(p==NULL){
     system("pause");
 }
 
+}
+
+Duenio Duenio::leerRegistro(int pos){
+        Duenio reg;
+        FILE *p;
+        p=fopen("duenio.dat", "rb");
+        if(p==NULL){
+        cout<<"ERRRO = Duenio Duenio::leerRegistro(int pos)"<<endl;
+        return reg;
+        }
+        fseek(p, sizeof(Duenio)*pos,0);
+        fread(&reg, sizeof reg,1, p);
+        fclose(p);
+        return reg;
+    }
+
+bool Duenio::reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar){
+    FILE *p = fopen("duenio.dat", "rb+");
+    if (p == NULL){return false;}
+    fseek(p, posicionAReemplazar * sizeof(Duenio), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Duenio), 1, p);
+    fclose(p);
+    return pudoEscribir;
 }

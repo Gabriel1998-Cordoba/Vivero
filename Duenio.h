@@ -19,11 +19,15 @@ public:
     void CargarDuenio(int totalDeRegistros,int TipoDeArticulo);
     void MostrarDuenio();
 
-    void CargarDatosDeDuenioEnArchivo(int totalDeRegistros,int TipoDeArticulo); //HACER
-    void MostrarDatosDeDuenioEnArchivo(); //HACER
-    void CambiarSueldoCargadoEnArchivo(); //HACER
-    void BorrarDatosDelDuenio(); //HACER
+    void CargarDatosDeDuenioEnArchivo(int totalDeRegistros,int TipoDeArticulo);
+    void MostrarDatosDeDuenioEnArchivo(); 
+    void CambiarSueldoCargadoEnArchivo();
+    void MostrarSueldoCargadoEnArchivo(); //HACER
+    void BorrarDatosDelDuenio();
 
     int contarRegistros();
+    Duenio leerRegistro(int pos);
+
+    bool reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar);
 
 };

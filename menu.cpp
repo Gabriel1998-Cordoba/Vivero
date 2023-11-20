@@ -5,7 +5,6 @@
 using namespace std;
 
 #include "menu.h"
-#include "Proveedor.h"
 #include"FuncionesGlobales.h"
 #include"Planta.h"
 #include"Herramientas.h"
@@ -130,13 +129,9 @@ void menuDuenio(int opcion)
             cout << "Opcion 4 ----> dar de baja algun Productos" << endl;        // bool para dar de 'basa logica'
             cout << "Opcion 5 ----> Listar Datos" << endl;                       // seleccionar el archivo que quieres que abra y muestre
             cout << "Opcion 6 ----> Contar Registros de algun Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 7 ----> Comprar"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 8 ----> Vender"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado"<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 8 ----> Consulta de factura "<<endl; //esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Cargar Datos Del Duenio"<<endl;
-            //cout << "Opcion 10 ----> Mostrar Datos Del Duenio"<<endl;
-            //cout << "Opcion 11 ----> Cambiar Sueldo Cargado"<<endl;
-            //cout << "Opcion 12 ----> Mostrar Sueldo Cargado"<<endl;
-            //cout << "Opcion 13 ----> Borrar Datos Del Duenio"<<endl;
             cout << "Opcion 0 ----> salir" << endl;                              //--> Salir a Menu Principal
             cin >> opcion;
             system("cls");
@@ -179,8 +174,7 @@ void menuDuenio(int opcion)
             case 5:
             {
                 system("cls");
-               
-               ;
+                ListarDatos(opcion);
             }
             break;
                 /*******************************************************************/
@@ -552,6 +546,7 @@ system("cls");
         case 3:
         {
             system("cls");
+            objD.CambiarSueldoCargadoEnArchivo();
             system("pause");
         }
         break;
@@ -559,6 +554,7 @@ system("cls");
         case 4:
         {
             system("cls");
+            objD.MostrarSueldoCargadoEnArchivo();
             system("pause");
         }
         break;

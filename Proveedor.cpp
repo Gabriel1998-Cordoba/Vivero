@@ -17,7 +17,7 @@ void Proveedor::Cargar()
 {
     cout << "INGRESE EL ID: " << endl;
     cin >> _idProveedor;
-    Sujeto::CargarSujeto();
+    //Sujeto::CargarSujeto();
 }
 void Proveedor::Mostrar()
 {
