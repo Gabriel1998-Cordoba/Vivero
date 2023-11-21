@@ -121,10 +121,20 @@ DetalleFacturaCompra objD;
 RegistroCompra objR;
 
 int tam1=0;
+
+if(tam1==0){
+    tam1=1;
+}
+
 tam1 = objP.contarRegistros();
 objD.setIdArticulo(tam1);
 
 int tam2=0;
+
+if(tam2==0){
+    tam2=1;
+}
+
 tam2 = objR.contarRegistros();
 objD.setIdCompra(tam2);
 

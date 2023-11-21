@@ -1,5 +1,10 @@
 #pragma once
 #include "Fecha.h"
+#include"Herramientas.h"
+#include"Planta.h"
+#include"Agroquimicos.h"
+
+
 class RegistroCompra{
 
 private:
@@ -12,12 +17,15 @@ public:
 void setIdCompra(int);
 void setIdProveedor (int );
 void setFecha (Fecha);
+void setFecha (int dia,int mes,int anio);
 void setModoDePago (const char *);
 int getIdCompra();
 int getIdProveedor();
 Fecha getFecha();
 const char *getModoDePago();
-void Cargar();
+
+void CargarCompra();
+
 void Mostrar();
 
 int contarRegistros();

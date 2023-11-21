@@ -55,6 +55,7 @@ void Planta::MostrarPlanta()
 
 }
 
+
 int Planta::contarRegistros(){
         FILE *p;
         p=fopen("planta.dat", "rb");
