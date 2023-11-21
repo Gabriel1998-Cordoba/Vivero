@@ -38,6 +38,7 @@ int getIdCompra();
 int getCantidad();
 float getPrecio();
 void Mostrar();
+void MostrarPlanta();
 const char * getEstacion() const;
 void setEstacion(const char * estacion);
 int tipoAgroquimico() const;
@@ -50,6 +51,10 @@ const char * getNombre() const;
 void setNombre(const char *nombre);
 Fecha getFecha() const;
 void setFecha(const Fecha &fecha);
+void setDiaMesAnioFecha(int dia,int mes,int anio);
+
+DetalleFacturaCompra();
+~DetalleFacturaCompra(){}
 
 void AutoCargar(Herramientas objH); //HACER
 void AutoCargar(Planta objP); //HACER

@@ -94,9 +94,9 @@ void Herramientas::Opcion2Compra(){
 void Herramientas::Opcion3Compra(){
     
 }
-void Herramientas::Opcion4Compra(){
+// void Herramientas::Opcion4Compra(){
     
-}
-void Herramientas::Opcion5Compra(){
+// }
+// void Herramientas::Opcion5Compra(){
     
-}
+// }

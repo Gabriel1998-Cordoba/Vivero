@@ -4,7 +4,7 @@
 using namespace std;
 
 #include "DetalleFacturaCompra.h"
-
+#include"RegistroCompra.h"
 
 
 void DetalleFacturaCompra:: setIdArticulo(int idArticulo){
@@ -21,10 +21,26 @@ int DetalleFacturaCompra::getCantidad(){return _cantidad;}
 float DetalleFacturaCompra::getPrecio(){return _precio;}
 
 void DetalleFacturaCompra::Mostrar(){
-cout<<"ID Articulo: "<<getIdArticulo();
-cout<<"ID Compra: "<<getIdCompra();
-cout<<"Cantidad: "<<getCantidad();
-cout<<"Precio: "<<getPrecio();
+cout<<"ID Articulo: "<<getIdArticulo()<<endl;
+cout<<"ID Compra: "<<getIdCompra()<<endl;
+cout<<"Cantidad: "<<getCantidad()<<endl;
+cout<<"Precio: "<<getPrecio()<<endl;
+}
+void DetalleFacturaCompra::MostrarPlanta(){
+/// getFecha().MostrarEnLineaSinSaltoDeLinea();
+/// cout<<"ID Articulo: "<<getIdArticulo()<<endl;
+/// cout<<"ID Compra: "<<getIdCompra()<<endl;
+/// cout<<"Cantidad: "<<getCantidad()<<endl;
+/// cout<<"Precio: "<<getPrecio()<<endl;
+/// cout<<"Estacion: "<<getEstacion()<<endl;
+/// cout<<"Estado: "<<getEstado()<<endl<<endl;
+getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
+cout<<getIdArticulo(); cout<<"\t\t";
+cout<<getIdCompra(); cout<<"\t\t";
+cout<<getCantidad(); cout<<"\t\t";
+cout<<getPrecio(); cout<<"\t";
+cout<<getEstacion(); cout<<"\t\t";
+cout<<getEstado()<<endl;
 }
 
 int DetalleFacturaCompra::getTipoDeArticulo() const { return _TipoDeArticulo; }
@@ -38,12 +54,47 @@ void DetalleFacturaCompra::setNombre(const char *nombre){strcpy(_nombre, nombre)
 
 Fecha DetalleFacturaCompra::getFecha() const { return _fecha; }
 void DetalleFacturaCompra::setFecha(const Fecha &fecha) { _fecha = fecha; }
+void DetalleFacturaCompra::setDiaMesAnioFecha(int dia,int mes,int anio){
+
+    _fecha.setDia(dia);
+    _fecha.setMes(mes);
+    _fecha.setAnio(anio);
+
+}
 
 int DetalleFacturaCompra::tipoAgroquimico() const { return _tipoAgroquimico; }
 void DetalleFacturaCompra::setTipoAgroquimico(int tipoAgroquimico) { _tipoAgroquimico = tipoAgroquimico; }
 
 const char* DetalleFacturaCompra::getEstacion() const { return _estacion; }
 void DetalleFacturaCompra::setEstacion(const char* estacion) {strcpy(_estacion, estacion);}
+
+DetalleFacturaCompra::DetalleFacturaCompra(){
+    // int _idArticulo;
+    // int _idCompra;
+    // int _cantidad;
+    // float _precio;
+    // int _TipoDeArticulo;//
+    // bool _estado;//
+    // char _nombre[30];//
+    // Fecha _fecha;//
+    //char  _estacion[30];
+    //int _tipoAgroquimico; //1-Ecologico,2-Quimico
+
+    setIdArticulo(0);
+    setIdCompra(0);
+    setCantidad(0);
+    setPrecio(0);
+    setTipoDeArticulo(0);
+    setEstado(true);
+    setNombre("");
+    _fecha.setDia(0);
+    _fecha.setMes(0);
+    _fecha.setAnio(0);
+    setEstacion("");
+    setTipoAgroquimico(0);
+}
+
+    
 
 /**************************************************************/
 void DetalleFacturaCompra::AutoCargar(Herramientas objH){
@@ -65,17 +116,39 @@ void DetalleFacturaCompra::AutoCargar(Herramientas objH){
 void DetalleFacturaCompra::AutoCargar(Planta objP){
 
 //AHI que armar el COMPRa y VENTA de
+DetalleFacturaCompra objD;
 
-//setIdArticulo(objP.getIdArticulo);
-//setIdCompra(objP.getIdCompra);
-//setCantidad(objP.getCantidad);
-//setPrecio(objP.getPrecio);
-//setTipoDeArticulo(objP.getTipoDeArticulo);
-//setEstado(objP.getEstado);
-//setEstacion(objP.getEstacion());
+RegistroCompra objR;
+
+int tam1=0;
+tam1 = objP.contarRegistros();
+objD.setIdArticulo(tam1);
+
+int tam2=0;
+tam2 = objR.contarRegistros();
+objD.setIdCompra(tam2);
+
+objD.setCantidad(objP.getStock());
+objD.setPrecio(objP.getPrecio());
+objD.setTipoDeArticulo(objP.getTipoDeArticulo());
+objD.setEstado(objP.getEstado());
+objD.setDiaMesAnioFecha((objP.getDia()),(objP.getMes()),(objP.getAnio()));
+objD.setEstacion(objP.getEstacion());
 
 //hacer un calculo para guardar dentro de un archivo con 'ab'
 //y el archivo se llamara detallefacturacompra.dat
+
+FILE *p;
+
+p=fopen("detallefacturacompra.dat","ab");
+if(p==NULL){
+    cout<<"ERROR de ARCHIVO"<<endl;
+    system("pause");
+}
+
+fwrite(&objD,sizeof (DetalleFacturaCompra),1,p);
+
+fclose(p);
 
 }
 /**************************************************************/
@@ -94,5 +167,37 @@ void DetalleFacturaCompra::AutoCargar(Agroquimicos objA){
 //hacer un calculo para guardar dentro de un archivo con 'ab'
 //y el archivo se llamara detallefacturacompra.dat
 
+}
+/**************************************************************/
+void DetalleFacturaCompra::MostrarAutoCargarPlanta(){
+DetalleFacturaCompra ClassM;
+FILE *p;
+
+int band=true;
+
+p=fopen("detallefacturacompra.dat","rb");
+if(p==NULL){
+    cout<<"ERROR de ARCHIVO"<<endl;
+    system("pause");
+}
+
+while(fread(&ClassM,sizeof (DetalleFacturaCompra),1,p)==1){
+    if(band==true){
+    cout<<"Fecha"; cout<<"\t";
+    cout<<"ID Articulo"; cout<<"\t";
+    cout<<"ID Compra"; cout<<"\t";
+    cout<<"Cantidad"; cout<<"\t";
+    cout<<"Precio"; cout<<"\t";
+    cout<<"Estacion"; cout<<"\t";
+    cout<<"Estado";  cout<<"\t";
+    cout<<endl;
+        band=false;
+    }
+
+
+ClassM.MostrarPlanta();
+}
+
+fclose(p);
 }
 /**************************************************************/

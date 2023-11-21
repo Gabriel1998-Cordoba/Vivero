@@ -19,7 +19,7 @@ class Herramientas : public Articulo{
 void Opcion1Compra();   //HACER
 void Opcion2Compra();   //HACER
 void Opcion3Compra();   //HACER
-void Opcion4Compra();   //HACER
-void Opcion5Compra();   //HACER
+// void Opcion4Compra();   //HACER
+// void Opcion5Compra();   //HACER
 
 };

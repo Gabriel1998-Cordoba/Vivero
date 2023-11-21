@@ -56,6 +56,11 @@ void Fecha::Mostrar(){
     cout<<"Su MES es: "<<_mes<<endl;
     cout<<"Su ANIO es: "<<_anio<<endl;
 }
+
 void Fecha::MostrarEnLinea(){
     cout<<_dia<<"/"<<_mes<<"/"<<_anio<<endl;
+}
+
+void Fecha::MostrarEnLineaSinSaltoDeLinea(){
+    cout<<_dia<<"/"<<_mes<<"/"<<_anio;
 }

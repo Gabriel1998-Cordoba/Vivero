@@ -10,6 +10,7 @@ using namespace std;
 #include"Herramientas.h"
 #include"Agroquimicos.h"
 #include"Duenio.h"
+#include"DetalleFacturaCompra.h"
 
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
@@ -598,7 +599,9 @@ system("cls");
     {
         system("cls");
             cout << "Opcion 1 ----> Comprar"<<endl;
-            cout << "Opcion 2 ----> Vender"<<endl;
+            cout << "Opcion 2 ----> Mostrar Todas las Facturas Compradas"<<endl;
+            cout << "Opcion 3 ----> Vender"<<endl;
+            cout << "Opcion 4 ----> Mostrar Todas las Facturas Vendidas"<<endl;
             cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -616,32 +619,19 @@ system("cls");
         case 2:
         {
             system("cls");
-            menuVentaPersona(opcion);
+            // RegistroCompra objD;
+            // objD.();
             system("pause");
         }
         break;
         /*******************************************************************/
-        // case 3:
-        // {
-        //     system("cls");
-
-        //     system("pause");
-        // }
-        // break;
-        //     /*******************************************************************/
-        // case 4:
-        // {
-        //     system("cls");
-        //     system("pause");
-        // }
-        // break;
-        //     /*******************************************************************/
-        // case 5:
-        // {
-        //     system("cls");
-        //     system("pause");
-        // }
-        // break;
+        case 4:
+        {
+            system("cls");
+            menuVentaPersona(opcion);
+            system("pause");
+        }
+        break;
         /*******************************************************************/
         case 0:
         {
@@ -762,8 +752,7 @@ system("cls");
             cout << "Opcion 1 ----> DETALLE TODAS LAS PLANTAS,PRECIO,STOCK"<<endl;
             cout << "Opcion 2 ----> Cual Planta quiere y Mostraremos SU Precio y Stock"<<endl;
             cout << "Opcion 3 ----> SELECCIONE PLANTA QUE QUIERE COMPRAR"<<endl;
-            cout << "Opcion 4 ----> COMPRAR POR LOS ARTICULO SELECCIONADOS"<<endl;
-            cout << "Opcion 5 ----> BUSCAR PRECIO X ARTICULO"<<endl;
+            cout << "Opcion 4 ----> LISTAR TODAS LOS DETALLES DE FACTURA DE SOLO PLANTAS"<<endl;
             cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -797,18 +786,18 @@ system("cls");
         case 4:
         {
             system("cls");
-            objP.Opcion4Compra();
+            DetalleFacturaCompra objD;
+            objD.MostrarAutoCargarPlanta();
             system("pause");
         }
         break;
             /*******************************************************************/
-        case 5:
-        {
-            system("cls");
-            objP.Opcion5Compra();
-            system("pause");
-        }
-        break;
+        // case 5:
+        // {
+        //     system("cls");
+        //     system("pause");
+        // }
+        // break;
         /*******************************************************************/
         case 0:
         {
@@ -845,8 +834,6 @@ system("cls");
             cout << "Opcion 1 ----> DETALLE TODAS LAS HERRAMIENTAS,PRECIO,STOCK"<<endl;
             cout << "Opcion 2 ----> Cual Herramientas quiere y Mostraremos SU Precio y Stock"<<endl;
             cout << "Opcion 3 ----> SELECCIONE HERRAMIENTA QUE QUIERE COMPRAR"<<endl;
-            cout << "Opcion 4 ----> COMPRAR POR LOS ARTICULO SELECCIONADOS"<<endl;
-            cout << "Opcion 5 ----> BUSCAR PRECIO X ARTICULO"<<endl;
             cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -880,7 +867,6 @@ system("cls");
         case 4:
         {
             system("cls");
-            objH.Opcion4Compra();
             system("pause");
         }
         break;
@@ -888,7 +874,6 @@ system("cls");
         case 5:
         {
             system("cls");
-            objH.Opcion5Compra();
             system("pause");
         }
         break;
@@ -928,8 +913,6 @@ system("cls");
             cout << "Opcion 1 ----> DETALLE TODAS LAS AGROQUIMICOS,PRECIO,STOCK"<<endl;
             cout << "Opcion 2 ----> Cual Agroquimicos quiere y Mostraremos SU Precio y Stock"<<endl;
             cout << "Opcion 3 ----> SELECCIONE AGROQUIMICO QUE QUIERE COMPRAR"<<endl;
-            cout << "Opcion 4 ----> COMPRAR POR LOS ARTICULO SELECCIONADOS"<<endl;
-            cout << "Opcion 5 ----> BUSCAR PRECIO X ARTICULO"<<endl;
             cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -963,7 +946,6 @@ system("cls");
         case 4:
         {
             system("cls");
-            objA.Opcion4Compra();
             system("pause");
         }
         break;
@@ -971,7 +953,6 @@ system("cls");
         case 5:
         {
             system("cls");
-            objA.Opcion5Compra();
             system("pause");
         }
         break;

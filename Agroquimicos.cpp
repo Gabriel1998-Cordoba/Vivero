@@ -127,9 +127,9 @@ void Agroquimicos::Opcion2Compra(){
 void Agroquimicos::Opcion3Compra(){
     
 }
-void Agroquimicos::Opcion4Compra(){
+// void Agroquimicos::Opcion4Compra(){
     
-}
-void Agroquimicos::Opcion5Compra(){
+// }
+// void Agroquimicos::Opcion5Compra(){
     
-}
+// }

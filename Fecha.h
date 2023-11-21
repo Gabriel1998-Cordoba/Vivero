@@ -19,6 +19,7 @@ public:
     void Cargar();
     void Mostrar();
     void MostrarEnLinea();
+    void MostrarEnLineaSinSaltoDeLinea();
 
 private:
     int _dia;

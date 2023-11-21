@@ -6,6 +6,7 @@ using namespace std;
 #include"Planta.h"
 #include"FuncionesGlobales.h"
 #include"Articulo.h"
+#include"DetalleFacturaCompra.h"
 
 const char * Planta::getEstacion()
 {
@@ -116,6 +117,15 @@ fclose(p);
 
 }
 
+bool Planta::reemplazarRegistroPlanta(Planta reg, int posicionAReemplazar){
+    FILE *p = fopen("planta.dat", "rb+");
+    if (p == NULL){return false;}
+    fseek(p, posicionAReemplazar * sizeof(Planta), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Planta), 1, p);
+    fclose(p);
+    return pudoEscribir;
+}
+
 void Planta::Opcion1Compra(){
     Planta objT;
 
@@ -135,9 +145,11 @@ void Planta::Opcion1Compra(){
 }
 void Planta::Opcion2Compra(){
 
+
     Planta objT;
 
     int tam=0;
+    bool Encontro=false;
     tam = objT.contarRegistros();
 
     char nombrePlanta[30];
@@ -149,6 +161,7 @@ void Planta::Opcion2Compra(){
         objT = objT.leerRegistroPlanta(i);
 
         if(strcmp(nombrePlanta,objT.getNombre())==0){
+            Encontro=true;
         cout<<"//////////////////////////"<<endl;
             cout<<"Nombre: "<<objT.getNombre()<<endl;
             cout<<"Precio: "<<objT.getPrecio()<<endl;
@@ -156,13 +169,59 @@ void Planta::Opcion2Compra(){
         cout<<"//////////////////////////"<<endl<<endl;
         }
     }
+
+    if(Encontro==false){
+    cout<<"PLANTA INGRESADA, no fue encontrada"<<endl;
+    }
 }
 void Planta::Opcion3Compra(){
 
-}
-void Planta::Opcion4Compra(){
+    Planta objP;
+    int tam=0,stock,calc=0;
+    bool Encontro=false;
+    tam = objP.contarRegistros();
 
-}
-void Planta::Opcion5Compra(){
+    char nombrePlanta[30];
+    cout<<"Ingrese Nombre:"<<endl;
+    cargarCadena(nombrePlanta,30);
+    cout<<"Ingrese Cuanto Stock quiere Comprar:"<<endl;
+    cin>>stock;
+
+    for(int i=0; i<tam; i++){
+
+        objP = objP.leerRegistroPlanta(i);
+
+        if(strcmp(nombrePlanta,objP.getNombre())==0){
+            Encontro=true;
+        cout<<"//////////////////////////"<<endl;
+            cout<<"Nombre: "<<objP.getNombre()<<endl;
+            cout<<"Precio por Unidad: "<<objP.getPrecio()<<endl;
+            cout<<"TOTAL Stock: "<<objP.getStock()<<endl;
+        cout<<"//////////////////////////"<<endl;
+            cout<<"COMPRA REALIZADA: "<<endl;
+            cout<<"Nombre: "<<objP.getNombre()<<endl;
+            cout<<"Precio TOTAL: "<<(objP.getPrecio()*stock)<<endl;
+            calc=objP.getStock();
+            calc=calc-stock;
+            
+                if(calc>=0){
+                        objP.setStock(calc);
+                        cout<<"Disponible Stock: "<<objP.getStock()<<endl;
+                        cout<<"//////////////////////////"<<endl<<endl;
+                        //REMPLAZAR STOCK
+                        objP.reemplazarRegistroPlanta(objP,i);
+                        //SE GUARDA EN LA FACTURA
+                        DetalleFacturaCompra objD;
+                        objD.AutoCargar(objP);
+                }else{
+                        cout<<"LA COMPRA no se pudo realizar ya que no tenemos el suficiente STOCK"<<endl;
+                        cout<<"//////////////////////////"<<endl<<endl;
+                }
+        }
+    }
+
+    if(Encontro==false){
+    cout<<"PLANTA INGRESADA, no fue encontrada"<<endl;
+    }
 
 }

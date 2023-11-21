@@ -20,7 +20,7 @@ const char *getModoDePago();
 void Cargar();
 void Mostrar();
 
-
+int contarRegistros();
 
 
 };

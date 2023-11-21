@@ -28,5 +28,6 @@ class Articulo : public Fecha{
     bool getEstado()const;
     void Mostrar();
 
+
     void Cargar(int totalDeRegistros,int TipoDeArticulo); //int TipoDeArticulo == opcion en el menu, donde ingresas que quiere cargar = Plantas,Herramientas,Agroquimicos,etc
 };

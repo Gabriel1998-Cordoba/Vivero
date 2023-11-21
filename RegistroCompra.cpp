@@ -50,3 +50,13 @@ void RegistroCompra::Mostrar()
     _Fecha.Mostrar();
     cout<<"MODO DE PAGO: "<<getModoDePago();
 }
+
+int RegistroCompra::contarRegistros(){
+        FILE *p;
+        p=fopen("registrocompra.dat", "rb");
+        if(p==NULL) return 0;
+        fseek(p, 0,2);
+        int tam=ftell(p);
+        fclose(p);
+        return tam/sizeof(RegistroCompra);
+    }
