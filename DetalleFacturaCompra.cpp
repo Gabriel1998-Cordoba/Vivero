@@ -27,20 +27,23 @@ cout<<"Cantidad: "<<getCantidad()<<endl;
 cout<<"Precio: "<<getPrecio()<<endl;
 }
 void DetalleFacturaCompra::MostrarPlanta(){
-/// getFecha().MostrarEnLineaSinSaltoDeLinea();
-/// cout<<"ID Articulo: "<<getIdArticulo()<<endl;
-/// cout<<"ID Compra: "<<getIdCompra()<<endl;
-/// cout<<"Cantidad: "<<getCantidad()<<endl;
-/// cout<<"Precio: "<<getPrecio()<<endl;
-/// cout<<"Estacion: "<<getEstacion()<<endl;
-/// cout<<"Estado: "<<getEstado()<<endl<<endl;
-getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
-cout<<getIdArticulo(); cout<<"\t\t";
-cout<<getIdCompra(); cout<<"\t\t";
-cout<<getCantidad(); cout<<"\t\t";
-cout<<getPrecio(); cout<<"\t";
-cout<<getEstacion(); cout<<"\t\t";
-cout<<getEstado()<<endl;
+getFecha().MostrarEnLinea();
+cout<<"ID Detalle Factura Compra: "<<getIdDetalleFacturaCompra()<<endl;
+cout<<"ID Articulo: "<<getIdArticulo()<<endl;
+cout<<"ID Compra: "<<getIdCompra()<<endl;
+cout<<"Cantidad: "<<getCantidad()<<endl;
+cout<<"Precio: "<<getPrecio()<<endl;
+cout<<"Estacion: "<<getEstacion()<<endl;
+cout<<"Estado: "<<getEstado()<<endl<<endl;
+
+// getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
+// cout<<getIdDetalleFacturaCompra(); cout<<"\t\t";
+// cout<<getIdArticulo(); cout<<"\t\t";
+// cout<<getIdCompra(); cout<<"\t\t";
+// cout<<getCantidad(); cout<<"\t\t";
+// cout<<getPrecio(); cout<<"\t";
+// cout<<getEstacion(); cout<<"\t\t";
+// cout<<getEstado()<<endl;
 }
 
 int DetalleFacturaCompra::getTipoDeArticulo() const { return _TipoDeArticulo; }
@@ -120,27 +123,26 @@ DetalleFacturaCompra objD;
 
 RegistroCompra objR;
 
+int tam=0;
+
+tam = contarRegistros();
+tam++;
+setIdDetalleFacturaCompra(tam);
+
 int tam1=0;
-
-if(tam1==0){
-    tam1=1;
-}
-
 tam1 = objP.contarRegistros();
+tam1++;
 objD.setIdArticulo(tam1);
 
 int tam2=0;
 
-if(tam2==0){
-    tam2=1;
-}
-
 tam2 = objR.contarRegistros();
+tam2++;
 objD.setIdCompra(tam2);
 
 objD.setCantidad(objP.getStock());
 objD.setPrecio(objP.getPrecio());
-objD.setTipoDeArticulo(objP.getTipoDeArticulo());
+objD.setTipoDeArticulo(2);
 objD.setEstado(objP.getEstado());
 objD.setDiaMesAnioFecha((objP.getDia()),(objP.getMes()),(objP.getAnio()));
 objD.setEstacion(objP.getEstacion());
@@ -193,14 +195,15 @@ if(p==NULL){
 
 while(fread(&ClassM,sizeof (DetalleFacturaCompra),1,p)==1){
     if(band==true){
-    cout<<"Fecha"; cout<<"\t";
-    cout<<"ID Articulo"; cout<<"\t";
-    cout<<"ID Compra"; cout<<"\t";
-    cout<<"Cantidad"; cout<<"\t";
-    cout<<"Precio"; cout<<"\t";
-    cout<<"Estacion"; cout<<"\t";
-    cout<<"Estado";  cout<<"\t";
-    cout<<endl;
+    //cout<<"Fecha"; cout<<"\t";
+    //cout<<"ID Detalle Factura Compra"; cout<<"\t";
+    //cout<<"ID Articulo"; cout<<"\t";
+    //cout<<"ID Compra"; cout<<"\t";
+    //cout<<"Cantidad"; cout<<"\t";
+    //cout<<"Precio"; cout<<"\t";
+    //cout<<"Estacion"; cout<<"\t";
+    //cout<<"Estado";  cout<<"\t";
+    //cout<<endl;
         band=false;
     }
 
@@ -211,3 +214,12 @@ ClassM.MostrarPlanta();
 fclose(p);
 }
 /**************************************************************/
+int DetalleFacturaCompra::contarRegistros(){
+        FILE *p;
+        p=fopen("detallefacturacompra.dat", "rb");
+        if(p==NULL) return 0;
+        fseek(p, 0,2);
+        int tam=ftell(p);
+        fclose(p);
+        return tam/sizeof(DetalleFacturaCompra);
+    }

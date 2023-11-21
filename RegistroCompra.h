@@ -29,6 +29,7 @@ void CargarCompra();
 void Mostrar();
 
 int contarRegistros();
-
+void CargarArchivoCompra();
+void MostrarArchivoCompra();
 
 };

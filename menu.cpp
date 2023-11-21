@@ -11,6 +11,7 @@ using namespace std;
 #include"Agroquimicos.h"
 #include"Duenio.h"
 #include"DetalleFacturaCompra.h"
+#include"RegistroCompra.h"
 
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
@@ -668,7 +669,7 @@ system("cls");
             cout << "Opcion 1 ----> Herramientas"<<endl;
             cout << "Opcion 2 ----> Plantas"<<endl;
             cout << "Opcion 3 ----> Agroquimicos"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;
+            cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -714,10 +715,26 @@ system("cls");
         /*******************************************************************/
         case 0:
         {
+            
             system("cls");
-            cout << "Saliste" << endl;
-            system("pause");
+            int num;
+            do{
+
+            cout << "¿Seguro? ---> SI == 0" << endl;
+            cout << "NO == 1" << endl;
+            cin>>num;
+            }while((num!=0)&&(num!=1));
+            
+            if(num==0){
+            cout<<"ya que esta seguro, ahora debe de cargar su Registros de Compra"<<endl;
+            RegistroCompra objR;
+            objR.CargarArchivoCompra();
+
             return;
+            }else if(num==1){
+
+            }
+
         }
         break;
         /*******************************************************************/

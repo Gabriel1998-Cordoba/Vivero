@@ -55,10 +55,10 @@ void RegistroCompra::CargarCompra()
     int tam=0;
 
     tam = objR.contarRegistros();
-    if(tam==0){
-        tam=1;
-    }
-   objR.setIdCompra(tam);
+    tam++;
+
+    setIdCompra(tam);
+    cout<<"Proveedor: ";
     cin>>idProveedor;
     setIdProveedor(idProveedor);
     cout<<"Fecha: ";
@@ -68,18 +68,18 @@ void RegistroCompra::CargarCompra()
 cargarCadena(modoDePago,30);
 setModoDePago(modoDePago);
 
+
+
 }
 
-// void RegistroCompra::CargarCompra(Planta obj){
-// }
+
 
 void RegistroCompra::Mostrar()
 {
-    cout<<"ID COMPRA: "<<getIdCompra();
-    cout<<"ID PROVEEDOR: "<<getIdProveedor();
-    cout<<"FECHA: ";
-    _Fecha.Mostrar();
-    cout<<"MODO DE PAGO: "<<getModoDePago();
+    cout<<"ID COMPRA: "<<getIdCompra()<<endl;
+    cout<<"ID PROVEEDOR: "<<getIdProveedor()<<endl;
+    _Fecha.MostrarEnLinea();
+    cout<<"MODO DE PAGO: "<<getModoDePago()<<endl<<endl;
 }
 
 int RegistroCompra::contarRegistros(){
@@ -91,3 +91,40 @@ int RegistroCompra::contarRegistros(){
         fclose(p);
         return tam/sizeof(RegistroCompra);
     }
+
+void RegistroCompra::CargarArchivoCompra(){
+FILE *p;
+RegistroCompra ClassM;
+
+p=fopen("registrocompra.dat","ab");
+if(p==NULL){
+    cout<<"ERROR de ARCHIVO"<<endl;
+    system("pause");
+}
+
+
+ClassM.CargarCompra();
+
+fwrite(&ClassM,sizeof (RegistroCompra),1,p);
+
+fclose(p);
+
+
+}
+
+void RegistroCompra::MostrarArchivoCompra(){
+RegistroCompra ClassM;
+FILE *p;
+
+p=fopen("registrocompra.dat","rb");
+if(p==NULL){
+    cout<<"ERROR de ARCHIVO"<<endl;
+    system("pause");
+}
+
+while(fread(&ClassM,sizeof (RegistroCompra),1,p)==1){
+ClassM.Mostrar();
+}
+
+fclose(p);
+}

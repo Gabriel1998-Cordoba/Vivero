@@ -3,21 +3,23 @@
 using namespace std;
 
 
-#include"Duenio.h"
+#include"RegistroCompra.h"
 #include"menu.h"
 
 int main(){
 
     menuPrincipal();
 
-    // Duenio objT;
+//     RegistroCompra objT;
 // while(true){
 
-//     objT.CargarDuenio(0,1);
+//     objT.CargarArchivoCompra();
+
 
 //     cout<<"////////////////////////"<<endl;
 
-//     objT.MostrarDuenio();
+
+//     objT.MostrarArchivoCompra();
 // system("pause");
 
 // system("cls");

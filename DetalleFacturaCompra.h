@@ -7,11 +7,12 @@
 class DetalleFacturaCompra
 {
 private:
+    int _idDetalleFacturaCompra;
     int _idArticulo;
     int _idCompra;
     int _cantidad;
     float _precio;
-    int _TipoDeArticulo;//
+    int _TipoDeArticulo;// 
     bool _estado;//
     char _nombre[30];//
     Fecha _fecha;//
@@ -65,6 +66,9 @@ void MostrarAutoCargarPlanta(); //HACER
 void MostrarAutoCargarAgroquimicos(); //HACER
 
 
+int contarRegistros();
 
+int getIdDetalleFacturaCompra() const { return _idDetalleFacturaCompra; }
+void setIdDetalleFacturaCompra(int idDetalleFacturaCompra) { _idDetalleFacturaCompra = idDetalleFacturaCompra; }
 
 };
