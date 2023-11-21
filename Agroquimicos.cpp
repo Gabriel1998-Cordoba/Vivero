@@ -117,3 +117,19 @@ ClassM.MostrarAgroquimicos();
 fclose(p);
 
 }
+
+void Agroquimicos::Opcion1Compra(){
+    
+}
+void Agroquimicos::Opcion2Compra(){
+    
+}
+void Agroquimicos::Opcion3Compra(){
+    
+}
+void Agroquimicos::Opcion4Compra(){
+    
+}
+void Agroquimicos::Opcion5Compra(){
+    
+}

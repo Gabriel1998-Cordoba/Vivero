@@ -115,3 +115,54 @@ ClassM.MostrarPlanta();
 fclose(p);
 
 }
+
+void Planta::Opcion1Compra(){
+    Planta objT;
+
+    int tam=0;
+    tam = objT.contarRegistros();
+
+    for(int i=0; i<tam; i++){
+        objT = objT.leerRegistroPlanta(i);
+        cout<<"Planta: "<<objT.getNombre()<<endl;
+        cout<<"Precio: "<<objT.getPrecio()<<endl;
+        cout<<"Stock: "<<objT.getStock()<<endl<<endl;
+        
+        cout<<"//////////////////////////"<<endl<<endl;
+
+    }
+
+}
+void Planta::Opcion2Compra(){
+
+    Planta objT;
+
+    int tam=0;
+    tam = objT.contarRegistros();
+
+    char nombrePlanta[30];
+    cout<<"Ingrese Nombre:"<<endl;
+    cargarCadena(nombrePlanta,30);
+
+    for(int i=0; i<tam; i++){
+
+        objT = objT.leerRegistroPlanta(i);
+
+        if(strcmp(nombrePlanta,objT.getNombre())==0){
+        cout<<"//////////////////////////"<<endl;
+            cout<<"Nombre: "<<objT.getNombre()<<endl;
+            cout<<"Precio: "<<objT.getPrecio()<<endl;
+            cout<<"Stock: "<<objT.getStock()<<endl;
+        cout<<"//////////////////////////"<<endl<<endl;
+        }
+    }
+}
+void Planta::Opcion3Compra(){
+
+}
+void Planta::Opcion4Compra(){
+
+}
+void Planta::Opcion5Compra(){
+
+}

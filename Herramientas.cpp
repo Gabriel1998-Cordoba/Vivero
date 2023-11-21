@@ -84,3 +84,19 @@ ClassM.MostrarHerramienta();
 fclose(p);
 
 }
+
+void Herramientas::Opcion1Compra(){
+    
+}
+void Herramientas::Opcion2Compra(){
+    
+}
+void Herramientas::Opcion3Compra(){
+    
+}
+void Herramientas::Opcion4Compra(){
+    
+}
+void Herramientas::Opcion5Compra(){
+    
+}

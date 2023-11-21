@@ -41,7 +41,7 @@ void menuPrincipal()
             /*******************************************************************/
         case 2:
         {
-            //menuPersona(opcion);
+            menuPersona(opcion);
             system("cls");
         }
         break;
@@ -588,3 +588,415 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
+void menuPersona(int opcion){
+
+
+
+system("cls");
+
+    while (true)
+    {
+        system("cls");
+            cout << "Opcion 1 ----> Comprar"<<endl;
+            cout << "Opcion 2 ----> Vender"<<endl;
+            cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            menuCompraPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            menuVentaPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        // case 3:
+        // {
+        //     system("cls");
+
+        //     system("pause");
+        // }
+        // break;
+        //     /*******************************************************************/
+        // case 4:
+        // {
+        //     system("cls");
+        //     system("pause");
+        // }
+        // break;
+        //     /*******************************************************************/
+        // case 5:
+        // {
+        //     system("cls");
+        //     system("pause");
+        // }
+        // break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+void menuCompraPersona(int opcion){
+
+
+
+system("cls");
+
+    while (true)
+    {
+        system("cls");
+        cout << "Que quieres Comprar?" << endl
+             << endl;
+            cout << "Opcion 1 ----> Herramientas"<<endl;
+            cout << "Opcion 2 ----> Plantas"<<endl;
+            cout << "Opcion 3 ----> Agroquimicos"<<endl;
+            cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            menuVentaHerramientaPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            menuVentaPlantaPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            menuVentaAgroquimicosPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        // case 4:
+        // {
+        //     system("cls");
+        //     system("pause");
+        // }
+        // break;
+        //     /*******************************************************************/
+        // case 5:
+        // {
+        //     system("cls");
+        //     system("pause");
+        // }
+        // break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+void menuVentaPersona(int opcion){
+
+}
+///////////////////////////////////////////////////////////////////////////
+
+void menuVentaPlantaPersona(int opcion){
+
+Planta objP;
+
+system("cls");
+
+    while (true)
+    {
+        system("cls");
+        cout << "Que quieres Comprar?" << endl
+             << endl;
+            cout << "Opcion 1 ----> DETALLE TODAS LAS PLANTAS,PRECIO,STOCK"<<endl;
+            cout << "Opcion 2 ----> Cual Planta quiere y Mostraremos SU Precio y Stock"<<endl;
+            cout << "Opcion 3 ----> SELECCIONE PLANTA QUE QUIERE COMPRAR"<<endl;
+            cout << "Opcion 4 ----> COMPRAR POR LOS ARTICULO SELECCIONADOS"<<endl;
+            cout << "Opcion 5 ----> BUSCAR PRECIO X ARTICULO"<<endl;
+            cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            objP.Opcion1Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            objP.Opcion2Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            objP.Opcion3Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            objP.Opcion4Compra();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            objP.Opcion5Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+void menuVentaHerramientaPersona(int opcion){
+
+Herramientas objH;
+
+system("cls");
+
+    while (true)
+    {
+        system("cls");
+        cout << "Que quieres Comprar?" << endl
+             << endl;
+            cout << "Opcion 1 ----> DETALLE TODAS LAS HERRAMIENTAS,PRECIO,STOCK"<<endl;
+            cout << "Opcion 2 ----> Cual Herramientas quiere y Mostraremos SU Precio y Stock"<<endl;
+            cout << "Opcion 3 ----> SELECCIONE HERRAMIENTA QUE QUIERE COMPRAR"<<endl;
+            cout << "Opcion 4 ----> COMPRAR POR LOS ARTICULO SELECCIONADOS"<<endl;
+            cout << "Opcion 5 ----> BUSCAR PRECIO X ARTICULO"<<endl;
+            cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            objH.Opcion1Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            objH.Opcion2Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            objH.Opcion3Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            objH.Opcion4Compra();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            objH.Opcion5Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+void menuVentaAgroquimicosPersona(int opcion){
+
+Agroquimicos objA;
+
+system("cls");
+
+    while (true)
+    {
+        system("cls");
+        cout << "Que quieres Comprar?" << endl
+             << endl;
+            cout << "Opcion 1 ----> DETALLE TODAS LAS AGROQUIMICOS,PRECIO,STOCK"<<endl;
+            cout << "Opcion 2 ----> Cual Agroquimicos quiere y Mostraremos SU Precio y Stock"<<endl;
+            cout << "Opcion 3 ----> SELECCIONE AGROQUIMICO QUE QUIERE COMPRAR"<<endl;
+            cout << "Opcion 4 ----> COMPRAR POR LOS ARTICULO SELECCIONADOS"<<endl;
+            cout << "Opcion 5 ----> BUSCAR PRECIO X ARTICULO"<<endl;
+            cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            objA.Opcion1Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            objA.Opcion2Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            objA.Opcion3Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            objA.Opcion4Compra();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            objA.Opcion5Compra();
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+
+
+

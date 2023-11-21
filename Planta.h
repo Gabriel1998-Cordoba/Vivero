@@ -20,4 +20,11 @@ class Planta : public Articulo{
     bool borrarRegistroPlanta();
     Planta leerRegistroPlanta(int pos);
     void ListarPlanta();
+
+void Opcion1Compra();
+void Opcion2Compra();
+void Opcion3Compra();
+void Opcion4Compra();
+void Opcion5Compra();
+
 };

@@ -19,4 +19,11 @@ class Agroquimicos : public Articulo{
         bool borrarRegistroAgroquimicos();
         Agroquimicos leerRegistroAgroquimicos(int pos);
         void ListarAgroquimicos();
+
+
+void Opcion1Compra();   //HACER
+void Opcion2Compra();   //HACER
+void Opcion3Compra();   //HACER
+void Opcion4Compra();   //HACER
+void Opcion5Compra();   //HACER
 };
