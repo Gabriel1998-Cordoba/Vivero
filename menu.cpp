@@ -5,14 +5,13 @@
 using namespace std;
 
 #include "menu.h"
-#include"FuncionesGlobales.h"
-#include"Planta.h"
-#include"Herramientas.h"
-#include"Agroquimicos.h"
-#include"Duenio.h"
-#include"DetalleFacturaCompra.h"
-#include"RegistroCompra.h"
-
+#include "FuncionesGlobales.h"
+#include "Duenio.h"
+#include "DetalleFacturaCompra.h"
+#include "RegistroCompra.h"
+#include "Planta.h"
+#include "Herramientas.h"
+#include "Agroquimicos.h"
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
 {
@@ -36,7 +35,7 @@ void menuPrincipal()
             /*******************************************************************/
         case 1:
         {
-            //menuEmpresa(opcion);
+            // menuEmpresa(opcion);
             system("cls");
         }
         break;
@@ -125,16 +124,16 @@ void menuDuenio(int opcion)
         {
             system("cls");
             cout << "BIENVENIDO DUENIO" << endl;
-            cout << "Opcion 1 ----> Cargar Datos" << endl;                          //'ab' de archivos
-            cout << "Opcion 2 ----> Modificar Datos" << endl;                       //'rb' que lo lea y modifique
-            cout << "Opcion 3 ----> Borrar o Limpiar Datos" << endl;                //'wb' de archivos == 'baja Fisica'
-            cout << "Opcion 4 ----> dar de baja algun Productos" << endl;           // bool para dar de 'basa logica'
-            cout << "Opcion 5 ----> Listar Datos" << endl;                          // seleccionar el archivo que quieres que abra y muestre
-            cout << "Opcion 6 ----> Contar Registros de X Producto" << endl;        // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado"<<endl;          //esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 8 ----> Consulta x de factura"<<endl;                   //esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 9 ----> Cargar Datos Del Duenio"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;                                 //--> Salir a Menu Principal
+            cout << "Opcion 1 ----> Cargar Datos" << endl;                   //'ab' de archivos
+            cout << "Opcion 2 ----> Modificar Datos" << endl;                //'rb' que lo lea y modifique
+            cout << "Opcion 3 ----> Borrar o Limpiar Datos" << endl;         //'wb' de archivos == 'baja Fisica'
+            cout << "Opcion 4 ----> dar de baja algun Productos" << endl;    // bool para dar de 'basa logica'
+            cout << "Opcion 5 ----> Listar Datos" << endl;                   // seleccionar el archivo que quieres que abra y muestre
+            cout << "Opcion 6 ----> Contar Registros de X Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
+            cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 8 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 9 ----> Cargar Datos Del Duenio" << endl;
+            cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
             system("cls");
 
@@ -152,7 +151,7 @@ void menuDuenio(int opcion)
             case 2:
             {
                 system("cls");
-                //ModificarDatos(opcion);
+                // ModificarDatos(opcion);
                 system("pause");
             }
             break;
@@ -184,7 +183,7 @@ void menuDuenio(int opcion)
             {
 
                 system("cls");
-                //ContarRegistros(opcion);
+                // ContarRegistros(opcion);
                 system("pause");
             }
             break;
@@ -257,8 +256,9 @@ void CargarDatos(int opcion)
     while (true)
     {
         system("cls");
-        cout << "Que quieres Cargar?" << endl<< endl;
-             
+        cout << "Que quieres Cargar?" << endl
+             << endl;
+
         cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
         cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
         cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
@@ -272,15 +272,16 @@ void CargarDatos(int opcion)
         {
 
             system("cls");
-            int tam=0,cantidad;
+            int tam = 0, cantidad;
 
-            tam=obtP.contarRegistros();
-            cout<<"ingrese Cantidad de Registros"<<endl;
-            cin>>cantidad;
+            tam = obtP.contarRegistros();
+            cout << "ingrese Cantidad de Registros" << endl;
+            cin >> cantidad;
             system("cls");
-            for(int i=0; i<cantidad;i++){
-            obtP.CargarArchivoPlanta(tam,opcion);
-            tam=obtP.contarRegistros();
+            for (int i = 0; i < cantidad; i++)
+            {
+                obtP.CargarArchivoPlanta(tam, opcion);
+                tam = obtP.contarRegistros();
             }
             system("pause");
             // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
@@ -292,15 +293,16 @@ void CargarDatos(int opcion)
         case 2:
         {
             system("cls");
-            int tam=0,cantidad;
+            int tam = 0, cantidad;
 
-            tam=objH.contarRegistros();
-            cout<<"ingrese Cantidad de Registros"<<endl;
-            cin>>cantidad;
+            tam = objH.contarRegistros();
+            cout << "ingrese Cantidad de Registros" << endl;
+            cin >> cantidad;
             system("cls");
-            for(int i=0; i<cantidad;i++){
-            objH.CargarArchivoHerramienta(tam,opcion);
-            tam=objH.contarRegistros();
+            for (int i = 0; i < cantidad; i++)
+            {
+                objH.CargarArchivoHerramienta(tam, opcion);
+                tam = objH.contarRegistros();
             }
             system("pause");
         }
@@ -309,15 +311,16 @@ void CargarDatos(int opcion)
         case 3:
         {
             system("cls");
-            int tam=0,cantidad;
+            int tam = 0, cantidad;
 
-            tam=objA.contarRegistros();
-            cout<<"ingrese Cantidad de Registros"<<endl;
-            cin>>cantidad;
+            tam = objA.contarRegistros();
+            cout << "ingrese Cantidad de Registros" << endl;
+            cin >> cantidad;
             system("cls");
-            for(int i=0; i<cantidad;i++){
-            objA.CargarArchivoAgroquimicos(tam,opcion);
-            tam=objA.contarRegistros();
+            for (int i = 0; i < cantidad; i++)
+            {
+                objA.CargarArchivoAgroquimicos(tam, opcion);
+                tam = objA.contarRegistros();
             }
             system("pause");
         }
@@ -365,11 +368,14 @@ void LimpiarDatos(int opcion)
     case 1:
     {
         system("cls");
-        
-        if(obtP.borrarRegistroPlanta()==true){
-            cout<<"se borro Correctamente"<<endl;
-        }else{
-            cout<<"NO se pudo borrar"<<endl; 
+
+        if (obtP.borrarRegistroPlanta() == true)
+        {
+            cout << "se borro Correctamente" << endl;
+        }
+        else
+        {
+            cout << "NO se pudo borrar" << endl;
         }
 
         system("pause");
@@ -382,10 +388,13 @@ void LimpiarDatos(int opcion)
     case 2:
     {
         system("cls");
-        if(obtH.borrarRegistroHerramienta()==true){
-            cout<<"se borro Correctamente"<<endl;
-        }else{
-            cout<<"NO se pudo borrar"<<endl; 
+        if (obtH.borrarRegistroHerramienta() == true)
+        {
+            cout << "se borro Correctamente" << endl;
+        }
+        else
+        {
+            cout << "NO se pudo borrar" << endl;
         }
         system("pause");
     }
@@ -394,10 +403,13 @@ void LimpiarDatos(int opcion)
     case 3:
     {
         system("cls");
-        if(obtA.borrarRegistroAgroquimicos()==true){
-            cout<<"se borro Correctamente"<<endl;
-        }else{
-            cout<<"NO se pudo borrar"<<endl; 
+        if (obtA.borrarRegistroAgroquimicos() == true)
+        {
+            cout << "se borro Correctamente" << endl;
+        }
+        else
+        {
+            cout << "NO se pudo borrar" << endl;
         }
         system("pause");
     }
@@ -429,7 +441,6 @@ void ListarDatos(int opcion)
     Herramientas obtH;
     Agroquimicos obtA;
 
-
     system("cls");
 
     while (true)
@@ -449,7 +460,8 @@ void ListarDatos(int opcion)
         case 1:
         {
             system("cls");
-            cout << "Listado de Plantas" << endl << endl;
+            cout << "Listado de Plantas" << endl
+                 << endl;
             obtP.ListarPlanta();
             system("pause");
             // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
@@ -461,7 +473,8 @@ void ListarDatos(int opcion)
         case 2:
         {
             system("cls");
-            cout << "Listado de Herrramientas" << endl << endl;
+            cout << "Listado de Herrramientas" << endl
+                 << endl;
             obtH.ListarHerramienta();
             system("pause");
         }
@@ -470,7 +483,8 @@ void ListarDatos(int opcion)
         case 3:
         {
             system("cls");
-            cout << "Listado de AgroQuimicos" << endl << endl;
+            cout << "Listado de AgroQuimicos" << endl
+                 << endl;
             obtA.ListarAgroquimicos();
             system("pause");
         }
@@ -497,23 +511,24 @@ void ListarDatos(int opcion)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void CargarDatosDelDuenio(int opcion){
+void CargarDatosDelDuenio(int opcion)
+{
 
-Duenio objD;
+    Duenio objD;
 
-system("cls");
+    system("cls");
 
     while (true)
     {
         system("cls");
         cout << "Que quieres Listar?" << endl
              << endl;
-            cout << "Opcion 1 ----> Cargar Datos Del Duenio"<<endl;
-            cout << "Opcion 2 ----> Mostrar Datos Del Duenio"<<endl;
-            cout << "Opcion 3 ----> Cambiar Sueldo Cargado"<<endl;
-            cout << "Opcion 4 ----> Mostrar Sueldo Cargado"<<endl;
-            cout << "Opcion 5 ----> Borrar Datos Del Duenio"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;
+        cout << "Opcion 1 ----> Cargar Datos Del Duenio" << endl;
+        cout << "Opcion 2 ----> Mostrar Datos Del Duenio" << endl;
+        cout << "Opcion 3 ----> Cambiar Sueldo Cargado" << endl;
+        cout << "Opcion 4 ----> Mostrar Sueldo Cargado" << endl;
+        cout << "Opcion 5 ----> Borrar Datos Del Duenio" << endl;
+        cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -523,14 +538,15 @@ system("cls");
         {
             system("cls");
 
-            int tam=0,cantidad;
-            tam=objD.contarRegistros();
-            cout<<"ingrese Cantidad de Registros"<<endl;
-            cin>>cantidad;
+            int tam = 0, cantidad;
+            tam = objD.contarRegistros();
+            cout << "ingrese Cantidad de Registros" << endl;
+            cin >> cantidad;
             system("cls");
-            for(int i=0; i<cantidad;i++){
-            objD.CargarDatosDeDuenioEnArchivo(tam,opcion);
-            tam=objD.contarRegistros();
+            for (int i = 0; i < cantidad; i++)
+            {
+                objD.CargarDatosDeDuenioEnArchivo(tam, opcion);
+                tam = objD.contarRegistros();
             }
             system("pause");
             system("pause");
@@ -590,20 +606,19 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuPersona(int opcion){
+void menuPersona(int opcion)
+{
 
-
-
-system("cls");
+    system("cls");
 
     while (true)
     {
         system("cls");
-            cout << "Opcion 1 ----> Comprar"<<endl;
-            cout << "Opcion 2 ----> Mostrar Todas las Facturas Compradas"<<endl;
-            cout << "Opcion 3 ----> Vender"<<endl;
-            cout << "Opcion 4 ----> Mostrar Todas las Facturas Vendidas"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;
+        cout << "Opcion 1 ----> Comprar" << endl;
+        cout << "Opcion 2 ----> Mostrar Todas las Facturas Compradas" << endl;
+        cout << "Opcion 3 ----> Vender" << endl;
+        cout << "Opcion 4 ----> Mostrar Todas las Facturas Vendidas" << endl;
+        cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -655,21 +670,26 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraPersona(int opcion){
+void menuCompraPersona(int opcion)
+{
 
+    system("cls");
 
-
-system("cls");
+    RegistroCompra objR;
+    int tam = 0;
+    tam = objR.contarRegistros();
+    int idCompra = 0;
+    idCompra = tam++;
 
     while (true)
     {
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
-            cout << "Opcion 1 ----> Herramientas"<<endl;
-            cout << "Opcion 2 ----> Plantas"<<endl;
-            cout << "Opcion 3 ----> Agroquimicos"<<endl;
-            cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
+        cout << "Opcion 1 ----> Herramientas" << endl;
+        cout << "Opcion 2 ----> Plantas" << endl;
+        cout << "Opcion 3 ----> Agroquimicos" << endl;
+        cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -678,7 +698,7 @@ system("cls");
         case 1:
         {
             system("cls");
-            menuVentaHerramientaPersona(opcion);
+            menuVentaHerramientaPersona(opcion, idCompra);
             system("pause");
         }
         break;
@@ -715,26 +735,29 @@ system("cls");
         /*******************************************************************/
         case 0:
         {
-            
+
             system("cls");
             int num;
-            do{
+            do
+            {
 
-            cout << "¿Seguro? ---> SI == 0" << endl;
-            cout << "NO == 1" << endl;
-            cin>>num;
-            }while((num!=0)&&(num!=1));
-            
-            if(num==0){
-            cout<<"ya que esta seguro, ahora debe de cargar su Registros de Compra"<<endl;
-            RegistroCompra objR;
-            objR.CargarArchivoCompra();
+                cout << "¿Seguro? ---> SI == 0" << endl;
+                cout << "NO == 1" << endl;
+                cin >> num;
+            } while ((num != 0) && (num != 1));
 
-            return;
-            }else if(num==1){
+            if (num == 0)
+            {
+                cout << "ya que esta seguro, ahora debe de cargar su Registros de Compra" << endl;
 
+                objR.setIdCompra(idCompra);
+                objR.CargarArchivoCompra();
+
+                return;
             }
-
+            else if (num == 1)
+            {
+            }
         }
         break;
         /*******************************************************************/
@@ -750,27 +773,28 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuVentaPersona(int opcion){
-
+void menuVentaPersona(int opcion)
+{
 }
 ///////////////////////////////////////////////////////////////////////////
 
-void menuVentaPlantaPersona(int opcion){
+void menuVentaPlantaPersona(int opcion)
+{
 
-Planta objP;
+    Planta objP;
 
-system("cls");
+    system("cls");
 
     while (true)
     {
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
-            cout << "Opcion 1 ----> DETALLE TODAS LAS PLANTAS,PRECIO,STOCK"<<endl;
-            cout << "Opcion 2 ----> Cual Planta quiere y Mostraremos SU Precio y Stock"<<endl;
-            cout << "Opcion 3 ----> SELECCIONE PLANTA QUE QUIERE COMPRAR"<<endl;
-            cout << "Opcion 4 ----> LISTAR TODAS LOS DETALLES DE FACTURA DE SOLO PLANTAS"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;
+        cout << "Opcion 1 ----> DETALLE TODAS LAS PLANTAS,PRECIO,STOCK" << endl;
+        cout << "Opcion 2 ----> Cual Planta quiere y Mostraremos SU Precio y Stock" << endl;
+        cout << "Opcion 3 ----> SELECCIONE PLANTA QUE QUIERE COMPRAR" << endl;
+        cout << "Opcion 4 ----> LISTAR TODAS LOS DETALLES DE FACTURA DE SOLO PLANTAS" << endl;
+        cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -837,21 +861,22 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuVentaHerramientaPersona(int opcion){
+void menuVentaHerramientaPersona(int opcion, int idCompra)
+{
 
-Herramientas objH;
+    Herramientas objH;
 
-system("cls");
+    system("cls");
 
     while (true)
     {
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
-            cout << "Opcion 1 ----> DETALLE TODAS LAS HERRAMIENTAS,PRECIO,STOCK"<<endl;
-            cout << "Opcion 2 ----> Cual Herramientas quiere y Mostraremos SU Precio y Stock"<<endl;
-            cout << "Opcion 3 ----> SELECCIONE HERRAMIENTA QUE QUIERE COMPRAR"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;
+        cout << "Opcion 1 ----> DETALLE TODAS LAS HERRAMIENTAS,PRECIO,STOCK" << endl;
+        cout << "Opcion 2 ----> Cual Herramientas quiere y Mostraremos SU Precio y Stock" << endl;
+        cout << "Opcion 3 ----> SELECCIONE HERRAMIENTA QUE QUIERE COMPRAR" << endl;
+        cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -876,7 +901,7 @@ system("cls");
         case 3:
         {
             system("cls");
-            objH.Opcion3Compra();
+            objH.Opcion3Compra(idCompra);
             system("pause");
         }
         break;
@@ -916,21 +941,22 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuVentaAgroquimicosPersona(int opcion){
+void menuVentaAgroquimicosPersona(int opcion)
+{
 
-Agroquimicos objA;
+    Agroquimicos objA;
 
-system("cls");
+    system("cls");
 
     while (true)
     {
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
-            cout << "Opcion 1 ----> DETALLE TODAS LAS AGROQUIMICOS,PRECIO,STOCK"<<endl;
-            cout << "Opcion 2 ----> Cual Agroquimicos quiere y Mostraremos SU Precio y Stock"<<endl;
-            cout << "Opcion 3 ----> SELECCIONE AGROQUIMICO QUE QUIERE COMPRAR"<<endl;
-            cout << "Opcion 0 ----> salir" << endl;
+        cout << "Opcion 1 ----> DETALLE TODAS LAS AGROQUIMICOS,PRECIO,STOCK" << endl;
+        cout << "Opcion 2 ----> Cual Agroquimicos quiere y Mostraremos SU Precio y Stock" << endl;
+        cout << "Opcion 3 ----> SELECCIONE AGROQUIMICO QUE QUIERE COMPRAR" << endl;
+        cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
         switch (opcion)
@@ -995,6 +1021,3 @@ system("cls");
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-
-
-

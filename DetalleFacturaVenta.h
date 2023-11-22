@@ -29,7 +29,9 @@ void setSubtotal(float ) ;
 
 float getPrecioTotal() const ;
 void setPrecioTotal(float ) ;
-
+ bool cargar(int,int,float);
+ void mostrar();
+ bool GuardarEnArchivo();
 
 
 };

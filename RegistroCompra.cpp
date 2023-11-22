@@ -51,13 +51,13 @@ void RegistroCompra::CargarCompra()
     char modoDePago[30];
     cout<<"Cargar los siguientes datos: "<<endl;
 
-    RegistroCompra objR;
-    int tam=0;
+    // RegistroCompra objR;
+    // int tam=0;
 
-    tam = objR.contarRegistros();
-    tam++;
+    // tam = objR.contarRegistros();
+    // tam++;
 
-    setIdCompra(tam);
+    // setIdCompra(tam);
     cout<<"Proveedor: ";
     cin>>idProveedor;
     setIdProveedor(idProveedor);
