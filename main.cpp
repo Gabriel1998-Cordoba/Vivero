@@ -8,7 +8,7 @@ using namespace std;
 
 int main(){
 
-    menuPrincipal();
+    // menuPrincipal();
 
 //     RegistroCompra objT;
 // while(true){
@@ -16,7 +16,7 @@ int main(){
 //     objT.CargarArchivoCompra();
 
 
-//     cout<<"////////////////////////"<<endl;
+//     // cout<<"////////////////////////"<<endl;
 
 
 //     objT.MostrarArchivoCompra();

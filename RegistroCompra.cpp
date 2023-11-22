@@ -51,21 +51,35 @@ void RegistroCompra::CargarCompra()
     char modoDePago[30];
     cout<<"Cargar los siguientes datos: "<<endl;
 
-    // RegistroCompra objR;
-    // int tam=0;
+    RegistroCompra objR;
+    int tam=0;
 
-    // tam = objR.contarRegistros();
-    // tam++;
+    tam = objR.contarRegistros();
+    tam++;
 
-    // setIdCompra(tam);
-    cout<<"Proveedor: ";
-    cin>>idProveedor;
-    setIdProveedor(idProveedor);
-    cout<<"Fecha: ";
+    setIdCompra(tam);
+    // cout<<"Proveedor: ";
+    // cin>>idProveedor;
+    setIdProveedor(tam);
+    cout<<"Fecha: "<<endl;
     f.Cargar();
     setFecha(f);
-    cout<<"Modo De Pago: ";
+
+int band=false;
+do{
+cout<<"Ingrese los siguentes metodos de pago: efectivo,debido,credito :"<<endl;
 cargarCadena(modoDePago,30);
+strlwr(modoDePago);
+
+if(strcmp(modoDePago, "efectivo") == 0 || strcmp(modoDePago, "debito") == 0 || strcmp(modoDePago, "credito") == 0){
+    band=true;
+}else{
+    cout<<"El Modo De Pago: "<<modoDePago<<endl;
+    cout<<"Ingresado no existe, vuelva a ingresar"<<endl<<endl;
+}
+
+}while(band==false);
+
 setModoDePago(modoDePago);
 
 
