@@ -70,7 +70,7 @@ void DetalleFacturaCompra::setTipoAgroquimico(int tipoAgroquimico) { _tipoAgroqu
 
 const char* DetalleFacturaCompra::getEstacion() const { return _estacion; }
 void DetalleFacturaCompra::setEstacion(const char* estacion) {strcpy(_estacion, estacion);}
-
+//
 DetalleFacturaCompra::DetalleFacturaCompra(){
     // int _idArticulo;
     // int _idCompra;
