@@ -22,7 +22,7 @@ void menuCompraAgroquimicosPersona(int opcion);
 void menuVentaPersona(int opcion);
 
 void menuVentaPlantaPersona(int opcion);
-void menuVentaHerramientaPersona(int opcion);
+void menuVentaHerramientaPersona(int opcion ,int idCompra);
 void menuVentaAgroquimicosPersona(int opcion);
 
 /*****************************************************************************************/
