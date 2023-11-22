@@ -175,7 +175,7 @@ void Planta::Opcion2Compra(){
     cout<<"PLANTA INGRESADA, no fue encontrada"<<endl;
     }
 }
-void Planta::Opcion3Compra(){
+void Planta::Opcion3Compra(int idCompra){
 
     Planta objP;
     int tam=0,stock,calc=0;
@@ -213,7 +213,7 @@ void Planta::Opcion3Compra(){
                         objP.reemplazarRegistroPlanta(objP,i);
                         //SE GUARDA EN LA FACTURA
                         DetalleFacturaCompra objD;
-                        objD.AutoCargar(objP);
+                        objD.AutoCargar(objP,idCompra);
                 }else{
                         cout<<"LA COMPRA no se pudo realizar ya que no tenemos el suficiente STOCK"<<endl;
                         cout<<"//////////////////////////"<<endl<<endl;

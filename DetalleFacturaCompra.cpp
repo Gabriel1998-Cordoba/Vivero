@@ -7,21 +7,21 @@ using namespace std;
 #include"RegistroCompra.h"
 
 
-void DetalleFacturaCompra:: setIdArticulo(int idArticulo){
-    _idArticulo=idArticulo;
-}
+//void DetalleFacturaCompra:: setIdArticulo(int idArticulo){
+//    _idArticulo=idArticulo;
+//}
 void DetalleFacturaCompra::setIdCompra(int idCompra){
     _idCompra=idCompra;
 }
 void DetalleFacturaCompra::setCantidad(int cantidad ){_cantidad=cantidad;}
 void DetalleFacturaCompra::setPrecio(float precio){_precio=precio;}
-int DetalleFacturaCompra::getIdArticulo(){return _idArticulo;}
+//int DetalleFacturaCompra::getIdArticulo(){return _idArticulo;}
 int DetalleFacturaCompra::getIdCompra(){return _idCompra;}
 int DetalleFacturaCompra::getCantidad(){return _cantidad;}
 float DetalleFacturaCompra::getPrecio(){return _precio;}
 
 void DetalleFacturaCompra::Mostrar(){
-cout<<"ID Articulo: "<<getIdArticulo()<<endl;
+//cout<<"ID Articulo: "<<getIdArticulo()<<endl;
 cout<<"ID Compra: "<<getIdCompra()<<endl;
 cout<<"Cantidad: "<<getCantidad()<<endl;
 cout<<"Precio: "<<getPrecio()<<endl;
@@ -29,7 +29,7 @@ cout<<"Precio: "<<getPrecio()<<endl;
 void DetalleFacturaCompra::MostrarPlanta(){
 getFecha().MostrarEnLinea();
 cout<<"ID Detalle Factura Compra: "<<getIdDetalleFacturaCompra()<<endl;
-cout<<"ID Articulo: "<<getIdArticulo()<<endl;
+//cout<<"ID Articulo: "<<getIdArticulo()<<endl;
 cout<<"ID Compra: "<<getIdCompra()<<endl;
 cout<<"Cantidad: "<<getCantidad()<<endl;
 cout<<"Precio: "<<getPrecio()<<endl;
@@ -83,7 +83,7 @@ DetalleFacturaCompra::DetalleFacturaCompra(){
     //char  _estacion[30];
     //int _tipoAgroquimico; //1-Ecologico,2-Quimico
 
-    setIdArticulo(0);
+    //setIdArticulo(0);
     setIdCompra(0);
     setCantidad(0);
     setPrecio(0);
@@ -100,7 +100,7 @@ DetalleFacturaCompra::DetalleFacturaCompra(){
     
 
 /**************************************************************/
-void DetalleFacturaCompra::AutoCargar(Herramientas objH){
+void DetalleFacturaCompra::AutoCargar(Herramientas objH,int idCompra){
 
 //AHI que armar el COMPRa y VENTA de
 
@@ -116,7 +116,7 @@ void DetalleFacturaCompra::AutoCargar(Herramientas objH){
 
 }
 /**************************************************************/
-void DetalleFacturaCompra::AutoCargar(Planta objP){
+void DetalleFacturaCompra::AutoCargar(Planta objP,int idCompra){
 
 //AHI que armar el COMPRa y VENTA de
 DetalleFacturaCompra objD;
@@ -129,10 +129,10 @@ tam = contarRegistros();
 tam++;
 setIdDetalleFacturaCompra(tam);
 
-int tam1=0;
-tam1 = objP.contarRegistros();
-tam1++;
-objD.setIdArticulo(tam1);
+//int tam1=0;
+//tam1 = objP.contarRegistros();
+//tam1++;
+//objD.setIdArticulo(tam1);
 
 int tam2=0;
 
@@ -164,7 +164,7 @@ fclose(p);
 
 }
 /**************************************************************/
-void DetalleFacturaCompra::AutoCargar(Agroquimicos objA){
+void DetalleFacturaCompra::AutoCargar(Agroquimicos objA,int idCompra){
 
 //AHI que armar el COMPRa y VENTA de
 

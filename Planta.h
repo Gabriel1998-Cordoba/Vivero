@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Articulo.h"
+#include"RegistroCompra.h"
 
 class Planta : public Articulo{
 
@@ -25,7 +26,7 @@ class Planta : public Articulo{
 
 void Opcion1Compra();
 void Opcion2Compra();
-void Opcion3Compra();
+void Opcion3Compra(int idCompra);
 
 
 };

@@ -8,7 +8,7 @@ using namespace std;
 
 int main(){
 
-    // menuPrincipal();
+    menuPrincipal();
 
 //     RegistroCompra objT;
 // while(true){

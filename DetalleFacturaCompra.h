@@ -8,7 +8,7 @@ class DetalleFacturaCompra
 {
 private:
     int _idDetalleFacturaCompra;
-    int _idArticulo;
+   // int _idArticulo;
     int _idCompra;
     int _cantidad;
     float _precio;
@@ -57,9 +57,9 @@ void setDiaMesAnioFecha(int dia,int mes,int anio);
 DetalleFacturaCompra();
 ~DetalleFacturaCompra(){}
 
-void AutoCargar(Herramientas objH); //HACER
-void AutoCargar(Planta objP); //HACER
-void AutoCargar(Agroquimicos objA); //HACER
+void AutoCargar(Herramientas objH,int idCompra); //HACER
+void AutoCargar(Planta objP,int idCompra); //HACER
+void AutoCargar(Agroquimicos objA,int idCompra); //HACER
 
 void MostrarAutoCargarHerramienta(); //HACER
 void MostrarAutoCargarPlanta(); //HACER

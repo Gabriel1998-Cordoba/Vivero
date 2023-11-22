@@ -1,5 +1,6 @@
 #pragma once
 #include"Articulo.h"
+#include"RegistroCompra.h"
 
 class Herramientas : public Articulo{
     private:
@@ -18,7 +19,7 @@ class Herramientas : public Articulo{
 
 void Opcion1Compra();   //HACER
 void Opcion2Compra();   //HACER
-void Opcion3Compra(int );   //HACER
+void Opcion3Compra(int idCompra);   //HACER
 // void Opcion4Compra();   //HACER
 // void Opcion5Compra();   //HACER
 

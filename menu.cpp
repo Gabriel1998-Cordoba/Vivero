@@ -615,9 +615,7 @@ void menuPersona(int opcion)
     {
         system("cls");
         cout << "Opcion 1 ----> Comprar" << endl;
-        cout << "Opcion 2 ----> Mostrar Todas las Facturas Compradas" << endl;
-        cout << "Opcion 3 ----> Vender" << endl;
-        cout << "Opcion 4 ----> Mostrar Todas las Facturas Vendidas" << endl;
+        cout << "Opcion 2 ----> Vender" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -631,17 +629,17 @@ void menuPersona(int opcion)
             system("pause");
         }
         break;
-        /*******************************************************************/
+        // /*******************************************************************/
+        // case 2:
+        // {
+        //     system("cls");
+        //     // RegistroCompra objD;
+        //     // objD.();
+        //     system("pause");
+        // }
+        // break;
+        // /*******************************************************************/
         case 2:
-        {
-            system("cls");
-            // RegistroCompra objD;
-            // objD.();
-            system("pause");
-        }
-        break;
-        /*******************************************************************/
-        case 4:
         {
             system("cls");
             menuVentaPersona(opcion);
@@ -681,6 +679,11 @@ void menuCompraPersona(int opcion)
     int idCompra = 0;
     idCompra = tam++;
 
+cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
+
+objR.setIdCompra(idCompra);
+objR.CargarArchivoCompra();
+
     while (true)
     {
         system("cls");
@@ -698,7 +701,7 @@ void menuCompraPersona(int opcion)
         case 1:
         {
             system("cls");
-            menuVentaHerramientaPersona(opcion, idCompra);
+            menuCompraHerramientaPersona(opcion,idCompra);
             system("pause");
         }
         break;
@@ -706,7 +709,7 @@ void menuCompraPersona(int opcion)
         case 2:
         {
             system("cls");
-            menuVentaPlantaPersona(opcion);
+            menuCompraPlantaPersona(opcion,idCompra);
             system("pause");
         }
         break;
@@ -714,7 +717,7 @@ void menuCompraPersona(int opcion)
         case 3:
         {
             system("cls");
-            menuVentaAgroquimicosPersona(opcion);
+            menuCompraPlantaPersona(opcion,idCompra);
             system("pause");
         }
         break;
@@ -735,29 +738,8 @@ void menuCompraPersona(int opcion)
         /*******************************************************************/
         case 0:
         {
-
             system("cls");
-            int num;
-            do
-            {
-
-                cout << "¿Seguro? ---> SI == 0" << endl;
-                cout << "NO == 1" << endl;
-                cin >> num;
-            } while ((num != 0) && (num != 1));
-
-            if (num == 0)
-            {
-                cout << "ya que esta seguro, ahora debe de cargar su Registros de Compra" << endl;
-
-                objR.setIdCompra(idCompra);
-                objR.CargarArchivoCompra();
-
-                return;
-            }
-            else if (num == 1)
-            {
-            }
+            return;
         }
         break;
         /*******************************************************************/
@@ -778,7 +760,7 @@ void menuVentaPersona(int opcion)
 }
 ///////////////////////////////////////////////////////////////////////////
 
-void menuVentaPlantaPersona(int opcion)
+void menuCompraPlantaPersona(int opcion,int idCompra)
 {
 
     Planta objP;
@@ -819,7 +801,7 @@ void menuVentaPlantaPersona(int opcion)
         case 3:
         {
             system("cls");
-            objP.Opcion3Compra();
+            objP.Opcion3Compra(idCompra);
             system("pause");
         }
         break;
@@ -861,7 +843,7 @@ void menuVentaPlantaPersona(int opcion)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuVentaHerramientaPersona(int opcion, int idCompra)
+void menuCompraHerramientaPersona(int opcion,int idCompra)
 {
 
     Herramientas objH;
@@ -941,7 +923,7 @@ void menuVentaHerramientaPersona(int opcion, int idCompra)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuVentaAgroquimicosPersona(int opcion)
+void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
 {
 
     Agroquimicos objA;
