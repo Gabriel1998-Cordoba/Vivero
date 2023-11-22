@@ -123,6 +123,8 @@ DetalleFacturaCompra objD;
 
 RegistroCompra objR;
 
+objR = objR.LeerRegistrosPorIdCompra(idCompra);
+
 int tam=0;
 
 tam = contarRegistros();
@@ -134,11 +136,7 @@ setIdDetalleFacturaCompra(tam);
 //tam1++;
 //objD.setIdArticulo(tam1);
 
-int tam2=0;
-
-tam2 = objR.contarRegistros();
-tam2++;
-objD.setIdCompra(tam2);
+objD.setIdCompra(objR.getIdCompra());
 
 objD.setCantidad(objP.getStock());
 objD.setPrecio(objP.getPrecio());

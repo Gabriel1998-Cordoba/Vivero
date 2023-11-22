@@ -142,3 +142,32 @@ ClassM.Mostrar();
 
 fclose(p);
 }
+
+RegistroCompra RegistroCompra::leerRegistro(int pos){
+        RegistroCompra reg;
+        FILE *p;
+        p=fopen("registrocompra.dat", "rb");
+        if(p==NULL) return reg;
+        fseek(p, sizeof(RegistroCompra)*pos,0);
+        fread(&reg, sizeof reg,1, p);
+        fclose(p);
+        return reg;
+    }
+
+RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra){
+    RegistroCompra reg;
+    FILE *p;
+    p=fopen("registrocompra.dat", "rb");
+    if(p==NULL){
+        cout<<"NO PUDO LEERLO : RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra)"<<endl;
+         return reg;
+    }
+    while(fread(&reg, sizeof reg,1, p)){
+        if(reg.getIdCompra() == IdCompra){
+            fclose(p);
+            return reg;
+        }
+    }
+    fclose(p);
+    return reg;
+}

@@ -3,6 +3,7 @@
 
 using namespace std;
 
+#include"RegistroCompra.h"
 #include"Planta.h"
 #include"FuncionesGlobales.h"
 #include"Articulo.h"

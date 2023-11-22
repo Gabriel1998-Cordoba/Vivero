@@ -1,4 +1,5 @@
 #pragma once
+#include"RegistroCompra.h"
 
 void menuPrincipal();
 

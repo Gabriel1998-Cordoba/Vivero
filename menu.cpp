@@ -717,7 +717,7 @@ objR.CargarArchivoCompra();
         case 3:
         {
             system("cls");
-            menuCompraPlantaPersona(opcion,idCompra);
+            menuCompraAgroquimicosPersona(opcion,idCompra);
             system("pause");
         }
         break;

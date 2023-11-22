@@ -32,4 +32,7 @@ int contarRegistros();
 void CargarArchivoCompra();
 void MostrarArchivoCompra();
 
+RegistroCompra leerRegistro(int pos);
+RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
+
 };
