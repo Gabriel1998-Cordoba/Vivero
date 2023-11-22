@@ -3,7 +3,7 @@
 #include"Herramientas.h"
 #include"Planta.h"
 #include"Agroquimicos.h"
-
+#include"Sujeto.h"
 
 class RegistroCompra{
 
@@ -12,6 +12,7 @@ int _idCompra;
 int _idProveedor;
 Fecha _Fecha;
 char _modoDePago[30];
+Sujeto _Sujeto;
 
 public:
 void setIdCompra(int);
@@ -34,5 +35,8 @@ void MostrarArchivoCompra();
 
 RegistroCompra leerRegistro(int pos);
 RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
+
+Sujeto getSujeto() const { return _Sujeto; }
+void setSujeto(const Sujeto &Sujeto) { _Sujeto = Sujeto; }
 
 };

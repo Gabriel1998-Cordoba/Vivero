@@ -4,8 +4,9 @@
 #include"Herramientas.h"
 #include"Planta.h"
 #include"Agroquimicos.h"
-class DetalleFacturaCompra
-{
+#include"RegistroCompra.h"
+class DetalleFacturaCompra : public RegistroCompra{
+    
 private:
     int _idDetalleFacturaCompra;
    // int _idArticulo;
@@ -62,7 +63,7 @@ void AutoCargar(Planta objP,int idCompra); //HACER
 void AutoCargar(Agroquimicos objA,int idCompra); //HACER
 
 void MostrarAutoCargarHerramienta(); //HACER
-void MostrarAutoCargarPlanta(); //HACER
+void MostrarAutoCargarPlanta(int valorDNI); //HACER
 void MostrarAutoCargarAgroquimicos(); //HACER
 
 

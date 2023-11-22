@@ -809,8 +809,7 @@ void menuCompraPlantaPersona(int opcion,int idCompra)
         case 4:
         {
             system("cls");
-            DetalleFacturaCompra objD;
-            objD.MostrarAutoCargarPlanta();
+            objP.Opcion4Compra(idCompra);
             system("pause");
         }
         break;

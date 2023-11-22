@@ -27,6 +27,6 @@ class Planta : public Articulo{
 void Opcion1Compra();
 void Opcion2Compra();
 void Opcion3Compra(int idCompra);
-
+void Opcion4Compra(int idCompra);
 
 };

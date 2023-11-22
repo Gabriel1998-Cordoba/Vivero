@@ -227,3 +227,21 @@ void Planta::Opcion3Compra(int idCompra){
     }
 
 }
+
+void Planta::Opcion4Compra(int idCompra){
+RegistroCompra objR;
+
+objR = objR.LeerRegistrosPorIdCompra(idCompra);
+
+int indice= objR.getSujeto().getTipoDoc().getIndice();
+cout<<"Indice: "<<indice<<endl;
+int valor = objR.getSujeto().getTipoDoc().getTipoDoc(indice); //TE DEVUELVE NUMERO TipoDocumento
+cout<<"valor: "<<valor<<endl;
+
+
+
+cout<<"VALOR DOCUMENTO"<<endl;
+
+            DetalleFacturaCompra objD;
+            objD.MostrarAutoCargarPlanta(valor);
+}

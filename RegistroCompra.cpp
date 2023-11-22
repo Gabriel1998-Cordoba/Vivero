@@ -46,6 +46,8 @@ void RegistroCompra::CargarCompra()
 // cargarCadena(modoDePago,30);
 // setModoDePago(modoDePago);
 
+
+    
     int idCompra,idProveedor;
     Fecha f;
     char modoDePago[30];
@@ -82,7 +84,14 @@ if(strcmp(modoDePago, "efectivo") == 0 || strcmp(modoDePago, "debito") == 0 || s
 
 setModoDePago(modoDePago);
 
-
+cout<<"Ingrese Tipo de Documento"<<endl;
+cout<<"(1 DNI, 2 Cuit, 3 Cuil)"<<endl;
+int numero,tipo;
+cin>>tipo;
+cout<<"Ingrese numero"<<endl;
+cin>>numero;
+_Sujeto.getTipoDoc().setTipoDoc(tipo,numero);
+_Sujeto.getTipoDoc().setIndice(tipo);
 
 }
 
@@ -94,6 +103,10 @@ void RegistroCompra::Mostrar()
     cout<<"ID PROVEEDOR: "<<getIdProveedor()<<endl;
     _Fecha.MostrarEnLinea();
     cout<<"MODO DE PAGO: "<<getModoDePago()<<endl<<endl;
+    
+    int indice = getSujeto().getTipoDoc().getIndice();
+    cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDoc(indice)<<endl;
+
 }
 
 int RegistroCompra::contarRegistros(){

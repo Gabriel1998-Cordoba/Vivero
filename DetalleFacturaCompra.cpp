@@ -29,7 +29,6 @@ cout<<"Precio: "<<getPrecio()<<endl;
 void DetalleFacturaCompra::MostrarPlanta(){
 getFecha().MostrarEnLinea();
 cout<<"ID Detalle Factura Compra: "<<getIdDetalleFacturaCompra()<<endl;
-//cout<<"ID Articulo: "<<getIdArticulo()<<endl;
 cout<<"ID Compra: "<<getIdCompra()<<endl;
 cout<<"Cantidad: "<<getCantidad()<<endl;
 cout<<"Precio: "<<getPrecio()<<endl;
@@ -127,9 +126,9 @@ objR = objR.LeerRegistrosPorIdCompra(idCompra);
 
 int tam=0;
 
-tam = contarRegistros();
+tam = objD.contarRegistros();
 tam++;
-setIdDetalleFacturaCompra(tam);
+objD.setIdDetalleFacturaCompra(tam);
 
 //int tam1=0;
 //tam1 = objP.contarRegistros();
@@ -179,7 +178,7 @@ void DetalleFacturaCompra::AutoCargar(Agroquimicos objA,int idCompra){
 
 }
 /**************************************************************/
-void DetalleFacturaCompra::MostrarAutoCargarPlanta(){
+void DetalleFacturaCompra::MostrarAutoCargarPlanta(int valorDNI){
 DetalleFacturaCompra ClassM;
 FILE *p;
 
@@ -205,8 +204,16 @@ while(fread(&ClassM,sizeof (DetalleFacturaCompra),1,p)==1){
         band=false;
     }
 
+int indice= ClassM.getSujeto().getTipoDoc().getIndice();
+cout<<"INDICE: "<<indice<<endl;
 
+int valor1 = ClassM.getSujeto().getTipoDoc().getTipoDoc(indice);
+cout<<"valor1: "<<valor1<<endl;
+
+if(valor1==valorDNI){
 ClassM.MostrarPlanta();
+}
+
 }
 
 fclose(p);

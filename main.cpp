@@ -4,26 +4,23 @@ using namespace std;
 
 
 #include"RegistroCompra.h"
+#include"DetalleFacturaCompra.h"
 #include"menu.h"
 
 int main(){
 
-    menuPrincipal();
+    // menuPrincipal();
 
-//     RegistroCompra objT;
-// while(true){
+    RegistroCompra objR;
+while(true){
 
-//     objT.CargarArchivoCompra();
-
-
-//     // cout<<"////////////////////////"<<endl;
+    objR.MostrarArchivoCompra();
 
 
-//     objT.MostrarArchivoCompra();
-// system("pause");
+system("pause");
 
-// system("cls");
-// }
+system("cls");
+}
 
 
     return 0;
