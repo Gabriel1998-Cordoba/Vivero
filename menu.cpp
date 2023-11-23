@@ -676,13 +676,13 @@ void menuCompraPersona(int opcion)
     RegistroCompra objR;
     int tam = 0;
     tam = objR.contarRegistros();
-    int idCompra = 0;
+    int idCompra = -1;
     idCompra = tam++;
 
 cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
 
-objR.setIdCompra(idCompra);
-objR.CargarArchivoCompra();
+// objR.setIdCompra(idCompra);
+// objR.CargarArchivoCompra();
 
     while (true)
     {
@@ -738,6 +738,27 @@ objR.CargarArchivoCompra();
         /*******************************************************************/
         case 0:
         {
+            //carga del cliente objcliente
+
+
+            //registro de la compra(getIdcliente,idCompra);
+
+/*
+do{
+            cout << "¿Seguro? ---> SI == 0" << endl;
+            cout << "NO == 1" << endl;
+            cin>>num;
+            }while((num!=0)&&(num!=1));
+            
+            if(num==0){
+            cout<<"ya que esta seguro, ahora debe de cargar su Registros de Compra"<<endl;
+            RegistroCompra objR;
+            objR.CargarArchivoCompra();
+
+*/
+
+
+
             system("cls");
             return;
         }

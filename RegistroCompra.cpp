@@ -9,6 +9,8 @@ void RegistroCompra:: setIdCompra(int idcompra)
     _idCompra=idcompra;
 }
 void RegistroCompra::setIdProveedor (int idProveedor ){
+    
+    
     _idProveedor=idProveedor;
 }
 void RegistroCompra::setFecha (Fecha fechita){
@@ -27,8 +29,11 @@ int RegistroCompra::getIdProveedor(){return _idProveedor;}
 Fecha RegistroCompra::getFecha(){return _Fecha;}
 const char * RegistroCompra:: getModoDePago(){return _modoDePago;}
 
-void RegistroCompra::CargarCompra()
+void RegistroCompra::CargarCompra(/*int idcompra,idcliente*/)
 {
+
+
+
 //     int idCompra,idProveedor;
 //     Fecha f;
 //     char modoDePago[30];
@@ -51,18 +56,20 @@ void RegistroCompra::CargarCompra()
     int idCompra,idProveedor;
     Fecha f;
     char modoDePago[30];
+
     cout<<"Cargar los siguientes datos: "<<endl;
 
-    RegistroCompra objR;
-    int tam=0;
+    // RegistroCompra objR;
+    // int tam=0;
 
-    tam = objR.contarRegistros();
-    tam++;
+    // tam = objR.contarRegistros();
+    // tam++;
 
-    setIdCompra(tam);
-    // cout<<"Proveedor: ";
-    // cin>>idProveedor;
-    setIdProveedor(tam);
+    setIdCompra(/*idCompra*/);
+//    cout<<"Proveedor: ";
+//     cin>>idProveedor;          setIdcliente(idcliente)  
+// setIdProveedor(idProveedor);
+
     cout<<"Fecha: "<<endl;
     f.Cargar();
     setFecha(f);
@@ -84,23 +91,34 @@ if(strcmp(modoDePago, "efectivo") == 0 || strcmp(modoDePago, "debito") == 0 || s
 
 setModoDePago(modoDePago);
 
-cout<<"Ingrese Tipo de Documento"<<endl;
-cout<<"(1 DNI, 2 Cuit, 3 Cuil)"<<endl;
-int numero,tipo;
-cin>>tipo;
-cout<<"Ingrese numero"<<endl;
-cin>>numero;
 
 
-    getSujeto().getTipoDoc().setTipoDocu(tipo,numero);
-    cout<<"<<getSujeto().getTipoDoc().getTipoDoc(tipo)<<endl : "<<getSujeto().getTipoDoc().getTipoDocu(tipo)<<endl;
-
-    getSujeto().getTipoDoc().setIndice(tipo);
-    cout<<"getSujeto().getTipoDoc().getIndice()<<endl; : "<<getSujeto().getTipoDoc().getIndice()<<endl;
-
-    system("pause");
 
 
+
+// cout<<"Ingrese Tipo de Documento"<<endl;
+// cout<<"(1 DNI, 2 Cuit, 3 Cuil)"<<endl;
+// int numero,tipo;
+// cin>>tipo;
+// cout<<"Ingrese numero"<<endl;
+// cin>>numero;
+
+
+
+
+// getSujeto().getTipoDoc().setTipoDocu(tipo,numero);
+// setSujeto(_Sujeto);
+// cout<<"<<getSujeto().getTipoDoc().getTipoDoc(tipo)<<endl : "<<getSujeto().getTipoDoc().getTipoDocu(tipo)<<endl;
+// //tengo que hacer un set_Sujeto(_Sujeto);
+
+// getSujeto().getTipoDoc().setIndice(tipo);
+// setSujeto(_Sujeto);
+
+// cout<<"getSujeto().getTipoDoc().getIndice()<<endl; : "<<getSujeto().getTipoDoc().getIndice()<<endl;
+// //tengo que hacer un set_Sujeto(_Sujeto);
+// // setSujeto(_Sujeto);
+
+system("pause");
 }
 
 

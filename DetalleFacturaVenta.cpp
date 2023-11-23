@@ -22,6 +22,8 @@ void DetalleFacturaVenta::setSubtotal(float subtotal) { _subtotal = subtotal; }
 
 float DetalleFacturaVenta::getPrecioTotal() const { return _precioTotal; }
 void DetalleFacturaVenta::setPrecioTotal(float precioTotal) { _precioTotal = precioTotal; }
+
+
 bool DetalleFacturaVenta::cargar(int idArticulo,int idcompra,float precio)
 {
     int cant=0;

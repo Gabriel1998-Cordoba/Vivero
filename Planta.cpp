@@ -184,9 +184,10 @@ void Planta::Opcion3Compra(int idCompra){
     tam = objP.contarRegistros();
 
     char nombrePlanta[30];
-    cout<<"Ingrese Nombre:"<<endl;
+    
+    cout<<"Ingrese Nombre de la Planta:"<<endl;
     cargarCadena(nombrePlanta,30);
-    cout<<"Ingrese Cuanto Stock quiere Comprar:"<<endl;
+    cout<<"Ingrese Cuanto la Cantidad quiere Comprar:"<<endl;
     cin>>stock;
 
     for(int i=0; i<tam; i++){
@@ -202,7 +203,9 @@ void Planta::Opcion3Compra(int idCompra){
         cout<<"//////////////////////////"<<endl;
             cout<<"COMPRA REALIZADA: "<<endl;
             cout<<"Nombre: "<<objP.getNombre()<<endl;
-            cout<<"Precio TOTAL: "<<(objP.getPrecio()*stock)<<endl;
+            cout<<"subTOTAL: "<<(objP.getPrecio()*stock)<<endl;//mal porque seria subtotal
+
+            
             calc=objP.getStock();
             calc=calc-stock;
             
@@ -217,6 +220,7 @@ void Planta::Opcion3Compra(int idCompra){
                         objD.AutoCargar(objP,idCompra);
                 }else{
                         cout<<"LA COMPRA no se pudo realizar ya que no tenemos el suficiente STOCK"<<endl;
+                        cout<<"Tienes un Stock: "<<objP.getStock()<<endl;
                         cout<<"//////////////////////////"<<endl<<endl;
                 }
         }

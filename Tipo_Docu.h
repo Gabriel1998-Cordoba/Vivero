@@ -22,7 +22,6 @@ return true;
     int getTipoDocu(int index) {
         if(index >= 0 && index < 3) {
             return _TipoDoc[index];
-            cout<<"_TipoDoc[index]"<<endl;
         } else {
             // Manejar el error de índice fuera de rango
             return -1;
