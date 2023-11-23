@@ -13,8 +13,8 @@ int _idProveedor;
 Fecha _Fecha;
 char _modoDePago[30];
 Sujeto _Sujeto;
-
 public:
+
 void setIdCompra(int);
 void setIdProveedor (int );
 void setFecha (Fecha);
@@ -36,7 +36,6 @@ void MostrarArchivoCompra();
 RegistroCompra leerRegistro(int pos);
 RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
 
-Sujeto getSujeto() const { return _Sujeto; }
-void setSujeto(const Sujeto &Sujeto) { _Sujeto = Sujeto; }
-
+    Sujeto& getSujeto() { return _Sujeto; }
+    void setSujeto(const Sujeto &Sujeto) { _Sujeto = Sujeto; }
 };

@@ -18,7 +18,7 @@ cin>>indice;
 
 indice--;
 
-if(setTipoDoc(indice,numero)==false){
+if(setTipoDocu(indice,numero)==false){
 system("cls");
 cout<<"Tipo de Documento No valido"<<endl<<endl;
 }else{
@@ -28,7 +28,7 @@ cin>>numero;
 
 
 
-}while(setTipoDoc(indice,numero)==false);
+}while(setTipoDocu(indice,numero)==false);
 
 
 
@@ -39,7 +39,7 @@ int valor=-1;
 
 for(int i=0; i<3;i++){
 
-valor = getTipoDoc(i);
+valor = getTipoDocu(i);
 
 if(valor>0){
     cout<<"SU Tipo Documento es: "<<i+1;

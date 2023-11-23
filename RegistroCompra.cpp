@@ -90,8 +90,16 @@ int numero,tipo;
 cin>>tipo;
 cout<<"Ingrese numero"<<endl;
 cin>>numero;
-_Sujeto.getTipoDoc().setTipoDoc(tipo,numero);
-_Sujeto.getTipoDoc().setIndice(tipo);
+
+
+    getSujeto().getTipoDoc().setTipoDocu(tipo,numero);
+    cout<<"<<getSujeto().getTipoDoc().getTipoDoc(tipo)<<endl : "<<getSujeto().getTipoDoc().getTipoDocu(tipo)<<endl;
+
+    getSujeto().getTipoDoc().setIndice(tipo);
+    cout<<"getSujeto().getTipoDoc().getIndice()<<endl; : "<<getSujeto().getTipoDoc().getIndice()<<endl;
+
+    system("pause");
+
 
 }
 
@@ -105,7 +113,7 @@ void RegistroCompra::Mostrar()
     cout<<"MODO DE PAGO: "<<getModoDePago()<<endl<<endl;
     
     int indice = getSujeto().getTipoDoc().getIndice();
-    cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDoc(indice)<<endl;
+    cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDocu(indice)<<endl;
 
 }
 

@@ -9,20 +9,20 @@ class Tipo_Docu{
 
     public:
 
-    bool setTipoDoc(int index, int value) {
-        index-1;
-        if(index >= 0 && index <3) {
-            _TipoDoc[index] = value;
-            return true;
-        } else {
-            // Manejar el error de índice fuera de rango
-            return false;
-        }
+bool setTipoDocu(int index, int value) {
+if(index >= 0 && index <3) {
+_TipoDoc[index] = value;
+return true;
+    } else {
+        // Manejar el error de índice fuera de rango
+     return false;
     }
+}
 
-    int getTipoDoc(int index) {
+    int getTipoDocu(int index) {
         if(index >= 0 && index < 3) {
             return _TipoDoc[index];
+            cout<<"_TipoDoc[index]"<<endl;
         } else {
             // Manejar el error de índice fuera de rango
             return -1;
@@ -36,5 +36,5 @@ class Tipo_Docu{
     void MostrarTipoDocu();
 
     int getIndice() const { return _indice; }
-    void setIndice(int indice) { _indice = indice; }
+    void setIndice(int indice) { _indice = indice;}
 };

@@ -9,18 +9,18 @@ using namespace std;
 
 int main(){
 
-    // menuPrincipal();
+    menuPrincipal();
 
-    RegistroCompra objR;
-while(true){
+//     RegistroCompra objR;
+// while(true){
 
-    objR.MostrarArchivoCompra();
+//     objR.MostrarArchivoCompra();
 
 
-system("pause");
+// system("pause");
 
-system("cls");
-}
+// system("cls");
+// }
 
 
     return 0;

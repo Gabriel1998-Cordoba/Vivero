@@ -207,7 +207,7 @@ while(fread(&ClassM,sizeof (DetalleFacturaCompra),1,p)==1){
 int indice= ClassM.getSujeto().getTipoDoc().getIndice();
 cout<<"INDICE: "<<indice<<endl;
 
-int valor1 = ClassM.getSujeto().getTipoDoc().getTipoDoc(indice);
+int valor1 = ClassM.getSujeto().getTipoDoc().getTipoDocu(indice);
 cout<<"valor1: "<<valor1<<endl;
 
 if(valor1==valorDNI){
