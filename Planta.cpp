@@ -236,7 +236,7 @@ void Planta::Opcion3Compra(int idCompra){
     Planta reg, aux;
     tam = reg.contarRegistros();
 
-    cout << "Ingrese Nombre de la Herramienta: ";
+    cout << "Ingrese Nombre de la Planta: ";
     cargarCadena(nombreP, 30);
     for (int i = 0; i < tam; i++)
     {
