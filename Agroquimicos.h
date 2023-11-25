@@ -23,6 +23,7 @@ class Agroquimicos : public Articulo{
 
 void Opcion1Compra();   //HACER
 void Opcion2Compra();   //HACER
-void Opcion3Compra();   //HACER
+void Opcion3Compra(int idCompra);   //HACER
+void Opcion4Compra(int idCompra);   //HACER
 
 };

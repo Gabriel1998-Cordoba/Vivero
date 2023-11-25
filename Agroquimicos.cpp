@@ -6,6 +6,7 @@ using namespace std;
 #include"Agroquimicos.h"
 #include"FuncionesGlobales.h"
 #include"Articulo.h"
+#include"DetalleFacturaCompra.h"
 
 /***************************************************************/
 void Agroquimicos::setTipoAgroquimico(int tipoAgroquimico){
@@ -119,13 +120,87 @@ fclose(p);
 }
 
 void Agroquimicos::Opcion1Compra(){
-    
+    Agroquimicos objT;
+
+    int tam=0;
+    tam = objT.contarRegistros();
+
+    for(int i=0; i<tam; i++){
+        objT = objT.leerRegistroAgroquimicos(i);
+        cout<<"Agroquimicos: "<<objT.getNombre()<<endl;
+        cout<<"Precio: "<<objT.getPrecio()<<endl;
+        cout<<"Stock: "<<objT.getStock()<<endl<<endl;
+        
+        cout<<"//////////////////////////"<<endl<<endl;
+
+    }
+
 }
 void Agroquimicos::Opcion2Compra(){
-    
+
+
+    Agroquimicos objT;
+
+    int tam=0;
+    bool Encontro=false;
+    tam = objT.contarRegistros();
+
+    char nombreAgroquimicos[30];
+    cout<<"Ingrese Nombre:"<<endl;
+    cargarCadena(nombreAgroquimicos,30);
+
+    for(int i=0; i<tam; i++){
+
+        objT = objT.leerRegistroAgroquimicos(i);
+
+        if(strcmp(nombreAgroquimicos,objT.getNombre())==0){
+            Encontro=true;
+        cout<<"//////////////////////////"<<endl;
+            cout<<"Nombre: "<<objT.getNombre()<<endl;
+            cout<<"Precio: "<<objT.getPrecio()<<endl;
+            cout<<"Stock: "<<objT.getStock()<<endl;
+        cout<<"//////////////////////////"<<endl<<endl;
+        }
+    }
+
+    if(Encontro==false){
+    cout<<"Agroquimico INGRESADO, no fue encontrada"<<endl;
+    }
 }
-void Agroquimicos::Opcion3Compra(){
+void Agroquimicos::Opcion3Compra(int idCompra){
     
+    char nombreP[30];
+    int tam = 0;
+    DetalleFacturaCompra descripcionFactura;
+    Planta reg, aux;
+    tam = reg.contarRegistros();
+
+    cout << "Ingrese Nombre de la Planta: ";
+    cargarCadena(nombreP, 30);
+    for (int i = 0; i < tam; i++)
+    {
+        aux = reg.leerRegistroPlanta(i);
+        if (strcmp(aux.getNombre(), nombreP) == 0)
+        {
+            if (descripcionFactura.AutoCargar(idCompra, aux.getID(), aux.getPrecio()) == true)
+            {
+                if (descripcionFactura.GuardarEnArchivo())
+                {
+                    cout << "Guardado Correctamente ";
+                    system("pause");
+                    return;
+                }
+            }
+        }
+    }
+
+
+}
+void Agroquimicos::Opcion4Compra(int idCompra){
+DetalleFacturaCompra objD;
+
+objD.MostrarAutoCargarAgroquimicos(idCompra);
+
 }
 // void Agroquimicos::Opcion4Compra(){
     

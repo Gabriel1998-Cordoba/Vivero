@@ -41,6 +41,7 @@ int getCantidad();
 float getPrecio();
 void Mostrar();
 void MostrarPlanta();
+void MostrarAgroquimicos();
 const char * getEstacion() const;
 void setEstacion(const char * estacion);
 int tipoAgroquimico() const;
@@ -65,7 +66,7 @@ void AutoCargar(Agroquimicos objA,int idCompra); //HACER
 
 void MostrarAutoCargarHerramienta(); //HACER
 void MostrarAutoCargarPlanta(int valor=-1);
-void MostrarAutoCargarAgroquimicos(); //HACER
+void MostrarAutoCargarAgroquimicos(int valor=-1); //HACER
 
  bool GuardarEnArchivo();
 int contarRegistros();

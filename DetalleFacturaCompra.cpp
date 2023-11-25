@@ -47,6 +47,26 @@ void DetalleFacturaCompra::MostrarPlanta()
     // cout<<getEstacion(); cout<<"\t\t";
     // cout<<getEstado()<<endl;
 }
+void DetalleFacturaCompra::MostrarAgroquimicos()
+{
+    // getFecha().MostrarEnLinea();
+    //cout << "ID Detalle Factura Compra: " << getIdDetalleFacturaCompra() << endl;
+    cout << "ID Compra: " << getIdCompra() << endl;
+    cout << "Cantidad: " << getCantidad() << endl;
+    cout << "Precio: " << getPrecio() << endl;
+    cout << "Estacion: " << getEstacion() << endl;
+    cout << "estacion: " << getEstacion() << endl;
+    cout << "Estado: " << getEstado() << endl<< endl;
+
+    // getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
+    // cout<<getIdDetalleFacturaCompra(); cout<<"\t\t";
+    // cout<<getIdArticulo(); cout<<"\t\t";
+    // cout<<getIdCompra(); cout<<"\t\t";
+    // cout<<getCantidad(); cout<<"\t\t";
+    // cout<<getPrecio(); cout<<"\t";
+    // cout<<getEstacion(); cout<<"\t\t";
+    // cout<<getEstado()<<endl;
+}
 
 // int DetalleFacturaCompra::getTipoDeArticulo() const { return _TipoDeArticulo; }
 // void DetalleFacturaCompra::setTipoDeArticulo(int TipoDeArticulo) { _TipoDeArticulo = TipoDeArticulo; }
@@ -232,13 +252,14 @@ void DetalleFacturaCompra::MostrarAutoCargarPlanta(int valor)
             // cout<<endl;
             band = false;
         }
-            if(valor==-1){
-                ClassM.MostrarPlanta();
-                cout<<"retorno todo"<<endl;
+        ClassM.MostrarPlanta();
+            // if(valor==-1){
+            //     ClassM.MostrarPlanta();
+            //     cout<<"retorno todo"<<endl;
 
-            }else if((aux=(ClassM.getIdCompra()))==valor){
-                ClassM.MostrarPlanta();
-            }
+            // }else if((aux=(ClassM.getIdCompra()))==valor){
+            //     ClassM.MostrarPlanta();
+            // }
 
     }
 
@@ -269,4 +290,47 @@ bool DetalleFacturaCompra::GuardarEnArchivo()
     bool escribio = fwrite(this, sizeof(DetalleFacturaCompra), 1, p);
     fclose(p);
     return escribio;
+}
+
+void DetalleFacturaCompra::MostrarAutoCargarAgroquimicos(int valor)
+{
+    DetalleFacturaCompra ClassM;
+    FILE *p;
+    int band = true;
+    int aux;
+
+    p = fopen("detallefacturacompra.dat", "rb");
+    if (p == NULL)
+    {
+        cout << "ERROR de ARCHIVO" << endl;
+        system("pause");
+    }
+    while (fread(&ClassM, sizeof(DetalleFacturaCompra), 1, p) == 1)
+    {
+        if (band == true)
+        {
+            // cout<<"Fecha"; cout<<"\t";
+            // cout<<"ID Detalle Factura Compra"; cout<<"\t";
+            // cout<<"ID Articulo"; cout<<"\t";
+            // cout<<"ID Compra"; cout<<"\t";
+            // cout<<"Cantidad"; cout<<"\t";
+            // cout<<"Precio"; cout<<"\t";
+            // cout<<"Estacion"; cout<<"\t";
+            // cout<<"Estado";  cout<<"\t";
+            // cout<<endl;
+            band = false;
+        }
+        ClassM.MostrarAgroquimicos();
+            // if(valor==-1){
+            //     ClassM.MostrarPlanta();
+            //     cout<<"retorno todo"<<endl;
+            // }else if((aux=(ClassM.getIdCompra()))==valor){
+            //     ClassM.MostrarPlanta();
+            // }
+    }
+
+
+
+    fclose(p);
+
 }

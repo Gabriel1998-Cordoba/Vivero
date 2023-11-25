@@ -951,6 +951,12 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
 {
 
     Agroquimicos objA;
+    RegistroCompra objR;
+    int tam = 0;
+    tam = objR.contarRegistros();
+    int idCompra = -1;
+    idCompra = tam++;
+
 
     system("cls");
 
@@ -960,8 +966,9 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
         cout << "Que quieres Comprar?" << endl
              << endl;
         cout << "Opcion 1 ----> DETALLE TODAS LAS AGROQUIMICOS,PRECIO,STOCK" << endl;
-        cout << "Opcion 2 ----> Cual Agroquimicos quiere y Mostraremos SU Precio y Stock" << endl;
+        cout << "Opcion 2 ----> Cual Agroquimico quiere y Mostraremos SU Precio y Stock" << endl;
         cout << "Opcion 3 ----> SELECCIONE AGROQUIMICO QUE QUIERE COMPRAR" << endl;
+        cout << "Opcion 4 ----> LISTAR TODAS LOS DETALLES DE FACTURA DE SOLO PLANTAS" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -987,7 +994,7 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
         case 3:
         {
             system("cls");
-            objA.Opcion3Compra();
+            objA.Opcion3Compra(idCompra);
             system("pause");
         }
         break;
@@ -995,6 +1002,7 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
         case 4:
         {
             system("cls");
+            objA.Opcion4Compra(idCompra);
             system("pause");
         }
         break;
