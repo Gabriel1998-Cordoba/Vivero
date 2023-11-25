@@ -11,4 +11,5 @@ int getIDCliente();
 const char *getApellido();
 void Cargar();
 void Mostrar();
+bool GuardarArchivo();
 };

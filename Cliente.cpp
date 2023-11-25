@@ -41,3 +41,16 @@ void Cliente::  Mostrar(){
     cout<<"Apellido: "<<getApellido()<<endl;
     Sujeto::MostrarSujeto();
 }
+bool Cliente::GuardarArchivo()
+{
+       FILE *p;
+    p=fopen("Cliente.dat","ab");
+    if(p==NULL)
+    {
+
+        return false;
+    }
+    bool escribio=fwrite(this,sizeof(Cliente),1,p);
+    fclose(p);
+    return escribio;
+}

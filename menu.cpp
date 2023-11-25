@@ -7,6 +7,7 @@ using namespace std;
 #include "menu.h"
 #include "FuncionesGlobales.h"
 #include "Duenio.h"
+#include "Cliente.h"
 #include "DetalleFacturaCompra.h"
 #include "RegistroCompra.h"
 #include "Planta.h"
@@ -743,19 +744,22 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
 
             //registro de la compra(getIdcliente,idCompra);
 
-/*
+
 do{
             cout << "¿Seguro? ---> SI == 0" << endl;
             cout << "NO == 1" << endl;
-            cin>>num;
-            }while((num!=0)&&(num!=1));
+            cin>>opcion;
+            }while((opcion!=0)&&(opcion!=1));
             
-            if(num==0){
-            cout<<"ya que esta seguro, ahora debe de cargar su Registros de Compra"<<endl;
+            if(opcion==0){
+            cout<<"ya que esta seguro, ahora debe de cargar su Registros de Cliente"<<endl;
+           Cliente cli;
+           cli.Cargar();
+           cli.GuardarArchivo();
             RegistroCompra objR;
-            objR.CargarArchivoCompra();
+           // objR.CargarArchivoCompra(idCompra,idCliente);
 
-*/
+            }
 
 
 

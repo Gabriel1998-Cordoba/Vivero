@@ -109,32 +109,31 @@ void Herramientas::Opcion3Compra(int idCompra)
 ///// ECHO POR GABI
 
 
-    // char nombreH[30];
-    // int tam = 0;
-    // DetalleFacturaVenta descripcionFactura;
-    // Herramientas reg, aux;
-    // tam = reg.contarRegistros();
+    char nombreH[30];
+    int tam = 0;
+    DetalleFacturaVenta descripcionFactura;
+    Herramientas reg, aux;
+    tam = reg.contarRegistros();
 
-    // cout << "Ingrese Nombre de la Herramienta: ";
-    // cargarCadena(nombreH, 30);
-    // for (int i = 0; i < tam; i++)
-    // {
-    //     aux = reg.leerRegistroHerramienta(i);
-    //     if (strcmp(aux.getNombre(), nombreH) == 0)
-    //     {
-    //         if (descripcionFactura.cargar(idcompra, aux.getID(), aux.getPrecio()) == true)
-    //         {
-    //             if (descripcionFactura.GuardarEnArchivo())
-    //             {
-    //                 cout << "Guardado Correctamente ";
-    //                 system("pause");
-    //                 return;
-    //             }
-    //         }
-    //     }
-    // }
+    cout << "Ingrese Nombre de la Herramienta: ";
+    cargarCadena(nombreH, 30);
+    for (int i = 0; i < tam; i++)
+    {
+        aux = reg.leerRegistroHerramienta(i);
+        if (strcmp(aux.getNombre(), nombreH) == 0)
+        {
+            if (descripcionFactura.cargar(idCompra, aux.getID(), aux.getPrecio()) == true)
+            {
+                if (descripcionFactura.GuardarEnArchivo())
+                {
+                    cout << "Guardado Correctamente ";
+                    system("pause");
+                    return;
+                }
+            }
+        }
+    }
 
-///// ECHO POR MAXI
 
 
 }

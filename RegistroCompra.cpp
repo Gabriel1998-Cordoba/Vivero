@@ -29,7 +29,7 @@ int RegistroCompra::getIdProveedor(){return _idProveedor;}
 Fecha RegistroCompra::getFecha(){return _Fecha;}
 const char * RegistroCompra:: getModoDePago(){return _modoDePago;}
 
-void RegistroCompra::CargarCompra(/*int idcompra,idcliente*/)
+void RegistroCompra::CargarCompra()//Desarrollar int idcompra,int idcliente
 {
 
 
@@ -53,7 +53,7 @@ void RegistroCompra::CargarCompra(/*int idcompra,idcliente*/)
 
 
     
-    int idCompra,idProveedor;
+    int idCompra,idcliente;
     Fecha f;
     char modoDePago[30];
 
@@ -65,7 +65,7 @@ void RegistroCompra::CargarCompra(/*int idcompra,idcliente*/)
     // tam = objR.contarRegistros();
     // tam++;
 
-    setIdCompra(/*idCompra*/);
+    //setIdCompra(/*idCompra*/);
 //    cout<<"Proveedor: ";
 //     cin>>idProveedor;          setIdcliente(idcliente)  
 // setIdProveedor(idProveedor);

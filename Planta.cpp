@@ -178,74 +178,105 @@ void Planta::Opcion2Compra(){
 }
 void Planta::Opcion3Compra(int idCompra){
 
-    Planta objP;
-    int tam=0,stock,calc=0;
-    bool Encontro=false;
-    tam = objP.contarRegistros();
+    // Planta objP;
+    // int tam=0,stock,calc=0;
+    // bool Encontro=false;
+    // tam = objP.contarRegistros();
 
-    char nombrePlanta[30];
+    // char nombrePlanta[30];
     
-    cout<<"Ingrese Nombre de la Planta:"<<endl;
-    cargarCadena(nombrePlanta,30);
-    cout<<"Ingrese Cuanto la Cantidad quiere Comprar:"<<endl;
-    cin>>stock;
+    // cout<<"Ingrese Nombre de la Planta:"<<endl;
+    // cargarCadena(nombrePlanta,30);
+    // cout<<"Ingrese Cuanto la Cantidad quiere Comprar:"<<endl;
+    // cin>>stock;
 
-    for(int i=0; i<tam; i++){
+    // for(int i=0; i<tam; i++){
 
-        objP = objP.leerRegistroPlanta(i);
+    //     objP = objP.leerRegistroPlanta(i);
 
-        if(strcmp(nombrePlanta,objP.getNombre())==0){
-            Encontro=true;
-        cout<<"//////////////////////////"<<endl;
-            cout<<"Nombre: "<<objP.getNombre()<<endl;
-            cout<<"Precio por Unidad: "<<objP.getPrecio()<<endl;
-            cout<<"TOTAL Stock: "<<objP.getStock()<<endl;
-        cout<<"//////////////////////////"<<endl;
-            cout<<"COMPRA REALIZADA: "<<endl;
-            cout<<"Nombre: "<<objP.getNombre()<<endl;
-            cout<<"subTOTAL: "<<(objP.getPrecio()*stock)<<endl;//mal porque seria subtotal
+    //     if(strcmp(nombrePlanta,objP.getNombre())==0){
+    //         Encontro=true;
+    //     cout<<"//////////////////////////"<<endl;
+    //         cout<<"Nombre: "<<objP.getNombre()<<endl;
+    //         cout<<"Precio por Unidad: "<<objP.getPrecio()<<endl;
+    //         cout<<"TOTAL Stock: "<<objP.getStock()<<endl;
+    //     cout<<"//////////////////////////"<<endl;
+    //         cout<<"COMPRA REALIZADA: "<<endl;
+    //         cout<<"Nombre: "<<objP.getNombre()<<endl;
+    //         cout<<"subTOTAL: "<<(objP.getPrecio()*stock)<<endl;//mal porque seria subtotal
 
             
-            calc=objP.getStock();
-            calc=calc-stock;
+    //         calc=objP.getStock();
+    //         calc=calc-stock;
             
-                if(calc>=0){
-                        objP.setStock(calc);
-                        cout<<"Disponible Stock: "<<objP.getStock()<<endl;
-                        cout<<"//////////////////////////"<<endl<<endl;
-                        //REMPLAZAR STOCK
-                        objP.reemplazarRegistroPlanta(objP,i);
-                        //SE GUARDA EN LA FACTURA
-                        DetalleFacturaCompra objD;
-                        objD.AutoCargar(objP,idCompra);
-                }else{
-                        cout<<"LA COMPRA no se pudo realizar ya que no tenemos el suficiente STOCK"<<endl;
-                        cout<<"Tienes un Stock: "<<objP.getStock()<<endl;
-                        cout<<"//////////////////////////"<<endl<<endl;
+    //             if(calc>=0){
+    //                     objP.setStock(calc);
+    //                     cout<<"Disponible Stock: "<<objP.getStock()<<endl;
+    //                     cout<<"//////////////////////////"<<endl<<endl;
+    //                     //REMPLAZAR STOCK
+    //                     objP.reemplazarRegistroPlanta(objP,i);
+    //                     //SE GUARDA EN LA FACTURA
+    //                     DetalleFacturaCompra objD;
+    //                     objD.AutoCargar(objP,idCompra);
+    //             }else{
+    //                     cout<<"LA COMPRA no se pudo realizar ya que no tenemos el suficiente STOCK"<<endl;
+    //                     cout<<"Tienes un Stock: "<<objP.getStock()<<endl;
+    //                     cout<<"//////////////////////////"<<endl<<endl;
+    //             }
+    //     }
+    // }
+
+    // if(Encontro==false){
+    // cout<<"PLANTA INGRESADA, no fue encontrada"<<endl;
+    // }
+    
+    char nombreP[30];
+    int tam = 0;
+    DetalleFacturaCompra descripcionFactura;
+    Planta reg, aux;
+    tam = reg.contarRegistros();
+
+    cout << "Ingrese Nombre de la Herramienta: ";
+    cargarCadena(nombreP, 30);
+    for (int i = 0; i < tam; i++)
+    {
+        aux = reg.leerRegistroPlanta(i);
+        if (strcmp(aux.getNombre(), nombreP) == 0)
+        {
+            if (descripcionFactura.AutoCargar(idCompra, aux.getID(), aux.getPrecio()) == true)
+            {
+                if (descripcionFactura.GuardarEnArchivo())
+                {
+                    cout << "Guardado Correctamente ";
+                    system("pause");
+                    return;
                 }
+            }
         }
     }
 
-    if(Encontro==false){
-    cout<<"PLANTA INGRESADA, no fue encontrada"<<endl;
-    }
 
 }
 
 void Planta::Opcion4Compra(int idCompra){
-RegistroCompra objR;
+// RegistroCompra objR;
 
-objR = objR.LeerRegistrosPorIdCompra(idCompra);
+// objR = objR.LeerRegistrosPorIdCompra(idCompra);
 
-int indice= objR.getSujeto().getTipoDoc().getIndice();
-cout<<"Indice: "<<indice<<endl;
-int valor = objR.getSujeto().getTipoDoc().getTipoDocu(indice); //TE DEVUELVE NUMERO TipoDocumento
-cout<<"valor: "<<valor<<endl;
+// int indice= objR.getSujeto().getTipoDoc().getIndice();
+// cout<<"Indice: "<<indice<<endl;
+// int valor = objR.getSujeto().getTipoDoc().getTipoDocu(indice); //TE DEVUELVE NUMERO TipoDocumento
+// cout<<"valor: "<<valor<<endl;
 
 
 
-cout<<"VALOR DOCUMENTO"<<endl;
+// cout<<"VALOR DOCUMENTO"<<endl;
 
-            DetalleFacturaCompra objD;
-            objD.MostrarAutoCargarPlanta(valor);
+//             DetalleFacturaCompra objD;
+//             objD.MostrarAutoCargarPlanta(valor);
+
+DetalleFacturaCompra objD;
+
+objD.MostrarAutoCargarPlanta(idCompra);
+
 }

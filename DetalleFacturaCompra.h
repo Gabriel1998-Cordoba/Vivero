@@ -8,19 +8,19 @@
 class DetalleFacturaCompra : public RegistroCompra{
     
 private:
-    int _idDetalleFacturaCompra;
-   // int _idArticulo;
+    int _idArticulo;
     int _idCompra;
     int _cantidad;
     float _precio;
-    int _TipoDeArticulo;// 
-    bool _estado;//
-    char _nombre[30];//
-    Fecha _fecha;//
+   //  int _TipoDeArticulo;
+    bool _estado;
+   //  char _nombre[30];//
+    //Fecha _fecha;//
 
 
 /*--------------------------*/
 //HERRAMIENTA
+// char marca[30];
 /*--------------------------*/
 //PLANTA
 char  _estacion[30];
@@ -45,31 +45,32 @@ const char * getEstacion() const;
 void setEstacion(const char * estacion);
 int tipoAgroquimico() const;
 void setTipoAgroquimico(int tipoAgroquimico);
-int getTipoDeArticulo() const;
-void setTipoDeArticulo(int TipoDeArticulo);
+// int getTipoDeArticulo() const;
+// void setTipoDeArticulo(int TipoDeArticulo);
 bool getEstado() const;
 void setEstado(bool estado);
-const char * getNombre() const;
-void setNombre(const char *nombre);
-Fecha getFecha() const;
-void setFecha(const Fecha &fecha);
-void setDiaMesAnioFecha(int dia,int mes,int anio);
+// const char * getNombre() const;
+// void setNombre(const char *nombre);
+// Fecha getFecha() const;
+
+// void setFecha(const Fecha &fecha);
+// void setDiaMesAnioFecha(int dia,int mes,int anio);
 
 DetalleFacturaCompra();
 ~DetalleFacturaCompra(){}
 
 void AutoCargar(Herramientas objH,int idCompra); //HACER
-void AutoCargar(Planta objP,int idCompra); //HACER
+bool AutoCargar(int idCliente,int idCompra,float precio); //HACER
 void AutoCargar(Agroquimicos objA,int idCompra); //HACER
 
 void MostrarAutoCargarHerramienta(); //HACER
-void MostrarAutoCargarPlanta(int valorDNI); //HACER
+void MostrarAutoCargarPlanta(int valor=-1);
 void MostrarAutoCargarAgroquimicos(); //HACER
 
-
+ bool GuardarEnArchivo();
 int contarRegistros();
 
-int getIdDetalleFacturaCompra() const { return _idDetalleFacturaCompra; }
-void setIdDetalleFacturaCompra(int idDetalleFacturaCompra) { _idDetalleFacturaCompra = idDetalleFacturaCompra; }
+// int getIdDetalleFacturaCompra() const { return _idDetalleFacturaCompra; }
+// void setIdDetalleFacturaCompra(int idDetalleFacturaCompra) { _idDetalleFacturaCompra = idDetalleFacturaCompra; }
 
 };
