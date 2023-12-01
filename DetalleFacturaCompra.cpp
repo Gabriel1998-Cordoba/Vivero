@@ -111,7 +111,7 @@ DetalleFacturaCompra::DetalleFacturaCompra()
     setCantidad(0);
     setPrecio(0);
     // setTipoDeArticulo(0);
-    setEstado(true);
+    setEstado(false);
     // setNombre("");
     // _fecha.setDia(0);
     // _fecha.setMes(0);
@@ -333,4 +333,19 @@ void DetalleFacturaCompra::MostrarAutoCargarAgroquimicos(int valor)
 
     fclose(p);
 
+}
+
+DetalleFacturaCompra DetalleFacturaCompra::leerRegistroIdCompra(int IdComp){
+   DetalleFacturaCompra reg;
+    reg.setEstado(false);
+    FILE *p;
+    p=fopen("detallefacturacompra.dat", "rb");
+    if(p==NULL){
+     cout<<"Error = DetalleFacturaCompra leerRegistroIdCompra(int IdComp)"<<endl;
+     return reg;
+    }
+    fseek(p, sizeof reg*IdComp,0);
+    fread(&reg, sizeof reg,1, p);
+    fclose(p);
+    return reg;
 }

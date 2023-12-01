@@ -630,16 +630,7 @@ void menuPersona(int opcion)
             system("pause");
         }
         break;
-        // /*******************************************************************/
-        // case 2:
-        // {
-        //     system("cls");
-        //     // RegistroCompra objD;
-        //     // objD.();
-        //     system("pause");
-        // }
-        // break;
-        // /*******************************************************************/
+        /*******************************************************************/
         case 2:
         {
             system("cls");
@@ -693,8 +684,14 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         cout << "Opcion 1 ----> Herramientas" << endl;
         cout << "Opcion 2 ----> Plantas" << endl;
         cout << "Opcion 3 ----> Agroquimicos" << endl;
+
+
+
         cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
+
+
         cin >> opcion;
+
         system("cls");
         switch (opcion)
         {
@@ -739,6 +736,7 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         /*******************************************************************/
         case 0:
         {
+                    
             //carga del cliente objcliente
 
 
@@ -760,11 +758,9 @@ do{
            // objR.CargarArchivoCompra(idCompra,idCliente);
 
             }
-
-
-
             system("cls");
             return;
+
         }
         break;
         /*******************************************************************/
@@ -782,6 +778,75 @@ do{
 ///////////////////////////////////////////////////////////////////////////
 void menuVentaPersona(int opcion)
 {
+while (true)
+    {
+        system("cls");
+        cout << "Que quieres Vender?" << endl << endl;
+
+        cout << "Opcion 1 ----> Herramientas" << endl;
+        cout << "Opcion 2 ----> Plantas" << endl;
+        cout << "Opcion 3 ----> Agroquimicos" << endl;
+
+        cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
+
+        cin >> opcion;
+
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            menuVentaHerramientaPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            menuVentaPlantaPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            menuVentaAgroquimicosPersona(opcion);
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+                    
+
+
+
+do{
+            cout << "¿Seguro? ---> SI == 0" << endl;
+            cout << "NO == 1" << endl;
+            cin>>opcion;
+            }while((opcion!=0)&&(opcion!=1));
+
+            system("cls");
+            return;
+
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
 }
 ///////////////////////////////////////////////////////////////////////////
 
@@ -954,7 +1019,7 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
     RegistroCompra objR;
     int tam = 0;
     tam = objR.contarRegistros();
-    int idCompra = -1;
+    idCompra = -1;
     idCompra = tam++;
 
 
@@ -1035,3 +1100,217 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
+void menuVentaPlantaPersona(int opcion){
+while (true)
+    {
+        system("cls");
+        cout << "Que quieres Vender?" << endl
+             << endl;
+        cout << "Opcion 1 ----> " << endl;
+        cout << "Opcion 2 ----> " << endl;
+        cout << "Opcion 3 ----> " << endl;
+        cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+
+/*******************************************************************/
+void menuVentaHerramientaPersona(int opcion){
+while (true)
+    {
+        system("cls");
+        cout << "Que quieres Vender?" << endl
+             << endl;
+        cout << "Opcion 1 ----> " << endl;
+        cout << "Opcion 2 ----> " << endl;
+        cout << "Opcion 3 ----> " << endl;
+        cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+/*******************************************************************/
+void menuVentaAgroquimicosPersona(int opcion){
+while (true)
+    {
+        system("cls");
+        cout << "Que quieres Vender?" << endl
+             << endl;
+        cout << "Opcion 1 ----> " << endl;
+        cout << "Opcion 2 ----> " << endl;
+        cout << "Opcion 3 ----> " << endl;
+        cout << "Opcion 0 ----> salir" << endl;
+        cin >> opcion;
+        system("cls");
+        switch (opcion)
+        {
+        /*******************************************************************/
+        case 1:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 2:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 3:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            system("pause");
+        }
+        break;
+        /*******************************************************************/
+        case 0:
+        {
+            system("cls");
+            cout << "Saliste" << endl;
+            system("pause");
+            return;
+        }
+        break;
+        /*******************************************************************/
+        default:
+        {
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        }
+    }
+}
+/*******************************************************************/

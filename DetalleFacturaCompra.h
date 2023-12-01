@@ -71,6 +71,8 @@ void MostrarAutoCargarAgroquimicos(int valor=-1); //HACER
  bool GuardarEnArchivo();
 int contarRegistros();
 
+DetalleFacturaCompra leerRegistroIdCompra(int IdComp);
+
 // int getIdDetalleFacturaCompra() const { return _idDetalleFacturaCompra; }
 // void setIdDetalleFacturaCompra(int idDetalleFacturaCompra) { _idDetalleFacturaCompra = idDetalleFacturaCompra; }
 

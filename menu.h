@@ -27,6 +27,10 @@ void menuCompraPlantaPersona(int opcion ,int idCompra);
 void menuCompraHerramientaPersona(int opcion ,int idCompra);
 void menuCompraAgroquimicosPersona(int opcion ,int idCompra);
 
+void menuVentaPlantaPersona(int opcion);
+void menuVentaHerramientaPersona(int opcion);
+void menuVentaAgroquimicosPersona(int opcion);
+
 /*****************************************************************************************/
 //                DUEÑO
 void menuDuenio(int opcion);
