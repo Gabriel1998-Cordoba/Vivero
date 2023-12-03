@@ -9,33 +9,33 @@ class RegistroCompra{
 
 private:
 int _idCompra;
-int _idProveedor;
+int _idCliente;
 Fecha _Fecha;
 char _modoDePago[30];
-Sujeto _Sujeto;
+// Sujeto _Sujeto;//este no 
 public:
 
 void setIdCompra(int);
-void setIdProveedor (int );
+void setIdCliente (int );
 void setFecha (Fecha);
 void setFecha (int dia,int mes,int anio);
 void setModoDePago (const char *);
 int getIdCompra();
-int getIdProveedor();
+int getIdCliente();
 Fecha getFecha();
 const char *getModoDePago();
 
-void CargarCompra();
+void CargarCompra(int,int );
 
 void Mostrar();
 
 int contarRegistros();
-void CargarArchivoCompra();
+bool GuardarCompra();
 void MostrarArchivoCompra();
 
 RegistroCompra leerRegistro(int pos);
-RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
+// RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
 
-    Sujeto& getSujeto() { return _Sujeto; }
-    void setSujeto(const Sujeto &Sujeto) { _Sujeto = Sujeto; }
-};
+//     Sujeto& getSujeto() { return _Sujeto; }
+//     void setSujeto(const Sujeto &Sujeto) { _Sujeto = Sujeto; }
+ };

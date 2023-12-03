@@ -546,7 +546,7 @@ void CargarDatosDelDuenio(int opcion)
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
-                objD.CargarDatosDeDuenioEnArchivo(tam, opcion);
+                objD.CargarDatosDeDuenioEnArchivo(tam/*, opcion*/);
                 tam = objD.contarRegistros();
             }
             system("pause");
@@ -668,13 +668,15 @@ void menuCompraPersona(int opcion)
     RegistroCompra objR;
     int tam = 0;
     tam = objR.contarRegistros();
-    int idCompra = -1;
-    idCompra = tam++;
+    int idCompra = 0;
+    idCompra = tam;
 
-cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
+    cout << "Se debe de cargar su Registros de Compra" << endl
+         << endl
+         << endl;
 
-// objR.setIdCompra(idCompra);
-// objR.CargarArchivoCompra();
+    // objR.setIdCompra(idCompra);
+    // objR.CargarArchivoCompra();
 
     while (true)
     {
@@ -685,10 +687,7 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         cout << "Opcion 2 ----> Plantas" << endl;
         cout << "Opcion 3 ----> Agroquimicos" << endl;
 
-
-
         cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
-
 
         cin >> opcion;
 
@@ -699,7 +698,7 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         case 1:
         {
             system("cls");
-            menuCompraHerramientaPersona(opcion,idCompra);
+            menuCompraHerramientaPersona(opcion, idCompra);
             system("pause");
         }
         break;
@@ -707,7 +706,7 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         case 2:
         {
             system("cls");
-            menuCompraPlantaPersona(opcion,idCompra);
+            menuCompraPlantaPersona(opcion, idCompra);
             system("pause");
         }
         break;
@@ -715,7 +714,7 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         case 3:
         {
             system("cls");
-            menuCompraAgroquimicosPersona(opcion,idCompra);
+            menuCompraAgroquimicosPersona(opcion, idCompra);
             system("pause");
         }
         break;
@@ -736,31 +735,36 @@ cout<<"Se debe de cargar su Registros de Compra"<<endl<<endl<<endl;
         /*******************************************************************/
         case 0:
         {
-                    
-            //carga del cliente objcliente
 
+            // carga del cliente objcliente
 
-            //registro de la compra(getIdcliente,idCompra);
+            // registro de la compra(getIdcliente,idCompra);
 
+            do
+            {
+                cout << "¿Seguro? ---> SI == 0" << endl;
+                cout << "NO == 1" << endl;
+                cin >> opcion;
+            } while ((opcion != 0) && (opcion != 1));
 
-do{
-            cout << "¿Seguro? ---> SI == 0" << endl;
-            cout << "NO == 1" << endl;
-            cin>>opcion;
-            }while((opcion!=0)&&(opcion!=1));
-            
-            if(opcion==0){
-            cout<<"ya que esta seguro, ahora debe de cargar su Registros de Cliente"<<endl;
-           Cliente cli;
-           cli.Cargar();
-           cli.GuardarArchivo();
-            RegistroCompra objR;
-           // objR.CargarArchivoCompra(idCompra,idCliente);
-
+            if (opcion == 0)
+            {
+                cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
+                Cliente cli;
+                cli.Cargar();
+                if (cli.GuardarArchivo())
+                {
+                    cout << "se registro correctamente el cliente" << endl;
+                }
+                RegistroCompra objR;
+                objR.CargarCompra(idCompra, cli.getIDCliente());
+                if (objR.GuardarCompra())
+                {
+                    cout << "se registro correctamente la compra " << endl;
+                }
             }
             system("cls");
             return;
-
         }
         break;
         /*******************************************************************/
@@ -778,10 +782,11 @@ do{
 ///////////////////////////////////////////////////////////////////////////
 void menuVentaPersona(int opcion)
 {
-while (true)
+    while (true)
     {
         system("cls");
-        cout << "Que quieres Vender?" << endl << endl;
+        cout << "Que quieres Vender?" << endl
+             << endl;
 
         cout << "Opcion 1 ----> Herramientas" << endl;
         cout << "Opcion 2 ----> Plantas" << endl;
@@ -821,19 +826,16 @@ while (true)
         /*******************************************************************/
         case 0:
         {
-                    
 
-
-
-do{
-            cout << "¿Seguro? ---> SI == 0" << endl;
-            cout << "NO == 1" << endl;
-            cin>>opcion;
-            }while((opcion!=0)&&(opcion!=1));
+            do
+            {
+                cout << "¿Seguro? ---> SI == 0" << endl;
+                cout << "NO == 1" << endl;
+                cin >> opcion;
+            } while ((opcion != 0) && (opcion != 1));
 
             system("cls");
             return;
-
         }
         break;
         /*******************************************************************/
@@ -850,7 +852,7 @@ do{
 }
 ///////////////////////////////////////////////////////////////////////////
 
-void menuCompraPlantaPersona(int opcion,int idCompra)
+void menuCompraPlantaPersona(int opcion, int idCompra)
 {
 
     Planta objP;
@@ -932,7 +934,7 @@ void menuCompraPlantaPersona(int opcion,int idCompra)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraHerramientaPersona(int opcion,int idCompra)
+void menuCompraHerramientaPersona(int opcion, int idCompra)
 {
 
     Herramientas objH;
@@ -1012,7 +1014,7 @@ void menuCompraHerramientaPersona(int opcion,int idCompra)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
+void menuCompraAgroquimicosPersona(int opcion, int idCompra)
 {
 
     Agroquimicos objA;
@@ -1021,7 +1023,6 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
     tam = objR.contarRegistros();
     idCompra = -1;
     idCompra = tam++;
-
 
     system("cls");
 
@@ -1100,8 +1101,9 @@ void menuCompraAgroquimicosPersona(int opcion ,int idCompra)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuVentaPlantaPersona(int opcion){
-while (true)
+void menuVentaPlantaPersona(int opcion)
+{
+    while (true)
     {
         system("cls");
         cout << "Que quieres Vender?" << endl
@@ -1172,8 +1174,9 @@ while (true)
 }
 
 /*******************************************************************/
-void menuVentaHerramientaPersona(int opcion){
-while (true)
+void menuVentaHerramientaPersona(int opcion)
+{
+    while (true)
     {
         system("cls");
         cout << "Que quieres Vender?" << endl
@@ -1243,8 +1246,9 @@ while (true)
     }
 }
 /*******************************************************************/
-void menuVentaAgroquimicosPersona(int opcion){
-while (true)
+void menuVentaAgroquimicosPersona(int opcion)
+{
+    while (true)
     {
         system("cls");
         cout << "Que quieres Vender?" << endl

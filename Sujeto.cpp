@@ -10,8 +10,8 @@ using namespace std;
 //Tipo_Docu Sujeto::getTipoDoc() const { return _TipoDoc; }
 //void Sujeto::setTipoDoc(const Tipo_Docu &TipoDoc) { _TipoDoc = TipoDoc; }
 
-int Sujeto::getIdSujeto() const { return _idSujeto; }
-void Sujeto::setIdSujeto(int idSujeto) { _idSujeto = idSujeto; }
+//int Sujeto::getIdSujeto() const { return _idSujeto; }
+//void Sujeto::setIdSujeto(int idSujeto) { _idSujeto = idSujeto; }
 
 
 const char*Sujeto::getTelefono() const { return _telefono; }
@@ -25,7 +25,7 @@ void Sujeto::setEstado(bool estado) { _estado = estado; }
 const char* Sujeto::getEmail() const { return _email; }
 void Sujeto::setEmail(const char* email) { strcpy(_email, email);}
 
-void Sujeto::CargarSujeto(int totalDeRegistros,int TipoDeArticulo){ //HACER
+void Sujeto::CargarSujeto(int totalDeRegistros/*,int TipoDeArticulo*/){ //HACER
 
 
 char telefono[30];
@@ -36,9 +36,9 @@ _fecha.Cargar();
 _TipoDoc.CargarTipoDocu();
 _direccion.CargarDireccion();
 
-    totalDeRegistros++;
-    cout << "id Sujeto : " << totalDeRegistros<< endl;
-    setIdSujeto(totalDeRegistros);
+    // totalDeRegistros++;
+    // cout << "id Sujeto : " << totalDeRegistros<< endl;
+    // setIdSujeto(totalDeRegistros);
     
     cout<<"Su telefono es: ";
     cargarCadena(telefono,30);
@@ -60,7 +60,7 @@ _fecha.MostrarEnLinea();
 _TipoDoc.MostrarTipoDocu();
 _direccion.MostrarDireccion();
 
-    cout<<"id Sujeto : "<<getIdSujeto()<<endl;;
+    // cout<<"id Sujeto : "<<getIdSujeto()<<endl;;
     cout<<"Su telefono es: "<<getTelefono()<<endl;
     cout<<"Su estado es: "<<getEstado()<<endl;
     cout<<"Su email es: "<<getEmail()<<endl<<endl;

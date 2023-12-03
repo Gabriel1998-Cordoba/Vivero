@@ -8,10 +8,10 @@ void RegistroCompra:: setIdCompra(int idcompra)
 {
     _idCompra=idcompra;
 }
-void RegistroCompra::setIdProveedor (int idProveedor ){
+void RegistroCompra::setIdCliente (int idcliente ){
     
     
-    _idProveedor=idProveedor;
+    _idCliente=idcliente;
 }
 void RegistroCompra::setFecha (Fecha fechita){
     _Fecha=fechita;
@@ -25,11 +25,11 @@ void RegistroCompra:: setModoDePago (const char *modoDePago){
    strcpy(_modoDePago,modoDePago);
 }
 int RegistroCompra::getIdCompra(){return _idCompra;}
-int RegistroCompra::getIdProveedor(){return _idProveedor;}
+int RegistroCompra::getIdCliente(){return _idCliente;}
 Fecha RegistroCompra::getFecha(){return _Fecha;}
 const char * RegistroCompra:: getModoDePago(){return _modoDePago;}
 
-void RegistroCompra::CargarCompra()//Desarrollar int idcompra,int idcliente
+void RegistroCompra::CargarCompra(int idCompra,int idcliente)//Desarrollar int idcompra,int idcliente
 {
 
 
@@ -52,8 +52,9 @@ void RegistroCompra::CargarCompra()//Desarrollar int idcompra,int idcliente
 // setModoDePago(modoDePago);
 
 
-    
-    int idCompra,idcliente;
+    //if(Existe()) A DESARROLLAR, NO PODEMOS TENER IDS REPETIDOS AL GUARDAR ARCHIVO
+  setIdCompra(idCompra);
+  setIdCliente(idcliente);
     Fecha f;
     char modoDePago[30];
 
@@ -126,12 +127,12 @@ system("pause");
 void RegistroCompra::Mostrar()
 {
     cout<<"ID COMPRA: "<<getIdCompra()<<endl;
-    cout<<"ID PROVEEDOR: "<<getIdProveedor()<<endl;
+    cout<<"ID PROVEEDOR: "<<getIdCliente()<<endl;
     _Fecha.MostrarEnLinea();
     cout<<"MODO DE PAGO: "<<getModoDePago()<<endl<<endl;
     
-    int indice = getSujeto().getTipoDoc().getIndice();
-    cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDocu(indice)<<endl;
+    //int indice = getSujeto().getTipoDoc().getIndice();
+    //cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDocu(indice)<<endl;
 
 }
 
@@ -145,23 +146,24 @@ int RegistroCompra::contarRegistros(){
         return tam/sizeof(RegistroCompra);
     }
 
-void RegistroCompra::CargarArchivoCompra(){
+bool RegistroCompra::GuardarCompra(){
 FILE *p;
-RegistroCompra ClassM;
+// RegistroCompra ClassM;Se activa el guardado del archivo cuando el obj  llama al metodo
 
 p=fopen("registrocompra.dat","ab");
 if(p==NULL){
     cout<<"ERROR de ARCHIVO"<<endl;
     system("pause");
+    return false;
 }
 
 
-ClassM.CargarCompra();
+// ClassM.CargarCompra();
 
-fwrite(&ClassM,sizeof (RegistroCompra),1,p);
+bool escribio=fwrite(/*&ClassM*/this,sizeof (RegistroCompra),1,p);
 
 fclose(p);
-
+return escribio;
 
 }
 
@@ -193,20 +195,20 @@ RegistroCompra RegistroCompra::leerRegistro(int pos){
         return reg;
     }
 
-RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra){
-    RegistroCompra reg;
-    FILE *p;
-    p=fopen("registrocompra.dat", "rb");
-    if(p==NULL){
-        cout<<"NO PUDO LEERLO : RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra)"<<endl;
-         return reg;
-    }
-    while(fread(&reg, sizeof reg,1, p)){
-        if(reg.getIdCompra() == IdCompra){
-            fclose(p);
-            return reg;
-        }
-    }
-    fclose(p);
-    return reg;
-}
+// RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra){
+//     RegistroCompra reg;
+//     FILE *p;
+//     p=fopen("registrocompra.dat", "rb");
+//     if(p==NULL){
+//         cout<<"NO PUDO LEERLO : RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra)"<<endl;
+//          return reg;
+//     }
+//     while(fread(&reg, sizeof reg,1, p)){
+//         if(reg.getIdCompra() == IdCompra){
+//             fclose(p);
+//             return reg;
+//         }
+//     }
+//     fclose(p);
+//     return reg;
+// }

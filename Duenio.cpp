@@ -4,9 +4,9 @@ using namespace std;
 
 #include"Duenio.h"
 
-void Duenio::CargarDuenio(int totalDeRegistros,int TipoDeArticulo){
+void Duenio::CargarDuenio(int totalDeRegistros/*,int TipoDeArticulo*/){
 
-Sujeto::CargarSujeto(totalDeRegistros,TipoDeArticulo);
+Sujeto::CargarSujeto(totalDeRegistros/*,TipoDeArticulo*/);
 
 float sueldo;
 
@@ -26,7 +26,7 @@ cout<<"Su Sueldo es: "<<getSueldo()<<endl;
 cout<<"Su id Duenio es: "<<GetIdDuenio()<<endl<<endl;
 }
 
-void Duenio::CargarDatosDeDuenioEnArchivo(int totalDeRegistros,int TipoDeArticulo){
+void Duenio::CargarDatosDeDuenioEnArchivo(int totalDeRegistros/*,int TipoDeArticulo*/){
 FILE *p;
 Duenio ClassM;
 
@@ -37,7 +37,7 @@ if(p==NULL){
 }
 
 
-ClassM.CargarDuenio(totalDeRegistros,TipoDeArticulo);
+ClassM.CargarDuenio(totalDeRegistros/*,TipoDeArticulo*/);
 fwrite(&ClassM,sizeof (Duenio),1,p);
 
 

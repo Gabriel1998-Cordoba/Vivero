@@ -12,4 +12,5 @@ const char *getApellido();
 void Cargar();
 void Mostrar();
 bool GuardarArchivo();
+bool LeerArchivo(int);//2/12/2023 gabi desarrollo
 };

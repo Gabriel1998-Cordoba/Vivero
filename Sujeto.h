@@ -10,7 +10,7 @@ class Sujeto{ //class Sujeto : public Fecha,public Tipo_Docu, public Direccion
         Tipo_Docu _TipoDoc;
         Direccion _direccion;
         Fecha _fecha;
-        int _idSujeto;
+      //  int _idSujeto;
 
         char _telefono[30];
         bool _estado;
@@ -18,8 +18,8 @@ class Sujeto{ //class Sujeto : public Fecha,public Tipo_Docu, public Direccion
 
     public:
         
-        int getIdSujeto() const;
-        void setIdSujeto(int idSujeto);
+        // int getIdSujeto() const;
+        // void setIdSujeto(int idSujeto);
 
         const char*getTelefono() const;
         void setTelefono(const char* telefono);
@@ -30,7 +30,7 @@ class Sujeto{ //class Sujeto : public Fecha,public Tipo_Docu, public Direccion
         const char* getEmail() const;
         void setEmail(const char* email);
 
-        void CargarSujeto(int totalDeRegistros,int TipoDeArticulo);
+        void CargarSujeto(int totalDeRegistros/*,int TipoDeArticulo*/);
         void MostrarSujeto();
 
         Tipo_Docu getTipoDoc() const { return _TipoDoc; }
