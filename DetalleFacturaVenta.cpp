@@ -42,6 +42,16 @@ bool DetalleFacturaVenta::cargar(int idArticulo,int idcompra,float precio)
 return true;
     
 }
+
+void DetalleFacturaVenta::mostrar(){
+    cout<<"id Detalle Factura Compra: "<<getIdVenta()<<endl;
+    cout<<"ID Articulo: "<<getIdArticulo()<<endl;
+    cout<<"Cantidad: "<<getCantidad()<<endl;
+    cout<<"Precio Unitario: "<<getPrecioUnitario()<<endl;
+    cout<<"Subtotal: "<<getSubtotal()<<endl;
+    cout<<"Precio Total: "<<getPrecioTotal()<<endl;
+}
+
 bool DetalleFacturaVenta::GuardarEnArchivo()
 {
     FILE *p;
@@ -54,4 +64,24 @@ bool DetalleFacturaVenta::GuardarEnArchivo()
     bool escribio=fwrite(this,sizeof(DetalleFacturaVenta),1,p);
     fclose(p);
     return escribio;
+}
+
+void DetalleFacturaVenta::MostrarDetalleDeFacturaCompraCompleto(){
+
+DetalleFacturaVenta ClassM;
+    FILE *p;
+    p=fopen("DetalleFacturaVenta.dat","ab");
+    if(p==NULL){
+        cout<<"ERROR de ARCHIVO"<<endl;
+        system("pause");
+    }
+
+while(fread(&ClassM,sizeof (DetalleFacturaVenta),1,p)==1){
+ClassM.mostrar();
+cout<<"//////////////////"<<endl;
+}
+
+fclose(p);
+
+
 }

@@ -33,5 +33,6 @@ void setPrecioTotal(float ) ;
  void mostrar();
  bool GuardarEnArchivo();
 
+void MostrarDetalleDeFacturaCompraCompleto();
 
 };
