@@ -199,7 +199,7 @@ void Agroquimicos::Opcion3Compra(int idCompra){
 void Agroquimicos::Opcion4Compra(int idCompra){
 DetalleFacturaCompra objD;
 
-objD.MostrarAutoCargarAgroquimicos(idCompra);
+//objD.MostrarAutoCargarAgroquimicos(idCompra);
 
 }
 // void Agroquimicos::Opcion4Compra(){

@@ -126,8 +126,8 @@ system("pause");
 
 void RegistroCompra::Mostrar()
 {
-    cout<<"ID COMPRA: "<<getIdCompra()<<endl;
-    cout<<"ID PROVEEDOR: "<<getIdCliente()<<endl;
+    cout<<"ID COMPRA: "<<getIdCompra()+1<<endl;
+    cout<<"ID PROVEEDOR: "<<getIdCliente()+1<<endl;
     _Fecha.MostrarEnLinea();
     cout<<"MODO DE PAGO: "<<getModoDePago()<<endl<<endl;
     

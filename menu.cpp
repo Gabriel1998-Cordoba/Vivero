@@ -546,7 +546,7 @@ void CargarDatosDelDuenio(int opcion)
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
-                objD.CargarDatosDeDuenioEnArchivo(tam/*, opcion*/);
+                objD.CargarDatosDeDuenioEnArchivo(tam /*, opcion*/);
                 tam = objD.contarRegistros();
             }
             system("pause");
@@ -752,15 +752,29 @@ void menuCompraPersona(int opcion)
                 cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
                 Cliente cli;
                 cli.Cargar();
-                if (cli.GuardarArchivo())
+                if (!Existe(cli))
                 {
-                    cout << "se registro correctamente el cliente" << endl;
+                    if (cli.GuardarArchivo())
+                    {
+                        cout << "se registro correctamente el cliente" << endl;
+                    }
+                    RegistroCompra objR;
+                    objR.CargarCompra(idCompra, cli.getIDCliente());
+                    if (objR.GuardarCompra())
+                    {
+                        cout << "se registro correctamente la compra " << endl;
+                    }
                 }
-                RegistroCompra objR;
-                objR.CargarCompra(idCompra, cli.getIDCliente());
-                if (objR.GuardarCompra())
+                else
                 {
-                    cout << "se registro correctamente la compra " << endl;
+
+                    cout << "El cliente ya existe " << endl;
+                    RegistroCompra objR;
+                    objR.CargarCompra(idCompra, cli.getIDCliente());
+                    if (objR.GuardarCompra())
+                    {
+                        cout << "se registro correctamente la compra " << endl;
+                    }
                 }
             }
             system("cls");

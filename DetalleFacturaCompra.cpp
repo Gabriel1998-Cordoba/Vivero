@@ -6,8 +6,9 @@ using namespace std;
 #include "DetalleFacturaCompra.h"
 #include "RegistroCompra.h"
 
-void DetalleFacturaCompra:: setIdArticulo(int idArticulo){
-    _idArticulo=idArticulo;
+void DetalleFacturaCompra::setIdArticulo(int idArticulo)
+{
+    _idArticulo = idArticulo;
 }
 void DetalleFacturaCompra::setIdCompra(int idCompra)
 {
@@ -15,7 +16,7 @@ void DetalleFacturaCompra::setIdCompra(int idCompra)
 }
 void DetalleFacturaCompra::setCantidad(int cantidad) { _cantidad = cantidad; }
 void DetalleFacturaCompra::setPrecio(float precio) { _precio = precio; }
-// int DetalleFacturaCompra::getIdArticulo(){return _idArticulo;}
+int DetalleFacturaCompra::getIdArticulo() { return _idArticulo; }
 int DetalleFacturaCompra::getIdCompra() { return _idCompra; }
 int DetalleFacturaCompra::getCantidad() { return _cantidad; }
 float DetalleFacturaCompra::getPrecio() { return _precio; }
@@ -24,49 +25,51 @@ void DetalleFacturaCompra::Mostrar()
 {
     // cout<<"ID Articulo: "<<getIdArticulo()<<endl;
     cout << "ID Compra: " << getIdCompra() << endl;
+    cout << "ID Articulo: " << getIdArticulo() << endl;
     cout << "Cantidad: " << getCantidad() << endl;
     cout << "Precio: " << getPrecio() << endl;
 }
-void DetalleFacturaCompra::MostrarPlanta()
-{
-    // getFecha().MostrarEnLinea();
-    //cout << "ID Detalle Factura Compra: " << getIdDetalleFacturaCompra() << endl;
-    cout << "ID Compra: " << getIdCompra() << endl;
-    cout << "Cantidad: " << getCantidad() << endl;
-    cout << "Precio: " << getPrecio() << endl;
-    cout << "Estacion: " << getEstacion() << endl;
-    cout << "Estado: " << getEstado() << endl
-         << endl;
+// void DetalleFacturaCompra::MostrarFacturaCompra()
+// {
+//     // getFecha().MostrarEnLinea();
+//     //cout << "ID Detalle Factura Compra: " << getIdDetalleFacturaCompra() << endl;
+//     cout << "ID Compra: " << getIdCompra() << endl;
+//     cout << "Cantidad: " << getCantidad() << endl;
+//     cout << "Precio: " << getPrecio() << endl;
+//     cout << "Estacion: " << getEstacion() << endl;
+//     cout << "Estado: " << getEstado() << endl
+//          << endl;
 
-    // getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
-    // cout<<getIdDetalleFacturaCompra(); cout<<"\t\t";
-    // cout<<getIdArticulo(); cout<<"\t\t";
-    // cout<<getIdCompra(); cout<<"\t\t";
-    // cout<<getCantidad(); cout<<"\t\t";
-    // cout<<getPrecio(); cout<<"\t";
-    // cout<<getEstacion(); cout<<"\t\t";
-    // cout<<getEstado()<<endl;
-}
-void DetalleFacturaCompra::MostrarAgroquimicos()
-{
-    // getFecha().MostrarEnLinea();
-    //cout << "ID Detalle Factura Compra: " << getIdDetalleFacturaCompra() << endl;
-    cout << "ID Compra: " << getIdCompra() << endl;
-    cout << "Cantidad: " << getCantidad() << endl;
-    cout << "Precio: " << getPrecio() << endl;
-    cout << "Estacion: " << getEstacion() << endl;
-    cout << "estacion: " << getEstacion() << endl;
-    cout << "Estado: " << getEstado() << endl<< endl;
+//     // getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
+//     // cout<<getIdDetalleFacturaCompra(); cout<<"\t\t";
+//     // cout<<getIdArticulo(); cout<<"\t\t";
+//     // cout<<getIdCompra(); cout<<"\t\t";
+//     // cout<<getCantidad(); cout<<"\t\t";
+//     // cout<<getPrecio(); cout<<"\t";
+//     // cout<<getEstacion(); cout<<"\t\t";
+//     // cout<<getEstado()<<endl;
+// }
+// void DetalleFacturaCompra::MostrarAgroquimicos()
+// {
+//     // getFecha().MostrarEnLinea();
+//     // cout << "ID Detalle Factura Compra: " << getIdDetalleFacturaCompra() << endl;
+//     cout << "ID Compra: " << getIdCompra() << endl;
+//     cout << "Cantidad: " << getCantidad() << endl;
+//     cout << "Precio: " << getPrecio() << endl;
+//     cout << "Estacion: " << getEstacion() << endl;
+//     cout << "estacion: " << getEstacion() << endl;
+//     cout << "Estado: " << getEstado() << endl
+//          << endl;
 
-    // getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
-    // cout<<getIdDetalleFacturaCompra(); cout<<"\t\t";
-    // cout<<getIdArticulo(); cout<<"\t\t";
-    // cout<<getIdCompra(); cout<<"\t\t";
-    // cout<<getCantidad(); cout<<"\t\t";
-    // cout<<getPrecio(); cout<<"\t";
-    // cout<<getEstacion(); cout<<"\t\t";
-    // cout<<getEstado()<<endl;
-}
+//     // getFecha().MostrarEnLineaSinSaltoDeLinea(); cout<<"\t";
+//     // cout<<getIdDetalleFacturaCompra(); cout<<"\t\t";
+//     // cout<<getIdArticulo(); cout<<"\t\t";
+//     // cout<<getIdCompra(); cout<<"\t\t";
+//     // cout<<getCantidad(); cout<<"\t\t";
+//     // cout<<getPrecio(); cout<<"\t";
+//     // cout<<getEstacion(); cout<<"\t\t";
+//     // cout<<getEstado()<<endl;
+// }
 
 // int DetalleFacturaCompra::getTipoDeArticulo() const { return _TipoDeArticulo; }
 // void DetalleFacturaCompra::setTipoDeArticulo(int TipoDeArticulo) { _TipoDeArticulo = TipoDeArticulo; }
@@ -87,11 +90,11 @@ void DetalleFacturaCompra::setEstado(bool estado) { _estado = estado; }
 //     _fecha.setAnio(anio);
 // }
 
-int DetalleFacturaCompra::tipoAgroquimico() const { return _tipoAgroquimico; }
-void DetalleFacturaCompra::setTipoAgroquimico(int tipoAgroquimico) { _tipoAgroquimico = tipoAgroquimico; }
+// int DetalleFacturaCompra::tipoAgroquimico() const { return _tipoAgroquimico; }
+// void DetalleFacturaCompra::setTipoAgroquimico(int tipoAgroquimico) { _tipoAgroquimico = tipoAgroquimico; }
 
-const char *DetalleFacturaCompra::getEstacion() const { return _estacion; }
-void DetalleFacturaCompra::setEstacion(const char *estacion) { strcpy(_estacion, estacion); }
+// const char *DetalleFacturaCompra::getEstacion() const { return _estacion; }
+// void DetalleFacturaCompra::setEstacion(const char *estacion) { strcpy(_estacion, estacion); }
 //
 DetalleFacturaCompra::DetalleFacturaCompra()
 {
@@ -116,8 +119,7 @@ DetalleFacturaCompra::DetalleFacturaCompra()
     // _fecha.setDia(0);
     // _fecha.setMes(0);
     // _fecha.setAnio(0);
-    setEstacion("");
-    setTipoAgroquimico(0);
+  
 }
 
 /**************************************************************/
@@ -156,12 +158,12 @@ bool DetalleFacturaCompra::AutoCargar(int idArticulo, int idCompra, float precio
         return false;
     }
     setPrecio(precio);
-    
-    //setTipoDeArticulo(2);
-    //setEstado(getEstado());
-    //setDiaMesAnioFecha((getFecha().getDia()),(getFecha().getMes()),(getFecha().getAnio()));
-    //setEstacion(getEstacion());
-    
+
+    // setTipoDeArticulo(2);
+    // setEstado(getEstado());
+    // setDiaMesAnioFecha((getFecha().getDia()),(getFecha().getMes()),(getFecha().getAnio()));
+    // setEstacion(getEstacion());
+
     return true;
     // DetalleFacturaCompra objD;
 
@@ -222,56 +224,58 @@ void DetalleFacturaCompra::AutoCargar(Agroquimicos objA, int idCompra)
     // y el archivo se llamara detallefacturacompra.dat
 }
 /**************************************************************/
-void DetalleFacturaCompra::MostrarAutoCargarPlanta(int valor)
-{
-    DetalleFacturaCompra ClassM;
-    FILE *p;
+// void DetalleFacturaCompra::MostrarAutoCargarPlanta(int valor)
+// {
+//     DetalleFacturaCompra ClassM;
+//     FILE *p;
 
-    int band = true;
-    int aux;
+//     int band = true;
+//     int aux;
 
-    p = fopen("detallefacturacompra.dat", "rb");
-    if (p == NULL)
-    {
-        cout << "ERROR de ARCHIVO" << endl;
-        system("pause");
-    }
+//     p = fopen("detallefacturacompra.dat", "rb");
+//     if (p == NULL)
+//     {
+//         cout << "ERROR de ARCHIVO" << endl;
+//         system("pause");
+//     }
 
-    while (fread(&ClassM, sizeof(DetalleFacturaCompra), 1, p) == 1)
-    {
-        if (band == true)
-        {
-            // cout<<"Fecha"; cout<<"\t";
-            // cout<<"ID Detalle Factura Compra"; cout<<"\t";
-            // cout<<"ID Articulo"; cout<<"\t";
-            // cout<<"ID Compra"; cout<<"\t";
-            // cout<<"Cantidad"; cout<<"\t";
-            // cout<<"Precio"; cout<<"\t";
-            // cout<<"Estacion"; cout<<"\t";
-            // cout<<"Estado";  cout<<"\t";
-            // cout<<endl;
-            band = false;
-        }
-        ClassM.MostrarPlanta();
-            // if(valor==-1){
-            //     ClassM.MostrarPlanta();
-            //     cout<<"retorno todo"<<endl;
+//     while (fread(&ClassM, sizeof(DetalleFacturaCompra), 1, p) == 1)
+//     {
+//         if (band == true)
+//         {
+//             // cout<<"Fecha"; cout<<"\t";
+//             // cout<<"ID Detalle Factura Compra"; cout<<"\t";
+//             // cout<<"ID Articulo"; cout<<"\t";
+//             // cout<<"ID Compra"; cout<<"\t";
+//             // cout<<"Cantidad"; cout<<"\t";
+//             // cout<<"Precio"; cout<<"\t";
+//             // cout<<"Estacion"; cout<<"\t";
+//             // cout<<"Estado";  cout<<"\t";
+//             // cout<<endl;
+//             band = false;
+//         }
+//         ClassM.MostrarPlanta();
+//             // if(valor==-1){
+//             //     ClassM.MostrarPlanta();
+//             //     cout<<"retorno todo"<<endl;
 
-            // }else if((aux=(ClassM.getIdCompra()))==valor){
-            //     ClassM.MostrarPlanta();
-            // }
+//             // }else if((aux=(ClassM.getIdCompra()))==valor){
+//             //     ClassM.MostrarPlanta();
+//             // }
 
-    }
+//     }
 
-    fclose(p);
-}
+//     fclose(p);
+// }
 /**************************************************************/
 int DetalleFacturaCompra::contarRegistros()
 {
     FILE *p;
     p = fopen("detallefacturacompra.dat", "rb");
     if (p == NULL)
+    {
         return 0;
+    }
     fseek(p, 0, 2);
     int tam = ftell(p);
     fclose(p);
@@ -292,60 +296,59 @@ bool DetalleFacturaCompra::GuardarEnArchivo()
     return escribio;
 }
 
-void DetalleFacturaCompra::MostrarAutoCargarAgroquimicos(int valor)
+// void DetalleFacturaCompra::MostrarAutoCargarAgroquimicos(int valor)
+// {
+//     DetalleFacturaCompra ClassM;
+//     FILE *p;
+//     int band = true;
+//     int aux;
+
+//     p = fopen("detallefacturacompra.dat", "rb");
+//     if (p == NULL)
+//     {
+//         cout << "ERROR de ARCHIVO" << endl;
+//         system("pause");
+//     }
+//     while (fread(&ClassM, sizeof(DetalleFacturaCompra), 1, p) == 1)
+//     {
+//         if (band == true)
+//         {
+//             // cout<<"Fecha"; cout<<"\t";
+//             // cout<<"ID Detalle Factura Compra"; cout<<"\t";
+//             // cout<<"ID Articulo"; cout<<"\t";
+//             // cout<<"ID Compra"; cout<<"\t";
+//             // cout<<"Cantidad"; cout<<"\t";
+//             // cout<<"Precio"; cout<<"\t";
+//             // cout<<"Estacion"; cout<<"\t";
+//             // cout<<"Estado";  cout<<"\t";
+//             // cout<<endl;
+//             band = false;
+//         }
+//         ClassM.MostrarAgroquimicos();
+//         // if(valor==-1){
+//         //     ClassM.MostrarPlanta();
+//         //     cout<<"retorno todo"<<endl;
+//         // }else if((aux=(ClassM.getIdCompra()))==valor){
+//         //     ClassM.MostrarPlanta();
+//         // }
+//     }
+
+//     fclose(p);
+// }
+
+DetalleFacturaCompra DetalleFacturaCompra::leerRegistroIdCompra(int pos)
 {
-    DetalleFacturaCompra ClassM;
-    FILE *p;
-    int band = true;
-    int aux;
-
-    p = fopen("detallefacturacompra.dat", "rb");
-    if (p == NULL)
-    {
-        cout << "ERROR de ARCHIVO" << endl;
-        system("pause");
-    }
-    while (fread(&ClassM, sizeof(DetalleFacturaCompra), 1, p) == 1)
-    {
-        if (band == true)
-        {
-            // cout<<"Fecha"; cout<<"\t";
-            // cout<<"ID Detalle Factura Compra"; cout<<"\t";
-            // cout<<"ID Articulo"; cout<<"\t";
-            // cout<<"ID Compra"; cout<<"\t";
-            // cout<<"Cantidad"; cout<<"\t";
-            // cout<<"Precio"; cout<<"\t";
-            // cout<<"Estacion"; cout<<"\t";
-            // cout<<"Estado";  cout<<"\t";
-            // cout<<endl;
-            band = false;
-        }
-        ClassM.MostrarAgroquimicos();
-            // if(valor==-1){
-            //     ClassM.MostrarPlanta();
-            //     cout<<"retorno todo"<<endl;
-            // }else if((aux=(ClassM.getIdCompra()))==valor){
-            //     ClassM.MostrarPlanta();
-            // }
-    }
-
-
-
-    fclose(p);
-
-}
-
-DetalleFacturaCompra DetalleFacturaCompra::leerRegistroIdCompra(int IdComp){
-   DetalleFacturaCompra reg;
+    DetalleFacturaCompra reg;
     reg.setEstado(false);
     FILE *p;
-    p=fopen("detallefacturacompra.dat", "rb");
-    if(p==NULL){
-     cout<<"Error = DetalleFacturaCompra leerRegistroIdCompra(int IdComp)"<<endl;
-     return reg;
+    p = fopen("DetalleFacturaCompra.dat", "rb");
+    if (p == NULL)
+    {
+        cout << "Error = DetalleFacturaCompra leerRegistroIdCompra(int IdComp)" << endl;
+        return reg;
     }
-    fseek(p, sizeof reg*IdComp,0);
-    fread(&reg, sizeof reg,1, p);
+    fseek(p, sizeof reg * pos, 0);
+    fread(&reg, sizeof reg, 1, p);
     fclose(p);
     return reg;
 }

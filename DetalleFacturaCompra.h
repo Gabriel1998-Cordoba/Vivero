@@ -40,12 +40,12 @@ int getIdCompra();
 int getCantidad();
 float getPrecio();
 void Mostrar();
-void MostrarPlanta();
-void MostrarAgroquimicos();
-const char * getEstacion() const;
-void setEstacion(const char * estacion);
-int tipoAgroquimico() const;
-void setTipoAgroquimico(int tipoAgroquimico);
+//void MostrarPlanta();
+//void MostrarAgroquimicos();
+//const char * getEstacion() const;
+//void setEstacion(const char * estacion);
+//int tipoAgroquimico() const;
+//void setTipoAgroquimico(int tipoAgroquimico);
 // int getTipoDeArticulo() const;
 // void setTipoDeArticulo(int TipoDeArticulo);
 bool getEstado() const;
@@ -64,9 +64,9 @@ void AutoCargar(Herramientas objH,int idCompra); //HACER
 bool AutoCargar(int idCliente,int idCompra,float precio); //HACER
 void AutoCargar(Agroquimicos objA,int idCompra); //HACER
 
-void MostrarAutoCargarHerramienta(); //HACER
-void MostrarAutoCargarPlanta(int valor=-1);
-void MostrarAutoCargarAgroquimicos(int valor=-1); //HACER
+// void MostrarAutoCargarHerramienta(); //HACER
+// //void MostrarAutoCargarPlanta(int valor=-1);
+// void MostrarAutoCargarAgroquimicos(int valor=-1); //HACER
 
  bool GuardarEnArchivo();
 int contarRegistros();

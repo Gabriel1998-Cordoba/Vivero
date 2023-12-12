@@ -68,3 +68,32 @@ bool Cliente::LeerArchivo(int indice)
     fclose(p);
     return leyo;
 }
+/*--------------------------------------------------*/
+
+ int contarRegistros()
+    {
+        FILE *p;
+        p = fopen("Cliente.dat", "rb");
+        if (p == NULL)
+            return -1;
+        fseek(p, 0, 2);
+        int tam = ftell(p);
+        fclose(p);
+        return tam / sizeof(Cliente);
+    }
+bool Existe( Cliente cli )
+{
+    Cliente reg;
+    int tam = 0;
+    tam = contarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+      reg.LeerArchivo(i);
+        if (cli.getIDCliente() ==reg.getIDCliente())
+        {
+            return true;
+        }
+    }
+    return false;
+}

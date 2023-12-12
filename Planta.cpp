@@ -243,11 +243,11 @@ void Planta::Opcion3Compra(int idCompra){
         aux = reg.leerRegistroPlanta(i);
         if (strcmp(aux.getNombre(), nombreP) == 0)
         {
-            if (descripcionFactura.AutoCargar(idCompra, aux.getID(), aux.getPrecio()) == true)
+            if (descripcionFactura.AutoCargar(aux.getID(),idCompra, aux.getPrecio()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    cout << "Guardado Correctamente ";
+                    cout << "Guardado Correctamente el detalle de factura";
                     system("pause");
                     return;
                 }
@@ -275,8 +275,8 @@ void Planta::Opcion4Compra(int idCompra){
 //             DetalleFacturaCompra objD;
 //             objD.MostrarAutoCargarPlanta(valor);
 
-DetalleFacturaCompra objD;
+//DetalleFacturaCompra objD;
 
-objD.MostrarAutoCargarPlanta(idCompra);
+//objD.MostrarAutoCargarPlanta(idCompra);
 
 }

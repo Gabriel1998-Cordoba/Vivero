@@ -14,3 +14,6 @@ void Mostrar();
 bool GuardarArchivo();
 bool LeerArchivo(int);//2/12/2023 gabi desarrollo
 };
+/////
+int ContarRegistros();
+bool Existe(Cliente cli );

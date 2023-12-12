@@ -100,6 +100,7 @@ void Herramientas::ListarHerramienta()
 
 void Herramientas::Opcion1Compra()
 {
+    ListarHerramienta();
 }
 void Herramientas::Opcion2Compra()
 {
