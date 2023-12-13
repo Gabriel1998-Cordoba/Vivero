@@ -243,7 +243,7 @@ void Planta::Opcion3Compra(int idCompra){
         aux = reg.leerRegistroPlanta(i);
         if (strcmp(aux.getNombre(), nombreP) == 0)
         {
-            if (descripcionFactura.AutoCargar(aux.getID(),idCompra, aux.getPrecio()) == true)
+            if (descripcionFactura.AutoCargar(aux.getID(),idCompra, aux.getPrecio(),aux.getTipoDeArticulo()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {

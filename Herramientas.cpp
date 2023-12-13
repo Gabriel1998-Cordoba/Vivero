@@ -4,7 +4,7 @@
 using namespace std;
 
 #include "FuncionesGlobales.h"
-#include "DetalleFacturaVenta.h"
+#include "DetalleFacturaCompra.h"
 #include "Articulo.h"
 #include "Herramientas.h"
 
@@ -112,7 +112,7 @@ void Herramientas::Opcion3Compra(int idCompra)
 
     char nombreH[30];
     int tam = 0;
-    DetalleFacturaVenta descripcionFactura;
+    DetalleFacturaCompra descripcionFactura;
     Herramientas reg, aux;
     tam = reg.contarRegistros();
 
@@ -123,7 +123,7 @@ void Herramientas::Opcion3Compra(int idCompra)
         aux = reg.leerRegistroHerramienta(i);
         if (strcmp(aux.getNombre(), nombreH) == 0)
         {
-            if (descripcionFactura.cargar(idCompra, aux.getID(), aux.getPrecio()) == true)
+            if (descripcionFactura.AutoCargar(aux.getID(),idCompra, aux.getPrecio(), aux.getTipoDeArticulo()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {

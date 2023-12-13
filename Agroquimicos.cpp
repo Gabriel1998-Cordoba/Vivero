@@ -182,7 +182,7 @@ void Agroquimicos::Opcion3Compra(int idCompra){
         aux = reg.leerRegistroPlanta(i);
         if (strcmp(aux.getNombre(), nombreP) == 0)
         {
-            if (descripcionFactura.AutoCargar(idCompra, aux.getID(), aux.getPrecio()) == true)
+            if (descripcionFactura.AutoCargar(idCompra, aux.getID(), aux.getPrecio(),aux.getTipoDeArticulo()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {

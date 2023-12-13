@@ -16,18 +16,20 @@ void DetalleFacturaCompra::setIdCompra(int idCompra)
 }
 void DetalleFacturaCompra::setCantidad(int cantidad) { _cantidad = cantidad; }
 void DetalleFacturaCompra::setPrecio(float precio) { _precio = precio; }
+void DetalleFacturaCompra::setTipoDeArticulo(int tipoArticulo){_TipoDeArticulo=tipoArticulo;}//prueba
 int DetalleFacturaCompra::getIdArticulo() { return _idArticulo; }
 int DetalleFacturaCompra::getIdCompra() { return _idCompra; }
 int DetalleFacturaCompra::getCantidad() { return _cantidad; }
 float DetalleFacturaCompra::getPrecio() { return _precio; }
-
+int DetalleFacturaCompra::getTipoDeArticulo(){return _TipoDeArticulo;}
 void DetalleFacturaCompra::Mostrar()
 {
     // cout<<"ID Articulo: "<<getIdArticulo()<<endl;
-    cout << "ID Compra: " << getIdCompra() << endl;
+    cout << "ID Compra: " << getIdCompra()  << endl;
     cout << "ID Articulo: " << getIdArticulo() << endl;
     cout << "Cantidad: " << getCantidad() << endl;
     cout << "Precio: " << getPrecio() << endl;
+    cout<<"Tipo Articulo: "<<getTipoDeArticulo()<<endl;
 }
 // void DetalleFacturaCompra::MostrarFacturaCompra()
 // {
@@ -123,8 +125,8 @@ DetalleFacturaCompra::DetalleFacturaCompra()
 }
 
 /**************************************************************/
-void DetalleFacturaCompra::AutoCargar(Herramientas objH, int idCompra)
-{
+//void DetalleFacturaCompra::AutoCargar(Herramientas objH, int idCompra)
+//{
 
     // AHI que armar el COMPRa y VENTA de
 
@@ -137,9 +139,9 @@ void DetalleFacturaCompra::AutoCargar(Herramientas objH, int idCompra)
 
     // hacer un calculo para guardar dentro de un archivo con 'ab'
     // y el archivo se llamara detallefacturacompra.dat
-}
+//}
 /**************************************************************/
-bool DetalleFacturaCompra::AutoCargar(int idArticulo, int idCompra, float precio)
+bool DetalleFacturaCompra::AutoCargar(int idArticulo, int idCompra, float precio,int tipoArticulo)//prueba
 {
 
     // AHI que armar el COMPRa y VENTA de
@@ -158,6 +160,7 @@ bool DetalleFacturaCompra::AutoCargar(int idArticulo, int idCompra, float precio
         return false;
     }
     setPrecio(precio);
+    setTipoDeArticulo(tipoArticulo);//prueba
 
     // setTipoDeArticulo(2);
     // setEstado(getEstado());
@@ -207,8 +210,8 @@ bool DetalleFacturaCompra::AutoCargar(int idArticulo, int idCompra, float precio
     // fclose(p);
 }
 /**************************************************************/
-void DetalleFacturaCompra::AutoCargar(Agroquimicos objA, int idCompra)
-{
+//void DetalleFacturaCompra::AutoCargar(Agroquimicos objA, int idCompra)
+//{
 
     // AHI que armar el COMPRa y VENTA de
 
@@ -222,7 +225,7 @@ void DetalleFacturaCompra::AutoCargar(Agroquimicos objA, int idCompra)
 
     // hacer un calculo para guardar dentro de un archivo con 'ab'
     // y el archivo se llamara detallefacturacompra.dat
-}
+//}
 /**************************************************************/
 // void DetalleFacturaCompra::MostrarAutoCargarPlanta(int valor)
 // {

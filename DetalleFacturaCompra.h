@@ -9,6 +9,7 @@ class DetalleFacturaCompra : public RegistroCompra{
     
 private:
     int _idArticulo;
+     int _TipoDeArticulo;//prueba
     int _idCompra;
     int _cantidad;
     float _precio;
@@ -35,8 +36,10 @@ void setIdArticulo(int);
 void setIdCompra(int);
 void setCantidad(int );
 void setPrecio(float);
+void setTipoDeArticulo(int);
 int getIdArticulo();
 int getIdCompra();
+int getTipoDeArticulo();//prueba
 int getCantidad();
 float getPrecio();
 void Mostrar();
@@ -60,9 +63,9 @@ void setEstado(bool estado);
 DetalleFacturaCompra();
 ~DetalleFacturaCompra(){}
 
-void AutoCargar(Herramientas objH,int idCompra); //HACER
-bool AutoCargar(int idCliente,int idCompra,float precio); //HACER
-void AutoCargar(Agroquimicos objA,int idCompra); //HACER
+//void AutoCargar(Herramientas objH,int idCompra); //HACER
+bool AutoCargar(int idCliente,int idCompra,float precio,int tipoArticulo); //prueba
+//void AutoCargar(Agroquimicos objA,int idCompra); //HACER
 
 // void MostrarAutoCargarHerramienta(); //HACER
 // //void MostrarAutoCargarPlanta(int valor=-1);

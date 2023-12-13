@@ -9,19 +9,19 @@ using namespace std;
 
 int main()
 {
- //menuPrincipal();
+  //menuPrincipal();
 
-  DetalleFacturaCompra objD;
+  // DetalleFacturaCompra objD;
 
-  int tam = objD.contarRegistros();
+  // int tam = objD.contarRegistros();
 
-  for (int i = 0; i < tam; i++)
-  {
+  // for (int i = 0; i < tam; i++)
+  // {
 
-    objD = objD.leerRegistroIdCompra(i);
-    objD.Mostrar();
-    cout<<endl;
-  }
+  //   objD = objD.leerRegistroIdCompra(i);
+  //   objD.Mostrar();
+  //   cout<<endl;
+  // }
   //////////////////////////////////////////////////////////////////////////
 
   //     RegistroCompra objR;
@@ -52,6 +52,37 @@ int main()
   //   reg = reg.leerRegistroPlanta(i);
   //   reg.MostrarPlanta();
   // }
+
+  DetalleFacturaCompra objDdeFactura, objaux;
+
+  int cont = 0, nroFactura;
+
+  // cout<<"que tiene DetalleFacturaCompra"<<endl;
+  //  objDdeFactura.leerRegistro(0);
+   //objDdeFactura.Mostrar();
+
+  cont = objDdeFactura.contarRegistros();
+  // cout << "ingrese numero de factura que desea ver: " << endl;
+  // cin >> nroFactura;
+
+  for (int i = 0; i < cont; i++)
+  {
+    cout << "contador de registro: " << cont << endl;
+
+    objaux = objDdeFactura.leerRegistroIdCompra(i);
+
+  
+    //if (nroFactura - 1 == objaux.getIdCompra())
+    //{
+
+objDdeFactura.Mostrar();
+
+//      }
+
+      
+      cout << endl;
+    //}
+  }
 
   return 0;
 }
