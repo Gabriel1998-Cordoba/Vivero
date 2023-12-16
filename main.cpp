@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-  //menuPrincipal();
+ //menuPrincipal();
 
   // DetalleFacturaCompra objD;
 
@@ -53,13 +53,13 @@ int main()
   //   reg.MostrarPlanta();
   // }
 
-  DetalleFacturaCompra objDdeFactura, objaux;
+  DetalleFacturaCompra objDdeFactura;
 
   int cont = 0, nroFactura;
 
   // cout<<"que tiene DetalleFacturaCompra"<<endl;
   //  objDdeFactura.leerRegistro(0);
-   //objDdeFactura.Mostrar();
+  // objDdeFactura.Mostrar();
 
   cont = objDdeFactura.contarRegistros();
   // cout << "ingrese numero de factura que desea ver: " << endl;
@@ -67,20 +67,19 @@ int main()
 
   for (int i = 0; i < cont; i++)
   {
-    cout << "contador de registro: " << cont << endl;
+    cout << "contador de registro: " << i<< endl;
 
-    objaux = objDdeFactura.leerRegistroIdCompra(i);
+    objDdeFactura.leerRegistroIdCompra(i);
 
-  
-    //if (nroFactura - 1 == objaux.getIdCompra())
+    // if (nroFactura - 1 == objaux.getIdCompra())
     //{
 
-objDdeFactura.Mostrar();
+    objDdeFactura.Mostrar();
 
-//      }
 
-      
-      cout << endl;
+    //      }
+
+    cout << endl;
     //}
   }
 

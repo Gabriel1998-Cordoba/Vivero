@@ -1,4 +1,7 @@
 #pragma once
+
+
+
 #include "Fecha.h"
 #include"Herramientas.h"
 #include"Planta.h"
