@@ -7,80 +7,111 @@ using namespace std;
 #include "Cliente.h"
 #include "menu.h"
 
+Planta BuscarPlanta(int idArticulo)
+{
+
+  Planta obj;
+  int tam = obj.contarRegistros();
+
+  for (int i = 0; i < tam; i++)
+  {
+    obj = obj.leerRegistroPlanta(i);
+
+
+    if (obj.getID() == idArticulo)
+    {
+
+      return obj;
+    }
+  }
+  // obj.setEstado(-2);
+  // return obj;
+}
+
 int main()
 {
- //menuPrincipal();
+  // menuPrincipal();
 
-  // DetalleFacturaCompra objD;
+  Planta objP;
+  Herramientas objH;
+  Agroquimicos objA;
+  int nroFactura;
+  cout << "ingrese numero de factura" << endl;
+  cin >> nroFactura;
+  system("cls");
+  FILE *p;
+  p = fopen("DetalleFacturaCompra.dat", "rb");
 
-  // int tam = objD.contarRegistros();
-
-  // for (int i = 0; i < tam; i++)
-  // {
-
-  //   objD = objD.leerRegistroIdCompra(i);
-  //   objD.Mostrar();
-  //   cout<<endl;
-  // }
-  //////////////////////////////////////////////////////////////////////////
-
-  //     RegistroCompra objR;
-  // while(true){
-
-  //     objR.MostrarArchivoCompra();
-
-  // system("pause");
-
-  // system("cls");
-
-  ///////////////////////////////////////////////////////////////////////
-
-  // Cliente cli;
-  // int pos=0;
-  // while (cli.LeerArchivo(pos++))
-  // {
-  //    cli.Mostrar(); /* code */
-  // }
-  // cout<<"------"<<endl;
-  // RegistroCompra regCom;
-  // regCom.MostrarArchivoCompra();
-  /*------------------------------------------------------------*/
-  // Planta reg;
-  // int tam = reg.contarRegistros();
-  // for (int i = 0; i < tam; i++)
-  // {
-  //   reg = reg.leerRegistroPlanta(i);
-  //   reg.MostrarPlanta();
-  // }
-
-  DetalleFacturaCompra objDdeFactura;
-
-  int cont = 0, nroFactura;
-
-  // cout<<"que tiene DetalleFacturaCompra"<<endl;
-  //  objDdeFactura.leerRegistro(0);
-  // objDdeFactura.Mostrar();
-
-  cont = objDdeFactura.contarRegistros();
-  // cout << "ingrese numero de factura que desea ver: " << endl;
-  // cin >> nroFactura;
-
-  for (int i = 0; i < cont; i++)
+  if (p == NULL)
   {
-    cout << "contador de registro: " << i<< endl;
+    return -1;
+  }
 
-    objDdeFactura.leerRegistroIdCompra(i);
+  DetalleFacturaCompra objDF;
 
-    // if (nroFactura - 1 == objaux.getIdCompra())
-    //{
+  int tam;
 
-    objDdeFactura.Mostrar();
+  tam = objDF.contarRegistros();
+
+  for (int i = 0; i < tam; i++)
+
+  {
+
+    if (objDF.leerRegistroIdCompra(i))
+    {
+
+      if (nroFactura == objDF.getIdCompra())
+
+      {
+        bool cont=true;
+
+cout<<objDF.getTipoDeArticulo();
+
+        switch (objDF.getTipoDeArticulo())
+        {
+        
+
+        case 1:
+         
+          // if (objP.getEstado()==-2)
+          // {
+            
+          // }
+            break;
+
+        case 2:
+         objP = BuscarPlanta(objDF.getIdArticulo());
+
+         objP.Mostrar();
+        //  objH = BuscarHerramienta();
+          break;
+
+        case 3:
+          //objA = BuscarAgroquimicos();
+          break;
+        default:
+          break;
+        }
+//Desarrollo del Mostrar
+        
+        if(cont)
+        {
+          cout<<"Codigo Articulo "<<"Descripcion "<<"Precio "<<"Cantidad "<<"SubTotal "<<endl;
+        cont=false;
+        }
+        if(objP.getEstado()== 1)
+        {
+          cout<<objP.getID()<<" "<<objP.getNombre()<<" "<<objDF.getPrecio()<<" "<<objDF.getCantidad()<<" "<<objDF.getPrecio()+objDF.getCantidad()<<endl;
+        }
+      }
 
 
-    //      }
 
-    cout << endl;
-    //}
+
+
+
+
+    }
   }
 
   return 0;
