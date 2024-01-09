@@ -13,6 +13,7 @@ using namespace std;
 #include "Planta.h"
 #include "Herramientas.h"
 #include "Agroquimicos.h"
+#include "Backup.h"
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
 {
@@ -134,6 +135,9 @@ void menuDuenio(int opcion)
             cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 8 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Cargar Datos Del Duenio" << endl;
+            cout << "Opcion 10 ----> crear Backup Duenio" << endl;
+            cout << "Opcion 11 ----> Restaurar Backup Duenio" << endl;
+
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
             system("cls");
@@ -216,7 +220,17 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 10:
             {
-
+Backup objBkp;
+objBkp.BackupDatosDuenio();
+                system("cls");
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 11:
+            {
+Backup objBkp;
+objBkp.RestaurarBackupDatosDuenio();
                 system("cls");
                 system("pause");
             }

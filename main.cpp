@@ -24,17 +24,16 @@ Planta BuscarPlanta(int idArticulo)
       return obj;
     }
   }
-  // obj.setEstado(-2);
-  // return obj;
+  obj.setEstado(-2);
+  return obj;
 }
 
-int main()
+void FacturaXNroFactura()
 {
-  // menuPrincipal();
-
   Planta objP;
   Herramientas objH;
   Agroquimicos objA;
+  
   int nroFactura;
   cout << "ingrese numero de factura" << endl;
   cin >> nroFactura;
@@ -44,7 +43,7 @@ int main()
 
   if (p == NULL)
   {
-    return -1;
+    return ;
   }
 
   DetalleFacturaCompra objDF;
@@ -52,6 +51,7 @@ int main()
   int tam;
 
   tam = objDF.contarRegistros();
+ bool cont=true;
 
   for (int i = 0; i < tam; i++)
 
@@ -63,8 +63,7 @@ int main()
       if (nroFactura == objDF.getIdCompra())
 
       {
-        bool cont=true;
-
+        
 cout<<objDF.getTipoDeArticulo();
 
         switch (objDF.getTipoDeArticulo())
@@ -82,7 +81,7 @@ cout<<objDF.getTipoDeArticulo();
         case 2:
          objP = BuscarPlanta(objDF.getIdArticulo());
 
-         objP.Mostrar();
+         //objP.Mostrar();
         //  objH = BuscarHerramienta();
           break;
 
@@ -113,6 +112,15 @@ cout<<objDF.getTipoDeArticulo();
 
     }
   }
+}
+
+
+int main()
+{
+  
+   menuPrincipal();
+
+  
 
   return 0;
 }
