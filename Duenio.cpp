@@ -140,3 +140,4 @@ bool Duenio::reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar){
     fclose(p);
     return pudoEscribir;
 }
+

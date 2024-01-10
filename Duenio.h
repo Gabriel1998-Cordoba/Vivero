@@ -29,5 +29,6 @@ public:
     Duenio leerRegistro(int pos);
 
     bool reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar);
+    
 
 };

@@ -1,7 +1,7 @@
 #pragma once
-#include<Duenio.h>
-#include <Cliente.h>
-#include <RegistroCompra.h>
+#include"Duenio.h"
+#include"Cliente.h"
+#include"RegistroCompra.h"
 class Backup
 {
 private:
@@ -21,8 +21,12 @@ public:
     void BackupDatosDuenio();
     void RestauracionGeneralconBackup();
     void RestaurarBackupDatosDuenio();
+    void MostrarBackupDatosDuenio();
+    void ReemplazarDatosDuenioConBackup();
+
 
 Duenio leerRegistroBkpDuenio(int);
+Backup leerRegistroBkp(int);
     int contarRegistrosBkpDuenio();
 };
 

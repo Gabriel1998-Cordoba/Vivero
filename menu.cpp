@@ -137,6 +137,8 @@ void menuDuenio(int opcion)
             cout << "Opcion 9 ----> Cargar Datos Del Duenio" << endl;
             cout << "Opcion 10 ----> crear Backup Duenio" << endl;
             cout << "Opcion 11 ----> Restaurar Backup Duenio" << endl;
+            cout << "Opcion 12 ----> Mostrar Contenido del Backup Duenio" << endl;
+            cout << "Opcion 13 ----> borrar datos del duenio y poner los que contiene Backup" << endl;
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -231,6 +233,29 @@ objBkp.BackupDatosDuenio();
             {
 Backup objBkp;
 objBkp.RestaurarBackupDatosDuenio();
+                
+                system("cls");
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 12:
+            {
+Backup objBkp;
+objBkp.MostrarBackupDatosDuenio();
+                system("pause");
+                
+                system("cls");
+                system("pause");
+            }
+            break;
+                /*******************************************************************/
+            case 13:
+            {
+Backup objBkp;
+objBkp.ReemplazarDatosDuenioConBackup();
+                system("pause");
+                
                 system("cls");
                 system("pause");
             }

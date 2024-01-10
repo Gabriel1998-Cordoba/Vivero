@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#include<Backup.h>
+#include"Backup.h"
 
 
 
@@ -60,12 +60,14 @@ objD.reemplazarRegistroDuenio(objD,i);
 
 }
 /////////////////////////////////////////////
-void Backup::BackupDatosDuenio()
+void Backup::BackupDatosDuenio() 
 {
 Duenio objD;
 
 int tam = objD.contarRegistros();
 
+cout<<"tamanio"<<tam<<endl;
+system("pause");
 
 FILE *p;
 //Backup objB;
@@ -89,10 +91,10 @@ for(int i=0; i<tam; i++){
 
 int Backup::contarRegistrosBkpDuenio(){
     
-  Duenio objD;
+  
     FILE *p2;
 
-    p2=fopen("BackupDatosDuenio", "rb");
+    p2=fopen("BackupDatosDuenio.bkp", "rb");
 
         
         if(p2==NULL) return 0;
@@ -105,10 +107,58 @@ int Backup::contarRegistrosBkpDuenio(){
 Duenio Backup::leerRegistroBkpDuenio(int pos){
        Duenio reg;
         FILE *p;
-        p=fopen("BackupDatosDuenio", "rb");
+        p=fopen("BackupDatosDuenio.bkp", "rb");
         if(p==NULL) return reg;
         fseek(p, sizeof reg*pos,0);
         fread(&reg, sizeof reg,1, p);
         fclose(p);
         return reg;
     }
+
+// Backup Backup::leerRegistroBkp(int pos){
+//        Backup reg;
+//         FILE *p;
+//         p=fopen("BackupDatosDuenio.bkp", "rb");
+//         if(p==NULL) return reg;
+//         fseek(p, sizeof reg*pos,0);
+//         fread(&reg, sizeof reg,1, p);
+//         fclose(p);
+//         return reg;
+//     }
+
+void Backup::MostrarBackupDatosDuenio(){
+
+    Backup objB;
+    Duenio objD;
+
+    int cont = objB.contarRegistrosBkpDuenio();
+
+    for(int i=0; i<cont; i++){
+objD=objB.leerRegistroBkpDuenio(i);
+     objD.MostrarDuenio();  
+    }
+    
+
+
+}
+
+void Backup::ReemplazarDatosDuenioConBackup(){
+
+    FILE *p = fopen("duenio.dat", "wb");
+        if(p==NULL){
+        cout<<"ERRRO = void Backup::ReemplazarDatosDuenioConBackup()"<<endl;
+        }
+
+    Backup objB;
+    Duenio objD;
+
+    int cont = objB.contarRegistrosBkpDuenio();
+
+    for(int i=0; i<cont; i++){
+        objD = objB.leerRegistroBkpDuenio(i);
+        objD.reemplazarRegistroDuenio(objD,i);
+    }
+
+    fclose(p);
+
+}
