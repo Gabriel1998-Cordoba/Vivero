@@ -24,7 +24,6 @@ public:
     void MostrarBackupDatosDuenio();
     void ReemplazarDatosDuenioConBackup();
 
-
 Duenio leerRegistroBkpDuenio(int);
 Backup leerRegistroBkp(int);
     int contarRegistrosBkpDuenio();

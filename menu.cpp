@@ -222,30 +222,33 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 10:
             {
+                system("cls");
 Backup objBkp;
 objBkp.BackupDatosDuenio();
-                system("cls");
+                
                 system("pause");
             }
             break;
                 /*******************************************************************/
             case 11:
             {
+                 system("cls");
 Backup objBkp;
-objBkp.RestaurarBackupDatosDuenio();
+objBkp.ReemplazarDatosDuenioConBackup();
                 
-                system("cls");
+               
                 system("pause");
             }
             break;
                 /*******************************************************************/
             case 12:
             {
+                system("cls");
 Backup objBkp;
 objBkp.MostrarBackupDatosDuenio();
-                system("pause");
+              
                 
-                system("cls");
+                
                 system("pause");
             }
             break;
@@ -579,14 +582,14 @@ void CargarDatosDelDuenio(int opcion)
             system("cls");
 
             int tam = 0, cantidad;
-            tam = objD.contarRegistros();
+            tam = objD.contarRegistros("duenio.dat");
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
                 objD.CargarDatosDeDuenioEnArchivo(tam /*, opcion*/);
-                tam = objD.contarRegistros();
+                tam = objD.contarRegistros("duenio.dat");
             }
             system("pause");
             system("pause");

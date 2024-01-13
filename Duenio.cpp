@@ -21,7 +21,7 @@ setIdDuenio(totalDeRegistros);
 }
 
 void Duenio::MostrarDuenio(){
-Sujeto::MostrarSujeto();
+//Sujeto::MostrarSujeto();
 cout<<"Su Sueldo es: "<<getSueldo()<<endl;
 cout<<"Su id Duenio es: "<<GetIdDuenio()<<endl<<endl;
 }
@@ -69,7 +69,7 @@ Duenio objD;
 float sueldo;
 
 int tam=0,cantidad;
-tam=objD.contarRegistros();
+tam=objD.contarRegistros("duenio.dat");
 
 objD = objD.leerRegistro(tam-1);
 
@@ -87,7 +87,7 @@ void Duenio::MostrarSueldoCargadoEnArchivo(){
 Duenio objD;
 
 int tam=0,cantidad;
-tam=objD.contarRegistros();
+tam=objD.contarRegistros("duenio.dat");
 
 objD = objD.leerRegistro(tam-1);
 
@@ -95,9 +95,9 @@ cout<<"Su sueldo Es :"<<objD.getSueldo()<<endl;
 
 }
 
-int Duenio::contarRegistros(){
+int Duenio::contarRegistros(const char *ruta){
         FILE *p;
-        p=fopen("duenio.dat", "rb");
+        p=fopen(ruta, "rb");
         if(p==NULL) return 0;
         fseek(p, 0,2);
         int tam=ftell(p);
@@ -127,7 +127,7 @@ Duenio Duenio::leerRegistro(int pos){
         return reg;
         }
         fseek(p, sizeof(Duenio)*pos,0);
-        fread(&reg, sizeof reg,1, p);
+        fread(&reg, sizeof (Duenio),1, p);
         fclose(p);
         return reg;
     }
@@ -141,3 +141,33 @@ bool Duenio::reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar){
     return pudoEscribir;
 }
 
+void Duenio::leer(Duenio *vec, int cantidadRegistrosALeer,const char *ruta){
+	FILE *p = fopen(ruta, "rb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	
+	fread(vec, sizeof(Duenio), cantidadRegistrosALeer, p);
+	fclose(p);
+}
+void Duenio::vaciar(const char *ruta){
+	FILE *p = fopen(ruta, "wb");
+	if (p == NULL)
+	{
+		return ;
+	}
+	fclose(p);
+}
+
+bool Duenio::guardar(Duenio*vec, int cantidadRegistrosAEscribir,const char*ruta){
+	FILE *p = fopen(ruta, "ab");
+	if (p == NULL)
+	{
+		return false;
+	}
+	
+	int cantidadRegistrosEscritos = fwrite(vec, sizeof(Duenio), cantidadRegistrosAEscribir, p);
+	fclose(p);
+	return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+}

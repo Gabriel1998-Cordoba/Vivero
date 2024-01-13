@@ -25,9 +25,14 @@ public:
     void MostrarSueldoCargadoEnArchivo(); //HACER
     void BorrarDatosDelDuenio();
 
-    int contarRegistros();
+    int contarRegistros(const char *);
     Duenio leerRegistro(int pos);
+void leer(Duenio *vec, int cantidadRegistrosALeer,const char*);
 
+
+void vaciar(const char *);
+
+bool guardar(Duenio*vec, int cantidadRegistrosAEscribir,const char *);
     bool reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar);
     
 
