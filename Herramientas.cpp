@@ -98,14 +98,55 @@ void Herramientas::ListarHerramienta()
     fclose(p);
 }
 
+bool Herramientas::ListarHerramientaPorCodigoHerramienta(int codigoHerramienta){
+
+    int pos=0;
+
+    Herramientas reg;
+
+    int cont=reg.contarRegistros();
+
+    for(int i=0; i<cont; i++){
+
+        reg=leerRegistroHerramienta(i);
+
+        if(reg.getID()==codigoHerramienta){
+
+            reg.MostrarHerramienta();
+            return true;
+        }
+    }
+    
+    return false;
+
+}
+
 void Herramientas::Opcion1Compra()
 {
     ListarHerramienta();
 }
 void Herramientas::Opcion2Compra()
 {
+    Herramientas ClassM;
+    int ID;
+
+    cout<<"ingrese el ID de la herramienta"<<endl;
+    cin>>ID;
+    bool existe = ListarHerramientaPorCodigoHerramienta(ID);
+
+    if(existe){
+    
+    cout<<"herramienta encontrada"<<endl;
+    
+    }else{
+    
+    cout<<"herramienta no encontrada"<<endl;
+    
+    }
+
+    //ValidarID(ID);
 }
-void Herramientas::Opcion3Compra(int idCompra)
+void Herramientas::Opcion3Compra(RegistroCompra objR)
 {
 ///// ECHO POR GABI
 
@@ -123,7 +164,7 @@ void Herramientas::Opcion3Compra(int idCompra)
         aux = reg.leerRegistroHerramienta(i);
         if (strcmp(aux.getNombre(), nombreH) == 0)
         {
-            if (descripcionFactura.AutoCargar(aux.getID(),idCompra, aux.getPrecio(), aux.getTipoDeArticulo()) == true)
+            if (descripcionFactura.AutoCargar(aux.getID(),objR.getIdCompra(), aux.getPrecio(), aux.getTipoDeArticulo()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {

@@ -15,11 +15,12 @@ class Herramientas : public Articulo{
         bool borrarRegistroHerramienta();
         Herramientas leerRegistroHerramienta(int pos);
         void ListarHerramienta();
-    
+
+        bool ListarHerramientaPorCodigoHerramienta(int codigoHerramienta);
 
 void Opcion1Compra();   //HACER
 void Opcion2Compra();   //HACER
-void Opcion3Compra(int idCompra);   //HACER
+void Opcion3Compra(RegistroCompra objR);   //HACER
 // void Opcion4Compra();   //HACER
 // void Opcion5Compra();   //HACER
 
