@@ -21,7 +21,7 @@ setIdDuenio(totalDeRegistros);
 }
 
 void Duenio::MostrarDuenio(){
-//Sujeto::MostrarSujeto();
+Sujeto::MostrarSujeto();
 cout<<"Su Sueldo es: "<<getSueldo()<<endl;
 cout<<"Su id Duenio es: "<<GetIdDuenio()<<endl<<endl;
 }
@@ -98,7 +98,7 @@ cout<<"Su sueldo Es :"<<objD.getSueldo()<<endl;
 int Duenio::contarRegistros(const char *ruta){
         FILE *p;
         p=fopen(ruta, "rb");
-        if(p==NULL) return 0;
+        if(p==NULL) return -1;
         fseek(p, 0,2);
         int tam=ftell(p);
         fclose(p);

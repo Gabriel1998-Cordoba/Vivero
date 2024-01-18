@@ -13,7 +13,7 @@ void menuEmpresa(int opcion);
 //                PERSONA
 void menuPersona(int opcion);
 //Compra
-void menuCompraPersona(int opcion);
+void menuCompraPersona(int opcion,RegistroCompra objR);
 
 void menuCompraPlantaPersona(int opcion);
 void menuCompraHerramientaPersona(int opcion);
@@ -23,9 +23,9 @@ void menuCompraAgroquimicosPersona(int opcion);
 void menuVentaPersona(int opcion);
 
 
-void menuCompraPlantaPersona(int opcion ,int idCompra);
-void menuCompraHerramientaPersona(int opcion ,int idCompra);
-void menuCompraAgroquimicosPersona(int opcion ,int idCompra);
+void menuCompraPlantaPersona(int opcion ,RegistroCompra objR);
+void menuCompraHerramientaPersona(int opcion ,RegistroCompra objR);
+void menuCompraAgroquimicosPersona(int opcion ,RegistroCompra objR);
 
 void menuVentaPlantaPersona(int opcion);
 void menuVentaHerramientaPersona(int opcion);

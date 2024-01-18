@@ -60,7 +60,7 @@ void Planta::MostrarPlanta()
 int Planta::contarRegistros(){
         FILE *p;
         p=fopen("planta.dat", "rb");
-        if(p==NULL) return 0;
+        if(p==NULL) return -1;
         fseek(p, 0,2);
         int tam=ftell(p);
         fclose(p);
@@ -176,7 +176,7 @@ void Planta::Opcion2Compra(){
     cout<<"PLANTA INGRESADA, no fue encontrada"<<endl;
     }
 }
-void Planta::Opcion3Compra(int idCompra){
+void Planta::Opcion3Compra(RegistroCompra objRegistroCompra){
 
     // Planta objP;
     // int tam=0,stock,calc=0;
@@ -243,7 +243,7 @@ void Planta::Opcion3Compra(int idCompra){
         aux = reg.leerRegistroPlanta(i);
         if (strcmp(aux.getNombre(), nombreP) == 0)
         {
-            if (descripcionFactura.AutoCargar(aux.getID(),idCompra, aux.getPrecio(),aux.getTipoDeArticulo()) == true)
+            if (descripcionFactura.AutoCargar(aux.getID(),objRegistroCompra.getIdCompra(), aux.getPrecio(),aux.getTipoDeArticulo()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
@@ -258,8 +258,8 @@ void Planta::Opcion3Compra(int idCompra){
 
 }
 
-void Planta::Opcion4Compra(int idCompra){
-// RegistroCompra objR;
+void Planta::Opcion4Compra(RegistroCompra objR){
+
 
 // objR = objR.LeerRegistrosPorIdCompra(idCompra);
 
@@ -275,8 +275,25 @@ void Planta::Opcion4Compra(int idCompra){
 //             DetalleFacturaCompra objD;
 //             objD.MostrarAutoCargarPlanta(valor);
 
-//DetalleFacturaCompra objD;
+// DetalleFacturaCompra objD;
 
-//objD.MostrarAutoCargarPlanta(idCompra);
+// objD.MostrarAutoCargarPlanta(idCompra);
 
+}
+
+bool Planta::MostrarArchivoPlanta(){
+
+  Planta objP;
+  int tam = objP.contarRegistros();
+
+    if(tam==-1){
+        return false;
+    }
+
+  for(int i=0; i<tam; i++){
+      objP = objP.leerRegistroPlanta(i);
+      objP.MostrarPlanta();
+  }
+
+  return true;
 }

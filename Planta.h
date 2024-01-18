@@ -22,11 +22,12 @@ class Planta : public Articulo{
     Planta leerRegistroPlanta(int pos);
     void ListarPlanta();
     bool reemplazarRegistroPlanta(Planta reg, int posicionAReemplazar);
+    bool MostrarArchivoPlanta();
 
 
 void Opcion1Compra();
 void Opcion2Compra();
-void Opcion3Compra(int idCompra);
-void Opcion4Compra(int idCompra);
+void Opcion3Compra(RegistroCompra objR);
+void Opcion4Compra(RegistroCompra objR);
 
 };

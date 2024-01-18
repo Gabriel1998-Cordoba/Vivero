@@ -32,10 +32,11 @@ int RegistroCompra::getIdCliente() { return _idCliente; }
 Fecha RegistroCompra::getFecha() { return _Fecha; }
 const char *RegistroCompra::getModoDePago() { return _modoDePago; }
 
-void RegistroCompra::CargarCompra(int idCompra, int idcliente) // Desarrollar int idcompra,int idcliente
+void RegistroCompra::CargarCompra(RegistroCompra objR ,int idcliente) // Desarrollar int idcompra,int idcliente
 {
     // if(Existe()) A DESARROLLAR, NO PODEMOS TENER IDS REPETIDOS AL GUARDAR ARCHIVO
-    setIdCompra(idCompra);
+    setIdCompra(objR.getIdCompra());
+    
     setIdCliente(idcliente);
     Fecha f;
     char modoDePago[30];

@@ -6,6 +6,10 @@ using namespace std;
 #include "DetalleFacturaCompra.h"
 #include "Cliente.h"
 #include "menu.h"
+#include "Duenio.h"
+#include "bkpDuenio.h"
+#include "Planta.h"
+#include "bkpPlanta.h"
 
 Planta BuscarPlanta(int idArticulo)
 {
@@ -17,6 +21,24 @@ Planta BuscarPlanta(int idArticulo)
   {
     obj = obj.leerRegistroPlanta(i);
 
+    if (obj.getID() == idArticulo)
+    {
+
+      return obj;
+    }
+  }
+  obj.setEstado(-2);
+  return obj;
+}
+Herramientas BuscarHerramienta(int idArticulo)
+{
+
+  Herramientas obj;
+  int tam = obj.contarRegistros();
+
+  for (int i = 0; i < tam; i++)
+  {
+    obj = obj.leerRegistroHerramienta(i);
 
     if (obj.getID() == idArticulo)
     {
@@ -33,7 +55,7 @@ void FacturaXNroFactura()
   Planta objP;
   Herramientas objH;
   Agroquimicos objA;
-  
+
   int nroFactura;
   cout << "ingrese numero de factura" << endl;
   cin >> nroFactura;
@@ -43,7 +65,7 @@ void FacturaXNroFactura()
 
   if (p == NULL)
   {
-    return ;
+    return;
   }
 
   DetalleFacturaCompra objDF;
@@ -51,7 +73,7 @@ void FacturaXNroFactura()
   int tam;
 
   tam = objDF.contarRegistros();
- bool cont=true;
+  bool cont = true;
 
   for (int i = 0; i < tam; i++)
 
@@ -63,64 +85,71 @@ void FacturaXNroFactura()
       if (nroFactura == objDF.getIdCompra())
 
       {
-        
-cout<<objDF.getTipoDeArticulo();
+
+        cout << objDF.getTipoDeArticulo();
 
         switch (objDF.getTipoDeArticulo())
         {
-        
 
         case 1:
-         
-          // if (objP.getEstado()==-2)
-          // {
-            
-          // }
-            break;
+
+          objH = BuscarHerramienta(objDF.getIdArticulo());
+          break;
 
         case 2:
-         objP = BuscarPlanta(objDF.getIdArticulo());
+          objP = BuscarPlanta(objDF.getIdArticulo());
 
-         //objP.Mostrar();
-        //  objH = BuscarHerramienta();
+          // objP.Mostrar();
+          //  objH = BuscarHerramienta();
           break;
 
         case 3:
-          //objA = BuscarAgroquimicos();
+          // objA = BuscarAgroquimicos();
           break;
         default:
           break;
         }
-//Desarrollo del Mostrar
-        
-        if(cont)
+        // Desarrollo del Mostrar
+
+        if (cont)
         {
-          cout<<"Codigo Articulo "<<"Descripcion "<<"Precio "<<"Cantidad "<<"SubTotal "<<endl;
-        cont=false;
+          cout << "Codigo Articulo "
+               << "Descripcion "
+               << "Precio "
+               << "Cantidad "
+               << "SubTotal " << endl;
+          cont = false;
         }
-        if(objP.getEstado()== 1)
+        if (objP.getEstado() == 1)
         {
-          cout<<objP.getID()<<" "<<objP.getNombre()<<" "<<objDF.getPrecio()<<" "<<objDF.getCantidad()<<" "<<objDF.getPrecio()+objDF.getCantidad()<<endl;
+          cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+        }
+        if (objH.getEstado() == 1)
+        {
+          cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
         }
       }
-
-
-
-
-
-
-
     }
   }
 }
 
-
 int main()
 {
-  
-   menuPrincipal();
 
-  
+  // menuPrincipal();
+
+  //FacturaXNroFactura();
+
+  Planta objP;
+  bkpPlanta objbkpPlanta;
+
+
+  objbkpPlanta.RestaurarBackup();
+  objP.MostrarArchivoPlanta();
+
+  cout << "//////////////////////"<<endl<<"backup creado"<<"//////////////////////"<<endl;
+
+  //objbkpPlanta.MostrarBackup();
 
   return 0;
 }

@@ -3,10 +3,11 @@
 
 
 #include "Fecha.h"
-#include"Herramientas.h"
-#include"Planta.h"
-#include"Agroquimicos.h"
+// #include"Herramientas.h"
+// #include"Planta.h"
+// #include"Agroquimicos.h"
 #include"Sujeto.h"
+
 
 class RegistroCompra{
 
@@ -28,7 +29,7 @@ int getIdCliente();
 Fecha getFecha();
 const char *getModoDePago();
 
-void CargarCompra(int,int );
+void CargarCompra(RegistroCompra ,int );
 
 void Mostrar();
 

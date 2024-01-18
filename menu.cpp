@@ -806,7 +806,7 @@ void menuCompraPersona(int opcion,RegistroCompra objR)
                         cout << "se registro correctamente el cliente" << endl;
                     }
                 }
-                    objR.CargarCompra(objR.getIdCompra(), cli.getIDCliente());
+                    objR.CargarCompra(objR, cli.getIDCliente());
                     if (objR.GuardarCompra())
                     {
                         cout << "se registro correctamente la compra " << endl;
@@ -879,54 +879,54 @@ void menuVentaPersona(int opcion)
         case 0:
         {
 
-        do
-            {
-                cout << "¿Seguro? ---> SI == 0" << endl;
-                cout << "NO == 1" << endl;
-                cin >> opcion;
-            } while ((opcion != 0) && (opcion != 1));
+    //     do
+    //         {
+    //             cout << "¿Seguro? ---> SI == 0" << endl;
+    //             cout << "NO == 1" << endl;
+    //             cin >> opcion;
+    //         } while ((opcion != 0) && (opcion != 1));
 
-            if (opcion == 0)
-            {
-                cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
-                Cliente cli;
-                cli.Cargar();
-                if (!Existe(cli))
-                {
-                    if (cli.GuardarArchivo())
-                    {
-                        cout << "se registro correctamente el cliente" << endl;
-                    }
-                    RegistroCompra objR;
-                    objR.CargarCompra(idCompra, cli.getIDCliente());
-                    if (objR.GuardarCompra())
-                    {
-                        cout << "se registro correctamente la compra " << endl;
-                    }
-                }
-                else
-                {
+    //         if (opcion == 0)
+    //         {
+    //             cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
+    //             Cliente cli;
+    //             cli.Cargar();
+    //             if (!Existe(cli))
+    //             {
+    //                 if (cli.GuardarArchivo())
+    //                 {
+    //                     cout << "se registro correctamente el cliente" << endl;
+    //                 }
+    //                 RegistroCompra objR;
+    //                 objR.CargarCompra(idCompra, cli.getIDCliente());
+    //                 if (objR.GuardarCompra())
+    //                 {
+    //                     cout << "se registro correctamente la compra " << endl;
+    //                 }
+    //             }
+    //             else
+    //             {
 
-                    cout << "El cliente ya existe " << endl;
-                    RegistroCompra objR;
-                    objR.CargarCompra(idCompra, cli.getIDCliente());
-                    if (objR.GuardarCompra())
-                    {
-                        cout << "se registro correctamente la compra " << endl;
-                    }
-                }
-            }
-            system("cls");
-            return;
+    //                 cout << "El cliente ya existe " << endl;
+    //                 RegistroCompra objR;
+    //                 objR.CargarCompra(idCompra, cli.getIDCliente());
+    //                 if (objR.GuardarCompra())
+    //                 {
+    //                     cout << "se registro correctamente la compra " << endl;
+    //                 }
+    //             }
+    //         }
+    //         system("cls");
+    //         return;
         }
-        break;
-        /*******************************************************************/
-        default:
-        {
-            system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
-            system("pause");
-        }
+         break;
+    //     /*******************************************************************/
+         default:
+         {
+    //         system("cls");
+    //         cout << "valor ingresado no existe dentro del menu" << endl;
+    //         system("pause");
+         }
         break;
             /*******************************************************************/
         }
@@ -934,7 +934,7 @@ void menuVentaPersona(int opcion)
 }
 ///////////////////////////////////////////////////////////////////////////
 
-void menuCompraPlantaPersona(int opcion, int idCompra)
+void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
 {
 
     Planta objP;
@@ -975,7 +975,7 @@ void menuCompraPlantaPersona(int opcion, int idCompra)
         case 3:
         {
             system("cls");
-            objP.Opcion3Compra(idCompra);
+            objP.Opcion3Compra(objR);
             system("pause");
         }
         break;
@@ -983,7 +983,7 @@ void menuCompraPlantaPersona(int opcion, int idCompra)
         case 4:
         {
             system("cls");
-            objP.Opcion4Compra(idCompra);
+            objP.Opcion4Compra(objR);
             system("pause");
         }
         break;
@@ -1096,15 +1096,15 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraAgroquimicosPersona(int opcion, int idCompra)
+void menuCompraAgroquimicosPersona(int opcion,RegistroCompra objR)
 {
 
     Agroquimicos objA;
-    RegistroCompra objR;
-    int tam = 0;
-    tam = objR.contarRegistros();
-    idCompra = -1;
-    idCompra = tam++;
+    
+    //hacer una funcion que me cuente cuantos registros hay
+    int tam = objR.contarRegistros();
+    int idCompra = tam+1;
+    objR.setIdCompra(idCompra);
 
     system("cls");
 
