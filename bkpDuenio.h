@@ -17,6 +17,6 @@ class bkpDuenio{
     //Una vez creado mi backup, lo quiero mostrar en pantalla
         void MostrarBackup();
     //tambien quiero hacer una funcion que me reempieze todo lo que tiene el backup en el archivo original
-        // bool RestaurarBackup();
+        bool RestaurarBackup();
     
 };

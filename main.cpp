@@ -140,16 +140,18 @@ int main()
 
   //FacturaXNroFactura();
 
-  Planta objP;
-  bkpPlanta objbkpPlanta;
-
+  Duenio objP;
+  bkpDuenio objbkpPlanta;
 
   objbkpPlanta.RestaurarBackup();
-  objP.MostrarArchivoPlanta();
+
+  //objP.CargarDatosDeDuenioEnArchivo(1);
+  objP.MostrarDatosDeDuenioEnArchivo();
 
   cout << "//////////////////////"<<endl<<"backup creado"<<"//////////////////////"<<endl;
 
-  //objbkpPlanta.MostrarBackup();
+  //objbkpPlanta.CrearBackup();
+  objbkpPlanta.MostrarBackup();
 
   return 0;
 }

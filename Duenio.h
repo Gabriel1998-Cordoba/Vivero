@@ -26,7 +26,7 @@ public:
     void BorrarDatosDelDuenio();
 
     int contarRegistros(const char *);
-    Duenio leerRegistro(int pos);
+    Duenio leerRegistro(int pos, const char* nombre);
 void leer(Duenio *vec, int cantidadRegistrosALeer,const char*);
 
 

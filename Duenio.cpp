@@ -71,7 +71,7 @@ float sueldo;
 int tam=0,cantidad;
 tam=objD.contarRegistros("duenio.dat");
 
-objD = objD.leerRegistro(tam-1);
+objD = objD.leerRegistro((tam-1),"duenio.dat");
 
 cout<<"Ingrese sueldo:";
 cin>>sueldo;
@@ -89,7 +89,7 @@ Duenio objD;
 int tam=0,cantidad;
 tam=objD.contarRegistros("duenio.dat");
 
-objD = objD.leerRegistro(tam-1);
+objD = objD.leerRegistro((tam-1),"duenio.dat");
 
 cout<<"Su sueldo Es :"<<objD.getSueldo()<<endl;
 
@@ -118,10 +118,10 @@ if(p==NULL){
 
 }
 
-Duenio Duenio::leerRegistro(int pos){
+Duenio Duenio::leerRegistro(int pos, const char* nombre){
         Duenio reg;
         FILE *p;
-        p=fopen("duenio.dat", "rb");
+        p=fopen(nombre, "rb");
         if(p==NULL){
         cout<<"ERRRO = Duenio Duenio::leerRegistro(int pos)"<<endl;
         return reg;
