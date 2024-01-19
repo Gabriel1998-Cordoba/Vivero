@@ -39,6 +39,13 @@ bool bkpDuenio::CrearBackup(){
 
     int tam = objD.contarRegistros("duenio.dat");
 
+    if (tam == -1){
+        cout<<"ERROR de bool bkpDuenio::CrearBackup()"<<endl;
+        fclose(original);
+        fclose(backup);
+        return false;
+    }
+
     int band=0;
 
     for(int i=0; i<tam; i++){

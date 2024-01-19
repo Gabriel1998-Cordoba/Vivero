@@ -17,9 +17,9 @@ class Planta : public Articulo{
 
     void CargarPlanta(int totalDeRegistros,int TipoDeArticulo); //int TipoDeArticulo == opcion en el menu, donde ingresas que quiere cargar = Plantas,Herramientas,Agroquimicos,etc
     void MostrarPlanta();
-    int contarRegistros();
+    int contarRegistros(const char* nombre = "planta.dat");
     bool borrarRegistroPlanta();
-    Planta leerRegistroPlanta(int pos);
+    Planta leerRegistroPlanta(int pos,const char* nombre = "planta.dat");
     void ListarPlanta();
     bool reemplazarRegistroPlanta(Planta reg, int posicionAReemplazar);
     bool MostrarArchivoPlanta();

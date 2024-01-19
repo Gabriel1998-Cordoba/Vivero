@@ -6,69 +6,113 @@ using namespace std;
 
 /*****************************************************************/
 bool bkpPlanta::CrearBackup(){
-    FILE *p;
-    bkpPlanta objbkpPlanta;
-    p = fopen("bkpPlanta.dat", "wb");
-    if(p==NULL){
+    FILE *original, *backup;
+    Planta objPlanta;
+
+    bkpPlanta objBkp;
+
+    //abre el archivo original para lectura
+    original = fopen("planta.dat","rb");
+    if(original==NULL){
+        cout << "ERROR: No se pudo abrir el archivo original." << endl;
         cout<<"ERROR de bool bkpPlanta::CrearBackup()"<<endl;
-        system("pause");
+        return false;
+    }
+
+    //abre el archivo de respaldo para escritura
+    backup = fopen("bkpplanta.dat","wb");
+    if(backup==NULL){
+        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
+        cout<<"ERROR de bool bkpPlanta::CrearBackup()"<<endl;
+        return false;    // Cierra el archivo original antes de salir
+    }
+    fclose(backup);
+
+    //abre el archivo de respaldo para lectura y escritura
+    backup = fopen("bkpplanta.dat","ab");
+    if(backup==NULL){
+        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
+        cout<<"ERROR de bool bkpPlanta::CrearBackup()"<<endl;
+        fclose(original);  // Cierra el archivo original antes de salir
         return false;
     }
 
     int tam = objPlanta.contarRegistros();
 
-    for(int i=0; i<tam; i++){
-        objbkpPlanta.setObjPlanta(objPlanta.leerRegistroPlanta(i));
-        fwrite(&objbkpPlanta, sizeof(bkpPlanta), 1, p);
+    if(tam==-1){
+        cout<<"ERROR de bool bkpPlanta::CrearBackup()"<<endl;
+        fclose(original);
+        fclose(backup);
+        return false;
     }
 
-    fclose(p);
+    int band=0;
+
+    for(int i=0; i<tam; i++){
+        objPlanta = objPlanta.leerRegistroPlanta(i,"planta.dat");
+
+        if(band==i){
+            fwrite(&objPlanta,sizeof (Planta),1,backup);
+            band=i+1;
+        }
+    }
+
+    // Cierra los archivos
+
+    fclose(original);
+    fclose(backup);
+
     return true;
+
 }
 /*****************************************************************/
 void bkpPlanta::MostrarBackup(){
     FILE *p;
-    bkpPlanta objbkpPlanta;
-    p = fopen("bkpPlanta.dat", "rb");
+
+    // Abre el archivo de respaldo para lectura
+    p = fopen("bkpplanta.dat","rb");
     if(p==NULL){
-        cout<<"ERROR de bool bkpPlanta::MostrarBackup()"<<endl;
-        system("pause");
+        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
+        cout<<"ERROR de void bkpPlanta::MostrarBackup()"<<endl;
         return;
     }
 
-    while(fread(&objbkpPlanta, sizeof(bkpPlanta), 1, p)==1){
-        objbkpPlanta.getObjPlanta().MostrarPlanta();
-        cout<<endl;
-    }
+    // Obtiene el número de registros en el archivo de respaldo
+    int tam = objPlanta.contarRegistros("bkpplanta.dat");
+    //lee y muestra cada registro en el archivo de respaldo
 
+    for(int i=0; i<tam; i++){
+        objPlanta = objPlanta.leerRegistroPlanta(i,"bkpplanta.dat");
+        objPlanta.MostrarPlanta();
+    }
     fclose(p);
 }
 /*****************************************************************/
 bool bkpPlanta::RestaurarBackup(){
     //primero quiero que el archivos planta.dat quede vacio
     FILE *p;
+    Planta objP;
     p = fopen("planta.dat", "wb");
     if(p==NULL){
         cout<<"ERROR de bool bkpPlanta::RestaurarBackup()"<<endl;
         system("pause");
         return false;
     }
-    //segundo quiero que todo lo que tenga el archivo de backup
-    //lo reemplaze por lo que tiene el archivo de planta.dat
-    int tam = objPlanta.contarRegistros();
 
-    if(tam==-1){
+    //segundo quiero que todo lo que tenga el archivo de backup
+    //lo reemplaze por lo que tiene el archivo de bkpninio.dat
+    int tam = objPlanta.contarRegistros("bkpplanta.dat");
+
+    if (tam == -1){
         cout<<"ERROR de bool bkpPlanta::RestaurarBackup()"<<endl;
         system("pause");
         return false;
     }
 
     for(int i=0; i<tam; i++){
-        objPlanta = objPlanta.leerRegistroPlanta(i);
-        fwrite(&objPlanta, sizeof(Planta), 1, p);
+        objP = objPlanta.leerRegistroPlanta(i,"bkpplanta.dat");
 
-        //quiero mostrarlo
-        objPlanta.MostrarPlanta();
+        fwrite(&objP, sizeof(Planta), 1, p);
     }
 
     fclose(p);

@@ -57,9 +57,9 @@ void Planta::MostrarPlanta()
 }
 
 
-int Planta::contarRegistros(){
+int Planta::contarRegistros(const char* nombre){
         FILE *p;
-        p=fopen("planta.dat", "rb");
+        p=fopen(nombre, "rb");
         if(p==NULL) return -1;
         fseek(p, 0,2);
         int tam=ftell(p);
@@ -75,11 +75,11 @@ bool Planta::borrarRegistroPlanta(){
     return true;
 }
 
-Planta Planta::leerRegistroPlanta(int pos){
+Planta Planta::leerRegistroPlanta(int pos,const char* nombre){
    Planta reg;
     reg.setEstado(false);
     FILE *p;
-    p=fopen("planta.dat", "rb");
+    p=fopen(nombre, "rb");
     if(p==NULL){
      cout<<"Error = Planta Planta::leerRegistroPlanta(int pos)"<<endl;
      return reg;
