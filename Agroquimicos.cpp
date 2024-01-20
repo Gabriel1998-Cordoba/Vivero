@@ -65,10 +65,11 @@ void Agroquimicos::MostrarAgroquimicos()
 
 }
 
-int Agroquimicos::contarRegistros(){
+int Agroquimicos::contarRegistros(const char* ruta){
         FILE *p;
-        p=fopen("agroquimicos.dat", "rb");
-        if(p==NULL) return 0;
+        p=fopen(ruta, "rb");
+        if(p==NULL) return -1; //cambie el 0 por un -1, por si no ahi ningun registro me devuelva -1
+                               //Fijate gabi si esto no afecta a otra parte del programa
         fseek(p, 0,2);
         int tam=ftell(p);
         fclose(p);
@@ -83,11 +84,11 @@ bool Agroquimicos::borrarRegistroAgroquimicos(){
     return true;
 }
 
-Agroquimicos Agroquimicos::leerRegistroAgroquimicos(int pos){
+Agroquimicos Agroquimicos::leerRegistroAgroquimicos(int pos,const char* ruta){
    Agroquimicos reg;
     reg.setEstado(false);
     FILE *p;
-    p=fopen("agroquimicos.dat", "rb");
+    p=fopen(ruta, "rb");
     if(p==NULL){
      cout<<"Error = Agroquimicos Agroquimicos::leerRegistroAgroquimicos(int pos)"<<endl;
      return reg;
@@ -117,6 +118,26 @@ ClassM.MostrarAgroquimicos();
 
 fclose(p);
 
+}
+
+bool Agroquimicos::MostrarArchivoAgroquimicos(){
+
+    FILE *p;
+    Agroquimicos ClassM;
+
+    p=fopen("agroquimicos.dat","rb");
+    if(p==NULL){
+        cout<<"ERROR de ARCHIVO"<<endl;
+        system("pause");
+        return false;
+    }
+
+    while(fread(&ClassM,sizeof (Agroquimicos),1,p)==1){
+        ClassM.MostrarAgroquimicos();
+    }
+
+    fclose(p);
+    return true;
 }
 
 void Agroquimicos::Opcion1Compra(){

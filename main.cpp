@@ -12,6 +12,8 @@ using namespace std;
 #include "bkpPlanta.h"
 #include "Herramientas.h"
 #include "bkpHerramientas.h"
+#include "Agroquimicos.h"
+#include "bkpAgroquimicos.h"
 
 Planta BuscarPlanta(int idArticulo)
 {
@@ -142,17 +144,17 @@ int main()
 
   //FacturaXNroFactura();
 
-  Herramientas objP;
-  bkpHerramientas objbkpPlanta;
+  Agroquimicos objP;
+  bkpAgroquimicos objbkpPlanta;
 
-  //objbkpPlanta.RestaurarBackup();
+  objbkpPlanta.RestaurarBackup();
 
-  //objP.CargarArchivoPlanta(1,1);
-  objP.MostrarArchivoHerramienta();
+  //objP.CargarArchivoAgroquimicos(1,3);
+  objP.MostrarArchivoAgroquimicos();
 
   cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
 
-  objbkpPlanta.CrearBackup(); //anda mal porque no se crea el archivo de respaldo correctamente
+  //objbkpPlanta.CrearBackup(); //anda mal porque no se crea el archivo de respaldo correctamente
   objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
 
   return 0;

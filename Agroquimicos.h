@@ -15,11 +15,11 @@ class Agroquimicos : public Articulo{
     void CargarAgroquimicos(int totalDeRegistros,int TipoDeArticulo);
     void MostrarAgroquimicos();
 
-        int contarRegistros();
+        int contarRegistros(const char* ruta = "agroquimicos.dat");
         bool borrarRegistroAgroquimicos();
-        Agroquimicos leerRegistroAgroquimicos(int pos);
+        Agroquimicos leerRegistroAgroquimicos(int pos,const char* ruta = "agroquimicos.dat");
         void ListarAgroquimicos();
-
+        bool MostrarArchivoAgroquimicos();
 
 void Opcion1Compra();   //HACER
 void Opcion2Compra();   //HACER
