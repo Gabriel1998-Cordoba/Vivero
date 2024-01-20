@@ -11,12 +11,13 @@ class Herramientas : public Articulo{
         void CargarHerramienta(int totalDeRegistros,int TipoDeArticulo);
         void MostrarHerramienta();
 
-        int contarRegistros();
+        int contarRegistros(const char* nombre = "herramientas.dat");
         bool borrarRegistroHerramienta();
-        Herramientas leerRegistroHerramienta(int pos);
+        Herramientas leerRegistroHerramienta(int pos,const char* nombre = "herramientas.dat");
         void ListarHerramienta();
 
         bool ListarHerramientaPorCodigoHerramienta(int codigoHerramienta);
+        bool MostrarArchivoHerramienta();
 
 void Opcion1Compra();   //HACER
 void Opcion2Compra();   //HACER

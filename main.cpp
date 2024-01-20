@@ -10,6 +10,8 @@ using namespace std;
 #include "bkpDuenio.h"
 #include "Planta.h"
 #include "bkpPlanta.h"
+#include "Herramientas.h"
+#include "bkpHerramientas.h"
 
 Planta BuscarPlanta(int idArticulo)
 {
@@ -140,18 +142,18 @@ int main()
 
   //FacturaXNroFactura();
 
-  Planta objP;
-  bkpPlanta objbkpPlanta;
+  Herramientas objP;
+  bkpHerramientas objbkpPlanta;
 
   //objbkpPlanta.RestaurarBackup();
 
   //objP.CargarArchivoPlanta(1,1);
-  //objP.MostrarArchivoPlanta();
+  objP.MostrarArchivoHerramienta();
 
   cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
 
-  //objbkpPlanta.CrearBackup();
-  //objbkpPlanta.MostrarBackup();
+  objbkpPlanta.CrearBackup(); //anda mal porque no se crea el archivo de respaldo correctamente
+  objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
 
   return 0;
 }

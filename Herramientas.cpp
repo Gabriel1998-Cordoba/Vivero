@@ -37,12 +37,13 @@ void Herramientas::MostrarHerramienta()
     cout << endl;
 }
 
-int Herramientas::contarRegistros()
+int Herramientas::contarRegistros(const char* nombre)
 {
     FILE *p;
-    p = fopen("herramientas.dat", "rb");
+    p = fopen(nombre, "rb");
     if (p == NULL)
-        return 0;
+        return -1; //cambie el 0 por un -1, por si no ahi ningun registro me devuelva -1
+                   //Fijate gabi si esto no afecta a otra parte del programa
     fseek(p, 0, 2);
     int tam = ftell(p);
     fclose(p);
@@ -61,12 +62,12 @@ bool Herramientas::borrarRegistroHerramienta()
     return true;
 }
 
-Herramientas Herramientas::leerRegistroHerramienta(int pos)
+Herramientas Herramientas::leerRegistroHerramienta(int pos,const char* nombre)
 {
     Herramientas reg;
     reg.setEstado(false);
     FILE *p;
-    p = fopen("herramientas.dat", "rb");
+    p = fopen(nombre, "rb");
     if (p == NULL)
     {
         cout << "Error = Herramientas Herramientas::leerRegistroHerramienta(int pos)" << endl;
@@ -185,3 +186,23 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 // void Herramientas::Opcion5Compra(){
 
 // }
+
+bool Herramientas::MostrarArchivoHerramienta(){
+
+    Herramientas ClassM;
+
+    FILE *p;
+    p = fopen("herramientas.dat", "rb");
+    if (p == NULL)
+    {
+        return false;
+    }
+
+    while (fread(&ClassM, sizeof(Herramientas), 1, p) == 1){
+
+        ClassM.MostrarHerramienta();
+    }
+
+    fclose(p);
+    return true;
+}
