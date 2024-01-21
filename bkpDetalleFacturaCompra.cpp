@@ -77,7 +77,7 @@ void bkpDetalleFacturaCompra::MostrarBackup(){
     //obtiene el número de registros en el archivo de respaldo
     int tam = objDetalleFacturaCompra.contarRegistros("bkpDetalleFacturaCompra.dat");
     //lee y muestra cada registro en el archivo de respaldo
-
+    
     for(int i=0; i<tam; i++){
         objDetalleFacturaCompra = objDetalleFacturaCompra.leerRegistro(i,"bkpDetalleFacturaCompra.dat");
         objDetalleFacturaCompra.Mostrar();

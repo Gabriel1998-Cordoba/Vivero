@@ -33,11 +33,13 @@ void CargarCompra(RegistroCompra ,int );
 
 void Mostrar();
 
-int contarRegistros();
+int contarRegistros(const char * nombre = "registrocompra.dat");
 bool GuardarCompra();
+
+void CargarDatosRegistroCompraEnArchivo(RegistroCompra objR ,int idcliente);
 void MostrarArchivoCompra();
 
-RegistroCompra leerRegistro(int pos);
+RegistroCompra leerRegistro(int pos,const char * nombre = "registrocompra.dat");
 // RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
 
 //     Sujeto& getSujeto() { return _Sujeto; }

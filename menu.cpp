@@ -1,19 +1,7 @@
-#include <iostream>
-#include <string>
-#include <cstring>
 
-using namespace std;
 
 #include "menu.h"
-#include "FuncionesGlobales.h"
-#include "Duenio.h"
-#include "Cliente.h"
-#include "DetalleFacturaCompra.h"
-#include "RegistroCompra.h"
-#include "Planta.h"
-#include "Herramientas.h"
-#include "Agroquimicos.h"
-#include "Backup.h"
+
 ///////////////////////////////////////////////////////////////////////////
 void menuPrincipal()
 {
@@ -135,10 +123,10 @@ void menuDuenio(int opcion)
             cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 8 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Cargar Datos Del Duenio" << endl;
-            cout << "Opcion 10 ----> crear Backup Duenio" << endl;
-            cout << "Opcion 11 ----> Restaurar Backup Duenio" << endl;
-            cout << "Opcion 12 ----> Mostrar Contenido del Backup Duenio" << endl;
-            cout << "Opcion 13 ----> borrar datos del duenio y poner los que contiene Backup" << endl;
+            cout << "Opcion 10 ----> CONFIGURACION" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+            // cout << "Opcion 11 ----> Restaurar Backup Duenio" << endl;
+            // cout << "Opcion 12 ----> Mostrar Contenido del Backup Duenio" << endl;
+            // cout << "Opcion 13 ----> borrar datos del duenio y poner los que contiene Backup" << endl;
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -223,20 +211,17 @@ void menuDuenio(int opcion)
             case 10:
             {
                 system("cls");
-Backup objBkp;
-objBkp.BackupDatosDuenio();
-                
+                configuracion();
                 system("pause");
             }
             break;
                 /*******************************************************************/
             case 11:
             {
-                 system("cls");
-Backup objBkp;
-objBkp.ReemplazarDatosDuenioConBackup();
-                
-               
+                system("cls");
+                // Backup objBkp;
+                // objBkp.ReemplazarDatosDuenioConBackup();
+
                 system("pause");
             }
             break;
@@ -244,23 +229,20 @@ objBkp.ReemplazarDatosDuenioConBackup();
             case 12:
             {
                 system("cls");
-Backup objBkp;
-objBkp.MostrarBackupDatosDuenio();
-              
-                
-                
+                // Backup objBkp;
+                // objBkp.MostrarBackupDatosDuenio();
+
                 system("pause");
             }
             break;
                 /*******************************************************************/
             case 13:
             {
-Backup objBkp;
-objBkp.ReemplazarDatosDuenioConBackup();
-                system("pause");
-                
-                system("cls");
-                system("pause");
+                //                  system("cls");
+                // Backup objBkp;
+                // objBkp.ReemplazarDatosDuenioConBackup();
+
+                //                 system("pause");
             }
             break;
                 /*******************************************************************/
@@ -651,8 +633,6 @@ void CargarDatosDelDuenio(int opcion)
 ///////////////////////////////////////////////////////////////////////////
 void menuPersona(int opcion)
 {
-    
-
 
     system("cls");
 
@@ -670,14 +650,14 @@ void menuPersona(int opcion)
         case 1:
         {
 
-        //hacer una funcion que me cuente cuantos registros hay
-        RegistroCompra objR;
-        int tam = objR.contarRegistros();
-        int idCompra = tam+1;
-        objR.setIdCompra(idCompra);
+            // hacer una funcion que me cuente cuantos registros hay
+            RegistroCompra objR;
+            int tam = objR.contarRegistros();
+            int idCompra = tam + 1;
+            objR.setIdCompra(idCompra);
 
             system("cls");
-            menuCompraPersona(opcion,objR);
+            menuCompraPersona(opcion, objR);
             system("pause");
         }
         break;
@@ -711,12 +691,10 @@ void menuPersona(int opcion)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraPersona(int opcion,RegistroCompra objR)
+void menuCompraPersona(int opcion, RegistroCompra objR)
 {
 
     system("cls");
-
-
 
     cout << "Se debe de cargar su Registros de Compra" << endl
          << endl
@@ -806,14 +784,14 @@ void menuCompraPersona(int opcion,RegistroCompra objR)
                         cout << "se registro correctamente el cliente" << endl;
                     }
                 }
-                    objR.CargarCompra(objR, cli.getIDCliente());
-                    if (objR.GuardarCompra())
-                    {
-                        cout << "se registro correctamente la compra " << endl;
-                        //falta una funcion que dentro va a tener otra, esa funcion se llama
-                        // la primera se va a llamar genera factura, lo que va a hacer esta funcion, lo que
-                        // le vamos a pasar es la idCompra
-                    }
+                objR.CargarCompra(objR, cli.getIDCliente());
+                if (objR.GuardarCompra())
+                {
+                    cout << "se registro correctamente la compra " << endl;
+                    // falta una funcion que dentro va a tener otra, esa funcion se llama
+                    //  la primera se va a llamar genera factura, lo que va a hacer esta funcion, lo que
+                    //  le vamos a pasar es la idCompra
+                }
             }
             system("cls");
             return;
@@ -879,54 +857,54 @@ void menuVentaPersona(int opcion)
         case 0:
         {
 
-    //     do
-    //         {
-    //             cout << "¿Seguro? ---> SI == 0" << endl;
-    //             cout << "NO == 1" << endl;
-    //             cin >> opcion;
-    //         } while ((opcion != 0) && (opcion != 1));
+            //     do
+            //         {
+            //             cout << "¿Seguro? ---> SI == 0" << endl;
+            //             cout << "NO == 1" << endl;
+            //             cin >> opcion;
+            //         } while ((opcion != 0) && (opcion != 1));
 
-    //         if (opcion == 0)
-    //         {
-    //             cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
-    //             Cliente cli;
-    //             cli.Cargar();
-    //             if (!Existe(cli))
-    //             {
-    //                 if (cli.GuardarArchivo())
-    //                 {
-    //                     cout << "se registro correctamente el cliente" << endl;
-    //                 }
-    //                 RegistroCompra objR;
-    //                 objR.CargarCompra(idCompra, cli.getIDCliente());
-    //                 if (objR.GuardarCompra())
-    //                 {
-    //                     cout << "se registro correctamente la compra " << endl;
-    //                 }
-    //             }
-    //             else
-    //             {
+            //         if (opcion == 0)
+            //         {
+            //             cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
+            //             Cliente cli;
+            //             cli.Cargar();
+            //             if (!Existe(cli))
+            //             {
+            //                 if (cli.GuardarArchivo())
+            //                 {
+            //                     cout << "se registro correctamente el cliente" << endl;
+            //                 }
+            //                 RegistroCompra objR;
+            //                 objR.CargarCompra(idCompra, cli.getIDCliente());
+            //                 if (objR.GuardarCompra())
+            //                 {
+            //                     cout << "se registro correctamente la compra " << endl;
+            //                 }
+            //             }
+            //             else
+            //             {
 
-    //                 cout << "El cliente ya existe " << endl;
-    //                 RegistroCompra objR;
-    //                 objR.CargarCompra(idCompra, cli.getIDCliente());
-    //                 if (objR.GuardarCompra())
-    //                 {
-    //                     cout << "se registro correctamente la compra " << endl;
-    //                 }
-    //             }
-    //         }
-    //         system("cls");
-    //         return;
+            //                 cout << "El cliente ya existe " << endl;
+            //                 RegistroCompra objR;
+            //                 objR.CargarCompra(idCompra, cli.getIDCliente());
+            //                 if (objR.GuardarCompra())
+            //                 {
+            //                     cout << "se registro correctamente la compra " << endl;
+            //                 }
+            //             }
+            //         }
+            //         system("cls");
+            //         return;
         }
-         break;
-    //     /*******************************************************************/
-         default:
-         {
-    //         system("cls");
-    //         cout << "valor ingresado no existe dentro del menu" << endl;
-    //         system("pause");
-         }
+        break;
+            //     /*******************************************************************/
+        default:
+        {
+            //         system("cls");
+            //         cout << "valor ingresado no existe dentro del menu" << endl;
+            //         system("pause");
+        }
         break;
             /*******************************************************************/
         }
@@ -1096,14 +1074,14 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraAgroquimicosPersona(int opcion,RegistroCompra objR)
+void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
 {
 
     Agroquimicos objA;
-    
-    //hacer una funcion que me cuente cuantos registros hay
+
+    // hacer una funcion que me cuente cuantos registros hay
     int tam = objR.contarRegistros();
-    int idCompra = tam+1;
+    int idCompra = tam + 1;
     objR.setIdCompra(idCompra);
 
     system("cls");
@@ -1400,3 +1378,131 @@ void menuVentaAgroquimicosPersona(int opcion)
     }
 }
 /*******************************************************************/
+void configuracion()
+
+{
+    bkpDuenio objBkpDuenio;
+    bkpPlanta objBkpPLanta;
+    bkpAgroquimicos objBkpAgroquimico;
+    bkpHerramientas objBkpHerramienta;
+    bkpDetalleFacturaCompra objBkpDetalleFacturaCompra;
+    bkpCliente objBkpCliente;
+    bkpRegistroCompra objBkpRegistroCompra;
+
+    int opc;
+    while (true)
+    {
+        cout << "           CONFIGURACION            " << endl;
+        cout << "1 - RESTAURAR TODOS LOS BACKUPS     " << endl;
+        cout << "2 - RESTAURAR BACKUP DUENIO         " << endl;
+        cout << "3 - RESTAURAR BACKUP REGISTRO COMPRA" << endl;
+        cout << "4 - RESTAURAR BACKUP PLANTA         " << endl;
+        cout << "5 - RESTAURAR BACKUP AGROQUIMICOS   " << endl;
+        cout << "6 - RESTAURAR BACKUP HERRAMIENTA               " << endl;
+        cout << "7 - RESTAURAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
+        // cout<<"8 - RESTAURAR BACKUP DETALLE DE FACTURA VENTA"<<endl;
+        cout << "8 - RESTAURAR BACKUP CLIENTE            " << endl;
+
+        cout << "9 - CREAR BACKUP DUENIO             " << endl;
+        cout << "10- CREAR BACKUP REGISTRO COMPRA" << endl;
+        cout << "11- CREAR BACKUP PLANTA " << endl;
+        cout << "12- CREAR BACKUP AGROQUIMICOS" << endl;
+        cout << "13- CREAR BACKUP HERRAMIENTA" << endl;
+        cout << "14- CREAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
+        cout << "15- CREAR BACKUP CLIENTE" << endl;
+        cout << "16 - CREAR TODOS LOS BACKUPS     " << endl;
+
+        cout << "0 - SALIR                   " << endl;
+
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+        case 1:
+        {
+            // codigo
+        }
+        break;
+        case 2:
+
+            // codigo
+
+            objBkpDuenio.RestaurarBackup();
+
+            break;
+        case 3:
+
+            // codigo
+            objBkpRegistroCompra.RestaurarBackup();
+            break;
+        case 4:
+
+            // codigo
+
+            objBkpPLanta.RestaurarBackup();
+
+            break;
+        case 5:
+
+            objBkpAgroquimico.RestaurarBackup();
+
+            break;
+        case 6:
+
+            objBkpHerramienta.RestaurarBackup();
+
+            break;
+        case 7:
+
+            // codigo
+
+            objBkpDetalleFacturaCompra.RestaurarBackup();
+
+            break;
+        case 8:
+
+            objBkpCliente.RestaurarBackup();
+
+            break;
+
+        case 9:
+            // finalizar el while
+            objBkpDuenio.CrearBackup();
+            break;
+        case 10: // finalizar el while
+            objBkpRegistroCompra.CrearBackup();
+            break;
+        case 11:
+            objBkpPLanta.CrearBackup();
+
+            break;
+        case 12:
+            objBkpAgroquimico.CrearBackup();
+
+            break;
+        case 13:
+            objBkpHerramienta.CrearBackup();
+
+            break;
+        case 14:
+            objBkpDetalleFacturaCompra.CrearBackup();
+
+            break;
+        case 15:
+
+            objBkpCliente.CrearBackup();
+            break;
+        case 16:
+
+            //
+            break;
+
+        case 0: // finalizar el while
+            return;
+            break;
+
+        default:
+            break;
+        }
+    }
+}

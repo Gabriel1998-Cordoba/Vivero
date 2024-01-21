@@ -81,12 +81,13 @@ void RegistroCompra::Mostrar()
     // cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDocu(indice)<<endl;
 }
 
-int RegistroCompra::contarRegistros()
+int RegistroCompra::contarRegistros(const char * nombre)
 {
     FILE *p;
-    p = fopen("registrocompra.dat", "rb");
+    p = fopen(nombre, "rb");
     if (p == NULL)
-        return 0;
+        return -1; //cambie el 0 por un -1, por si no ahi ningun registro me devuelva -1
+                   //Fijate gabi si esto no afecta a otra parte del programa
     fseek(p, 0, 2);
     int tam = ftell(p);
     fclose(p);
@@ -132,12 +133,29 @@ void RegistroCompra::MostrarArchivoCompra()
 
     fclose(p);
 }
+void RegistroCompra::CargarDatosRegistroCompraEnArchivo(RegistroCompra objR ,int idcliente){
 
-RegistroCompra RegistroCompra::leerRegistro(int pos)
+    FILE *p;
+    RegistroCompra obj;
+    p = fopen("registrocompra.dat", "ab");
+    if (p == NULL)
+    {
+        cout << "ERROR de ARCHIVO" << endl;
+        system("pause");
+    }
+
+    obj.CargarCompra(objR,idcliente);
+    fwrite(&obj, sizeof(RegistroCompra), 1, p);
+
+    fclose(p);
+
+}
+
+RegistroCompra RegistroCompra::leerRegistro(int pos,const char * nombre)
 {
     RegistroCompra reg;
     FILE *p;
-    p = fopen("registrocompra.dat", "rb");
+    p = fopen(nombre, "rb");
     if (p == NULL)
         return reg;
     fseek(p, sizeof(RegistroCompra) * pos, 0);

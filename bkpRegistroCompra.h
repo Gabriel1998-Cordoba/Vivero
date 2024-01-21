@@ -1,14 +1,14 @@
 #pragma once
-#include"Duenio.h"
+#include "RegistroCompra.h"
 
-class bkpDuenio{
+class bkpRegistroCompra{
 
     private:
-        Duenio objDuenio;
+        RegistroCompra objRegistroCompra;
     public:
         //setters y getters
-        void setObjDuenio(Duenio objDuenio){this->objDuenio = objDuenio;}
-        Duenio getObjDuenio(){return objDuenio;}
+        void setObjRegistroCompra(RegistroCompra objRegistroCompra){this->objRegistroCompra = objRegistroCompra;}
+        RegistroCompra getObjRegistroCompra(){return objRegistroCompra;}
 
     //metodos
     
@@ -18,5 +18,4 @@ class bkpDuenio{
         void MostrarBackup();
     //tambien quiero hacer una funcion que me reempieze todo lo que tiene el backup en el archivo original
         bool RestaurarBackup();
-    
 };
