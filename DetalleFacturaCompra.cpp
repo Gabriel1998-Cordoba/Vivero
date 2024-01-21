@@ -175,10 +175,10 @@ bool DetalleFacturaCompra::AutoCargar(int idArticulo, int idCompra, float precio
 //     fclose(p);
 // }
 /**************************************************************/
-int DetalleFacturaCompra::contarRegistros()
+int DetalleFacturaCompra::contarRegistros(const char *nombre)
 {
     FILE *p;
-    p = fopen("DetalleFacturaCompra.dat", "rb");
+    p = fopen(nombre, "rb");
     if (p == NULL)
     {
         return 0;
@@ -258,4 +258,36 @@ bool DetalleFacturaCompra::leerRegistroIdCompra(int pos)
    bool leyo= fread(this, sizeof (DetalleFacturaCompra), 1, p);
     fclose(p);
     return leyo;
+}
+void DetalleFacturaCompra::MostrarDatosDetalleFacturaCompraEnArchivo(){
+    DetalleFacturaCompra reg;
+    FILE *p;
+
+    p = fopen("DetalleFacturaCompra.dat", "rb");
+    if (p == NULL){
+        cout << "Error al abrir el archivo" << endl;
+        return;
+    }
+
+    while(fread(&reg, sizeof (DetalleFacturaCompra), 1, p)){
+        reg.Mostrar();
+    }
+    fclose(p);
+}
+
+DetalleFacturaCompra DetalleFacturaCompra::leerRegistro(int pos,const char* nombre){
+
+
+    DetalleFacturaCompra reg;
+    FILE *p;
+    p=fopen(nombre, "rb");
+    if(p==NULL){
+        cout<<"ERRRO = DetalleFacturaCompra leerRegistro(int pos)"<<endl;
+        return reg;
+    }
+    fseek(p, sizeof(DetalleFacturaCompra)*pos,0);
+    fread(&reg, sizeof (DetalleFacturaCompra),1, p);
+    fclose(p);
+    return reg;
+
 }

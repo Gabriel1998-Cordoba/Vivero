@@ -132,6 +132,7 @@ Duenio Duenio::leerRegistro(int pos, const char* nombre){
         return reg;
     }
 
+
 bool Duenio::reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar){
     FILE *p = fopen("duenio.dat", "rb+");
     if (p == NULL){return false;}

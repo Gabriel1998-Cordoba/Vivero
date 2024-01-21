@@ -50,8 +50,10 @@ float getPrecio();
 /*METODOS DE MANEJOS DE ARCHIVO*/
 bool AutoCargar(int idCliente,int idCompra,float precio,int tipoArticulo); //prueba
 bool GuardarEnArchivo();
-int contarRegistros();
+int contarRegistros(const char* nombre = "DetalleFacturaCompra.dat");
 bool leerRegistroIdCompra(int IdComp);
+DetalleFacturaCompra leerRegistro(int pos,const char* nombre = "DetalleFacturaCompra.dat");
+void MostrarDatosDetalleFacturaCompraEnArchivo();
 
 void Mostrar();
 

@@ -4,6 +4,7 @@ using namespace std;
 
 #include "RegistroCompra.h"
 #include "DetalleFacturaCompra.h"
+#include "bkpDetalleFacturaCompra.h"
 #include "Cliente.h"
 #include "menu.h"
 #include "Duenio.h"
@@ -16,6 +17,7 @@ using namespace std;
 #include "bkpAgroquimicos.h"
 #include "Cliente.h"
 #include "bkpCliente.h"
+
 
 Planta BuscarPlanta(int idArticulo)
 {
@@ -146,18 +148,18 @@ int main()
 
   //FacturaXNroFactura();
 
-  //Cliente objP;
-  //bkpCliente objbkpPlanta;
+  DetalleFacturaCompra objP;
+  bkpDetalleFacturaCompra objbkpPlanta;
 
   //objbkpPlanta.RestaurarBackup();
 
   //objP.CargarDatosClienteEnArchivo();
-  //objP.MostrarDatosClienteEnArchivo();
+  objP.MostrarDatosDetalleFacturaCompraEnArchivo();
 
   cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
 
-  //objbkpPlanta.CrearBackup(); //anda mal porque no se crea el archivo de respaldo correctamente
-  //objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
+  objbkpPlanta.CrearBackup(); //anda mal porque no se crea el archivo de respaldo correctamente
+  objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
 
   return 0;
 }
