@@ -13,7 +13,11 @@ void Cargar();
 void Mostrar();
 bool GuardarArchivo();
 bool LeerArchivo(int);//2/12/2023 gabi desarrollo
+int CONtarRegistros(const char *ruta = "Cliente.dat");
+void CargarDatosClienteEnArchivo();
+void MostrarDatosClienteEnArchivo();
+Cliente leerRegistros(int indice,const char* ruta = "Cliente.dat");
 };
 /////
-int ContarRegistros();
 bool Existe(Cliente cli );
+int contarRegistros();

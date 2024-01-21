@@ -70,7 +70,18 @@ bool Cliente::LeerArchivo(int indice)
 }
 /*--------------------------------------------------*/
 
- int contarRegistros()
+int Cliente::CONtarRegistros(const char *ruta)
+    {
+        FILE *p;
+        p = fopen(ruta, "rb");
+        if (p == NULL)
+            return -1;
+        fseek(p, 0, 2);
+        int tam = ftell(p);
+        fclose(p);
+        return tam / sizeof(Cliente);
+    }
+int contarRegistros()
     {
         FILE *p;
         p = fopen("Cliente.dat", "rb");
@@ -81,6 +92,7 @@ bool Cliente::LeerArchivo(int indice)
         fclose(p);
         return tam / sizeof(Cliente);
     }
+
 bool Existe( Cliente cli )
 {
     Cliente reg;
@@ -96,4 +108,48 @@ bool Existe( Cliente cli )
         }
     }
     return false;
+}
+
+void Cliente::CargarDatosClienteEnArchivo(){
+    FILE *p;
+    Cliente reg;
+    p = fopen("Cliente.dat", "ab");
+    if (p == NULL){
+        cout << "Error al abrir el archivo" << endl;
+        return;
+    }
+
+    reg.Cargar();
+    fwrite(&reg, sizeof reg, 1, p);
+
+    fclose(p);
+}
+void Cliente::MostrarDatosClienteEnArchivo(){
+    Cliente reg;
+    FILE *p;
+
+    p = fopen("Cliente.dat", "rb");
+    if (p == NULL){
+        cout << "Error al abrir el archivo" << endl;
+        return;
+    }
+
+    while (fread(&reg, sizeof reg, 1, p)==1){
+        reg.Mostrar();
+    }
+
+    fclose(p);
+}
+
+Cliente Cliente::leerRegistros(int indice,const char* ruta){
+    Cliente reg;
+    FILE *p;
+    p = fopen(ruta, "rb");
+    if (p == NULL){
+        return reg;
+    }
+    fseek(p, sizeof reg * indice, 0);
+    fread(&reg, sizeof reg, 1, p);
+    fclose(p);
+    return reg;
 }
