@@ -82,10 +82,11 @@ void RegistroVenta::Mostrar()
     cout<<"MODO DE PAGO: "<<getModoDePago()<<endl<<endl;
 }
 
-int RegistroVenta::contarRegistros(){
+int RegistroVenta::contarRegistros(const char* nombre){
         FILE *p;
-        p=fopen("registroVenta.dat", "rb");
-        if(p==NULL) return 0;
+        p=fopen(nombre, "rb");
+        if(p==NULL) return -1; //cambie el 0 por un -1, por si no ahi ningun registro me devuelva -1
+                               //Fijate gabi si esto no afecta a otra parte del programa
         fseek(p, 0,2);
         int tam=ftell(p);
         fclose(p);
@@ -110,6 +111,19 @@ fwrite(&ClassM,sizeof (RegistroVenta),1,p);
 fclose(p);
 
 
+}
+
+RegistroVenta RegistroVenta::leerRegistro(int pos,const char * nombre)
+{
+    RegistroVenta reg;
+    FILE *p;
+    p = fopen(nombre, "rb");
+    if (p == NULL)
+        return reg;
+    fseek(p, sizeof(RegistroVenta) * pos, 0);
+    fread(&reg, sizeof reg, 1, p);
+    fclose(p);
+    return reg;
 }
 
 void RegistroVenta::MostrarArchivoVenta(){

@@ -23,8 +23,9 @@ void CargarCompra();
 
 void Mostrar();
 
-int contarRegistros();
+int contarRegistros(const char* nombre = "registroVenta.dat");
 void CargarArchivoVenta();
 void MostrarArchivoVenta();
+RegistroVenta leerRegistro(int pos,const char * nombre = "registroVenta.dat");
 
 };

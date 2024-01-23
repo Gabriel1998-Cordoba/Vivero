@@ -3,26 +3,28 @@
 #include"menu.h"
 #include"RegistroCompra.h"
 #include"bkpRegistroCompra.h"
+#include"RegistroVenta.h"
+#include"bkpRegistroVenta.h"
 
 int main()
 {
 
- menuPrincipal();
+ //menuPrincipal();
 
   //FacturaXNroFactura();
 
-  //RegistroCompra objP,objP2;
-  //bkpRegistroCompra objbkpPlanta;
+  RegistroVenta objP;
+  bkpRegistroVenta objbkpPlanta;
   
-  //objbkpPlanta.RestaurarBackup();
+  objbkpPlanta.RestaurarBackup();
 
-  //objP.CargarDatosRegistroCompraEnArchivo(objP2,0);
-  //objP.MostrarArchivoCompra();
+  //objP.CargarArchivoVenta();
+  objP.MostrarArchivoVenta();
 
-  //cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
+  cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
 
   //objbkpPlanta.CrearBackup();
-  //objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
+  objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
 
 
 
