@@ -32,8 +32,11 @@ char telefono[30];
 bool estado;
 char email[30];
 
-_fecha.Cargar();
+_fecha.Cargar();//hay que tomarla del sistema
+//hacer una funcion para cargar la fecha
+
 _TipoDoc.CargarTipoDocu();
+
 _direccion.CargarDireccion();
 
     // totalDeRegistros++;

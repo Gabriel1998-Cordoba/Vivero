@@ -5,6 +5,7 @@ private:
 int _idCliente;
 char _apellido[50];
 public:
+Cliente();
 void setIDCliente(int);
 void setApellido(const char *);
 int getIDCliente();
@@ -17,7 +18,10 @@ int CONtarRegistros(const char *ruta = "Cliente.dat");
 void CargarDatosClienteEnArchivo();
 void MostrarDatosClienteEnArchivo();
 Cliente leerRegistros(int indice,const char* ruta = "Cliente.dat");
+
+
 };
 /////
 bool Existe(Cliente cli );
 int contarRegistros();
+bool ValidarCliente(int dni);

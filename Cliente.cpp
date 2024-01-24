@@ -5,6 +5,9 @@ using namespace std;
 #include "Cliente.h"
 #include "FuncionesGlobales.h"
 
+Cliente::Cliente(){
+_idCliente=0;
+}
 void Cliente::setIDCliente(int idCliente)
 {
     _idCliente;
@@ -23,12 +26,10 @@ const char *Cliente::getApellido()
 }
 void Cliente::Cargar()
 {
-    int idcliente=0;
+    int idcliente = this-> CONtarRegistros() + 2;
     char apellido[50];
-    cout << "INGRESE LOS SIGUIENTES DATOS: " << endl;
-    cout << " ID CLIENTE: ";
-    cin >> idcliente;
-    setIDCliente(idcliente);
+    cout << "ID CLIENTE: " << this->getIDCliente() << endl;
+
     cout << "APELLIDO: ";
     cargarCadena(apellido, 50);
     setApellido(apellido);
@@ -36,8 +37,8 @@ void Cliente::Cargar()
 }
 void Cliente::Mostrar()
 {
-    cout << "ID Cliente: " << getIDCliente() << endl;
-    cout << "Apellido: " << getApellido() << endl;
+    cout << "ID Cliente: " << this-> getIDCliente() << endl;
+    cout << "Apellido: " << this-> getApellido() << endl;
     Sujeto::MostrarSujeto();
 }
 bool Cliente::GuardarArchivo()
@@ -71,29 +72,29 @@ bool Cliente::LeerArchivo(int indice)
 /*--------------------------------------------------*/
 
 int Cliente::CONtarRegistros(const char *ruta)
-    {
-        FILE *p;
-        p = fopen(ruta, "rb");
-        if (p == NULL)
-            return -1;
-        fseek(p, 0, 2);
-        int tam = ftell(p);
-        fclose(p);
-        return tam / sizeof(Cliente);
-    }
+{
+    FILE *p;
+    p = fopen(ruta, "rb");
+    if (p == NULL)
+        return -1;
+    fseek(p, 0, 2);
+    int tam = ftell(p);
+    fclose(p);
+    return tam / sizeof(Cliente);
+}
 int contarRegistros()
-    {
-        FILE *p;
-        p = fopen("Cliente.dat", "rb");
-        if (p == NULL)
-            return -1;
-        fseek(p, 0, 2);
-        int tam = ftell(p);
-        fclose(p);
-        return tam / sizeof(Cliente);
-    }
+{
+    FILE *p;
+    p = fopen("Cliente.dat", "rb");
+    if (p == NULL)
+        return -1;
+    fseek(p, 0, 2);
+    int tam = ftell(p);
+    fclose(p);
+    return tam / sizeof(Cliente);
+}
 
-bool Existe( Cliente cli )
+bool Existe(Cliente cli)
 {
     Cliente reg;
     int tam = 0;
@@ -101,8 +102,8 @@ bool Existe( Cliente cli )
 
     for (int i = 0; i < tam; i++)
     {
-      reg.LeerArchivo(i);
-        if (cli.getIDCliente() ==reg.getIDCliente())
+        reg.LeerArchivo(i);
+        if (cli.getIDCliente() == reg.getIDCliente())
         {
             return true;
         }
@@ -110,11 +111,13 @@ bool Existe( Cliente cli )
     return false;
 }
 
-void Cliente::CargarDatosClienteEnArchivo(){
+void Cliente::CargarDatosClienteEnArchivo()
+{
     FILE *p;
     Cliente reg;
     p = fopen("Cliente.dat", "ab");
-    if (p == NULL){
+    if (p == NULL)
+    {
         cout << "Error al abrir el archivo" << endl;
         return;
     }
@@ -124,32 +127,65 @@ void Cliente::CargarDatosClienteEnArchivo(){
 
     fclose(p);
 }
-void Cliente::MostrarDatosClienteEnArchivo(){
+void Cliente::MostrarDatosClienteEnArchivo()
+{
     Cliente reg;
     FILE *p;
 
     p = fopen("Cliente.dat", "rb");
-    if (p == NULL){
+    if (p == NULL)
+    {
         cout << "Error al abrir el archivo" << endl;
         return;
     }
 
-    while (fread(&reg, sizeof reg, 1, p)==1){
+    while (fread(&reg, sizeof reg, 1, p) == 1)
+    {
         reg.Mostrar();
     }
 
     fclose(p);
 }
 
-Cliente Cliente::leerRegistros(int indice,const char* ruta){
+Cliente Cliente::leerRegistros(int indice, const char *ruta)
+{
     Cliente reg;
     FILE *p;
     p = fopen(ruta, "rb");
-    if (p == NULL){
+    if (p == NULL)
+    {
         return reg;
     }
     fseek(p, sizeof reg * indice, 0);
     fread(&reg, sizeof reg, 1, p);
     fclose(p);
     return reg;
+}
+
+bool ValidarCliente(int id)
+{
+
+    Cliente reg;
+
+    int tam = 0;
+    tam = contarRegistros();
+
+    if (tam == -1)
+    {
+        for (int i = 0; i < tam; i++)
+        {
+            reg.LeerArchivo(i);
+            if (reg.getIDCliente() == id)
+            {
+                return true;
+            }
+        }
+    }
+    else
+    {
+
+        return false;
+    }
+
+    return false;
 }

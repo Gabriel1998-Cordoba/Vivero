@@ -154,17 +154,22 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 
     char nombreH[30];
     int tam = 0;
+
     DetalleFacturaCompra descripcionFactura;
-    Herramientas reg, aux;
-    tam = reg.contarRegistros();
+
+    Herramientas herramienta, aux;
+    tam = herramienta.contarRegistros();
 
     cout << "Ingrese Nombre de la Herramienta: ";
     cargarCadena(nombreH, 30);
+
     for (int i = 0; i < tam; i++)
     {
-        aux = reg.leerRegistroHerramienta(i);
+        aux =herramienta.leerRegistroHerramienta(i);
+
         if (strcmp(aux.getNombre(), nombreH) == 0)
         {
+            
             if (descripcionFactura.AutoCargar(aux.getID(),objR.getIdCompra(), aux.getPrecio(), aux.getTipoDeArticulo()) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())

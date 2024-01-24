@@ -653,8 +653,14 @@ void menuPersona(int opcion)
             // hacer una funcion que me cuente cuantos registros hay
             RegistroCompra objR;
             int tam = objR.contarRegistros();
-            int idCompra = tam + 1;
+            
+            
+            
+    if(tam==-1){
+         int idCompra = tam + 2 ;
             objR.setIdCompra(idCompra);
+    }
+           
 
             system("cls");
             menuCompraPersona(opcion, objR);
@@ -776,21 +782,40 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             {
                 cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
                 Cliente cli;
-                cli.Cargar();
-                if (!Existe(cli))
+               // cli.Cargar();
+               int id;
+               cout<<"Ingrese ID"<<endl;
+               cin>>id;
+
+             
+
+                if (!ValidarCliente(id))
                 {
-                    if (cli.GuardarArchivo())
+                    cout<<"Se registra el nuevo cliente"<<endl;
+
+                    cli.Cargar();
+
+                    if (cli.GuardarArchivo() == true)
                     {
                         cout << "se registro correctamente el cliente" << endl;
+                        system("pause");
+                    }else{
+
+                        cout << "entro por aca" << endl;
+                        system("pause");
                     }
                 }
                 objR.CargarCompra(objR, cli.getIDCliente());
+                
                 if (objR.GuardarCompra())
                 {
                     cout << "se registro correctamente la compra " << endl;
                     // falta una funcion que dentro va a tener otra, esa funcion se llama
                     //  la primera se va a llamar genera factura, lo que va a hacer esta funcion, lo que
                     //  le vamos a pasar es la idCompra
+
+                    GenerarFactura(objR,cli.getIDCliente());
+                    system("pause");
                 }
             }
             system("cls");

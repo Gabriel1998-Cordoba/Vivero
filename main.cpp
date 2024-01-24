@@ -9,22 +9,22 @@
 int main()
 {
 
- //menuPrincipal();
+ menuPrincipal();
 
   //FacturaXNroFactura();
 
-  RegistroVenta objP;
-  bkpRegistroVenta objbkpPlanta;
-  
-  objbkpPlanta.RestaurarBackup();
-
-  //objP.CargarArchivoVenta();
-  objP.MostrarArchivoVenta();
-
-  cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
-
-  //objbkpPlanta.CrearBackup();
-  objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
+  //RegistroVenta objP;
+  //bkpRegistroVenta objbkpPlanta;
+  //
+  //objbkpPlanta.RestaurarBackup();
+//
+  ////objP.CargarArchivoVenta();
+  //objP.MostrarArchivoVenta();
+//
+  //cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
+//
+  ////objbkpPlanta.CrearBackup();
+  //objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
 
 
 
