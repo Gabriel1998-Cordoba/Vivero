@@ -195,6 +195,10 @@ void menuDuenio(int opcion)
             {
 
                 system("cls");
+
+FacturaXNroFactura();
+
+
                 system("pause");
             }
             break;
