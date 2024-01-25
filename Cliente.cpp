@@ -5,8 +5,9 @@ using namespace std;
 #include "Cliente.h"
 #include "FuncionesGlobales.h"
 
-Cliente::Cliente(){
-_idCliente=0;
+Cliente::Cliente()
+{
+    _idCliente = 0;
 }
 void Cliente::setIDCliente(int idCliente)
 {
@@ -26,7 +27,16 @@ const char *Cliente::getApellido()
 }
 void Cliente::Cargar()
 {
-    int idcliente = this-> CONtarRegistros() + 2;
+    int auxiliarValidacion = contarRegistros();
+    if (auxiliarValidacion == -1)
+    {
+        _idCliente = auxiliarValidacion + 2;
+    }
+    else
+    {
+        _idCliente = auxiliarValidacion + 1;
+    }
+
     char apellido[50];
     cout << "ID CLIENTE: " << this->getIDCliente() << endl;
 
@@ -37,8 +47,8 @@ void Cliente::Cargar()
 }
 void Cliente::Mostrar()
 {
-    cout << "ID Cliente: " << this-> getIDCliente() << endl;
-    cout << "Apellido: " << this-> getApellido() << endl;
+    cout << "ID Cliente: " << this->getIDCliente() << endl;
+    cout << "Apellido: " << this->getApellido() << endl;
     Sujeto::MostrarSujeto();
 }
 bool Cliente::GuardarArchivo()
@@ -162,7 +172,34 @@ Cliente Cliente::leerRegistros(int indice, const char *ruta)
     return reg;
 }
 
-bool ValidarCliente(int id)
+// bool ValidarCliente(int id)
+// {
+
+//     Cliente reg;
+
+//     int tam = 0;
+//     tam = contarRegistros();
+
+//     if (tam == -1)
+//     {
+//       return false;
+//     }
+//     else
+//     {
+
+//           for (int i = 0; i < tam; i++)
+//         {
+//             reg.LeerArchivo(i);
+//             if (reg.getIDCliente() == id)//-1
+//             {
+//                 return true;
+//             }
+//         }
+//     }
+
+//     return false;
+// }
+Cliente Cliente :: ValidarCliente(int id)
 {
 
     Cliente reg;
@@ -172,20 +209,21 @@ bool ValidarCliente(int id)
 
     if (tam == -1)
     {
-        for (int i = 0; i < tam; i++)
-        {
-            reg.LeerArchivo(i);
-            if (reg.getIDCliente() == id)
-            {
-                return true;
-            }
-        }
+        reg.setIDCliente(tam);
+      return reg;
     }
     else
     {
 
-        return false;
+          for (int i = 0; i < tam; i++)
+        {
+            reg.LeerArchivo(i);
+            if (reg.getIDCliente() == id)//-1
+            {
+                return reg;
+            }
+        }
     }
-
-    return false;
+reg.setIDCliente(-2);
+    return reg ;
 }
