@@ -653,12 +653,15 @@ void menuPersona(int opcion)
             // hacer una funcion que me cuente cuantos registros hay
             RegistroCompra objR;
             int tam = objR.contarRegistros();
-            
+            // int idcompra;
             
             
     if(tam==-1){
-         int idCompra = tam + 2 ;
-            objR.setIdCompra(idCompra);
+       objR.setIdCompra( tam + 2) ;
+            
+    }
+    else{
+        objR.setIdCompra(tam+1);
     }
            
 
@@ -787,9 +790,9 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                cout<<"Ingrese ID"<<endl;
                cin>>id;
 
-             
+             cli=cli.ValidarCliente(id);
 
-                if (!ValidarCliente(id))
+                if (cli.getIDCliente()== -1 || cli.getIDCliente()==-2)
                 {
                     cout<<"Se registra el nuevo cliente"<<endl;
 
@@ -805,8 +808,15 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                         system("pause");
                     }
                 }
+                else{
+                    cout<<"EL CLIENTE ESTA REGISTRADO..."<<endl;
+                    system("pause");
+
+                }
+                system("cls");
                 objR.CargarCompra(objR, cli.getIDCliente());
                 
+
                 if (objR.GuardarCompra())
                 {
                     cout << "se registro correctamente la compra " << endl;

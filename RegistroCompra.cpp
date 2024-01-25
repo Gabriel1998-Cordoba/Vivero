@@ -35,12 +35,12 @@ const char *RegistroCompra::getModoDePago() { return _modoDePago; }
 void RegistroCompra::CargarCompra(RegistroCompra objR ,int idcliente) // Desarrollar int idcompra,int idcliente
 {
     // if(Existe()) A DESARROLLAR, NO PODEMOS TENER IDS REPETIDOS AL GUARDAR ARCHIVO
-    setIdCompra(objR.getIdCompra());
+   // setIdCompra(objR.getIdCompra());
     
     setIdCliente(idcliente);
     Fecha f;
     char modoDePago[30];
-    cout << "Cargar los siguientes datos: " << endl;
+    cout << "CARGAR REGISTRO COMPRA : " << endl;
     cout << "Fecha: " << endl;
     f.Cargar();
     setFecha(f);
@@ -71,8 +71,9 @@ void RegistroCompra::CargarCompra(RegistroCompra objR ,int idcliente) // Desarro
 
 void RegistroCompra::Mostrar()
 {
-    cout << "ID COMPRA: " << getIdCompra() + 1 << endl;
-    cout << "ID PROVEEDOR: " << getIdCliente() + 1 << endl;
+    cout << "ID COMPRA: " << getIdCompra() << endl;
+    cout << "ID CLIENTE: " << getIdCliente()  << endl;
+    cout << "FECHA ACTUAL: " ;
     _Fecha.MostrarEnLinea();
     cout << "MODO DE PAGO: " << getModoDePago() << endl
          << endl;
@@ -81,7 +82,8 @@ void RegistroCompra::Mostrar()
     // cout<<"Tipo Documento "<<indice<<" : "<<getSujeto().getTipoDoc().getTipoDocu(indice)<<endl;
 }
 
-int RegistroCompra::contarRegistros(const char * nombre)
+int RegistroCompra::
+contarRegistros(const char * nombre)
 {
     FILE *p;
     p = fopen(nombre, "rb");

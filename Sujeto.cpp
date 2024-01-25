@@ -31,7 +31,7 @@ void Sujeto::CargarSujeto(int totalDeRegistros/*,int TipoDeArticulo*/){ //HACER
 char telefono[30];
 bool estado;
 char email[30];
-
+cout<<"FECHA DE NACIMIENTO: "<<endl;
 _fecha.Cargar();//hay que tomarla del sistema
 //hacer una funcion para cargar la fecha
 
