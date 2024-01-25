@@ -78,12 +78,3 @@ void MostrarBackups();
 
 
 
-
-        // cout << "9 - CREAR BACKUP DUENIO             " << endl;
-        // cout << "10- CREAR BACKUP REGISTRO COMPRA" << endl;
-        // cout << "11- CREAR BACKUP PLANTA " << endl;
-        // cout << "12- CREAR BACKUP AGROQUIMICOS" << endl;
-        // cout << "13- CREAR BACKUP HERRAMIENTA" << endl;
-        // cout << "14- CREAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
-        // cout << "15- CREAR BACKUP CLIENTE" << endl;
-        // cout << "16 - CREAR TODOS LOS BACKUPS     " << endl;
