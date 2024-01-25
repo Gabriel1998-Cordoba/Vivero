@@ -1,5 +1,4 @@
 
-
 #include "menu.h"
 
 ///////////////////////////////////////////////////////////////////////////
@@ -123,7 +122,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 8 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Cargar Datos Del Duenio" << endl;
-            cout << "Opcion 10 ----> CONFIGURACION" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+            cout << "Opcion 10 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
             // cout << "Opcion 11 ----> Restaurar Backup Duenio" << endl;
             // cout << "Opcion 12 ----> Mostrar Contenido del Backup Duenio" << endl;
             // cout << "Opcion 13 ----> borrar datos del duenio y poner los que contiene Backup" << endl;
@@ -211,7 +210,7 @@ void menuDuenio(int opcion)
             case 10:
             {
                 system("cls");
-                configuracion();
+                configuracionBackup();
                 system("pause");
             }
             break;
@@ -1403,41 +1402,21 @@ void menuVentaAgroquimicosPersona(int opcion)
     }
 }
 /*******************************************************************/
-void configuracion()
+void configuracionBackup()
 
 {
-    bkpDuenio objBkpDuenio;
-    bkpPlanta objBkpPLanta;
-    bkpAgroquimicos objBkpAgroquimico;
-    bkpHerramientas objBkpHerramienta;
-    bkpDetalleFacturaCompra objBkpDetalleFacturaCompra;
-    bkpCliente objBkpCliente;
-    bkpRegistroCompra objBkpRegistroCompra;
+
 
     int opc;
     while (true)
     {
-        cout << "           CONFIGURACION            " << endl;
-        cout << "1 - RESTAURAR TODOS LOS BACKUPS     " << endl;
-        cout << "2 - RESTAURAR BACKUP DUENIO         " << endl;
-        cout << "3 - RESTAURAR BACKUP REGISTRO COMPRA" << endl;
-        cout << "4 - RESTAURAR BACKUP PLANTA         " << endl;
-        cout << "5 - RESTAURAR BACKUP AGROQUIMICOS   " << endl;
-        cout << "6 - RESTAURAR BACKUP HERRAMIENTA               " << endl;
-        cout << "7 - RESTAURAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
-        // cout<<"8 - RESTAURAR BACKUP DETALLE DE FACTURA VENTA"<<endl;
-        cout << "8 - RESTAURAR BACKUP CLIENTE            " << endl;
+        cout << "           CONFIGURACION BACKUPS            " << endl;
 
-        cout << "9 - CREAR BACKUP DUENIO             " << endl;
-        cout << "10- CREAR BACKUP REGISTRO COMPRA" << endl;
-        cout << "11- CREAR BACKUP PLANTA " << endl;
-        cout << "12- CREAR BACKUP AGROQUIMICOS" << endl;
-        cout << "13- CREAR BACKUP HERRAMIENTA" << endl;
-        cout << "14- CREAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
-        cout << "15- CREAR BACKUP CLIENTE" << endl;
-        cout << "16 - CREAR TODOS LOS BACKUPS     " << endl;
+        cout<<"1 ---> RESTAURAR BACKUP"<<endl;
+        cout<<"2 ---> CREAR BACKUP"<<endl;
+        cout<<"3 ---> MOSTRAR BACKUP"<<endl;
+        cout<<"0 ---> SALIR"<<endl;
 
-        cout << "0 - SALIR                   " << endl;
 
         cout << "INGRESE UNA OPCION: ";
         cin >> opc;
@@ -1445,81 +1424,21 @@ void configuracion()
         {
         case 1:
         {
-            // codigo
+            system("cls");
+            CrearBackups();
+            system("pause");
         }
         break;
         case 2:
-
-            // codigo
-
-            objBkpDuenio.RestaurarBackup();
+            system("cls");
+            RestarurarBackups();
+            system("pause");
 
             break;
         case 3:
-
-            // codigo
-            objBkpRegistroCompra.RestaurarBackup();
-            break;
-        case 4:
-
-            // codigo
-
-            objBkpPLanta.RestaurarBackup();
-
-            break;
-        case 5:
-
-            objBkpAgroquimico.RestaurarBackup();
-
-            break;
-        case 6:
-
-            objBkpHerramienta.RestaurarBackup();
-
-            break;
-        case 7:
-
-            // codigo
-
-            objBkpDetalleFacturaCompra.RestaurarBackup();
-
-            break;
-        case 8:
-
-            objBkpCliente.RestaurarBackup();
-
-            break;
-
-        case 9:
-            // finalizar el while
-            objBkpDuenio.CrearBackup();
-            break;
-        case 10: // finalizar el while
-            objBkpRegistroCompra.CrearBackup();
-            break;
-        case 11:
-            objBkpPLanta.CrearBackup();
-
-            break;
-        case 12:
-            objBkpAgroquimico.CrearBackup();
-
-            break;
-        case 13:
-            objBkpHerramienta.CrearBackup();
-
-            break;
-        case 14:
-            objBkpDetalleFacturaCompra.CrearBackup();
-
-            break;
-        case 15:
-
-            objBkpCliente.CrearBackup();
-            break;
-        case 16:
-
-            //
+            system("cls");
+            MostrarBackups();
+            system("pause");
             break;
 
         case 0: // finalizar el while
@@ -1531,3 +1450,310 @@ void configuracion()
         }
     }
 }
+/*******************************************************************/
+void CrearBackups(){
+    bkpDuenio objBkpDuenio;
+    bkpPlanta objBkpPLanta;
+    bkpAgroquimicos objBkpAgroquimico;
+    bkpHerramientas objBkpHerramienta;
+    bkpDetalleFacturaCompra objBkpDetalleFacturaCompra;
+    bkpCliente objBkpCliente;
+    bkpRegistroCompra objBkpRegistroCompra;
+    bkpRegistroVenta objBkpDetalleFacturaVenta;
+
+int opc;
+    while (true)
+    {
+        cout << "1 - CREAR TODOS LOS BACKUPS     " << endl;
+        cout << "2 - CREAR BACKUP DUENIO         " << endl;
+        cout << "3 - CREAR BACKUP PLANTA         " << endl;
+        cout << "4 - CREAR BACKUP AGROQUIMICOS   " << endl;
+        cout << "5 - CREAR BACKUP HERRAMIENTA               " << endl;
+        cout << "6 - CREAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
+        cout << "7 - CREAR BACKUP CLIENTE            " << endl;
+        cout << "8 - CREAR BACKUP REGISTRO COMPRA" << endl;
+        cout<<  "9 - CREAR BACKUP DETALLE DE FACTURA VENTA"<<endl;
+
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+        case 1:
+        {
+            system("cls");
+                objBkpDuenio.CrearBackup();
+                objBkpPLanta.CrearBackup();
+                objBkpAgroquimico.CrearBackup();
+                objBkpHerramienta;
+                objBkpDetalleFacturaCompra.CrearBackup();
+                objBkpCliente.CrearBackup();
+                objBkpRegistroCompra.CrearBackup();
+                objBkpDetalleFacturaVenta.CrearBackup();
+            system("pause");
+        }
+        case 2:
+        {
+            system("cls");
+                objBkpDuenio.CrearBackup();
+            system("pause");
+        }
+        case 3:
+        {
+            system("cls");
+                objBkpPLanta.CrearBackup();
+            system("pause");
+        }
+        case 4:
+        {
+            system("cls");
+                objBkpAgroquimico.CrearBackup();
+            system("pause");
+        }
+        case 5:
+        {
+            system("cls");
+                objBkpHerramienta.CrearBackup();
+            system("pause");
+        }
+        case 6:
+        {
+            system("cls");
+                objBkpDetalleFacturaCompra.CrearBackup();
+            system("pause");
+        }
+        case 7:
+        {
+            system("cls");
+                objBkpCliente.CrearBackup();
+            system("pause");
+        }
+        case 8:
+        {
+            system("cls");
+                objBkpRegistroCompra.CrearBackup();
+            system("pause");
+        }
+        case 9:
+        {
+            system("cls");
+            objBkpDetalleFacturaVenta.CrearBackup();
+            system("pause");
+        }
+        break;
+
+        case 0: // finalizar el while
+            return;
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+/*******************************************************************/
+void RestarurarBackups(){
+    bkpDuenio objBkpDuenio;
+    bkpPlanta objBkpPLanta;
+    bkpAgroquimicos objBkpAgroquimico;
+    bkpHerramientas objBkpHerramienta;
+    bkpDetalleFacturaCompra objBkpDetalleFacturaCompra;
+    bkpCliente objBkpCliente;
+    bkpRegistroCompra objBkpRegistroCompra;
+    bkpRegistroVenta objBkpDetalleFacturaVenta;
+
+int opc;
+    while (true)
+    {
+        cout << "1 - RESTAURAR TODOS LOS BACKUPS     " << endl;
+        cout << "2 - RESTAURAR BACKUP DUENIO         " << endl;
+        cout << "3 - RESTAURAR BACKUP PLANTA         " << endl;
+        cout << "4 - RESTAURAR BACKUP AGROQUIMICOS   " << endl;
+        cout << "5 - RESTAURAR BACKUP HERRAMIENTA               " << endl;
+        cout << "6 - RESTAURAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
+        cout << "7 - RESTAURAR BACKUP CLIENTE            " << endl;
+        cout << "8 - RESTAURAR BACKUP REGISTRO COMPRA" << endl;
+        cout<<  "9 - RESTAURAR BACKUP DETALLE DE FACTURA VENTA"<<endl;
+
+
+
+
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+        case 1:
+        {
+            system("cls");
+                objBkpDuenio.RestaurarBackup();
+                objBkpPLanta.RestaurarBackup();
+                objBkpAgroquimico.RestaurarBackup();
+                objBkpHerramienta;
+                objBkpDetalleFacturaCompra.RestaurarBackup();
+                objBkpCliente.RestaurarBackup();
+                objBkpRegistroCompra.RestaurarBackup();
+                objBkpDetalleFacturaVenta.RestaurarBackup();
+            system("pause");
+        }
+        case 2:
+        {
+            system("cls");
+                objBkpDuenio.RestaurarBackup();
+            system("pause");
+        }
+        case 3:
+        {
+            system("cls");
+                objBkpPLanta.RestaurarBackup();
+            system("pause");
+        }
+        case 4:
+        {
+            system("cls");
+                objBkpAgroquimico.RestaurarBackup();
+            system("pause");
+        }
+        case 5:
+        {
+            system("cls");
+                objBkpHerramienta.RestaurarBackup();
+            system("pause");
+        }
+        case 6:
+        {
+            system("cls");
+                objBkpDetalleFacturaCompra.RestaurarBackup();
+            system("pause");
+        }
+        case 7:
+        {
+            system("cls");
+                objBkpCliente.RestaurarBackup();
+            system("pause");
+        }
+        case 8:
+        {
+            system("cls");
+                objBkpRegistroCompra.RestaurarBackup();
+            system("pause");
+        }
+        case 9:
+        {
+            system("cls");
+            objBkpDetalleFacturaVenta.RestaurarBackup();
+            system("pause");
+        }
+        break;
+
+        case 0: // finalizar el while
+            return;
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+/*******************************************************************/
+void MostrarBackups(){
+    bkpDuenio objBkpDuenio;
+    bkpPlanta objBkpPLanta;
+    bkpAgroquimicos objBkpAgroquimico;
+    bkpHerramientas objBkpHerramienta;
+    bkpDetalleFacturaCompra objBkpDetalleFacturaCompra;
+    bkpCliente objBkpCliente;
+    bkpRegistroCompra objBkpRegistroCompra;
+    bkpRegistroVenta objBkpDetalleFacturaVenta;
+
+int opc;
+    while (true)
+    {
+        cout << "1 - MOSTRAR TODOS LOS BACKUPS     " << endl;
+        cout << "2 - MOSTRAR BACKUP DUENIO         " << endl;
+        cout << "3 - MOSTRAR BACKUP PLANTA         " << endl;
+        cout << "4 - MOSTRAR BACKUP AGROQUIMICOS   " << endl;
+        cout << "5 - MOSTRAR BACKUP HERRAMIENTA               " << endl;
+        cout << "6 - MOSTRAR BACKUP DETALLE DE FACTURA COMPRA" << endl;
+        cout << "7 - MOSTRAR BACKUP CLIENTE            " << endl;
+        cout << "8 - MOSTRAR BACKUP REGISTRO COMPRA" << endl;
+        cout<<  "9 - MOSTRAR BACKUP DETALLE DE FACTURA VENTA"<<endl;
+
+
+
+
+cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+        case 1:
+        {
+            system("cls");
+                objBkpDuenio.MostrarBackup();
+                objBkpPLanta.MostrarBackup();
+                objBkpAgroquimico.MostrarBackup();
+                objBkpHerramienta;
+                objBkpDetalleFacturaCompra.MostrarBackup();
+                objBkpCliente.MostrarBackup();
+                objBkpRegistroCompra.MostrarBackup();
+                objBkpDetalleFacturaVenta.MostrarBackup();
+            system("pause");
+        }
+        case 2:
+        {
+            system("cls");
+                objBkpDuenio.MostrarBackup();
+            system("pause");
+        }
+        case 3:
+        {
+            system("cls");
+                objBkpPLanta.MostrarBackup();
+            system("pause");
+        }
+        case 4:
+        {
+            system("cls");
+                objBkpAgroquimico.MostrarBackup();
+            system("pause");
+        }
+        case 5:
+        {
+            system("cls");
+                objBkpHerramienta.MostrarBackup();
+            system("pause");
+        }
+        case 6:
+        {
+            system("cls");
+                objBkpDetalleFacturaCompra.MostrarBackup();
+            system("pause");
+        }
+        case 7:
+        {
+            system("cls");
+                objBkpCliente.MostrarBackup();
+            system("pause");
+        }
+        case 8:
+        {
+            system("cls");
+                objBkpRegistroCompra.MostrarBackup();
+            system("pause");
+        }
+        case 9:
+        {
+            system("cls");
+            objBkpDetalleFacturaVenta.MostrarBackup();
+            system("pause");
+        }
+        break;
+
+        case 0: // finalizar el while
+            return;
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+/*******************************************************************/
