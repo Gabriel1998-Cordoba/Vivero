@@ -5,6 +5,7 @@ class bkpDuenio{
 
     private:
         Duenio objDuenio;
+       /// Duenio objbkpDuenio();
     public:
         //setters y getters
         void setObjDuenio(Duenio objDuenio){this->objDuenio = objDuenio;}

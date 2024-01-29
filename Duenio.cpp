@@ -112,7 +112,7 @@ FILE *p;
 
 p=fopen("duenio.dat","wb");
 if(p==NULL){
-    cout<<"ERROR de ARCHIVO"<<endl;
+    cout<<"ERROR de ARCHIVO,BORRAR DATOS DUENIO"<<endl;
     system("pause");
 }
 

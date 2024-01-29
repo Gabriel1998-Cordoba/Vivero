@@ -115,17 +115,16 @@ void menuDuenio(int opcion)
             cout << "BIENVENIDO DUENIO" << endl;
             cout << "Opcion 1 ----> Cargar Datos" << endl;                   //'ab' de archivos
             cout << "Opcion 2 ----> Modificar Datos" << endl;                //'rb' que lo lea y modifique
-            cout << "Opcion 3 ----> Borrar o Limpiar Datos" << endl;         //'wb' de archivos == 'baja Fisica'
-            cout << "Opcion 4 ----> dar de baja algun Productos" << endl;    // bool para dar de 'basa logica'
-            cout << "Opcion 5 ----> Listar Datos" << endl;                   // seleccionar el archivo que quieres que abra y muestre
-            cout << "Opcion 6 ----> Contar Registros de X Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 7 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 8 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 9 ----> Cargar Datos Del Duenio" << endl;
-            cout << "Opcion 10 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            // cout << "Opcion 11 ----> Restaurar Backup Duenio" << endl;
-            // cout << "Opcion 12 ----> Mostrar Contenido del Backup Duenio" << endl;
-            // cout << "Opcion 13 ----> borrar datos del duenio y poner los que contiene Backup" << endl;
+              cout<<"Opcion 3 ----> Mostrar Datos Duenio"<<endl;
+            cout << "Opcion 4 ----> Borrar o Limpiar Datos" << endl;         //'wb' de archivos == 'baja Fisica'
+            cout << "Opcion 5 ----> dar de baja algun Productos" << endl;    // bool para dar de 'basa logica'
+            cout << "Opcion 6 ----> Listar Datos" << endl;                   // seleccionar el archivo que quieres que abra y muestre
+            cout << "Opcion 7 ----> Contar Registros de X Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
+            cout << "Opcion 8 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
+            cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+          
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -153,7 +152,8 @@ void menuDuenio(int opcion)
             case 3:
             {
                 system("cls");
-                LimpiarDatos(opcion);
+                Duenio objDD;
+                objDD.MostrarDatosDeDuenioEnArchivo();
                 system("pause");
             }
             break;
@@ -161,7 +161,7 @@ void menuDuenio(int opcion)
             case 4:
             {
                 system("cls");
-
+                LimpiarDatos(opcion);
                 system("pause");
             }
             break;
@@ -169,11 +169,19 @@ void menuDuenio(int opcion)
             case 5:
             {
                 system("cls");
-                ListarDatos(opcion);
+//Para hacer
+                system("pause");
             }
             break;
                 /*******************************************************************/
             case 6:
+            {
+                system("cls");
+                ListarDatos(opcion);
+            }
+            break;
+                /*******************************************************************/
+            case 7:
             {
 
                 system("cls");
@@ -182,7 +190,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 7:
+            case 8:
             {
 
                 system("cls");
@@ -190,7 +198,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 8:
+            case 9:
             {
 
                 system("cls");
@@ -202,7 +210,7 @@ FacturaXNroFactura();
             }
             break;
                 /*******************************************************************/
-            case 9:
+            case 10:
             {
 
                 system("cls");
@@ -211,7 +219,7 @@ FacturaXNroFactura();
             }
             break;
                 /*******************************************************************/
-            case 10:
+            case 11:
             {
                 system("cls");
                 configuracionBackup();
@@ -219,7 +227,7 @@ FacturaXNroFactura();
             }
             break;
                 /*******************************************************************/
-            case 11:
+            case 12:
             {
                 system("cls");
                 // Backup objBkp;
@@ -229,7 +237,7 @@ FacturaXNroFactura();
             }
             break;
                 /*******************************************************************/
-            case 12:
+            case 13:
             {
                 system("cls");
                 // Backup objBkp;
@@ -239,7 +247,7 @@ FacturaXNroFactura();
             }
             break;
                 /*******************************************************************/
-            case 13:
+            case 14:
             {
                 //                  system("cls");
                 // Backup objBkp;
@@ -895,43 +903,7 @@ void menuVentaPersona(int opcion)
         case 0:
         {
 
-            //     do
-            //         {
-            //             cout << "¿Seguro? ---> SI == 0" << endl;
-            //             cout << "NO == 1" << endl;
-            //             cin >> opcion;
-            //         } while ((opcion != 0) && (opcion != 1));
 
-            //         if (opcion == 0)
-            //         {
-            //             cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
-            //             Cliente cli;
-            //             cli.Cargar();
-            //             if (!Existe(cli))
-            //             {
-            //                 if (cli.GuardarArchivo())
-            //                 {
-            //                     cout << "se registro correctamente el cliente" << endl;
-            //                 }
-            //                 RegistroCompra objR;
-            //                 objR.CargarCompra(idCompra, cli.getIDCliente());
-            //                 if (objR.GuardarCompra())
-            //                 {
-            //                     cout << "se registro correctamente la compra " << endl;
-            //                 }
-            //             }
-            //             else
-            //             {
-
-            //                 cout << "El cliente ya existe " << endl;
-            //                 RegistroCompra objR;
-            //                 objR.CargarCompra(idCompra, cli.getIDCliente());
-            //                 if (objR.GuardarCompra())
-            //                 {
-            //                     cout << "se registro correctamente la compra " << endl;
-            //                 }
-            //             }
-            //         }
             //         system("cls");
             //         return;
         }
@@ -1440,13 +1412,14 @@ void configuracionBackup()
         case 1:
         {
             system("cls");
-            CrearBackups();
+            RestarurarBackups();
+          
             system("pause");
         }
         break;
         case 2:
             system("cls");
-            RestarurarBackups();
+            CrearBackups();
             system("pause");
 
             break;
@@ -1509,48 +1482,56 @@ int opc;
                 objBkpDetalleFacturaVenta.CrearBackup();
             system("pause");
         }
+            break;
         case 2:
         {
             system("cls");
                 objBkpDuenio.CrearBackup();
             system("pause");
         }
+            break;
         case 3:
         {
             system("cls");
                 objBkpPLanta.CrearBackup();
             system("pause");
         }
+            break;
         case 4:
         {
             system("cls");
                 objBkpAgroquimico.CrearBackup();
             system("pause");
         }
+            break;
         case 5:
         {
             system("cls");
                 objBkpHerramienta.CrearBackup();
             system("pause");
         }
+            break;
         case 6:
         {
             system("cls");
                 objBkpDetalleFacturaCompra.CrearBackup();
             system("pause");
         }
+            break;
         case 7:
         {
             system("cls");
                 objBkpCliente.CrearBackup();
             system("pause");
         }
+            break;
         case 8:
         {
             system("cls");
                 objBkpRegistroCompra.CrearBackup();
             system("pause");
         }
+            break;
         case 9:
         {
             system("cls");
@@ -1570,6 +1551,10 @@ int opc;
 }
 /*******************************************************************/
 void RestarurarBackups(){
+
+system("cls");
+    
+    
     bkpDuenio objBkpDuenio;
     bkpPlanta objBkpPLanta;
     bkpAgroquimicos objBkpAgroquimico;
@@ -1603,63 +1588,78 @@ int opc;
         case 1:
         {
             system("cls");
-                objBkpDuenio.RestaurarBackup();
-                objBkpPLanta.RestaurarBackup();
-                objBkpAgroquimico.RestaurarBackup();
-                objBkpHerramienta.RestaurarBackup();
-                objBkpDetalleFacturaCompra.RestaurarBackup();
-                objBkpCliente.RestaurarBackup();
-                objBkpRegistroCompra.RestaurarBackup();
-                objBkpDetalleFacturaVenta.RestaurarBackup();
+
+            int cont=0;
+
+                if(objBkpDuenio.RestaurarBackup()==false){cont++;}
+                if(objBkpPLanta.RestaurarBackup()==false){cont++;}
+                if(objBkpAgroquimico.RestaurarBackup()==false){cont++;}
+                if(objBkpHerramienta.RestaurarBackup()==false){cont++;}
+                if(objBkpDetalleFacturaCompra.RestaurarBackup()==false){cont++;}
+                if(objBkpCliente.RestaurarBackup()==false){cont++;}
+                if(objBkpRegistroCompra.RestaurarBackup()==false){cont++;}
+                if(objBkpDetalleFacturaVenta.RestaurarBackup()==false){cont++;}
+
+                if(cont==0){cout<<"TODOS LOS BACKUPS RESTAURADOS EXITOSAMENTE"<<endl;}
+
             system("pause");
         }
+            break;
         case 2:
         {
             system("cls");
                 objBkpDuenio.RestaurarBackup();
             system("pause");
         }
+            break;
         case 3:
         {
             system("cls");
                 objBkpPLanta.RestaurarBackup();
             system("pause");
         }
+            break;
         case 4:
         {
             system("cls");
                 objBkpAgroquimico.RestaurarBackup();
             system("pause");
         }
+            break;
         case 5:
         {
             system("cls");
                 objBkpHerramienta.RestaurarBackup();
             system("pause");
         }
+            break;
         case 6:
         {
             system("cls");
                 objBkpDetalleFacturaCompra.RestaurarBackup();
             system("pause");
         }
+            break;
         case 7:
         {
             system("cls");
                 objBkpCliente.RestaurarBackup();
             system("pause");
         }
+            break;
         case 8:
         {
             system("cls");
                 objBkpRegistroCompra.RestaurarBackup();
             system("pause");
         }
+            break;
         case 9:
         {
             system("cls");
             objBkpDetalleFacturaVenta.RestaurarBackup();
             system("pause");
+            break;
         }
         break;
 
@@ -1734,55 +1734,64 @@ cout << "INGRESE UNA OPCION: ";
                 cout<<"--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--"<<endl;
             system("pause");
         }
+            break;
         case 2:
         {
             system("cls");
                 objBkpDuenio.MostrarBackup();
             system("pause");
         }
+            break;
         case 3:
         {
             system("cls");
                 objBkpPLanta.MostrarBackup();
             system("pause");
         }
+            break;
         case 4:
         {
             system("cls");
                 objBkpAgroquimico.MostrarBackup();
             system("pause");
         }
+            break;
         case 5:
         {
             system("cls");
                 objBkpHerramienta.MostrarBackup();
             system("pause");
         }
+            break;
         case 6:
         {
             system("cls");
                 objBkpDetalleFacturaCompra.MostrarBackup();
             system("pause");
         }
+            break;
         case 7:
         {
             system("cls");
                 objBkpCliente.MostrarBackup();
             system("pause");
         }
+            break;
         case 8:
         {
             system("cls");
                 objBkpRegistroCompra.MostrarBackup();
             system("pause");
         }
+            break;
         case 9:
         {
             system("cls");
             objBkpDetalleFacturaVenta.MostrarBackup();
             system("pause");
         }
-        break;
+            break;
+      
 
         case 0: // finalizar el while
             return;

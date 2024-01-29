@@ -4,6 +4,7 @@
 
 class Herramientas : public Articulo{
     private:
+    char _material[30];
 
     public:
         void CargarArchivoHerramienta(int totalDeRegistros,int TipoDeArticulo); //ab

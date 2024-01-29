@@ -3,9 +3,12 @@
 class Cliente: public Sujeto{
 private:
 int _idCliente;
+char _nombre[50];
 char _apellido[50];
 public:
 Cliente();
+void setNombre(const char *);
+const char *getNombre();
 void setIDCliente(int);
 void setApellido(const char *);
 int getIDCliente();

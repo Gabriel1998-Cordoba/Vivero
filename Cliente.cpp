@@ -9,6 +9,12 @@ Cliente::Cliente()
 {
     _idCliente = 0;
 }
+void Cliente::setNombre(const char *nombre){
+    strcpy(_nombre, nombre);
+}
+const char *Cliente::getNombre(){
+    return _nombre;
+}
 void Cliente::setIDCliente(int idCliente)
 {
     _idCliente;
@@ -38,11 +44,14 @@ void Cliente::Cargar()
     }
 
     char apellido[50];
+    char nombre[50];
     cout << "ID CLIENTE: " << this->getIDCliente() << endl;
 
     cout << "APELLIDO: ";
     cargarCadena(apellido, 50);
     setApellido(apellido);
+    cargarCadena(nombre, 50);
+    setNombre(nombre);
     Sujeto::CargarSujeto(0);
 }
 void Cliente::Mostrar()
