@@ -1,61 +1,67 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-#include"Tipo_Docu.h"
+#include "Tipo_Docu.h"
 
-void Tipo_Docu::CargarTipoDocu(){
+void Tipo_Docu::CargarTipoDocu()
+{
 
-int indice;
-int TipoDoc[3]={0};
-int numero;
+    int indice;
+    int TipoDoc[3] = {0};
+    int numero;
 
-do{
+    do
+    {
 
-cout<<"SU Tipo Documento es: "<<endl;
-cout<<"1 - DNI, 2 - Cuit, 3 - Cuil"<<endl;
-cin>>indice;
+        cout << "SU Tipo Documento es: " << endl;
+        cout << "1 - DNI, 2 - Cuit, 3 - Cuil" << endl;
+        cin >> indice;
 
-indice--;
+        indice--;
 
-if(setTipoDocu(indice,numero)==false){
-system("cls");
-cout<<"Tipo de Documento No valido"<<endl<<endl;
-}else{
-cout<<"Ingrese numero: ";
-cin>>numero;
+        if (setTipoDocu(indice, numero) == false)
+        {
+            system("cls");
+            cout << "Tipo de Documento No valido" << endl
+                 << endl;
+        }
+        else
+        {
+            cout << "Ingrese numero: ";
+            cin >> numero;
+        }
+
+    } while (setTipoDocu(indice, numero) == false);
 }
+void Tipo_Docu::MostrarTipoDocu()
+{
 
+    int valor = -1;
 
+    for (int i = 0; i < 3; i++)
+    {
 
-}while(setTipoDocu(indice,numero)==false);
+        valor = getTipoDocu(i);
 
+        if (valor > 0)
+        {
+            cout << "SU Tipo Documento es: " << i + 1;
 
+            if (i == 0)
+            {
+                cout << " DNI" << endl;
+            }
+            else if (i == 1)
+            {
+                cout << " Cuit" << endl;
+            }
+            else if (i == 2)
+            {
+                cout << " Cuil" << endl;
+            }
 
-}
-void Tipo_Docu::MostrarTipoDocu(){
-
-int valor=-1;
-
-for(int i=0; i<3;i++){
-
-valor = getTipoDocu(i);
-
-if(valor>0){
-    cout<<"SU Tipo Documento es: "<<i+1;
-
-    if(i==0){
-        cout<<" DNI"<<endl;
-    }else if(i==1){
-        cout<<" Cuit"<<endl;
-    }else if(i==2){
-        cout<<" Cuil"<<endl;
+            cout << "Ingrese numero: " << valor << endl;
+        }
     }
-
-    cout<<"Ingrese numero: "<<valor<<endl;
-
-}
-
-}
-
 }

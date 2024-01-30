@@ -46,13 +46,14 @@ void Cliente::Cargar()
     char apellido[50];
     char nombre[50];
     cout << "ID CLIENTE: " << this->getIDCliente() << endl;
-
+    
     cout << "APELLIDO: ";
     cargarCadena(apellido, 50);
     setApellido(apellido);
-    cargarCadena(nombre, 50);
+     cout << "NOMBRE: ";
+ cargarCadena(nombre, 50);
     setNombre(nombre);
-    Sujeto::CargarSujeto(0);
+    Sujeto::CargarSujeto(/*0*/);
 }
 void Cliente::Mostrar()
 {

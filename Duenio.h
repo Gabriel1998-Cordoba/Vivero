@@ -16,10 +16,10 @@ public:
     int GetIdDuenio() const { return _idDuenio; }
     void setIdDuenio(int idDuenio) { _idDuenio = idDuenio; }
 
-    void CargarDuenio(int totalDeRegistros/*,int TipoDeArticulo*/);
+    void CargarDuenio();/*int totalDeRegistros,int TipoDeArticulo*/
     void MostrarDuenio();
 
-    void CargarDatosDeDuenioEnArchivo(int totalDeRegistros/*,int TipoDeArticulo*/);
+    void CargarDatosDeDuenioEnArchivo();/*int totalDeRegistros,int TipoDeArticulo*/
     void MostrarDatosDeDuenioEnArchivo(); 
     void CambiarSueldoCargadoEnArchivo();
     void MostrarSueldoCargadoEnArchivo(); //HACER

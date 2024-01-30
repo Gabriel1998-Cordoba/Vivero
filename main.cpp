@@ -9,7 +9,16 @@
 int main()
 {
 
- menuPrincipal();
+menuPrincipal();
+
+
+//   for(int i=0;i<9;i++){
+//   objCliente.Cargar();
+  
+//   objCliente.GuardarArchivo();
+
+// }
+
 
   //FacturaXNroFactura();
 

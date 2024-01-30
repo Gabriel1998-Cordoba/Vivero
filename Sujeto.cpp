@@ -25,34 +25,29 @@ void Sujeto::setEstado(bool estado) { _estado = estado; }
 const char* Sujeto::getEmail() const { return _email; }
 void Sujeto::setEmail(const char* email) { strcpy(_email, email);}
 
-void Sujeto::CargarSujeto(int totalDeRegistros/*,int TipoDeArticulo*/){ //HACER
+void Sujeto::CargarSujeto(/*int totalDeRegistros,int TipoDeArticulo*/){ //HACER
 
 
-char telefono[30];
+char telefono[50];
 bool estado;
-char email[30];
+char email[50];
+estado=true;
+
 cout<<"FECHA DE NACIMIENTO: "<<endl;
-_fecha.Cargar();//hay que tomarla del sistema
-//hacer una funcion para cargar la fecha
+_fecha.Cargar();//hay que tomarla del sistema,hacer una funcion para cargar la fecha
 
 _TipoDoc.CargarTipoDocu();
 
 _direccion.CargarDireccion();
 
-    // totalDeRegistros++;
-    // cout << "id Sujeto : " << totalDeRegistros<< endl;
-    // setIdSujeto(totalDeRegistros);
-    
-    cout<<"Su telefono es: ";
-    cargarCadena(telefono,30);
+   
+    cout<<"TELEFONO: ";
+    cargarCadena(telefono,50);
     setTelefono(telefono);
-
-    estado=true;
-    cout<<"Su estado es: "<<estado<<endl;
+    cout<<"ESTADO: "<<estado<<endl;
     setEstado(estado);
-
-    cout<<"Su email es: ";
-    cargarCadena(email,30);
+    cout<<"EMAIL: ";
+    cargarCadena(email,50);
     setEmail(email);
     
 
