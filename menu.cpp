@@ -728,8 +728,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
          << endl
          << endl;
 
-    // objR.setIdCompra(idCompra);
-    // objR.CargarArchivoCompra();
+   
 
     while (true)
     {
@@ -771,21 +770,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             system("pause");
         }
         break;
-        /*******************************************************************/
-        // case 4:
-        // {
-        //     system("cls");
-        //     system("pause");
-        // }
-        // break;
-        //     /*******************************************************************/
-        // case 5:
-        // {
-        //     system("cls");
-        //     system("pause");
-        // }
-        // break;
-        /*******************************************************************/
+       
         case 0:
         {
 
@@ -983,14 +968,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
             system("pause");
         }
         break;
-            /*******************************************************************/
-        // case 5:
-        // {
-        //     system("cls");
-        //     system("pause");
-        // }
-        // break;
-        /*******************************************************************/
+    
         case 0:
         {
             system("cls");
@@ -1064,13 +1042,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         }
         break;
             /*******************************************************************/
-        case 5:
-        {
-            system("cls");
-            system("pause");
-        }
-        break;
-        /*******************************************************************/
+  
         case 0:
         {
             system("cls");
