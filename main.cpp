@@ -9,7 +9,17 @@
 int main()
 {
 
-menuPrincipal();
+//menuPrincipal();
+
+RegistroCompra objRC,obj2;
+
+objRC.MostrarArchivoCompra();
+
+
+
+
+
+
 
 
 //   for(int i=0;i<9;i++){

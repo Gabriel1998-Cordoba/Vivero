@@ -356,27 +356,18 @@ void CargarDatos(int opcion)
         case 3:
         {
             system("cls");
-            int tam = 0, cantidad;
+            int  cantidad;
 
-            tam = objA.contarRegistros();
-
-            if(tam==-1){
-            tam=0;
-            }
 
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
-                objA.CargarArchivoAgroquimicos(tam, opcion);
-                tam = objA.contarRegistros();
-
-            if(tam==-1){
-            tam=0;
+                objA.CargarArchivoAgroquimicos(opcion);
+             
             }
-
-            }
+           
             system("pause");
         }
         break;

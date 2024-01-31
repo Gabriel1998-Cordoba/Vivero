@@ -10,9 +10,9 @@ class Agroquimicos : public Articulo{
     void setTipoAgroquimico(int tipoAgroquimico);
     int getTipoAgroquimico();
 
-    void CargarArchivoAgroquimicos(int totalDeRegistros,int TipoDeArticulo); //ab
+    void CargarArchivoAgroquimicos(int TipoDeArticulo); //ab
 
-    void CargarAgroquimicos(int totalDeRegistros,int TipoDeArticulo);
+    void CargarAgroquimicos(int TipoDeArticulo);
     void MostrarAgroquimicos();
 
         int contarRegistros(const char* ruta = "agroquimicos.dat");
