@@ -30,15 +30,19 @@ if(p==NULL){
 }
 
 
-ClassM.CargarPlanta(totalDeRegistros,TipoDeArticulo);
+ClassM.CargarPlanta(TipoDeArticulo);
 fwrite(&ClassM,sizeof (Planta),1,p);
 
 
 fclose(p);
 }
 
-void Planta::CargarPlanta(int totalDeRegistros,int TipoDeArticulo){
-
+void Planta::CargarPlanta(int TipoDeArticulo){
+   int totalDeRegistros = contarRegistros();
+         
+            if(totalDeRegistros==-1){
+            totalDeRegistros=0;
+            }
     Articulo::Cargar(totalDeRegistros,TipoDeArticulo);
     
     char estacion[30];

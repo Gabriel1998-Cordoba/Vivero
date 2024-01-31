@@ -282,7 +282,7 @@ void CargarDatos(int opcion)
 {
 
     Planta obtP;
-    Herramientas objH;
+    
     Agroquimicos objA;
 
     system("cls");
@@ -309,6 +309,11 @@ void CargarDatos(int opcion)
             int tam = 0, cantidad;
 
             tam = obtP.contarRegistros();
+
+            // if(tam==-1){
+            //     tam=0;
+            // }
+
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
             system("cls");
@@ -327,22 +332,21 @@ void CargarDatos(int opcion)
         case 2:
         {
             system("cls");
-
+           Herramientas objH;
             int  cantidad;
 
-            int tam = objH.contarRegistros();
-            if(tam==-1)
-            {
-                tam=0;
-            }else{
-                tam++;
-            }
+            // int tam = objH.contarRegistros();
+         
+            // if(tam==-1){
+            // tam=0;
+            // }
+
             cout << "Ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
-                objH.CargarArchivoHerramienta(tam, opcion);
+                objH.CargarArchivoHerramienta(opcion);
              
             }
             system("pause");
@@ -355,6 +359,11 @@ void CargarDatos(int opcion)
             int tam = 0, cantidad;
 
             tam = objA.contarRegistros();
+
+            if(tam==-1){
+            tam=0;
+            }
+
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
             system("cls");
@@ -362,6 +371,11 @@ void CargarDatos(int opcion)
             {
                 objA.CargarArchivoAgroquimicos(tam, opcion);
                 tam = objA.contarRegistros();
+
+            if(tam==-1){
+            tam=0;
+            }
+
             }
             system("pause");
         }
@@ -672,11 +686,11 @@ void menuPersona(int opcion)
 
             if (tam == -1)
             {
-                objR.setIdCompra(tam + 2);
+                objR.setIdCompra(0);
             }
             else
             {
-                objR.setIdCompra(tam + 1);
+                objR.setIdCompra(tam);
             }
 
             system("cls");
@@ -1094,6 +1108,12 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
 
     // hacer una funcion que me cuente cuantos registros hay
     int tam = objR.contarRegistros();
+
+            if(tam==-1){
+            tam=0;
+            }
+
+    //int idCompra = tam;
     int idCompra = tam + 1;
     objR.setIdCompra(idCompra);
 

@@ -63,7 +63,7 @@ void Articulo::Cargar(int totalDeRegistros,int TipoDeArticulo){
     float precio;
     int stock;
 
-    // totalDeRegistros++;
+    totalDeRegistros++;
     cout << "ID: " << totalDeRegistros<< endl;
     setId(totalDeRegistros);
     cout << "Nombre: ";

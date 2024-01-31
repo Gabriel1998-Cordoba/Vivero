@@ -8,10 +8,26 @@ using namespace std;
 #include "Articulo.h"
 #include "Herramientas.h"
 
-void Herramientas::CargarArchivoHerramienta(int totalDeRegistros, int TipoDeArticulo)
+
+
+void Herramientas::setMaterial(const char *material)
 {
-    FILE *p;
-    Herramientas ClassM;
+    strcpy(_material,material);
+}
+void Herramientas::CargarArchivoHerramienta(int TipoDeArticulo)
+{
+   Herramientas ClassM;
+
+            int totalDeRegistros = contarRegistros();
+         
+            if(totalDeRegistros==-1){
+            totalDeRegistros=0;
+            }
+
+    ClassM.CargarHerramienta(totalDeRegistros, TipoDeArticulo);
+     
+     FILE *p;
+    
 
     p = fopen("herramientas.dat", "ab");
     if (p == NULL)
@@ -19,8 +35,6 @@ void Herramientas::CargarArchivoHerramienta(int totalDeRegistros, int TipoDeArti
         cout << "ERROR de ARCHIVO" << endl;
         system("pause");
     }
-
-    ClassM.CargarHerramienta(totalDeRegistros, TipoDeArticulo);
     fwrite(&ClassM, sizeof(Herramientas), 1, p);
 
     fclose(p);
@@ -28,7 +42,11 @@ void Herramientas::CargarArchivoHerramienta(int totalDeRegistros, int TipoDeArti
 
 void Herramientas::CargarHerramienta(int totalDeRegistros, int TipoDeArticulo)
 {
+    char material[30];
     Articulo::Cargar(totalDeRegistros, TipoDeArticulo);
+cout<<"MATERIAL: ";
+cargarCadena(material,30);
+setMaterial(material);
 }
 
 void Herramientas::MostrarHerramienta()
