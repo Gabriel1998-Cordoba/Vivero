@@ -70,6 +70,7 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
 void GenerarFactura(RegistroCompra objR, int id)
 {
     int tam = 0;
+     bool cont = true;
     DetalleFacturaCompra objD;
     tam = objD.contarRegistros();
 
@@ -109,7 +110,11 @@ void GenerarFactura(RegistroCompra objR, int id)
 
         if (objD.getIdCompra() == objR.getIdCompra())
         {
-
+    if (cont)
+      {
+        cout << "Codigo Articulo " << "Descripcion "  << "Precio " << "Cantidad " << "SubTotal " << endl;
+        cont = false;
+    }
             ArticulosXFactura(objD);
         }
     }

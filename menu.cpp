@@ -124,7 +124,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
             cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            cout << "Opcion 12 ----> Borrar Archivos .dat" << endl; //los borra con 'wb'
+            cout << "Opcion 12 ----> Limpiar Archivos .dat" << endl; //los borra con 'wb'
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -1829,22 +1829,19 @@ void MostrarBackups()
     }
 }
 /*******************************************************************/
-void BorrarDatosDeArchivo(){
+void LimpiarDatosDeArchivo(){
 int opc;
-
-    // Herramientas ObjHerr;
-    // Planta ObjPla;
 
     while (true)
     {
         system("cls");
-        cout << "1 - borrar --> DetalleFacturaCompra.dat" << endl;
-        cout << "2 - borrar --> registrocompra.dat" << endl;
-        cout << "3 - borrar --> agroquimicos.dat" << endl;
-        cout << "4 - borrar --> Cliente.dat" << endl;
-        cout << "5 - borrar --> duenio.dat" << endl;
-        cout << "6 - borrar --> herramientas.dat" << endl;
-        cout << "7 - borrar --> planta.dat" << endl;
+        cout << "1 - limpiar --> DetalleFacturaCompra.dat" << endl;
+        cout << "2 - limpiar --> registrocompra.dat" << endl;
+        cout << "3 - limpiar --> agroquimicos.dat" << endl;
+        cout << "4 - limpiar --> Cliente.dat" << endl;
+        cout << "5 - limpiar --> duenio.dat" << endl;
+        cout << "6 - limpiar --> herramientas.dat" << endl;
+        cout << "7 - limpiar --> planta.dat" << endl;
 
         cout << "0 - VOLVER" << endl;
 
@@ -1852,47 +1849,35 @@ int opc;
         cin >> opc;
         switch (opc)
         {
-        case 1:
+        case 1: case 2:
         {
+
+            int valor;
+            cout<<"si se Limpia DetalleFacturaCompra.dat"<<endl;
+            cout<<"se limpiara tambien registrocompra.dat"<<endl;
+cout<<"Y Viseversa"<<endl;
+            cout<<"quiere continuar"<<endl;
+            cout<<"SI == 1 / NO == 0"<<endl;
+            cin>>valor;
+
+            if(valor==1){
             system("cls");
             FILE *p1,*p2;
             p1=fopen("DetalleFacturaCompra.dat","wb");
             p2=fopen("registrocompra.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
+            if((p1==NULL)|(p2==NULL)){
+                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
             }else{
-
-            if(p2==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de registrocompra.dat"<<endl;
+                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            }
             }else{
-                cout<<"se borraron los archivos Correctamente"<<endl;
-            }
-
-            }
             
-            system("pause");
-        }
-        break;
-
-        case 2:
-        {
-            system("cls");
-            FILE *p1,*p2;
-            p1=fopen("DetalleFacturaCompra.dat","wb");
-            p2=fopen("registrocompra.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
-            }else{
-
-            if(p2==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de registrocompra.dat"<<endl;
-            }else{
-                cout<<"se borraron los archivos Correctamente"<<endl;
+            cout<<"no se limpiaron los datos"<<endl;
             }
 
-            }
 
             system("pause");
+            
         }
         break;
 
@@ -1902,9 +1887,9 @@ int opc;
             FILE *p1;
             p1=fopen("agroquimicos.dat","wb");
             if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de agroquimicos.dat"<<endl;
+                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de agroquimicos.dat"<<endl;
             }else{
-                cout<<"se borraron los archivos Correctamente"<<endl;
+                cout<<"se limpiaron los archivos Correctamente"<<endl;
             }
 
             system("pause");
@@ -1917,9 +1902,9 @@ int opc;
             FILE *p1;
             p1=fopen("Cliente.dat","wb");
             if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de Cliente.dat"<<endl;
+                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de Cliente.dat"<<endl;
             }else{
-                cout<<"se borraron los archivos Correctamente"<<endl;
+                cout<<"se limpiaron los archivos Correctamente"<<endl;
             }
 
             system("pause");
@@ -1930,11 +1915,11 @@ int opc;
         {
             system("cls");
             FILE *p1;
-            p1=fopen("herramientas.dat","wb");
+            p1=fopen("duenio.dat","wb");
             if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de herramientas.dat"<<endl;
+                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de duenio.dat"<<endl;
             }else{
-                cout<<"se borraron los archivos Correctamente"<<endl;
+                cout<<"se limpiaron los archivos Correctamente"<<endl;
             }
 
             system("pause");
@@ -1945,11 +1930,26 @@ int opc;
         {
             system("cls");
             FILE *p1;
+            p1=fopen("herramientas.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de herramientas.dat"<<endl;
+            }else{
+                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 7:
+        {
+            system("cls");
+            FILE *p1;
             p1=fopen("planta.dat","wb");
             if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de planta.dat"<<endl;
+                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de planta.dat"<<endl;
             }else{
-                cout<<"se borraron los archivos Correctamente"<<endl;
+                cout<<"se limpiaron los archivos Correctamente"<<endl;
             }
 
             system("pause");

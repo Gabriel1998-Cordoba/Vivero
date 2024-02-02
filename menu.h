@@ -76,7 +76,7 @@ void MostrarBackups();
 /*****************************************************************************************/
 //Funcion para borar archivos.dat
 
-void BorrarDatosDeArchivo();
+void LimpiarDatosDeArchivo();
 /*****************************************************************************************/
 
 
