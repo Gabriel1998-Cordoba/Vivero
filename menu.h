@@ -74,6 +74,10 @@ void CrearBackups();
 void RestarurarBackups();
 void MostrarBackups();
 /*****************************************************************************************/
+//Funcion para borar archivos.dat
+
+void BorrarDatosDeArchivo();
+/*****************************************************************************************/
 
 
 

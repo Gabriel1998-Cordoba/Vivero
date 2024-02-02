@@ -29,16 +29,57 @@ void SaltoDeLinea(int tam)
     }
 }
 
+void ArticulosXFactura(DetalleFacturaCompra objDF)
+{
+    Planta objP;
+    Herramientas objH;
+    Agroquimicos objA;
+    switch (objDF.getTipoDeArticulo())
+    {
+
+    case 1:
+        objP = BuscarPlanta(objDF.getIdArticulo());
+
+        // objH.Mostrar();
+        break;
+
+    case 2:
+        objH = BuscarHerramienta(objDF.getIdArticulo());
+
+        // objP.Mostrar();
+
+        break;
+
+    case 3:
+        // objA = BuscarAgroquimicos();
+        break;
+    default:
+        break;
+    }
+   
+    if (objP.getEstado() == 1)
+    {
+        cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+    }
+    if (objH.getEstado() == 1)
+    {
+        cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+    }
+}
+
 void GenerarFactura(RegistroCompra objR, int id)
 {
     int tam = 0;
     DetalleFacturaCompra objD;
     tam = objD.contarRegistros();
 
-    Cliente objC;
-    int tam2 = objC.CONtarRegistros();
+    cout << "Fecha: ";
+    objR.getFecha().MostrarEnLinea();
+    cout << endl;
 
     cout << "CLIENTE ----------------" << endl;
+    Cliente objC;
+    int tam2 = objC.CONtarRegistros(); // Arreglar nombre de la funcion
 
     for (int i = 0; i < tam2; i++)
     {
@@ -48,7 +89,7 @@ void GenerarFactura(RegistroCompra objR, int id)
             if (objC.getIDCliente() == id)
             {
                 cout << "----------------" << endl;
-                objC.Mostrar();
+                cout << "Nombre y Apellido: " << objC.getNombre() << "," << objC.getApellido() << endl;
                 cout << "----------------" << endl;
             }
         }
@@ -57,7 +98,7 @@ void GenerarFactura(RegistroCompra objR, int id)
     cout << "Cabecera factura ----------------" << endl;
 
     cout << "----------------" << endl;
-    objR.Mostrar();
+    cout << "Metodo de Pago: " << objR.getModoDePago();
     cout << "----------------" << endl;
 
     cout << "Detalle Factura Compra ----------------" << endl;
@@ -69,15 +110,13 @@ void GenerarFactura(RegistroCompra objR, int id)
         if (objD.getIdCompra() == objR.getIdCompra())
         {
 
-            objD.Mostrar();
+            ArticulosXFactura(objD);
         }
     }
 }
 void FacturaXNroFactura()
 {
-    Planta objP;
-    Herramientas objH;
-    Agroquimicos objA;
+
     int tam, tamDetalleFactura;
 
     int nroFactura;
@@ -111,59 +150,24 @@ void FacturaXNroFactura()
                 {
 
 
+ if (cont)
+    {
+        cout << "Codigo Articulo " << "Descripcion "  << "Precio " << "Cantidad " << "SubTotal " << endl;
+        cont = false;
+    }
+ArticulosXFactura(objDF);
 
 
-
-cout<<"tipo articulo: "<<objDF.getTipoDeArticulo();
-system("pause");
-
-
-
-                    switch (objDF.getTipoDeArticulo())
-                    {
-
-                    case 1:
-                      objP = BuscarPlanta(objDF.getIdArticulo());
-
-                        
-                        // objH.Mostrar();
-                        break;
-
-                    case 2:
-                      objH = BuscarHerramienta(objDF.getIdArticulo());
-
-                        // objP.Mostrar();
-
-                        break;
-
-                    case 3:
-                        // objA = BuscarAgroquimicos();
-                        break;
-                    default:
-                        break;
-                    }
-                      if (cont)
-            {
-                cout << "Codigo Articulo "<< "Descripcion "<< "Precio " << "Cantidad "<< "SubTotal " << endl;
-                cont = false;
-            }
-            if (objP.getEstado() == 1)
-            {
-                cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
-            }
-            if (objH.getEstado() == 1)
-            {
-                cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
-            }
                 }
+
+                system("pause");
+
+                //  Desarrollo del Mostrar
             }
-
-            //  Desarrollo del Mostrar
-
-          
         }
     }
 }
+
 Planta BuscarPlanta(int idArticulo)
 {
 

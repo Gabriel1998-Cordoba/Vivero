@@ -70,7 +70,7 @@ void menuDuenio(int opcion)
 {
 
     char usuario[30];
-    int contra;
+    char contra[30];
     int band = 0;
     int i = 1;
 
@@ -82,9 +82,9 @@ void menuDuenio(int opcion)
             cout << "ingrese usuario: " << endl; // el usuario es Vivero
             cargarCadena(usuario, 30);
             cout << "Ingrese Contracenia: " << endl; // la contraceña es 123
-            cin >> contra;
+            cargarCadena(contra,30);
 
-            if ((contra == 123) && (strcmp(usuario, "Vivero") == 0))
+            if ((strcmp(contra, "123") == 0) && (strcmp(usuario, "Vivero") == 0))
             {
                 band = 1;
                 cout << "CORRECTO" << endl;
@@ -124,6 +124,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
             cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+            cout << "Opcion 12 ----> Borrar Archivos .dat" << endl; //los borra con 'wb'
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -228,8 +229,7 @@ void menuDuenio(int opcion)
             case 12:
             {
                 system("cls");
-                // Backup objBkp;
-                // objBkp.ReemplazarDatosDuenioConBackup();
+                    BorrarDatosDeArchivo();
 
                 system("pause");
             }
@@ -247,11 +247,11 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 14:
             {
-                //                  system("cls");
+                system("cls");
                 // Backup objBkp;
                 // objBkp.ReemplazarDatosDuenioConBackup();
 
-                //                 system("pause");
+                system("pause");
             }
             break;
                 /*******************************************************************/
@@ -677,7 +677,7 @@ void menuPersona(int opcion)
 
             if (tam == -1)
             {
-                objR.setIdCompra(0);
+                objR.setIdCompra(tam+2);
             }
             else
             {
@@ -1815,6 +1815,96 @@ void MostrarBackups()
         {
             system("cls");
             objBkpDetalleFacturaVenta.MostrarBackup();
+            system("pause");
+        }
+        break;
+
+        case 0: // finalizar el while
+            return;
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+/*******************************************************************/
+void BorrarDatosDeArchivo(){
+int opc;
+
+    // Cliente objCli;
+    // Duenio ObjDue;
+    // Herramientas ObjHerr;
+    // Planta ObjPla;
+
+    while (true)
+    {
+        system("cls");
+        cout << "1 - borrar --> DetalleFacturaCompra.dat" << endl;
+        cout << "2 - borrar --> registrocompra.dat" << endl;
+        cout << "3 - borrar --> agroquimicos.dat" << endl;
+
+        cout << "0 - VOLVER" << endl;
+
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+        case 1:
+        {
+            system("cls");
+            FILE *p1,*p2;
+            p1=fopen("DetalleFacturaCompra.dat","wb");
+            p2=fopen("registrocompra.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
+            }else{
+
+            if(p2==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de registrocompra.dat"<<endl;
+            }else{
+                cout<<"se borraron los archivos Correctamente"<<endl;
+            }
+
+            }
+            
+            system("pause");
+        }
+        break;
+
+        case 2:
+        {
+            system("cls");
+            FILE *p1,*p2;
+            p1=fopen("DetalleFacturaCompra.dat","wb");
+            p2=fopen("registrocompra.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
+            }else{
+
+            if(p2==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de registrocompra.dat"<<endl;
+            }else{
+                cout<<"se borraron los archivos Correctamente"<<endl;
+            }
+
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 3:
+        {
+            system("cls");
+            FILE *p1;
+            p1=fopen("agroquimicos.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
+            }else{
+                cout<<"se borraron los archivos Correctamente"<<endl;
+            }
+
             system("pause");
         }
         break;

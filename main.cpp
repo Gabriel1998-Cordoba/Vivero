@@ -9,13 +9,7 @@
 int main()
 {
 
-//menuPrincipal();
-
-RegistroCompra objRC,obj2;
-
-objRC.MostrarArchivoCompra();
-
-
+menuPrincipal();
 
 
 
