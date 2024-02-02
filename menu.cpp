@@ -1832,8 +1832,6 @@ void MostrarBackups()
 void BorrarDatosDeArchivo(){
 int opc;
 
-    // Cliente objCli;
-    // Duenio ObjDue;
     // Herramientas ObjHerr;
     // Planta ObjPla;
 
@@ -1843,6 +1841,10 @@ int opc;
         cout << "1 - borrar --> DetalleFacturaCompra.dat" << endl;
         cout << "2 - borrar --> registrocompra.dat" << endl;
         cout << "3 - borrar --> agroquimicos.dat" << endl;
+        cout << "4 - borrar --> Cliente.dat" << endl;
+        cout << "5 - borrar --> duenio.dat" << endl;
+        cout << "6 - borrar --> herramientas.dat" << endl;
+        cout << "7 - borrar --> planta.dat" << endl;
 
         cout << "0 - VOLVER" << endl;
 
@@ -1900,7 +1902,52 @@ int opc;
             FILE *p1;
             p1=fopen("agroquimicos.dat","wb");
             if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de agroquimicos.dat"<<endl;
+            }else{
+                cout<<"se borraron los archivos Correctamente"<<endl;
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 4:
+        {
+            system("cls");
+            FILE *p1;
+            p1=fopen("Cliente.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de Cliente.dat"<<endl;
+            }else{
+                cout<<"se borraron los archivos Correctamente"<<endl;
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 5:
+        {
+            system("cls");
+            FILE *p1;
+            p1=fopen("herramientas.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de herramientas.dat"<<endl;
+            }else{
+                cout<<"se borraron los archivos Correctamente"<<endl;
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 6:
+        {
+            system("cls");
+            FILE *p1;
+            p1=fopen("planta.dat","wb");
+            if(p1==NULL){
+                cout<<"ERROR de ARCHIVO = BorrarDatosDeArchivo, de planta.dat"<<endl;
             }else{
                 cout<<"se borraron los archivos Correctamente"<<endl;
             }
