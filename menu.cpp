@@ -229,7 +229,7 @@ void menuDuenio(int opcion)
             case 12:
             {
                 system("cls");
-                    BorrarDatosDeArchivo();
+                    //BorrarDatosDeArchivo();
 
                 system("pause");
             }
@@ -494,9 +494,15 @@ void ListarDatos(int opcion)
         system("cls");
         cout << "Que quieres Listar?" << endl
              << endl;
-        cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
-        cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
-        cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
+        cout << "Opcion 1 ---> planta.dat" << endl;       // Crear funcion que carge plantas a un Archivos
+        cout << "Opcion 2 ---> herramientas.dat" << endl;  // Crear funcion que carge Herramientas a un Archivos
+        cout << "Opcion 3 ---> agroquimicos.dat" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
+        cout << "Opcion 4 ---> Cliente.dat" <<  endl;
+        cout << "Opcion 5 ---> duenio.dat" <<  endl;
+        cout << "Opcion 6 ---> registrocompra.dat" <<  endl;
+        cout << "Opcion 7 ---> DetalleFacturaCompra.dat" <<  endl;
+        cout << "Opcion 8 ---> DetalleFacturaVenta.dat" <<  endl;
+        cout << "Opcion 9 ---> registroVenta" <<  endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -506,7 +512,7 @@ void ListarDatos(int opcion)
         case 1:
         {
             system("cls");
-            cout << "Listado de Plantas" << endl
+            cout << "Listado de Plantas: " << endl
                  << endl;
             obtP.ListarPlanta();
             system("pause");
@@ -519,7 +525,7 @@ void ListarDatos(int opcion)
         case 2:
         {
             system("cls");
-            cout << "Listado de Herrramientas" << endl
+            cout << "Listado de Herrramientas: " << endl
                  << endl;
             obtH.ListarHerramienta();
             system("pause");
@@ -529,9 +535,73 @@ void ListarDatos(int opcion)
         case 3:
         {
             system("cls");
-            cout << "Listado de AgroQuimicos" << endl
+            cout << "Listado de AgroQuimicos: " << endl
                  << endl;
             obtA.ListarAgroquimicos();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 4:
+        {
+            system("cls");
+            Cliente objCC;
+            cout << "Listado de Cliente: " << endl
+                 << endl;
+            objCC.MostrarDatosClienteEnArchivo();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 5:
+        {
+            system("cls");
+            Duenio objDD;
+            cout << "Listado de Duenio: " << endl
+                 << endl;
+            objDD.MostrarDatosDeDuenioEnArchivo();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 6:
+        {
+            system("cls");
+            RegistroCompra objDD;
+            cout << "Listado de Registro Compra: " << endl
+                 << endl;
+            objDD.MostrarArchivoCompra();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 7:
+        {
+            system("cls");
+            DetalleFacturaCompra objDD;
+            cout << "Listado de Detalle Factura Compra: " << endl
+                 << endl;
+            objDD.MostrarDatosDetalleFacturaCompraEnArchivo();
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 8:
+        {
+            system("cls");
+            cout << "Listado de Detalle Factura Venta: " << endl
+                 << endl;
+            system("pause");
+        }
+        break;
+            /*******************************************************************/
+        case 9:
+        {
+            system("cls");
+            RegistroVenta objDD;
+            cout << "Listado de Detalle Factura Venta: " << endl
+                 << endl;
+            objDD.MostrarArchivoVenta();
             system("pause");
         }
         break;
@@ -669,6 +739,18 @@ void menuPersona(int opcion)
         /*******************************************************************/
         case 1:
         {
+            ///////////////////////////////////
+
+            //crear el backupCompra aqui <--------
+            bool band=true;
+
+            if(band==true){
+
+            bkpRegistroCompra objRegistro;
+            objRegistro.CrearBackup();
+            band=false;
+            }
+            ///////////////////////////////////
 
             // hacer una funcion que me cuente cuantos registros hay
             RegistroCompra objR;
@@ -681,7 +763,7 @@ void menuPersona(int opcion)
             }
             else
             {
-                objR.setIdCompra(tam);
+                objR.setIdCompra(tam+1);
             }
 
             system("cls");
@@ -816,6 +898,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 }
                 else
                 {
+
                     cout << "EL CLIENTE ESTA REGISTRADO..." << endl;
                     system("pause");
                 }
@@ -824,6 +907,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
 
                 if (objR.GuardarCompra())
                 {
+                    bkpRegistroCompra objBkpRefistroCompra;
+                    objBkpRefistroCompra.CrearBackup();
+                    
+
+                    
                     cout << "se registro correctamente la compra " << endl;
                     // falta una funcion que dentro va a tener otra, esa funcion se llama
                     //  la primera se va a llamar genera factura, lo que va a hacer esta funcion, lo que
@@ -832,6 +920,12 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                     GenerarFactura(objR, cli.getIDCliente());
                     system("pause");
                 }
+            }else if(opcion==1){
+                    bkpRegistroCompra objBkpRegistroCompra;
+                    objBkpRegistroCompra.RestaurarBackup();
+                    bkpDetalleFacturaCompra ojbBkpDetalleFCompra;
+                    ojbBkpDetalleFCompra.RestaurarBackup();
+
             }
             system("cls");
             return;

@@ -121,6 +121,7 @@ void DetalleFacturaCompra::MostrarDatosDetalleFacturaCompraEnArchivo(){
 
     while(fread(&reg, sizeof (DetalleFacturaCompra), 1, p)){
         reg.Mostrar();
+        cout<<endl;
     }
     fclose(p);
 }

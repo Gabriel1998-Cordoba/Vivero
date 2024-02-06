@@ -16,10 +16,11 @@ using namespace std;
 #include "bkpDuenio.h"
 #include "Planta.h"
 #include "bkpPlanta.h"
-#include "Herramientas.h"
 #include "bkpHerramientas.h"
-#include "Agroquimicos.h"
+#include "Herramientas.h"
 #include "bkpAgroquimicos.h"
+#include "Agroquimicos.h"
+
 #include "Cliente.h"
 #include "bkpCliente.h"
 #include "bkpRegistroCompra.h"

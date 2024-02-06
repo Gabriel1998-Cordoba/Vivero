@@ -39,13 +39,20 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
 
     case 1:
         objP = BuscarPlanta(objDF.getIdArticulo());
-
+        if (objP.getEstado() == 1)
+        {
+            cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+        }
         // objH.Mostrar();
         break;
 
     case 2:
         objH = BuscarHerramienta(objDF.getIdArticulo());
 
+        if (objH.getEstado() == 1)
+        {
+            cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+        }
         // objP.Mostrar();
 
         break;
@@ -56,24 +63,15 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
     default:
         break;
     }
-   
-    if (objP.getEstado() == 1)
-    {
-        cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
-    }
-    if (objH.getEstado() == 1)
-    {
-        cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
-    }
 }
 
 void GenerarFactura(RegistroCompra objR, int id)
 {
     int tam = 0;
-     bool cont = true;
+    bool cont = true;
     DetalleFacturaCompra objD;
     tam = objD.contarRegistros();
-
+    cout << "Numero de Factura: " << objR.getIdCompra() << endl;
     cout << "Fecha: ";
     objR.getFecha().MostrarEnLinea();
     cout << endl;
@@ -95,9 +93,9 @@ void GenerarFactura(RegistroCompra objR, int id)
             }
         }
     }
-
-    cout << "Cabecera factura ----------------" << endl;
-
+    cout << "----------------" << endl;
+    cout << "Cabecera factura: " << endl;
+    cout << "----------------" << endl;
     cout << "----------------" << endl;
     cout << "Metodo de Pago: " << objR.getModoDePago();
     cout << "----------------" << endl;
@@ -110,11 +108,15 @@ void GenerarFactura(RegistroCompra objR, int id)
 
         if (objD.getIdCompra() == objR.getIdCompra())
         {
-    if (cont)
-      {
-        cout << "Codigo Articulo " << "Descripcion "  << "Precio " << "Cantidad " << "SubTotal " << endl;
-        cont = false;
-    }
+            if (cont)
+            {
+                cout << "Codigo Articulo "
+                     << "Descripcion "
+                     << "Precio "
+                     << "Cantidad "
+                     << "SubTotal " << endl;
+                cont = false;
+            }
             ArticulosXFactura(objD);
         }
     }
@@ -154,23 +156,23 @@ void FacturaXNroFactura()
                 if (objDF.getIdCompra() == objRegistroCompra.getIdCompra())
                 {
 
-
- if (cont)
-    {
-        cout << "Codigo Articulo " << "Descripcion "  << "Precio " << "Cantidad " << "SubTotal " << endl;
-        cont = false;
-    }
-ArticulosXFactura(objDF);
-
-
+                    if (cont)
+                    {
+                        cout << "Codigo Articulo "
+                             << "Descripcion "
+                             << "Precio "
+                             << "Cantidad "
+                             << "SubTotal " << endl;
+                        cont = false;
+                    }
+                    ArticulosXFactura(objDF);
                 }
-
-                system("pause");
 
                 //  Desarrollo del Mostrar
             }
         }
     }
+    system("pause");
 }
 
 Planta BuscarPlanta(int idArticulo)
