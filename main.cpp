@@ -1,43 +1,40 @@
 
 
 #include"menu.h"
-#include"RegistroCompra.h"
-#include"bkpRegistroCompra.h"
-#include"RegistroVenta.h"
-#include"bkpRegistroVenta.h"
+#include"Agroquimicos.h"
+#include"bkpAgroquimicos.h"
+#include"Planta.h"
+#include"bkpPlanta.h"
+#include"Herramientas.h"
+#include"bkpHerramientas.h"
 
 int main()
 {
 
-menuPrincipal();
+  menuPrincipal();
 
 
 
 
 
 
-//   for(int i=0;i<9;i++){
-//   objCliente.Cargar();
+
+
+
+
+
+  // Agroquimicos objP;
+  // bkpAgroquimicos objbkpPlanta;
   
-//   objCliente.GuardarArchivo();
+  // objbkpPlanta.RestaurarBackup();
 
-// }
+  // objP.CargarArchivoAgroquimicos(99);
+  // objP.MostrarArchivoAgroquimicos();
 
+  // cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
 
-  //FacturaXNroFactura();
-
-  //RegistroVenta objP;
-  //bkpRegistroVenta objbkpPlanta;
-  //
-  //objbkpPlanta.RestaurarBackup();
-//
-  ////objP.CargarArchivoVenta();
-  //objP.MostrarArchivoVenta();
-//
-  //cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
-//
-  ////objbkpPlanta.CrearBackup();
-  //objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
+  // objbkpPlanta.CrearBackup();
+  // objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
 
 
 
