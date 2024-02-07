@@ -194,6 +194,67 @@ Planta BuscarPlanta(int idArticulo)
     obj.setEstado(-2);
     return obj;
 }
+int BuscarPosicion(Planta obj)
+{
+    
+    Planta aux;
+
+    int tam = aux.contarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+        aux=aux.leerRegistroPlanta(i);
+
+        if (aux.getID() == obj.getID())
+        {
+
+            return i;
+        }
+    }
+    return -1;
+  
+}
+int BuscarPosicion(Herramientas obj)
+{
+    
+Herramientas aux;
+
+    int tam = aux.contarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+        aux=aux.leerRegistroHerramienta(i);
+
+        if (aux.getID() == obj.getID())
+        {
+
+            return i;
+        }
+    }
+    return -1;
+  
+}
+int BuscarPosicion(Agroquimicos obj)
+{
+    
+    Agroquimicos aux;
+
+    int tam = aux.contarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+        aux=aux.leerRegistroAgroquimicos(i);
+
+        if (aux.getID() == obj.getID())
+        {
+
+            return i;
+        }
+    }
+    return -1;
+  
+}
+
 Herramientas BuscarHerramienta(int idArticulo)
 {
 

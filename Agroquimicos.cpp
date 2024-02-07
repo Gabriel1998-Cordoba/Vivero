@@ -162,6 +162,18 @@ bool Agroquimicos::MostrarArchivoAgroquimicos()
     fclose(p);
     return true;
 }
+bool Agroquimicos::reemplazarRegistroAgroquimicos(Agroquimicos objAgroquimico, int posicionAReemplazar)
+{
+    FILE *p = fopen("agroquimicos.dat", "rb+");
+    if (p == NULL)
+    {
+        return false;
+    }
+    fseek(p, posicionAReemplazar * sizeof(Agroquimicos), SEEK_SET);
+    bool pudoEscribir = fwrite(&objAgroquimico, sizeof(Agroquimicos), 1, p);
+    fclose(p);
+    return pudoEscribir;
+}
 
 void Agroquimicos::Opcion1Compra()
 {
@@ -233,7 +245,7 @@ void Agroquimicos::Opcion3Compra(int idCompra)
         aux = reg.leerRegistroPlanta(i);
         if (strcmp(aux.getNombre(), nombreP) == 0)
         {
-            if (descripcionFactura.AutoCargar(idCompra, aux.getID(), aux.getPrecio(), aux.getTipoDeArticulo()) == true)
+            if (descripcionFactura.AutoCargar(idCompra,aux) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {

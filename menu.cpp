@@ -803,7 +803,9 @@ void menuPersona(int opcion)
 ///////////////////////////////////////////////////////////////////////////
 void menuCompraPersona(int opcion, RegistroCompra objR)
 {
-
+     bkpAgroquimicos objBkpAgroquimico;
+     bkpHerramientas objBkpHerramienta;
+bkpPlanta objBkpPlanta;
     system("cls");
 
     cout << "Se debe de cargar su Registros de Compra" << endl
@@ -832,7 +834,10 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         case 1:
         {
             system("cls");
+            
+            objBkpAgroquimico.CrearBackup();
             menuCompraHerramientaPersona(opcion, objR);
+
             system("pause");
         }
         break;
@@ -840,7 +845,10 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         case 2:
         {
             system("cls");
+
+            objBkpPlanta.CrearBackup();
             menuCompraPlantaPersona(opcion, objR);
+            
             system("pause");
         }
         break;
@@ -848,7 +856,10 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         case 3:
         {
             system("cls");
+            
+            objBkpAgroquimico.CrearBackup();
             menuCompraAgroquimicosPersona(opcion, objR);
+            
             system("pause");
         }
         break;
@@ -908,15 +919,8 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 if (objR.GuardarCompra())
                 {
                     bkpRegistroCompra objBkpRefistroCompra;
-                    objBkpRefistroCompra.CrearBackup();
-                    
-
-                    
+                    objBkpRefistroCompra.CrearBackup();                                       
                     cout << "se registro correctamente la compra " << endl;
-                    // falta una funcion que dentro va a tener otra, esa funcion se llama
-                    //  la primera se va a llamar genera factura, lo que va a hacer esta funcion, lo que
-                    //  le vamos a pasar es la idCompra
-
                     GenerarFactura(objR, cli.getIDCliente());
                     system("pause");
                 }
@@ -925,6 +929,9 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                     objBkpRegistroCompra.RestaurarBackup();
                     bkpDetalleFacturaCompra ojbBkpDetalleFCompra;
                     ojbBkpDetalleFCompra.RestaurarBackup();
+                 objBkpHerramienta.RestaurarBackup();
+               objBkpPlanta.RestaurarBackup();
+                   //
 
             }
             system("cls");

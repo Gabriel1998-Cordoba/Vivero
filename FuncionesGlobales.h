@@ -12,5 +12,9 @@ void GenerarFactura(RegistroCompra objR,int id);
 
 Planta BuscarPlanta(int idArticulo);
 Herramientas BuscarHerramienta(int idArticulo);
+
+int BuscarPosicion(Planta obj);
+int BuscarPosicion(Agroquimicos obj);
+int BuscarPosicion(Herramientas obj);
 void FacturaXNroFactura();
 void CambiarID(int& id);

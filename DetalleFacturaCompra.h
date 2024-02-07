@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Fecha.h"
+#include "FuncionesGlobales.h"
 #include"Herramientas.h"
 #include"Planta.h"
 #include"Agroquimicos.h"
@@ -48,7 +49,9 @@ int getCantidad();
 float getPrecio();
 
 /*METODOS DE MANEJOS DE ARCHIVO*/
-bool AutoCargar(int idCliente,int idCompra,float precio,int tipoArticulo); //prueba
+bool AutoCargar(int idCompra,Herramientas objH); //prueba
+bool AutoCargar(int idCompra,Planta objP); //prueba
+bool AutoCargar(int idCompra,Agroquimicos objH); //prueba
 bool GuardarEnArchivo();
 int contarRegistros(const char* nombre = "DetalleFacturaCompra.dat");
 bool leerRegistroIdCompra(int IdComp);

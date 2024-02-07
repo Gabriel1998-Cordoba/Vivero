@@ -18,6 +18,9 @@ class Agroquimicos : public Articulo{
         int contarRegistros(const char* ruta = "agroquimicos.dat");
         bool borrarRegistroAgroquimicos();
         Agroquimicos leerRegistroAgroquimicos(int pos,const char* ruta = "agroquimicos.dat");
+        
+        
+         bool reemplazarRegistroAgroquimicos(Agroquimicos objA, int posicionAReemplazar) ;
         void ListarAgroquimicos();
         bool MostrarArchivoAgroquimicos();
 

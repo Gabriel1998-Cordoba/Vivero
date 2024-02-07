@@ -6,7 +6,7 @@ using namespace std;
 #include "FuncionesGlobales.h"
 #include "DetalleFacturaCompra.h"
 #include "bkpDetalleFacturaCompra.h"
- #include "Articulo.h"
+#include "Articulo.h"
 #include "Herramientas.h"
 
 void Herramientas::setMaterial(const char *material)
@@ -167,19 +167,32 @@ void Herramientas::Opcion2Compra()
 
     // ValidarID(ID);
 }
+bool Herramientas::reemplazarRegistroHerramienta(Herramientas objHerramienta, int posicionAReemplazar)
+{
+    FILE *p = fopen("herramientas.dat", "rb+");
+    if (p == NULL)
+    {
+        return false;
+    }
+    fseek(p, posicionAReemplazar * sizeof(Herramientas), SEEK_SET);
+    bool pudoEscribir = fwrite(&objHerramienta, sizeof(Herramientas), 1, p);
+    fclose(p);
+    return pudoEscribir;
+}
 void Herramientas::Opcion3Compra(RegistroCompra objR)
 {
     ///// ECHO POR GABI
 
     char nombreH[30];
     int tam = 0;
-    
-bkpDetalleFacturaCompra objBkpDetalleFCompra;
-objBkpDetalleFCompra.CrearBackup();
-DetalleFacturaCompra descripcionFactura;
-    
+
+    bkpDetalleFacturaCompra objBkpDetalleFCompra;
+    objBkpDetalleFCompra.CrearBackup();
+
+    DetalleFacturaCompra descripcionFactura;
 
     Herramientas herramienta, aux;
+
     tam = herramienta.contarRegistros();
 
     cout << "Ingrese Nombre de la Herramienta: ";
@@ -192,11 +205,11 @@ DetalleFacturaCompra descripcionFactura;
         if (strcmp(aux.getNombre(), nombreH) == 0)
         {
 
-            if (descripcionFactura.AutoCargar(aux.getID(), objR.getIdCompra(), aux.getPrecio(), aux.getTipoDeArticulo()) == true)
+            if (descripcionFactura.AutoCargar(objR.getIdCompra(), aux) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    
+
                     objBkpDetalleFCompra.CrearBackup();
 
                     cout << "Guardado Correctamente ";
