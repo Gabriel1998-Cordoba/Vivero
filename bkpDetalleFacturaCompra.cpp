@@ -107,7 +107,7 @@ bool bkpDetalleFacturaCompra::RestaurarBackup(){
     }
 
     for(int i=0; i<tam; i++){
-        objD = objDetalleFacturaCompra.leerRegistro(i,"bkpCompraFacturaCompra.dat");
+        objD = objDetalleFacturaCompra.leerRegistro(i,"bkpDetalleFacturaCompra.dat");
         fwrite(&objD, sizeof(DetalleFacturaCompra), 1, p);
     }
     fclose(p);

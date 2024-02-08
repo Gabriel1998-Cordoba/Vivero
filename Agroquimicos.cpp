@@ -7,6 +7,7 @@ using namespace std;
 #include "FuncionesGlobales.h"
 #include "Articulo.h"
 #include "DetalleFacturaCompra.h"
+#include "bkpDetalleFacturaCompra.h"
 
 /***************************************************************/
 void Agroquimicos::setTipoAgroquimico(int tipoAgroquimico)
@@ -234,6 +235,10 @@ void Agroquimicos::Opcion3Compra(int idCompra)
 
     char nombreP[30];
     int tam = 0;
+
+    bkpDetalleFacturaCompra objBkpDetalleFCompra;
+    objBkpDetalleFCompra.CrearBackup();
+  
     DetalleFacturaCompra descripcionFactura;
     Planta reg, aux;
     tam = reg.contarRegistros();

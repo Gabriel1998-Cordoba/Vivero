@@ -187,7 +187,8 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
     int tam = 0;
 
     bkpDetalleFacturaCompra objBkpDetalleFCompra;
-    objBkpDetalleFCompra.CrearBackup();
+  objBkpDetalleFCompra.CrearBackup();
+  
 
     DetalleFacturaCompra descripcionFactura;
 

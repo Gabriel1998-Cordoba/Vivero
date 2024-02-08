@@ -82,7 +82,7 @@ void menuDuenio(int opcion)
             cout << "ingrese usuario: " << endl; // el usuario es Vivero
             cargarCadena(usuario, 30);
             cout << "Ingrese Contracenia: " << endl; // la contraceña es 123
-            cargarCadena(contra,30);
+            cargarCadena(contra, 30);
 
             if ((strcmp(contra, "123") == 0) && (strcmp(usuario, "Vivero") == 0))
             {
@@ -124,7 +124,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
             cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            cout << "Opcion 12 ----> Limpiar Archivos .dat" << endl; //los borra con 'wb'
+            cout << "Opcion 12 ----> Limpiar Archivos .dat" << endl;   // los borra con 'wb'
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -229,7 +229,7 @@ void menuDuenio(int opcion)
             case 12:
             {
                 system("cls");
-                    //BorrarDatosDeArchivo();
+                LimpiarDatosDeArchivo();
 
                 system("pause");
             }
@@ -282,7 +282,7 @@ void CargarDatos(int opcion)
 {
 
     Planta obtP;
-    
+
     Agroquimicos objA;
 
     system("cls");
@@ -320,7 +320,6 @@ void CargarDatos(int opcion)
             for (int i = 0; i < cantidad; i++)
             {
                 obtP.CargarArchivoPlanta(tam, opcion);
-                
             }
             system("pause");
             // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
@@ -332,11 +331,11 @@ void CargarDatos(int opcion)
         case 2:
         {
             system("cls");
-           Herramientas objH;
-            int  cantidad;
+            Herramientas objH;
+            int cantidad;
 
             // int tam = objH.contarRegistros();
-         
+
             // if(tam==-1){
             // tam=0;
             // }
@@ -347,7 +346,6 @@ void CargarDatos(int opcion)
             for (int i = 0; i < cantidad; i++)
             {
                 objH.CargarArchivoHerramienta(opcion);
-             
             }
             system("pause");
         }
@@ -356,8 +354,7 @@ void CargarDatos(int opcion)
         case 3:
         {
             system("cls");
-            int  cantidad;
-
+            int cantidad;
 
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
@@ -365,9 +362,8 @@ void CargarDatos(int opcion)
             for (int i = 0; i < cantidad; i++)
             {
                 objA.CargarArchivoAgroquimicos(opcion);
-             
             }
-           
+
             system("pause");
         }
         break;
@@ -400,8 +396,7 @@ void LimpiarDatos(int opcion)
     Agroquimicos obtA;
 
     system("cls");
-    cout << "Que quieres Limpiar?" << endl
-         << endl;
+    cout << "Que quieres   ? " << endl<< endl;
     cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
     cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
     cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
@@ -495,14 +490,14 @@ void ListarDatos(int opcion)
         cout << "Que quieres Listar?" << endl
              << endl;
         cout << "Opcion 1 ---> planta.dat" << endl;       // Crear funcion que carge plantas a un Archivos
-        cout << "Opcion 2 ---> herramientas.dat" << endl;  // Crear funcion que carge Herramientas a un Archivos
+        cout << "Opcion 2 ---> herramientas.dat" << endl; // Crear funcion que carge Herramientas a un Archivos
         cout << "Opcion 3 ---> agroquimicos.dat" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
-        cout << "Opcion 4 ---> Cliente.dat" <<  endl;
-        cout << "Opcion 5 ---> duenio.dat" <<  endl;
-        cout << "Opcion 6 ---> registrocompra.dat" <<  endl;
-        cout << "Opcion 7 ---> DetalleFacturaCompra.dat" <<  endl;
-        cout << "Opcion 8 ---> DetalleFacturaVenta.dat" <<  endl;
-        cout << "Opcion 9 ---> registroVenta" <<  endl;
+        cout << "Opcion 4 ---> Cliente.dat" << endl;
+        cout << "Opcion 5 ---> duenio.dat" << endl;
+        cout << "Opcion 6 ---> registrocompra.dat" << endl;
+        cout << "Opcion 7 ---> DetalleFacturaCompra.dat" << endl;
+        cout << "Opcion 8 ---> DetalleFacturaVenta.dat" << endl;
+        cout << "Opcion 9 ---> registroVenta" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -654,15 +649,14 @@ void CargarDatosDelDuenio(int opcion)
         {
             system("cls");
 
-            int tam=0, cantidad;
-          
+            int tam = 0, cantidad;
+
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
                 objD.CargarDatosDeDuenioEnArchivo(/*tam , opcion*/);
-                
             }
             system("pause");
         }
@@ -741,14 +735,15 @@ void menuPersona(int opcion)
         {
             ///////////////////////////////////
 
-            //crear el backupCompra aqui <--------
-            bool band=true;
+            // crear el backupCompra aqui <--------
+            bool band = true;
 
-            if(band==true){
+            if (band == true)
+            {
 
-            bkpRegistroCompra objRegistro;
-            objRegistro.CrearBackup();
-            band=false;
+                bkpRegistroCompra objRegistro;
+                objRegistro.CrearBackup();
+                band = false;
             }
             ///////////////////////////////////
 
@@ -759,11 +754,11 @@ void menuPersona(int opcion)
 
             if (tam == -1)
             {
-                objR.setIdCompra(tam+2);
+                objR.setIdCompra(tam + 2);
             }
             else
             {
-                objR.setIdCompra(tam+1);
+                objR.setIdCompra(tam + 1);
             }
 
             system("cls");
@@ -803,16 +798,22 @@ void menuPersona(int opcion)
 ///////////////////////////////////////////////////////////////////////////
 void menuCompraPersona(int opcion, RegistroCompra objR)
 {
-     bkpAgroquimicos objBkpAgroquimico;
-     bkpHerramientas objBkpHerramienta;
-bkpPlanta objBkpPlanta;
+    bkpAgroquimicos objBkpAgroquimico;
+    objBkpAgroquimico.CrearBackup();
+    bkpHerramientas objBkpHerramienta;
+    objBkpHerramienta.CrearBackup();
+    bkpPlanta objBkpPlanta;
+    objBkpPlanta.CrearBackup();
+
+    bool bandHerramientas = false;
+    bool bandPlanta = false;
+    bool bandAgroquimicos = false;
+
     system("cls");
 
     cout << "Se debe de cargar su Registros de Compra" << endl
          << endl
          << endl;
-
-   
 
     while (true)
     {
@@ -834,8 +835,8 @@ bkpPlanta objBkpPlanta;
         case 1:
         {
             system("cls");
-            
-            objBkpAgroquimico.CrearBackup();
+
+            bandHerramientas = true;
             menuCompraHerramientaPersona(opcion, objR);
 
             system("pause");
@@ -846,9 +847,9 @@ bkpPlanta objBkpPlanta;
         {
             system("cls");
 
-            objBkpPlanta.CrearBackup();
+            bandPlanta = true;
             menuCompraPlantaPersona(opcion, objR);
-            
+
             system("pause");
         }
         break;
@@ -856,14 +857,14 @@ bkpPlanta objBkpPlanta;
         case 3:
         {
             system("cls");
-            
-            objBkpAgroquimico.CrearBackup();
+
+            bandAgroquimicos = true;
             menuCompraAgroquimicosPersona(opcion, objR);
-            
+
             system("pause");
         }
         break;
-       
+
         case 0:
         {
 
@@ -919,20 +920,31 @@ bkpPlanta objBkpPlanta;
                 if (objR.GuardarCompra())
                 {
                     bkpRegistroCompra objBkpRefistroCompra;
-                    objBkpRefistroCompra.CrearBackup();                                       
+                    objBkpRefistroCompra.CrearBackup();
                     cout << "se registro correctamente la compra " << endl;
                     GenerarFactura(objR, cli.getIDCliente());
                     system("pause");
                 }
-            }else if(opcion==1){
-                    bkpRegistroCompra objBkpRegistroCompra;
-                    objBkpRegistroCompra.RestaurarBackup();
-                    bkpDetalleFacturaCompra ojbBkpDetalleFCompra;
-                    ojbBkpDetalleFCompra.RestaurarBackup();
-                 objBkpHerramienta.RestaurarBackup();
-               objBkpPlanta.RestaurarBackup();
-                   //
-
+            }
+            else if (opcion == 1)
+            {
+                bkpRegistroCompra objBkpRegistroCompra;
+                objBkpRegistroCompra.RestaurarBackup();
+                bkpDetalleFacturaCompra ojbBkpDetalleFCompra;
+                ojbBkpDetalleFCompra.RestaurarBackup(); // cout<<"<--aqui?"<<endl;
+                if (bandHerramientas == true)
+                {
+                    objBkpHerramienta.RestaurarBackup();
+                }
+                if (bandAgroquimicos == true)
+                {
+                    objBkpAgroquimico.RestaurarBackup();
+                }
+                if (bandPlanta == true)
+                {
+                    objBkpPlanta.RestaurarBackup();
+                }
+                system("pause"); //
             }
             system("cls");
             return;
@@ -1069,7 +1081,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
             system("pause");
         }
         break;
-    
+
         case 0:
         {
             system("cls");
@@ -1143,7 +1155,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         }
         break;
             /*******************************************************************/
-  
+
         case 0:
         {
             system("cls");
@@ -1173,11 +1185,12 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
     // hacer una funcion que me cuente cuantos registros hay
     int tam = objR.contarRegistros();
 
-            if(tam==-1){
-            tam=0;
-            }
+    if (tam == -1)
+    {
+        tam = 0;
+    }
 
-    //int idCompra = tam;
+    // int idCompra = tam;
     int idCompra = tam + 1;
     objR.setIdCompra(idCompra);
 
@@ -1930,8 +1943,9 @@ void MostrarBackups()
     }
 }
 /*******************************************************************/
-void LimpiarDatosDeArchivo(){
-int opc;
+void LimpiarDatosDeArchivo()
+{
+    int opc;
 
     while (true)
     {
@@ -1944,41 +1958,56 @@ int opc;
         cout << "6 - limpiar --> herramientas.dat" << endl;
         cout << "7 - limpiar --> planta.dat" << endl;
 
+        cout<<endl<<endl<<"limpiar Backups"<<endl<<endl;
+
+        cout << "8 - limpiar --> bkpDetalleFacturaCompra.dat" << endl;
+        cout << "9 - limpiar --> bkpregistroCompra.dat" << endl;
+        //cout << "10 - limpiar --> bkpAgroquimicos.dat" << endl;
+        //cout << "11 - limpiar --> bkpplanta.dat" << endl;
+        //cout << "12 - limpiar --> bkpherramientas.dat" << endl;
+        //cout << "13 - limpiar --> bkpCliente.dat" << endl;
+        //cout << "14 - limpiar --> bkpduenio.dat" << endl;
+
         cout << "0 - VOLVER" << endl;
 
         cout << "INGRESE UNA OPCION: ";
         cin >> opc;
         switch (opc)
         {
-        case 1: case 2:
+        case 1:
+        case 2:
         {
 
             int valor;
-            cout<<"si se Limpia DetalleFacturaCompra.dat"<<endl;
-            cout<<"se limpiara tambien registrocompra.dat"<<endl;
-cout<<"Y Viseversa"<<endl;
-            cout<<"quiere continuar"<<endl;
-            cout<<"SI == 1 / NO == 0"<<endl;
-            cin>>valor;
+            cout << "si se Limpia DetalleFacturaCompra.dat" << endl;
+            cout << "se limpiara tambien registrocompra.dat" << endl;
+            cout << "Y Viseversa" << endl;
+            cout << "quiere continuar" << endl;
+            cout << "SI == 1 / NO == 0" << endl;
+            cin >> valor;
 
-            if(valor==1){
-            system("cls");
-            FILE *p1,*p2;
-            p1=fopen("DetalleFacturaCompra.dat","wb");
-            p2=fopen("registrocompra.dat","wb");
-            if((p1==NULL)|(p2==NULL)){
-                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de DetalleFacturaCompra.dat"<<endl;
-            }else{
-                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            if (valor == 1)
+            {
+                system("cls");
+                FILE *p1, *p2;
+                p1 = fopen("DetalleFacturaCompra.dat", "wb");
+                p2 = fopen("registrocompra.dat", "wb");
+                if ((p1 == NULL) | (p2 == NULL))
+                {
+                    cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de DetalleFacturaCompra.dat" << endl;
+                }
+                else
+                {
+                    cout << "se limpiaron los archivos Correctamente" << endl;
+                }
             }
-            }else{
-            
-            cout<<"no se limpiaron los datos"<<endl;
-            }
+            else
+            {
 
+                cout << "no se limpiaron los datos" << endl;
+            }
 
             system("pause");
-            
         }
         break;
 
@@ -1986,11 +2015,14 @@ cout<<"Y Viseversa"<<endl;
         {
             system("cls");
             FILE *p1;
-            p1=fopen("agroquimicos.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de agroquimicos.dat"<<endl;
-            }else{
-                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            p1 = fopen("agroquimicos.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de agroquimicos.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
             }
 
             system("pause");
@@ -2001,11 +2033,14 @@ cout<<"Y Viseversa"<<endl;
         {
             system("cls");
             FILE *p1;
-            p1=fopen("Cliente.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de Cliente.dat"<<endl;
-            }else{
-                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            p1 = fopen("Cliente.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de Cliente.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
             }
 
             system("pause");
@@ -2016,11 +2051,14 @@ cout<<"Y Viseversa"<<endl;
         {
             system("cls");
             FILE *p1;
-            p1=fopen("duenio.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de duenio.dat"<<endl;
-            }else{
-                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            p1 = fopen("duenio.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de duenio.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
             }
 
             system("pause");
@@ -2031,11 +2069,14 @@ cout<<"Y Viseversa"<<endl;
         {
             system("cls");
             FILE *p1;
-            p1=fopen("herramientas.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de herramientas.dat"<<endl;
-            }else{
-                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            p1 = fopen("herramientas.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de herramientas.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
             }
 
             system("pause");
@@ -2046,11 +2087,14 @@ cout<<"Y Viseversa"<<endl;
         {
             system("cls");
             FILE *p1;
-            p1=fopen("planta.dat","wb");
-            if(p1==NULL){
-                cout<<"ERROR de ARCHIVO = LimpiarDatosDeArchivo, de planta.dat"<<endl;
-            }else{
-                cout<<"se limpiaron los archivos Correctamente"<<endl;
+            p1 = fopen("planta.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de planta.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
             }
 
             system("pause");
