@@ -1962,11 +1962,11 @@ void LimpiarDatosDeArchivo()
 
         cout << "8 - limpiar --> bkpDetalleFacturaCompra.dat" << endl;
         cout << "9 - limpiar --> bkpregistroCompra.dat" << endl;
-        //cout << "10 - limpiar --> bkpAgroquimicos.dat" << endl;
-        //cout << "11 - limpiar --> bkpplanta.dat" << endl;
-        //cout << "12 - limpiar --> bkpherramientas.dat" << endl;
-        //cout << "13 - limpiar --> bkpCliente.dat" << endl;
-        //cout << "14 - limpiar --> bkpduenio.dat" << endl;
+        cout << "10 - limpiar --> bkpAgroquimicos.dat" << endl;
+        cout << "11 - limpiar --> bkpCliente.dat" << endl;
+        cout << "12 - limpiar --> bkpduenio.dat" << endl;
+        cout << "13 - limpiar --> bkpherramientas.dat" << endl;
+        cout << "14 - limpiar --> bkpplanta.dat" << endl;
 
         cout << "0 - VOLVER" << endl;
 
@@ -1994,11 +1994,13 @@ void LimpiarDatosDeArchivo()
                 p2 = fopen("registrocompra.dat", "wb");
                 if ((p1 == NULL) | (p2 == NULL))
                 {
-                    cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de DetalleFacturaCompra.dat" << endl;
+                    cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de DetalleFacturaCompra.dat o registrocompra.dat" << endl;
                 }
                 else
                 {
                     cout << "se limpiaron los archivos Correctamente" << endl;
+                    fclose(p1);
+                    fclose(p2);
                 }
             }
             else
@@ -2006,6 +2008,7 @@ void LimpiarDatosDeArchivo()
 
                 cout << "no se limpiaron los datos" << endl;
             }
+            
 
             system("pause");
         }
@@ -2023,6 +2026,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
+                fclose(p1);
             }
 
             system("pause");
@@ -2041,6 +2045,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
+                fclose(p1);
             }
 
             system("pause");
@@ -2059,6 +2064,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
+                fclose(p1);
             }
 
             system("pause");
@@ -2077,6 +2083,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
+                fclose(p1);
             }
 
             system("pause");
@@ -2095,12 +2102,147 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
+                fclose(p1);
+            }
+
+            system("pause");
+        }
+        break;
+///////////////////////////////////////////////////////////////////////////
+        case 8:
+        case 9:
+        {
+
+            int valor;
+            cout << "si se Limpia DetalleFacturaCompra.dat" << endl;
+            cout << "se limpiara tambien registrocompra.dat" << endl;
+            cout << "Y Viseversa" << endl;
+            cout << "quiere continuar" << endl;
+            cout << "SI == 1 / NO == 0" << endl;
+            cin >> valor;
+
+            if (valor == 1)
+            {
+                system("cls");
+                FILE *p1, *p2;
+                p1 = fopen("bkpDetalleFacturaCompra.dat", "wb");
+                p2 = fopen("bkpregistrocompra.dat", "wb");
+                if ((p1 == NULL) | (p2 == NULL))
+                {
+                    cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de bkpDetalleFacturaCompra.dat o bkpregistrocompra.dat" << endl;
+                }
+                else
+                {
+                    cout << "se limpiaron los archivos Correctamente" << endl;
+                    fclose(p1);
+                    fclose(p2);
+                }
+            }
+            else
+            {
+
+                cout << "no se limpiaron los datos" << endl;
             }
 
             system("pause");
         }
         break;
 
+        case 10:
+        {
+            system("cls");
+            FILE *p1;
+            p1 = fopen("bkpagroquimicos.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de bkpagroquimicos.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
+                fclose(p1);
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 11:
+        {
+            system("cls");
+            FILE *p1;
+            p1 = fopen("bkpCliente.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de bkpCliente.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
+                 fclose(p1);
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 12:
+        {
+            system("cls");
+            FILE *p1;
+            p1 = fopen("bkpduenio.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de bkpduenio.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
+             fclose(p1);
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 13:
+        {
+            system("cls");
+            FILE *p1;
+            p1 = fopen("bkpherramientas.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de bkpherramientas.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
+            fclose(p1);
+            }
+
+            system("pause");
+        }
+        break;
+
+        case 14:
+        {
+            system("cls");
+            FILE *p1;
+            p1 = fopen("bkpplanta.dat", "wb");
+            if (p1 == NULL)
+            {
+                cout << "ERROR de ARCHIVO = LimpiarDatosDeArchivo, de bkpplanta.dat" << endl;
+            }
+            else
+            {
+                cout << "se limpiaron los archivos Correctamente" << endl;
+            fclose(p1);
+            }
+
+            system("pause");
+        }
+        break;
+/////////////////////////////////////////////////
         case 0: // finalizar el while
             return;
             break;
