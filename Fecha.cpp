@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Fecha.h"
+#include <ctime>
 
 using namespace std;
 
@@ -8,6 +9,30 @@ Fecha::Fecha(){
     _dia = 0;
     _mes = 0;
     _anio = 1900;
+}
+
+int Fecha::getDiaActual(){
+    time_t t = time(NULL);
+    struct tm *f = localtime(&t);
+
+    _dia = (*f).tm_mday;
+    return _dia;
+}
+
+int Fecha::getMesActual(){
+    time_t t = time(NULL);
+    struct tm *f = localtime(&t);
+
+    _mes = f->tm_mon + 1;
+    return _mes;
+}
+
+int Fecha::getAnioActual(){
+    time_t t = time(NULL);
+    struct tm *f = localtime(&t);
+
+    _anio = f->tm_year + 1900;
+    return _anio;
 }
 
 Fecha::Fecha(int dia, int mes, int anio){

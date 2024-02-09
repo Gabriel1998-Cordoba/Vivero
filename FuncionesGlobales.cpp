@@ -196,14 +196,14 @@ Planta BuscarPlanta(int idArticulo)
 }
 int BuscarPosicion(Planta obj)
 {
-    
+
     Planta aux;
 
     int tam = aux.contarRegistros();
 
     for (int i = 0; i < tam; i++)
     {
-        aux=aux.leerRegistroPlanta(i);
+        aux = aux.leerRegistroPlanta(i);
 
         if (aux.getID() == obj.getID())
         {
@@ -212,18 +212,17 @@ int BuscarPosicion(Planta obj)
         }
     }
     return -1;
-  
 }
 int BuscarPosicion(Herramientas obj)
 {
-    
-Herramientas aux;
+
+    Herramientas aux;
 
     int tam = aux.contarRegistros();
 
     for (int i = 0; i < tam; i++)
     {
-        aux=aux.leerRegistroHerramienta(i);
+        aux = aux.leerRegistroHerramienta(i);
 
         if (aux.getID() == obj.getID())
         {
@@ -232,18 +231,17 @@ Herramientas aux;
         }
     }
     return -1;
-  
 }
 int BuscarPosicion(Agroquimicos obj)
 {
-    
+
     Agroquimicos aux;
 
     int tam = aux.contarRegistros();
 
     for (int i = 0; i < tam; i++)
     {
-        aux=aux.leerRegistroAgroquimicos(i);
+        aux = aux.leerRegistroAgroquimicos(i);
 
         if (aux.getID() == obj.getID())
         {
@@ -252,7 +250,6 @@ int BuscarPosicion(Agroquimicos obj)
         }
     }
     return -1;
-  
 }
 
 Herramientas BuscarHerramienta(int idArticulo)
@@ -273,4 +270,76 @@ Herramientas BuscarHerramienta(int idArticulo)
     }
     obj.setEstado(-2);
     return obj;
+}
+
+void RecaudacionAnual(int AnioIngresado)
+{
+    int vecAnual[12] = {};
+
+    // se hace toda la acumulacion dentro de vecAnual
+
+    RegistroCompra objRegistroCompra;
+
+    int tam = objRegistroCompra.contarRegistros();
+
+    for (int j = 0; j < tam; j++)
+    {
+        objRegistroCompra = objRegistroCompra.leerRegistro(j);
+
+        if (AnioIngresado == objRegistroCompra.getFecha().getAnio())
+        {
+            int mes = objRegistroCompra.getFecha().getMes();
+
+            for (int i = 1; i <= 12; i++)
+            {
+                if (mes == i)
+                {
+
+                    int importe = BuscarPrecioCompra(objRegistroCompra.getIdCompra());
+
+                    if (importe > 0)
+                    {
+                        vecAnual[i - 1] = vecAnual[i - 1] + importe;
+                    }
+                }
+            }
+        }
+    }
+    // el resto del calculo
+
+    int acum = 0;
+
+    for (int i = 0; i < 12; i++)
+    {
+        acum = acum + vecAnual[i];
+    }
+
+    if (acum == 0)
+    {
+        cout << "no hubo nada de plata en este anio" << endl;
+    }
+    else
+    {
+        cout << "el total de plata anual fue = " << acum << endl;
+    }
+}
+
+float BuscarPrecioCompra(int idCompra)
+{
+
+    DetalleFacturaCompra detalleFacturaCompra;
+    int tam = detalleFacturaCompra.contarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+
+        detalleFacturaCompra = detalleFacturaCompra.leerRegistro(i);
+
+        if (idCompra == detalleFacturaCompra.getIdCompra())
+        {
+            return detalleFacturaCompra.getCantidad() * detalleFacturaCompra.getPrecio();
+        }
+    }
+
+    return -1;
 }

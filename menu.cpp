@@ -120,7 +120,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 5 ----> dar de baja algun Productos" << endl;    // bool para dar de 'basa logica'
             cout << "Opcion 6 ----> Listar Datos" << endl;                   // seleccionar el archivo que quieres que abra y muestre
             cout << "Opcion 7 ----> Contar Registros de X Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 8 ----> Recaudacion Por Anio Ingresado" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 8 ----> Informes" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
             cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
@@ -194,6 +194,7 @@ void menuDuenio(int opcion)
             {
 
                 system("cls");
+                Informes();
                 system("pause");
             }
             break;
@@ -2253,3 +2254,98 @@ void LimpiarDatosDeArchivo()
     }
 }
 /*******************************************************************/
+
+void Informes()
+{
+int opc;
+
+    while (true)
+    {
+        system("cls");
+        cout << "1 -Recaudacion por Anio" << endl;
+        cout << "2 -Recaudacion Mensual " << endl;
+        cout << "3 - Producto mas vendido" << endl;
+        cout << "4 - cantidad de Clientes" << endl;
+        cout << "5 - Cliente que mas compro "<< endl;
+        cout << "6 - cantidad de compra por cliente" << endl;
+        cout<<"-------------------------------------"<<endl;
+        cout<<"0- Salir"<<endl;
+        cout<<"-------------------------------------"<<endl;
+
+        
+
+        
+
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+
+/*//////////////////////////////////*/
+        case 1:{
+            systam("cls");
+            Fecha objF;
+            int AnioIngresado;
+
+            cout<<"Ingresa el Anio que quiera ver su recaudacion: ";
+            
+            do{
+            cin >>AnioIngresado;
+
+            if(AnioIngresado>objF.getAnioActual()){
+                cout<<"valor ingresado es mayor al anio actual, ingrese uno menor o igual"<<endl;
+            }
+
+            if(AnioIngresado<1900){
+                cout<<"valor ingresado es menor a 1900, ingrese uno mayor o igual"<<endl;
+            }
+
+            }while((AnioIngresado>objF.getAnioActual())&&(AnioIngresado<1900));
+
+    
+            RecaudacionAnual(AnioIngresado);
+            cout<<endl;
+            system("pause");
+        }
+        break;
+/*//////////////////////////////////*/
+        case 2:{
+            
+        }
+        break;
+/*//////////////////////////////////*/
+        case 3:{
+            
+        }
+        break;
+/*//////////////////////////////////*/
+        case 4:{
+            
+        }
+        break;
+/*//////////////////////////////////*/
+        case 5:{
+            
+        }
+        break;
+/*//////////////////////////////////*/
+        case 6:{
+            
+        }
+        break;
+/*//////////////////////////////////*/
+        case 0:{
+             return; 
+        } // finalizar el while
+          
+            break;
+/*//////////////////////////////////*/
+
+        default:{
+        }
+            break;
+/*//////////////////////////////////*/
+        
+}
+}
+}

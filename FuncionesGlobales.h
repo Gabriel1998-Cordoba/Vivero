@@ -16,5 +16,8 @@ Herramientas BuscarHerramienta(int idArticulo);
 int BuscarPosicion(Planta obj);
 int BuscarPosicion(Agroquimicos obj);
 int BuscarPosicion(Herramientas obj);
+float BuscarPrecioCompra(int IdCompra);
 void FacturaXNroFactura();
 void CambiarID(int& id);
+
+void RecaudacionAnual(int AnioIngresado);

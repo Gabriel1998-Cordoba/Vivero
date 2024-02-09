@@ -21,6 +21,10 @@ public:
     void MostrarEnLinea();
     void MostrarEnLineaSinSaltoDeLinea();
 
+    int getDiaActual();
+    int getMesActual();
+    int getAnioActual();
+
 private:
     int _dia;
     int _mes;
