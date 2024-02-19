@@ -12,12 +12,14 @@ void GenerarFactura(RegistroCompra objR,int id);
 
 Planta BuscarPlanta(int idArticulo);
 Herramientas BuscarHerramienta(int idArticulo);
-
+Agroquimicos BuscarAgroquimicos(int idArticulo);
 int BuscarPosicion(Planta obj);
 int BuscarPosicion(Agroquimicos obj);
 int BuscarPosicion(Herramientas obj);
 float BuscarPrecioCompra(int IdCompra);
+int buscarMaximo(int *vPlanta,int tamRegPlanta);
 void FacturaXNroFactura();
 void CambiarID(int& id);
-
+void RecaudacionMensual(int mesIngresado);
 void RecaudacionAnual(int AnioIngresado);
+void ponerEnCeroVector(int *v,int tamanio);

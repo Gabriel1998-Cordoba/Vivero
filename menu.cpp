@@ -120,7 +120,7 @@ void menuDuenio(int opcion)
             cout << "Opcion 5 ----> dar de baja algun Productos" << endl;    // bool para dar de 'basa logica'
             cout << "Opcion 6 ----> Listar Datos" << endl;                   // seleccionar el archivo que quieres que abra y muestre
             cout << "Opcion 7 ----> Contar Registros de X Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 8 ----> Informes" << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 8 ----> Informes" << endl;                       // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
             cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
@@ -397,7 +397,8 @@ void LimpiarDatos(int opcion)
     Agroquimicos obtA;
 
     system("cls");
-    cout << "Que quieres   ? " << endl<< endl;
+    cout << "Que quieres   ? " << endl
+         << endl;
     cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
     cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
     cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
@@ -872,6 +873,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             // carga del cliente objcliente
 
             // registro de la compra(getIdcliente,idCompra);
+            system("cls");
 
             do
             {
@@ -947,7 +949,6 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 }
                 system("pause"); //
             }
-            system("cls");
             return;
         }
         break;
@@ -1959,7 +1960,10 @@ void LimpiarDatosDeArchivo()
         cout << "6 - limpiar --> herramientas.dat" << endl;
         cout << "7 - limpiar --> planta.dat" << endl;
 
-        cout<<endl<<endl<<"limpiar Backups"<<endl<<endl;
+        cout << endl
+             << endl
+             << "limpiar Backups" << endl
+             << endl;
 
         cout << "8 - limpiar --> bkpDetalleFacturaCompra.dat" << endl;
         cout << "9 - limpiar --> bkpregistroCompra.dat" << endl;
@@ -2009,7 +2013,6 @@ void LimpiarDatosDeArchivo()
 
                 cout << "no se limpiaron los datos" << endl;
             }
-            
 
             system("pause");
         }
@@ -2109,7 +2112,7 @@ void LimpiarDatosDeArchivo()
             system("pause");
         }
         break;
-///////////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////
         case 8:
         case 9:
         {
@@ -2180,7 +2183,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
-                 fclose(p1);
+                fclose(p1);
             }
 
             system("pause");
@@ -2199,7 +2202,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
-             fclose(p1);
+                fclose(p1);
             }
 
             system("pause");
@@ -2218,7 +2221,7 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
-            fclose(p1);
+                fclose(p1);
             }
 
             system("pause");
@@ -2237,13 +2240,13 @@ void LimpiarDatosDeArchivo()
             else
             {
                 cout << "se limpiaron los archivos Correctamente" << endl;
-            fclose(p1);
+                fclose(p1);
             }
 
             system("pause");
         }
         break;
-/////////////////////////////////////////////////
+            /////////////////////////////////////////////////
         case 0: // finalizar el while
             return;
             break;
@@ -2257,7 +2260,7 @@ void LimpiarDatosDeArchivo()
 
 void Informes()
 {
-int opc;
+    int opc;
 
     while (true)
     {
@@ -2266,86 +2269,293 @@ int opc;
         cout << "2 -Recaudacion Mensual " << endl;
         cout << "3 - Producto mas vendido" << endl;
         cout << "4 - cantidad de Clientes" << endl;
-        cout << "5 - Cliente que mas compro "<< endl;
+        cout << "5 - Cliente que mas compro " << endl;
         cout << "6 - cantidad de compra por cliente" << endl;
-        cout<<"-------------------------------------"<<endl;
-        cout<<"0- Salir"<<endl;
-        cout<<"-------------------------------------"<<endl;
-
-        
-
-        
+        cout << "-------------------------------------" << endl;
+        cout << "0- Salir" << endl;
+        cout << "-------------------------------------" << endl;
 
         cout << "INGRESE UNA OPCION: ";
         cin >> opc;
         switch (opc)
         {
 
-/*//////////////////////////////////*/
-        case 1:{
-            systam("cls");
+            /*//////////////////////////////////*/
+        case 1:
+        {
+            system("cls");
+
             Fecha objF;
             int AnioIngresado;
 
-            cout<<"Ingresa el Anio que quiera ver su recaudacion: ";
-            
-            do{
-            cin >>AnioIngresado;
+            do
+            {
+                cout << "Ingresa el Anio que quiera ver su recaudacion: ";
+                cin >> AnioIngresado;
 
-            if(AnioIngresado>objF.getAnioActual()){
-                cout<<"valor ingresado es mayor al anio actual, ingrese uno menor o igual"<<endl;
-            }
+                if (AnioIngresado > objF.getAnioActual())
+                {
+                    cout << "valor ingresado es mayor al anio actual, ingrese uno menor o igual" << endl;
+                }
 
-            if(AnioIngresado<1900){
-                cout<<"valor ingresado es menor a 1900, ingrese uno mayor o igual"<<endl;
-            }
+                if (AnioIngresado < 1900)
+                {
+                    cout << "valor ingresado es menor a 1900, ingrese uno mayor o igual" << endl;
+                }
 
-            }while((AnioIngresado>objF.getAnioActual())&&(AnioIngresado<1900));
+            } while ((AnioIngresado > objF.getAnioActual()) && (AnioIngresado < 1900));
 
-    
             RecaudacionAnual(AnioIngresado);
-            cout<<endl;
+            cout << endl;
             system("pause");
         }
         break;
-/*//////////////////////////////////*/
-        case 2:{
-            
-        }
-        break;
-/*//////////////////////////////////*/
-        case 3:{
-            
-        }
-        break;
-/*//////////////////////////////////*/
-        case 4:{
-            
-        }
-        break;
-/*//////////////////////////////////*/
-        case 5:{
-            
-        }
-        break;
-/*//////////////////////////////////*/
-        case 6:{
-            
-        }
-        break;
-/*//////////////////////////////////*/
-        case 0:{
-             return; 
-        } // finalizar el while
-          
-            break;
-/*//////////////////////////////////*/
+            /*//////////////////////////////////*/
+        case 2:
+        {
+            system("cls");
 
-        default:{
+            // nos falta poner que dectecte si el año es bisiesto
+
+            Fecha objF;
+            int mesIngresado;
+            bool band;
+
+            do
+            {
+                cout << "Ingresa el Mes que quiera ver su recaudacion: ";
+                band = true;
+                cin >> mesIngresado;
+
+                if (mesIngresado > 12)
+                {
+                    cout << "valor ingresado es mayor a 12" << endl;
+                    band = false;
+                }
+                else if (mesIngresado < 1)
+                {
+                    cout << "valor ingresado es menor a 1" << endl;
+                    band = false;
+                }
+
+                // if(mesIngresado<1900){
+                //     cout<<"valor ingresado es menor a 1900, ingrese uno mayor o igual"<<endl;
+                // }
+
+            } while ((band != true));
+
+            RecaudacionMensual(mesIngresado);
+
+            cout << endl;
+
+            system("pause");
         }
-            break;
-/*//////////////////////////////////*/
-        
-}
-}
+        break;
+            /*//////////////////////////////////*/
+
+        case 3:
+        {
+
+            system("cls");
+            
+            int indicePlanta = 0;
+            int indiceHerramientas = 0;
+            int indiceAgroquimicos = 0;
+            Planta objP;
+            const int tamRegPlanta = objP.contarRegistros();
+            int *vPlanta = new int[tamRegPlanta];
+            if (vPlanta == NULL)
+            {
+                cout << "No se pudo asignar memoria" << endl;
+                return;
+            }
+           ponerEnCeroVector(vPlanta,tamRegPlanta);
+
+            
+            Herramientas objH;
+            const int tamRegHerramienta = objH.contarRegistros();
+            int *vHerramienta = new int[tamRegHerramienta];
+            if (vHerramienta == NULL)
+            {
+                cout << "No se pudo asignar memoria" << endl;
+                return;
+            }
+              ponerEnCeroVector(vHerramienta,tamRegHerramienta);
+
+            Agroquimicos objA;
+            const int tamRegAgroquimicos = objA.contarRegistros();
+            int *vAgroquimicos = new int[tamRegAgroquimicos];
+            if (vAgroquimicos == NULL)
+            {
+                cout << "No se pudo asignar memoria" << endl;
+                return;
+            }
+ ponerEnCeroVector(vAgroquimicos,tamRegAgroquimicos);
+
+
+
+
+
+
+            DetalleFacturaCompra objDetFactura;
+            int tam = objDetFactura.contarRegistros();
+
+            for (int i = 0; i < tam; i++)
+            {
+                
+
+
+                objDetFactura = objDetFactura.leerRegistro(i);
+                
+
+                if (objDetFactura.getTipoDeArticulo() == 1)
+                {
+
+                    for (int x = 0; x < tamRegPlanta; x++)
+                    {
+
+                        objP = objP.leerRegistroPlanta(x);
+
+                        if (objP.getID() == objDetFactura.getIdArticulo())
+                        {
+                            vPlanta[x] += 1;
+                        }
+                    }
+
+                    indicePlanta = buscarMaximo(vPlanta, tamRegPlanta);
+                }
+
+                else if (objDetFactura.getTipoDeArticulo() == 2)
+                {
+                    for (int j = 0; j < tamRegHerramienta; j++)
+                    {
+
+                        objH = objH.leerRegistroHerramienta(j);
+
+                        if (objH.getID() == objDetFactura.getIdArticulo())
+                        {
+                            vHerramienta[j] += 1;
+                        }
+                    }
+                    indiceHerramientas = buscarMaximo(vHerramienta, tamRegHerramienta);
+                }
+                else if (objDetFactura.getTipoDeArticulo() == 99)
+                {
+                    for (int k = 0; k < tamRegAgroquimicos; k++)
+                    {
+
+                        objA = objA.leerRegistroAgroquimicos(k);
+
+                        if (objA.getID() == objDetFactura.getIdArticulo())
+                        {
+                            vAgroquimicos[k] += 1;
+                        }
+                    }
+                    indiceAgroquimicos = buscarMaximo(vAgroquimicos, tamRegAgroquimicos);
+                }
+            }
+
+            int max1 = vPlanta[indicePlanta];
+            int maxPrime = max1;
+            int indicePrime = indicePlanta;
+            int max2 = vHerramienta[indiceHerramientas];
+            int max3 = vAgroquimicos[indiceAgroquimicos];
+
+            if (max2 > maxPrime)
+            {
+                
+                
+                maxPrime = max2;
+                indicePrime = indiceHerramientas;
+
+                if (max3 > maxPrime)
+                {
+
+                    
+                    maxPrime = max3;
+                    indicePrime = indiceAgroquimicos;
+
+                    objA = BuscarAgroquimicos(indicePrime+1);
+                    cout << "El Producto mas vendido es: " << endl;
+                    cout << "----------------------------" << endl;
+                    objA.Mostrar();
+                    cout << "----------------------------" << endl;
+                    cout << "con un maximo de ventas de : " << maxPrime << endl;
+                    system("pause");
+                }
+                else
+                {
+
+                    objH = BuscarHerramienta(indicePrime+1);
+                    cout << "El Producto mas vendido es: " << endl;
+                    cout << "----------------------------" << endl;
+                    objH.Mostrar();
+                    cout << "----------------------------" << endl;
+                    cout << "con un maximo de ventas de : " << maxPrime << endl;
+                    system("pause");
+                }
+            }
+            else if (max3 > maxPrime)
+            {
+
+                maxPrime = max3;
+                indicePrime = indiceAgroquimicos;
+                objA = BuscarAgroquimicos(indicePrime+1);
+                cout << "El Producto mas vendido es: " << endl;
+                cout << "----------------------------" << endl;
+                objA.Mostrar();
+                cout << "----------------------------" << endl;
+                cout << "con un maximo de ventas de : " << maxPrime << endl;
+                system("pause");
+            }
+            else
+            {
+
+                int maxPrime = max1;
+                int indicePrime = indicePlanta;
+                objP = BuscarPlanta(indicePrime+1);
+                cout << "El Producto mas vendido es: " << endl;
+                cout << "----------------------------" << endl;
+                objP.Mostrar();
+                cout << "----------------------------" << endl;
+                cout << "con un maximo de ventas de : " << maxPrime << endl;
+                system("pause");
+            }
+            system("pause");
+            delete[] vPlanta;
+            delete[] vHerramienta;
+            delete[] vAgroquimicos;
+        }
+        break;
+            /*//////////////////////////////////*/
+        case 4:
+        {
+        }
+        break;
+            /*//////////////////////////////////*/
+        case 5:
+        {
+        }
+        break;
+            /*//////////////////////////////////*/
+        case 6:
+        {
+        }
+        break;
+            /*//////////////////////////////////*/
+        case 0:
+        {
+            return;
+        } // finalizar el while
+
+        break;
+            /*//////////////////////////////////*/
+
+        default:
+        {
+        }
+        break;
+            /*//////////////////////////////////*/
+        }
+    }
 }

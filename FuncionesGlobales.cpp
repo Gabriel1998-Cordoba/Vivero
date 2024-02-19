@@ -41,7 +41,7 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
         objP = BuscarPlanta(objDF.getIdArticulo());
         if (objP.getEstado() == 1)
         {
-            cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+            cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() *objDF.getCantidad() << endl;
         }
         // objH.Mostrar();
         break;
@@ -51,7 +51,7 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
 
         if (objH.getEstado() == 1)
         {
-            cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() + objDF.getCantidad() << endl;
+            cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() * objDF.getCantidad() << endl;
         }
         // objP.Mostrar();
 
@@ -274,6 +274,7 @@ Herramientas BuscarHerramienta(int idArticulo)
 
 void RecaudacionAnual(int AnioIngresado)
 {
+
     int vecAnual[12] = {};
 
     // se hace toda la acumulacion dentro de vecAnual
@@ -342,4 +343,73 @@ float BuscarPrecioCompra(int idCompra)
     }
 
     return -1;
+}
+
+void RecaudacionMensual(int mesIngresado)
+{
+
+    int AcumMes = 0;
+
+    RegistroCompra objRegistroCompra;
+
+    int tam = objRegistroCompra.contarRegistros();
+
+    for (int j = 0; j < tam; j++)
+    {
+        objRegistroCompra = objRegistroCompra.leerRegistro(j);
+
+        if (mesIngresado == objRegistroCompra.getFecha().getMes())
+        {
+
+            int importe = BuscarPrecioCompra(objRegistroCompra.getIdCompra());
+
+            if (importe > 0)
+            {
+                AcumMes += importe;
+            }
+        }
+    }
+
+    cout << "El Mes: " << mesIngresado << " ,a recaudado: " << AcumMes << " pesos" << endl;
+    return;
+}
+int buscarMaximo(int *v,int tam)
+{
+
+    int max = 0;
+    int pos=0;
+    for(int i=0;i<tam;i++)
+    {
+        if(v[i]>max)
+        {
+            max = v[i];
+            pos=i;
+        }
+    }
+    return pos;
+}
+Agroquimicos BuscarAgroquimicos(int idArticulo)
+{
+    Agroquimicos obj;
+    int tam = obj.contarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+        obj = obj.leerRegistroAgroquimicos(i);
+
+        if (obj.getID() == idArticulo)
+        {
+
+            return obj;
+        }
+    }
+    obj.setEstado(-2);
+    return obj;
+}
+void ponerEnCeroVector(int *v,int tamanio)
+{
+for(int i=0;i<tamanio;i++)
+{
+    v[i]=0;
+}
 }
