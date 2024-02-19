@@ -213,8 +213,8 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 
                     objBkpDetalleFCompra.CrearBackup();
 
-                    cout << "Guardado Correctamente ";
-                    system("pause");
+                    cout << "Guardado Correctamente "<<endl;
+                    // system("pause");
                     return;
                 }
             }

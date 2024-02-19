@@ -41,7 +41,7 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
         objP = BuscarPlanta(objDF.getIdArticulo());
         if (objP.getEstado() == 1)
         {
-            cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() *objDF.getCantidad() << endl;
+            cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() * objDF.getCantidad() << endl;
         }
         // objH.Mostrar();
         break;
@@ -373,17 +373,17 @@ void RecaudacionMensual(int mesIngresado)
     cout << "El Mes: " << mesIngresado << " ,a recaudado: " << AcumMes << " pesos" << endl;
     return;
 }
-int buscarMaximo(int *v,int tam)
+int buscarMaximo(int *v, int tam)
 {
 
     int max = 0;
-    int pos=0;
-    for(int i=0;i<tam;i++)
+    int pos = 0;
+    for (int i = 0; i < tam; i++)
     {
-        if(v[i]>max)
+        if (v[i] > max)
         {
             max = v[i];
-            pos=i;
+            pos = i;
         }
     }
     return pos;
@@ -406,10 +406,66 @@ Agroquimicos BuscarAgroquimicos(int idArticulo)
     obj.setEstado(-2);
     return obj;
 }
-void ponerEnCeroVector(int *v,int tamanio)
+
+Cliente buscarCliente(int idCliente)
 {
-for(int i=0;i<tamanio;i++)
-{
-    v[i]=0;
+    Cliente obj;
+    int tam = obj.CONtarRegistros();
+
+    for (int i = 0; i < tam; i++)
+    {
+        obj = obj.leerRegistros(i);
+
+        if (obj.getIDCliente() == idCliente)
+        {
+
+            return obj;
+        }
+    }
+    obj.setEstado(-2);
+    return obj;
 }
+
+void ponerEnCeroVector(int *v, int tamanio)
+{
+    for (int i = 0; i < tamanio; i++)
+    {
+        v[i] = 0;
+    }
+}
+void cargarVectordeAcumulacion(int *v, Cliente objCliente)
+{
+    RegistroCompra objRCompra;
+
+    int tamRegRCompra = objRCompra.contarRegistros();
+
+    for (int i = 0; i < tamRegRCompra; i++)
+    {
+        objRCompra = objRCompra.leerRegistro(i);
+
+        if (objRCompra.getIdCliente() == objCliente.getIDCliente())
+        {
+            v[objCliente.getIDCliente() - 1] += 1;
+        }
+    }
+}
+
+int ContadorDeCliente(int idCliente)
+{
+    RegistroCompra objRCompra;
+    int cont = 0;
+
+    int tamRegRCompra = objRCompra.contarRegistros();
+
+    for (int i = 0; i < tamRegRCompra; i++)
+    {
+        objRCompra = objRCompra.leerRegistro(i);
+
+        if (idCliente == objRCompra.getIdCliente())
+        {
+            cont++;
+        }
+    }
+
+    return cont;
 }

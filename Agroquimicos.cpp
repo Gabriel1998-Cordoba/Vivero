@@ -20,7 +20,7 @@ int Agroquimicos::getTipoAgroquimico()
     return _tipoAgroquimico;
 }
 /***************************************************************/
-void Agroquimicos::CargarArchivoAgroquimicos( int TipoDeArticulo)
+void Agroquimicos::CargarArchivoAgroquimicos(int TipoDeArticulo)
 {
     FILE *p;
     Agroquimicos ClassM;
@@ -32,20 +32,21 @@ void Agroquimicos::CargarArchivoAgroquimicos( int TipoDeArticulo)
         system("pause");
     }
 
-    ClassM.CargarAgroquimicos( TipoDeArticulo);
+    ClassM.CargarAgroquimicos(TipoDeArticulo);
     fwrite(&ClassM, sizeof(Agroquimicos), 1, p);
 
     fclose(p);
 }
 
-void Agroquimicos::CargarAgroquimicos( int TipoDeArticulo)
+void Agroquimicos::CargarAgroquimicos(int TipoDeArticulo)
 {
-    
-            int totalDeRegistros = contarRegistros();
-         
-            if(totalDeRegistros==-1){
-            totalDeRegistros=0;
-            }
+
+    int totalDeRegistros = contarRegistros();
+
+    if (totalDeRegistros == -1)
+    {
+        totalDeRegistros = 0;
+    }
 
     Articulo::Cargar(totalDeRegistros, TipoDeArticulo);
 
@@ -133,7 +134,7 @@ void Agroquimicos::ListarAgroquimicos()
         system("pause");
     }
 
-    while (fread(&ClassM, sizeof(Agroquimicos), 1, p) == 1)
+    while ((fread(&ClassM, sizeof(Agroquimicos), 1, p)) == 1)
     {
         ClassM.MostrarAgroquimicos();
     }
@@ -141,28 +142,7 @@ void Agroquimicos::ListarAgroquimicos()
     fclose(p);
 }
 
-bool Agroquimicos::MostrarArchivoAgroquimicos()
-{
 
-    FILE *p;
-    Agroquimicos ClassM;
-
-    p = fopen("agroquimicos.dat", "rb");
-    if (p == NULL)
-    {
-        cout << "ERROR de ARCHIVO" << endl;
-        system("pause");
-        return false;
-    }
-
-    while (fread(&ClassM, sizeof(Agroquimicos), 1, p) == 1)
-    {
-        ClassM.MostrarAgroquimicos();
-    }
-
-    fclose(p);
-    return true;
-}
 bool Agroquimicos::reemplazarRegistroAgroquimicos(Agroquimicos objAgroquimico, int posicionAReemplazar)
 {
     FILE *p = fopen("agroquimicos.dat", "rb+");
@@ -238,39 +218,27 @@ void Agroquimicos::Opcion3Compra(int idCompra)
 
     bkpDetalleFacturaCompra objBkpDetalleFCompra;
     objBkpDetalleFCompra.CrearBackup();
-  
+
     DetalleFacturaCompra descripcionFactura;
-    Planta reg, aux;
+    Agroquimicos reg, aux;
     tam = reg.contarRegistros();
 
-    cout << "Ingrese Nombre de la Planta: ";
+    cout << "Ingrese Nombre del Agroquimico: ";
     cargarCadena(nombreP, 30);
     for (int i = 0; i < tam; i++)
     {
-        aux = reg.leerRegistroPlanta(i);
+        aux = reg.leerRegistroAgroquimicos(i);
         if (strcmp(aux.getNombre(), nombreP) == 0)
         {
-            if (descripcionFactura.AutoCargar(idCompra,aux) == true)
+            if (descripcionFactura.AutoCargar(idCompra, aux) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    cout << "Guardado Correctamente ";
-                    system("pause");
+                    cout << "Guardado Correctamente " << endl;
+                  
                     return;
                 }
             }
         }
     }
 }
-void Agroquimicos::Opcion4Compra(int idCompra)
-{
-    DetalleFacturaCompra objD;
-
-    // objD.MostrarAutoCargarAgroquimicos(idCompra);
-}
-// void Agroquimicos::Opcion4Compra(){
-
-// }
-// void Agroquimicos::Opcion5Compra(){
-
-// }

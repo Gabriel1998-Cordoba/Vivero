@@ -25,6 +25,7 @@ void menuPrincipal()
         case 1:
         {
             // menuEmpresa(opcion);
+            cout << "En construccion" << endl;
             system("cls");
         }
         break;
@@ -108,23 +109,21 @@ void menuDuenio(int opcion)
 
     if (band == 1)
     {
-
+        system("cls");
         while (true)
         {
-            system("cls");
+
             cout << "BIENVENIDO DUENIO" << endl;
             cout << "Opcion 1 ----> Cargar Datos" << endl;    //'ab' de archivos
             cout << "Opcion 2 ----> Modificar Datos" << endl; //'rb' que lo lea y modifique
             cout << "Opcion 3 ----> Mostrar Datos Duenio" << endl;
-            cout << "Opcion 4 ----> Borrar o Limpiar Datos" << endl;         //'wb' de archivos == 'baja Fisica'
-            cout << "Opcion 5 ----> dar de baja algun Productos" << endl;    // bool para dar de 'basa logica'
-            cout << "Opcion 6 ----> Listar Datos" << endl;                   // seleccionar el archivo que quieres que abra y muestre
-            cout << "Opcion 7 ----> Contar Registros de X Producto" << endl; // Cuenta todos los registros dentro del bloc de notas
-            cout << "Opcion 8 ----> Informes" << endl;                       // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 9 ----> Consulta x de factura" << endl;          // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 10 ----> Cargar Datos Del Duenio" << endl;
-            cout << "Opcion 11 ----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            cout << "Opcion 12 ----> Limpiar Archivos .dat" << endl;   // los borra con 'wb'
+            cout << "Opcion 4 ----> Borrar o Limpiar Datos" << endl; //'wb' de archivos == 'baja Fisica'
+            cout << "Opcion 6 ----> Listar Datos" << endl;           // seleccionar el archivo que quieres que abra y muestre
+            cout << "Opcion 8 ----> Informes" << endl;               // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 9 ----> Consulta x de factura" << endl;  // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 10----> Cargar Datos Del Duenio" << endl;
+            cout << "Opcion 11----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+            cout << "Opcion 12----> Limpiar Archivos .dat" << endl;   // los borra con 'wb'
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -282,10 +281,6 @@ void menuDuenio(int opcion)
 void CargarDatos(int opcion)
 {
 
-    Planta obtP;
-
-    Agroquimicos objA;
-
     system("cls");
 
     while (true)
@@ -294,9 +289,9 @@ void CargarDatos(int opcion)
         cout << "Que quieres Cargar?" << endl
              << endl;
 
-        cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
-        cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
-        cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
+        cout << "Opcion 1 ---> Plantas" << endl;      // Crear funcion que carge plantas a un Archivos
+        cout << "Opcion 2 ---> Herramientas" << endl; // Crear funcion que carge Herramientas a un Archivos
+        cout << "Opcion 3 ---> Agroquimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -308,14 +303,9 @@ void CargarDatos(int opcion)
 
             system("cls");
             int tam = 0, cantidad;
-
+            Planta obtP;
             tam = obtP.contarRegistros();
-
-            // if(tam==-1){
-            //     tam=0;
-            // }
-
-            cout << "ingrese Cantidad de Registros" << endl;
+            cout << "Ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
@@ -323,9 +313,6 @@ void CargarDatos(int opcion)
                 obtP.CargarArchivoPlanta(tam, opcion);
             }
             system("pause");
-            // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
-            //  Planta ob1;
-            //  ob1.Cargar();
         }
         break;
         /*******************************************************************/
@@ -334,14 +321,7 @@ void CargarDatos(int opcion)
             system("cls");
             Herramientas objH;
             int cantidad;
-
-            // int tam = objH.contarRegistros();
-
-            // if(tam==-1){
-            // tam=0;
-            // }
-
-            cout << "Ingrese Cantidad de Registros" << endl;
+            cout << "Ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
@@ -356,8 +336,8 @@ void CargarDatos(int opcion)
         {
             system("cls");
             int cantidad;
-
-            cout << "ingrese Cantidad de Registros" << endl;
+            Agroquimicos objA;
+            cout << "ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
             system("cls");
             for (int i = 0; i < cantidad; i++)
@@ -736,8 +716,6 @@ void menuPersona(int opcion)
         case 1:
         {
             ///////////////////////////////////
-
-            // crear el backupCompra aqui <--------
             bool band = true;
 
             if (band == true)
@@ -800,23 +778,20 @@ void menuPersona(int opcion)
 ///////////////////////////////////////////////////////////////////////////
 void menuCompraPersona(int opcion, RegistroCompra objR)
 {
+    system("cls");
+
     bkpAgroquimicos objBkpAgroquimico;
     objBkpAgroquimico.CrearBackup();
+
     bkpHerramientas objBkpHerramienta;
     objBkpHerramienta.CrearBackup();
+
     bkpPlanta objBkpPlanta;
     objBkpPlanta.CrearBackup();
 
     bool bandHerramientas = false;
     bool bandPlanta = false;
     bool bandAgroquimicos = false;
-
-    system("cls");
-
-    cout << "Se debe de cargar su Registros de Compra" << endl
-         << endl
-         << endl;
-
     while (true)
     {
         system("cls");
@@ -841,7 +816,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             bandHerramientas = true;
             menuCompraHerramientaPersona(opcion, objR);
 
-            system("pause");
+            // system("pause");
         }
         break;
         /*******************************************************************/
@@ -852,7 +827,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             bandPlanta = true;
             menuCompraPlantaPersona(opcion, objR);
 
-            system("pause");
+            // system("pause");
         }
         break;
         /*******************************************************************/
@@ -863,32 +838,35 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             bandAgroquimicos = true;
             menuCompraAgroquimicosPersona(opcion, objR);
 
-            system("pause");
+            // system("pause");
         }
         break;
 
         case 0:
         {
 
-            // carga del cliente objcliente
-
-            // registro de la compra(getIdcliente,idCompra);
             system("cls");
 
             do
             {
-                cout << "¿Seguro? ---> SI == 0" << endl;
-                cout << "NO == 1" << endl;
+                cout << "¿Seguro Que Quieres salir? ---> SI == 0" << endl;
+                cout << "NO quiero esta compra == 1" << endl;
+                cout << "¿Quieres Comprar otra cosa mas? == 2" << endl;
                 cin >> opcion;
-            } while ((opcion != 0) && (opcion != 1));
+
+                if ((opcion != 0) && (opcion != 1) && (opcion != 2))
+                {
+                    cout << "Valores ingresados no existentes, vuelva a ingresar" << endl;
+                }
+            } while ((opcion != 0) && (opcion != 1) && (opcion != 2));
 
             if (opcion == 0)
             {
-                cout << "ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
+
+                cout << "Ya que esta seguro, ahora debe de cargar su Registros de Cliente" << endl;
                 Cliente cli;
-                // cli.Cargar();
                 int id;
-                cout << "Ingrese ID" << endl;
+                cout << "Ingrese ID del Cliente" << endl;
                 cin >> id;
 
                 cli = cli.ValidarCliente(id);
@@ -924,10 +902,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 {
                     bkpRegistroCompra objBkpRefistroCompra;
                     objBkpRefistroCompra.CrearBackup();
-                    cout << "se registro correctamente la compra " << endl;
+                    cout << "Se registro correctamente la compra " << endl;
                     GenerarFactura(objR, cli.getIDCliente());
                     system("pause");
                 }
+                return;
             }
             else if (opcion == 1)
             {
@@ -947,9 +926,9 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 {
                     objBkpPlanta.RestaurarBackup();
                 }
+                return;
                 system("pause"); //
             }
-            return;
         }
         break;
         /*******************************************************************/
@@ -1012,16 +991,16 @@ void menuVentaPersona(int opcion)
         case 0:
         {
 
-            //         system("cls");
-            //         return;
+            system("cls");
+            return;
         }
         break;
             //     /*******************************************************************/
         default:
         {
-            //         system("cls");
-            //         cout << "valor ingresado no existe dentro del menu" << endl;
-            //         system("pause");
+            system("cls");
+            cout << "valor ingresado no existe dentro del menu" << endl;
+            system("pause");
         }
         break;
             /*******************************************************************/
@@ -1032,20 +1011,19 @@ void menuVentaPersona(int opcion)
 
 void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
 {
-
-    Planta objP;
-
     system("cls");
+    Planta objP;
 
     while (true)
     {
         system("cls");
-        cout << "Que quieres Comprar?" << endl
-             << endl;
+        cout << "Que quieres Comprar?" << endl;
+        cout << "----------------------------------------------------------------------" << endl;
         cout << "Opcion 1 ----> DETALLE TODAS LAS PLANTAS,PRECIO,STOCK" << endl;
         cout << "Opcion 2 ----> Cual Planta quiere y Mostraremos SU Precio y Stock" << endl;
         cout << "Opcion 3 ----> SELECCIONE PLANTA QUE QUIERE COMPRAR" << endl;
-        cout << "Opcion 4 ----> LISTAR TODAS LOS DETALLES DE FACTURA DE SOLO PLANTAS" << endl;
+        cout << "----------------------------------------------------------------------" << endl;
+
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -1181,6 +1159,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
 ///////////////////////////////////////////////////////////////////////////
 void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
 {
+    system("cls");
 
     Agroquimicos objA;
 
@@ -1196,17 +1175,15 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
     int idCompra = tam + 1;
     objR.setIdCompra(idCompra);
 
-    system("cls");
-
     while (true)
     {
         system("cls");
-        cout << "Que quieres Comprar?" << endl
-             << endl;
+        cout << "Que quieres Comprar?" << endl;
+        cout << "----------------------------------------------------------------------" << endl;
         cout << "Opcion 1 ----> DETALLE TODAS LAS AGROQUIMICOS,PRECIO,STOCK" << endl;
         cout << "Opcion 2 ----> Cual Agroquimico quiere y Mostraremos SU Precio y Stock" << endl;
         cout << "Opcion 3 ----> SELECCIONE AGROQUIMICO QUE QUIERE COMPRAR" << endl;
-        cout << "Opcion 4 ----> LISTAR TODAS LOS DETALLES DE FACTURA DE SOLO PLANTAS" << endl;
+        cout << "----------------------------------------------------------------------" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         system("cls");
@@ -1233,21 +1210,6 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         {
             system("cls");
             objA.Opcion3Compra(idCompra);
-            system("pause");
-        }
-        break;
-        /*******************************************************************/
-        case 4:
-        {
-            system("cls");
-            objA.Opcion4Compra(idCompra);
-            system("pause");
-        }
-        break;
-            /*******************************************************************/
-        case 5:
-        {
-            system("cls");
             system("pause");
         }
         break;
@@ -2357,10 +2319,11 @@ void Informes()
         {
 
             system("cls");
-            
+
             int indicePlanta = 0;
             int indiceHerramientas = 0;
             int indiceAgroquimicos = 0;
+
             Planta objP;
             const int tamRegPlanta = objP.contarRegistros();
             int *vPlanta = new int[tamRegPlanta];
@@ -2369,9 +2332,8 @@ void Informes()
                 cout << "No se pudo asignar memoria" << endl;
                 return;
             }
-           ponerEnCeroVector(vPlanta,tamRegPlanta);
+            ponerEnCeroVector(vPlanta, tamRegPlanta);
 
-            
             Herramientas objH;
             const int tamRegHerramienta = objH.contarRegistros();
             int *vHerramienta = new int[tamRegHerramienta];
@@ -2380,7 +2342,7 @@ void Informes()
                 cout << "No se pudo asignar memoria" << endl;
                 return;
             }
-              ponerEnCeroVector(vHerramienta,tamRegHerramienta);
+            ponerEnCeroVector(vHerramienta, tamRegHerramienta);
 
             Agroquimicos objA;
             const int tamRegAgroquimicos = objA.contarRegistros();
@@ -2390,23 +2352,15 @@ void Informes()
                 cout << "No se pudo asignar memoria" << endl;
                 return;
             }
- ponerEnCeroVector(vAgroquimicos,tamRegAgroquimicos);
-
-
-
-
-
+            ponerEnCeroVector(vAgroquimicos, tamRegAgroquimicos);
 
             DetalleFacturaCompra objDetFactura;
             int tam = objDetFactura.contarRegistros();
 
             for (int i = 0; i < tam; i++)
             {
-                
-
 
                 objDetFactura = objDetFactura.leerRegistro(i);
-                
 
                 if (objDetFactura.getTipoDeArticulo() == 1)
                 {
@@ -2463,19 +2417,17 @@ void Informes()
 
             if (max2 > maxPrime)
             {
-                
-                
+
                 maxPrime = max2;
                 indicePrime = indiceHerramientas;
 
                 if (max3 > maxPrime)
                 {
 
-                    
                     maxPrime = max3;
                     indicePrime = indiceAgroquimicos;
 
-                    objA = BuscarAgroquimicos(indicePrime+1);
+                    objA = BuscarAgroquimicos(indicePrime + 1);
                     cout << "El Producto mas vendido es: " << endl;
                     cout << "----------------------------" << endl;
                     objA.Mostrar();
@@ -2486,7 +2438,7 @@ void Informes()
                 else
                 {
 
-                    objH = BuscarHerramienta(indicePrime+1);
+                    objH = BuscarHerramienta(indicePrime + 1);
                     cout << "El Producto mas vendido es: " << endl;
                     cout << "----------------------------" << endl;
                     objH.Mostrar();
@@ -2500,7 +2452,7 @@ void Informes()
 
                 maxPrime = max3;
                 indicePrime = indiceAgroquimicos;
-                objA = BuscarAgroquimicos(indicePrime+1);
+                objA = BuscarAgroquimicos(indicePrime + 1);
                 cout << "El Producto mas vendido es: " << endl;
                 cout << "----------------------------" << endl;
                 objA.Mostrar();
@@ -2513,7 +2465,7 @@ void Informes()
 
                 int maxPrime = max1;
                 int indicePrime = indicePlanta;
-                objP = BuscarPlanta(indicePrime+1);
+                objP = BuscarPlanta(indicePrime + 1);
                 cout << "El Producto mas vendido es: " << endl;
                 cout << "----------------------------" << endl;
                 objP.Mostrar();
@@ -2530,16 +2482,77 @@ void Informes()
             /*//////////////////////////////////*/
         case 4:
         {
+            system("cls");
+            // cout << "4 - cantidad de Clientes" << endl;
+            Cliente objCliente;
+            int tam = objCliente.CONtarRegistros();
+            cout << "la cantidad de clientes es: " << tam << endl;
+            system("pause");
         }
         break;
             /*//////////////////////////////////*/
         case 5:
+
         {
+            system("cls");
+
+            // cout << "5 - Cliente que mas compro " << endl;
+            Cliente objCliente;
+            int max = 0;
+
+            const int tam = objCliente.CONtarRegistros();
+            int *vCliente = new int[tam];
+
+            if (vCliente == NULL)
+            {
+                cout << "No se pudo asignar memoria" << endl;
+                return;
+            }
+
+            ponerEnCeroVector(vCliente, tam);
+
+            for (int i = 0; i < tam; i++)
+            {
+
+                objCliente = objCliente.leerRegistros(i);
+
+                cargarVectordeAcumulacion(vCliente, objCliente);
+            }
+
+            int indice = buscarMaximo(vCliente, tam);
+            objCliente = buscarCliente(indice + 1);
+            max = vCliente[indice];
+
+            cout << "El cliente que mas compras hizo es: " << endl;
+            cout << objCliente.getApellido() << "," << objCliente.getNombre() << endl;
+            cout << "ID Cliente: " << objCliente.getIDCliente();
+            cout << "Con un maximo de compra de: " << max << endl;
+
+            system("pause");
+            delete[] vCliente;
         }
+
         break;
             /*//////////////////////////////////*/
         case 6:
         {
+            // cout << "6 - cantidad de compra por cliente" << endl;
+            system("cls");
+            Cliente objCliente;
+            const int tam = objCliente.CONtarRegistros();
+            int cont = 0;
+
+            int idCliente;
+            cout << "Ingrese ID de Cliente" << endl;
+            cin >> idCliente;
+
+            for (int i = 0; i < tam; i++)
+            {
+                cont = ContadorDeCliente(idCliente); // Cuenta las compras de un cliente
+            }
+
+            cout << "El total de Compras su cliente es: " << cont << endl;
+            system("pause");
         }
         break;
             /*//////////////////////////////////*/
