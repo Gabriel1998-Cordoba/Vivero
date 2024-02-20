@@ -7,7 +7,7 @@
 #include "Agroquimicos.h"
 void cargarCadena(char *palabra, int tamano);
 void SaltoDeLinea(int tam=100);
-void GenerarFactura(RegistroCompra objR,int id);
+void GenerarFactura(RegistroCompra objR);
 
 
 Planta BuscarPlanta(int idArticulo);

@@ -28,6 +28,6 @@ class Planta : public Articulo{
 void Opcion1Compra();
 void Opcion2Compra();
 void Opcion3Compra(RegistroCompra objR);
-void Opcion4Compra(RegistroCompra objR);
+
 
 };

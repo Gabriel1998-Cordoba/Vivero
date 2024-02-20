@@ -109,9 +109,12 @@ void menuDuenio(int opcion)
 
     if (band == 1)
     {
+        //SaltoDeLinea();
         system("cls");
         while (true)
         {
+
+            SaltoDeLinea();
 
             cout << "BIENVENIDO DUENIO" << endl;
             cout << "Opcion 1 ----> Cargar Datos" << endl;    //'ab' de archivos
@@ -127,8 +130,8 @@ void menuDuenio(int opcion)
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
+            
             system("cls");
-
             switch (opcion)
             {
                 /*******************************************************************/
@@ -150,6 +153,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 3:
             {
+                SaltoDeLinea();
                 system("cls");
                 Duenio objDD;
                 objDD.MostrarDatosDeDuenioEnArchivo();
@@ -913,7 +917,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                     bkpRegistroCompra objBkpRefistroCompra;
                     objBkpRefistroCompra.CrearBackup();
                     cout << "Se registro correctamente la compra " << endl;
-                    GenerarFactura(objR, cli.getIDCliente());
+                    GenerarFactura(objR);
                 }
                 return;
             }
@@ -1063,13 +1067,6 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
         }
         break;
         /*******************************************************************/
-        case 4:
-        {
-            system("cls");
-            objP.Opcion4Compra(objR);
-            system("pause");
-        }
-        break;
 
         case 0:
         {
@@ -1137,14 +1134,6 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         }
         break;
         /*******************************************************************/
-        case 4:
-        {
-            system("cls");
-            system("pause");
-        }
-        break;
-            /*******************************************************************/
-
         case 0:
         {
             system("cls");

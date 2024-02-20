@@ -170,16 +170,17 @@ void Planta::Opcion2Compra()
     bool Encontro = false;
     tam = objT.contarRegistros();
 
-    char nombrePlanta[30];
+    char nombrePlanta[30], auxnombre[30];
     cout << "Ingrese Nombre:" << endl;
     cargarCadena(nombrePlanta, 30);
-
+    strlwr(nombrePlanta);
     for (int i = 0; i < tam; i++)
     {
 
         objT = objT.leerRegistroPlanta(i);
-
-        if (strcmp(nombrePlanta, objT.getNombre()) == 0)
+        strcpy(auxnombre, objT.getNombre());
+        strlwr(auxnombre);
+        if (strcmp(nombrePlanta, auxnombre) == 0)
         {
             Encontro = true;
             cout << "//////////////////////////" << endl;
@@ -233,25 +234,7 @@ void Planta::Opcion3Compra(RegistroCompra objRegistroCompra)
     }
 }
 
-void Planta::Opcion4Compra(RegistroCompra objR)
-{
 
-    // objR = objR.LeerRegistrosPorIdCompra(idCompra);
-
-    // int indice= objR.getSujeto().getTipoDoc().getIndice();
-    // cout<<"Indice: "<<indice<<endl;
-    // int valor = objR.getSujeto().getTipoDoc().getTipoDocu(indice); //TE DEVUELVE NUMERO TipoDocumento
-    // cout<<"valor: "<<valor<<endl;
-
-    // cout<<"VALOR DOCUMENTO"<<endl;
-
-    //             DetalleFacturaCompra objD;
-    //             objD.MostrarAutoCargarPlanta(valor);
-
-    // DetalleFacturaCompra objD;
-
-    // objD.MostrarAutoCargarPlanta(idCompra);
-}
 
 bool Planta::MostrarArchivoPlanta()
 {

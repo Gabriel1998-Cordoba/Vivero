@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdio>
+#include <iomanip>
 using namespace std;
 #include "FuncionesGlobales.h"
 
@@ -22,9 +24,9 @@ void SaltoDeLinea(int tam)
 {
     for (int i = 0; i < tam; i++)
     {
-        cout <<endl<< endl<< endl<< endl<< endl<< endl<< endl;
-        cout <<endl<< endl<< endl<< endl<< endl<< endl<< endl;
-        cout <<endl<< endl<< endl<< endl<< endl<< endl<< endl;
+        cout << endl<< endl<< endl<< endl<< endl<< endl<< endl;
+        cout << endl<< endl<< endl<< endl<< endl<< endl<< endl;
+        cout << endl<< endl<< endl<< endl<< endl<< endl<< endl;
     }
 }
 
@@ -40,8 +42,9 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
         objP = BuscarPlanta(objDF.getIdArticulo());
         if (objP.getEstado() == 1)
         {
-            cout << objP.getID() << " " << objP.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() * objDF.getCantidad() << endl;
-        }
+          printf("%-20d%-15s%-15.1f%-15d%-15.1f\n",  objP.getID() ,objP.getNombre(), objDF.getPrecio(),objDF.getCantidad(),  objDF.getPrecio() * objDF.getCantidad());
+
+//    cout<< right<<setw(15)<< objP.getID() <<left<<setw(15)<< objP.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;        }
         // objH.Mostrar();
         break;
 
@@ -50,23 +53,31 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
 
         if (objH.getEstado() == 1)
         {
-            cout << objH.getID() << " " << objH.getNombre() << " " << objDF.getPrecio() << " " << objDF.getCantidad() << " " << objDF.getPrecio() * objDF.getCantidad() << endl;
+                    printf("%-20d%-15s%-15.1f%-15d%-15.1f\n",  objH.getID() ,objH.getNombre(), objDF.getPrecio(),objDF.getCantidad(),  objDF.getPrecio() * objDF.getCantidad());
+  // cout<< right<<setw(15)<< objH.getID() <<left<<setw(15)<< objH.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;
         }
         // objP.Mostrar();
 
         break;
 
     case 3:
-        // objA = BuscarAgroquimicos();
+        objA = BuscarAgroquimicos(objDF.getIdArticulo());
+        if (objA.getEstado() == 1)
+        {
+                    printf("%-20d%-15s%-15.1f%-15d%-15.1f\n",  objA.getID() ,objA.getNombre(), objDF.getPrecio(),objDF.getCantidad(),  objDF.getPrecio() * objDF.getCantidad());
+  // cout<< right<<setw(15)<< objH.getID() <<left<<setw(15)<< objH.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;
+        }
         break;
     default:
+    
         break;
     }
 }
+}
 
-void GenerarFactura(RegistroCompra objR, int id)
-{
-    int tam = 0;
+void GenerarFactura(RegistroCompra objR)
+{system("cls");
+    int tam = 0, total = 0;
     bool cont = true;
     DetalleFacturaCompra objD;
     tam = objD.contarRegistros();
@@ -75,7 +86,7 @@ void GenerarFactura(RegistroCompra objR, int id)
     objR.getFecha().MostrarEnLinea();
     cout << endl;
 
-    cout << "CLIENTE ----------------" << endl;
+    cout << "CLIENTE " << endl;
     Cliente objC;
     int tam2 = objC.CONtarRegistros(); // Arreglar nombre de la funcion
 
@@ -84,7 +95,7 @@ void GenerarFactura(RegistroCompra objR, int id)
         if (objC.LeerArchivo(i))
         {
 
-            if (objC.getIDCliente() == id)
+            if (objC.getIDCliente() == objR.getIdCliente())
             {
                 cout << "----------------" << endl;
                 cout << "Nombre y Apellido: " << objC.getNombre() << "," << objC.getApellido() << endl;
@@ -93,13 +104,10 @@ void GenerarFactura(RegistroCompra objR, int id)
         }
     }
     cout << "----------------" << endl;
-    cout << "Cabecera factura: " << endl;
-    cout << "----------------" << endl;
-    cout << "----------------" << endl;
     cout << "Metodo de Pago: " << objR.getModoDePago();
     cout << "----------------" << endl;
 
-    cout << "Detalle Factura Compra ----------------" << endl;
+    cout << "Detalle Factura Compra " << endl;
 
     for (int i = 0; i < tam; i++)
     {
@@ -109,23 +117,53 @@ void GenerarFactura(RegistroCompra objR, int id)
         {
             if (cont)
             {
-                cout << "Codigo Articulo "
-                     << "Descripcion "
-                     << "Precio "
-                     << "Cantidad "
-                     << "SubTotal " << endl;
+               printf("%-20s%-15s%-15s%-15s%-15s\n", "Codigo Articulo" ,"Descripcion"," Precio","Cantidad", "SubTotal");
+                // cout <<left<<setw(20)<< "Codigo Articulo "
+                //      <<setw(15)<< "Descripcion "
+                //      <<setw(15)<< "Precio "
+                //      <<setw(15)<< "Cantidad "
+                //     <<setw(15)<< "SubTotal " << endl;
                 cont = false;
             }
             ArticulosXFactura(objD);
+            total += objD.getPrecio() * objD.getCantidad();
         }
     }
+                cout << "----------------" << endl;
+                cout << "TOTAL: " << total << endl;
+                cout << "----------------" << endl;
+
+
+
+/**************************************************************************/
+
+    // // Mostrar los datos en el formato deseado
+    // cout << left << setw(15) << "Nombre" 
+    //      << setw(15) << "Apellido" 
+    //      << setw(15) << "Edad" << endl;
+
+    // cout << left << setw(15) << nombre 
+    //      << setw(15) << apellido 
+    //      << setw(15) << edad << endl;
+
+    // cout<<endl<<endl<<"////////////////////////////////"<<endl<<endl<<endl;
+    
+/**************************************************************************/
+
+    // //libreria necesaria = #include <cstdio>
+
+    // printf("%-15s%-15s%-15s\n", "Nombre", "Apellido", "Edad");
+    // printf("%-15s%-15s%-15d\n", nombre, apellido, edad);
+
+/**************************************************************************/
+
 }
 void FacturaXNroFactura()
 {
 
     int tam, tamDetalleFactura;
 
-    int nroFactura;
+    int nroFactura, total = 0;
     cout << "ingrese numero de factura" << endl;
     cin >> nroFactura;
 
@@ -148,32 +186,11 @@ void FacturaXNroFactura()
 
         if (nroFactura == objRegistroCompra.getIdCompra())
 
-        {
-            for (int j = 0; j < tamDetalleFactura; j++)
-            {
-                objDF = objDF.leerRegistro(j);
-                if (objDF.getIdCompra() == objRegistroCompra.getIdCompra())
-                {
-
-                    if (cont)
-                    {
-                        cout << "Codigo Articulo "
-                             << "Descripcion "
-                             << "Precio "
-                             << "Cantidad "
-                             << "SubTotal " << endl;
-                        cont = false;
-                    }
-                    ArticulosXFactura(objDF);
-                }
-
-                //  Desarrollo del Mostrar
-            }
+        {           
+            GenerarFactura(objRegistroCompra);         
         }
     }
-    system("pause");
 }
-
 Planta BuscarPlanta(int idArticulo)
 {
 
@@ -469,46 +486,47 @@ int ContadorDeCliente(int idCliente)
     return cont;
 }
 
-bool AnioBisiesto(int anio){
+bool AnioBisiesto(int anio)
+{
 
-    if( anio%4==0 && ( (anio%100!=0) | (anio%400==0) ) ){
+    if (anio % 4 == 0 && ((anio % 100 != 0) | (anio % 400 == 0)))
+    {
         return true;
-    }else{
+    }
+    else
+    {
         return false;
     }
 }
 
-bool prueba(int _dia,int _mes,int _anio){
+bool prueba(int _dia, int _mes, int _anio)
+{
 
-//echo por chat gpt
+    // echo por chat gpt
 
-        if (_mes == 2)
+    if (_mes == 2)
+    {
+        if (AnioBisiesto(_anio))
         {
-            if (AnioBisiesto(_anio))
+            if ((_dia < 1) || (_dia > 29))
             {
-                if ((_dia < 1) || (_dia > 29))
-                {
-                    cout << "ERROR --> Fuera de rango" << endl;
-                    cout << "vuelva a ingresar el dia" << endl;
-                    system("pause");
-                    return false;
-                }
-            }
-            else
-            {
-                if ((_dia < 1) || (_dia > 28))
-                {
-                    cout << "ERROR --> Fuera de rango" << endl;
-                    cout << "vuelva a ingresar el dia" << endl;
-                    system("pause");
-                    return false;
-                }
+                cout << "ERROR --> Fuera de rango" << endl;
+                cout << "vuelva a ingresar el dia" << endl;
+                system("pause");
+                return false;
             }
         }
-            
-            return true;
-        
+        else
+        {
+            if ((_dia < 1) || (_dia > 28))
+            {
+                cout << "ERROR --> Fuera de rango" << endl;
+                cout << "vuelva a ingresar el dia" << endl;
+                system("pause");
+                return false;
+            }
+        }
+    }
 
-        
-
+    return true;
 }
