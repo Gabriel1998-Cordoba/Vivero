@@ -477,3 +477,38 @@ bool AnioBisiesto(int anio){
         return false;
     }
 }
+
+bool prueba(int _dia,int _mes,int _anio){
+
+//echo por chat gpt
+
+        if (_mes == 2)
+        {
+            if (AnioBisiesto(_anio))
+            {
+                if ((_dia < 1) || (_dia > 29))
+                {
+                    cout << "ERROR --> Fuera de rango" << endl;
+                    cout << "vuelva a ingresar el dia" << endl;
+                    system("pause");
+                    return false;
+                }
+            }
+            else
+            {
+                if ((_dia < 1) || (_dia > 28))
+                {
+                    cout << "ERROR --> Fuera de rango" << endl;
+                    cout << "vuelva a ingresar el dia" << endl;
+                    system("pause");
+                    return false;
+                }
+            }
+        }
+            
+            return true;
+        
+
+        
+
+}

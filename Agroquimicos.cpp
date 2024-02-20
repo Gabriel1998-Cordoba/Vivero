@@ -215,6 +215,7 @@ void Agroquimicos::Opcion3Compra(int idCompra)
 {
 
     char nombreP[30];
+    char auxnombre[30];
     int tam = 0;
 
     bkpDetalleFacturaCompra objBkpDetalleFCompra;
@@ -226,10 +227,18 @@ void Agroquimicos::Opcion3Compra(int idCompra)
 
     cout << "Ingrese Nombre del Agroquimico: ";
     cargarCadena(nombreP, 30);
+    strlwr(nombreP);
+
+    
     for (int i = 0; i < tam; i++)
     {
         aux = reg.leerRegistroAgroquimicos(i);
-        if (strcmp(aux.getNombre(), nombreP) == 0)
+        
+        strcpy(auxnombre,aux.getNombre());
+        strlwr(auxnombre);
+
+
+        if (strcmp(  auxnombre , nombreP) == 0)
         {
             if (descripcionFactura.AutoCargar(idCompra, aux) == true)
             {

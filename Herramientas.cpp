@@ -98,9 +98,9 @@ Herramientas Herramientas::leerRegistroHerramienta(int pos, const char *nombre)
 
 void Herramientas::ListarHerramienta()
 {
-    
+
     Herramientas ClassM;
-    int tam=ClassM.contarRegistros();
+    int tam = ClassM.contarRegistros();
     FILE *p;
 
     p = fopen("herramientas.dat", "rb");
@@ -110,11 +110,11 @@ void Herramientas::ListarHerramienta()
         system("pause");
     }
 
-for(int i=0;i<tam;i++)
-{
-    ClassM=leerRegistroHerramienta(i,"herramientas.dat");
-    ClassM.MostrarHerramienta();
-}
+    for (int i = 0; i < tam; i++)
+    {
+        ClassM = leerRegistroHerramienta(i, "herramientas.dat");
+        ClassM.MostrarHerramienta();
+    }
 
     // while (fread(&ClassM, sizeof(Herramientas), 1, p) == 1)
     // {
@@ -191,12 +191,11 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 {
     ///// ECHO POR GABI
 
-    char nombreH[30];
+    char nombreH[30], auxnombre[30];
     int tam = 0;
 
     bkpDetalleFacturaCompra objBkpDetalleFCompra;
-  objBkpDetalleFCompra.CrearBackup();
-  
+    objBkpDetalleFCompra.CrearBackup();
 
     DetalleFacturaCompra descripcionFactura;
 
@@ -206,12 +205,14 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 
     cout << "Ingrese Nombre de la Herramienta: ";
     cargarCadena(nombreH, 30);
-
+    strlwr(nombreH);
     for (int i = 0; i < tam; i++)
     {
         aux = herramienta.leerRegistroHerramienta(i);
+        strcpy(auxnombre, aux.getNombre());
+        strlwr(auxnombre);
 
-        if (strcmp(aux.getNombre(), nombreH) == 0)
+        if (strcmp(auxnombre, nombreH) == 0)
         {
 
             if (descripcionFactura.AutoCargar(objR.getIdCompra(), aux) == true)
@@ -221,7 +222,7 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 
                     objBkpDetalleFCompra.CrearBackup();
 
-                    cout << "Guardado Correctamente "<<endl;
+                    cout << "Guardado Correctamente " << endl;
                     // system("pause");
                     return;
                 }

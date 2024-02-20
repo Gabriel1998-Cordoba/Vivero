@@ -28,3 +28,4 @@ void ponerEnCeroVector(int *v,int tamanio);
 void cargarVectordeAcumulacion(int *v, Cliente objC);
 int ContadorDeCliente(int idCliente);
 bool AnioBisiesto(int anio);
+bool prueba(int _dia,int _mes,int _anio);

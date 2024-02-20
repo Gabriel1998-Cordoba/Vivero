@@ -12,12 +12,12 @@
 int main()
 {
 
-  //menuPrincipal();
+ menuPrincipal();
 
-  Fecha objF;
+  // Fecha objF;
 
 
-  objF.Cargar();
+  // objF.Cargar();
 
 
 
