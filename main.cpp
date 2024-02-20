@@ -7,15 +7,17 @@
 #include"bkpPlanta.h"
 #include"Herramientas.h"
 #include"bkpHerramientas.h"
+#include"Fecha.h"
 
 int main()
 {
 
-  menuPrincipal();
+  //menuPrincipal();
+
+  Fecha objF;
 
 
-
-
+  objF.Cargar();
 
 
 

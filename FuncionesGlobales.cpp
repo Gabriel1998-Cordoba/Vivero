@@ -22,10 +22,9 @@ void SaltoDeLinea(int tam)
 {
     for (int i = 0; i < tam; i++)
     {
-        cout << endl
-             << endl
-             << endl
-             << endl;
+        cout <<endl<< endl<< endl<< endl<< endl<< endl<< endl;
+        cout <<endl<< endl<< endl<< endl<< endl<< endl<< endl;
+        cout <<endl<< endl<< endl<< endl<< endl<< endl<< endl;
     }
 }
 
@@ -468,4 +467,13 @@ int ContadorDeCliente(int idCliente)
     }
 
     return cont;
+}
+
+bool AnioBisiesto(int anio){
+
+    if( anio%4==0 && ( (anio%100!=0) | (anio%400==0) ) ){
+        return true;
+    }else{
+        return false;
+    }
 }

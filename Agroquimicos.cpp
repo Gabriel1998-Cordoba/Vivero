@@ -124,6 +124,7 @@ Agroquimicos Agroquimicos::leerRegistroAgroquimicos(int pos, const char *ruta)
 void Agroquimicos::ListarAgroquimicos()
 {
 
+
     Agroquimicos ClassM;
     FILE *p;
 

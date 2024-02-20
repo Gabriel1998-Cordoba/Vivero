@@ -97,16 +97,6 @@ Planta Planta::leerRegistroPlanta(int pos,const char* nombre){
 
 void Planta::ListarPlanta(){
 
-// Planta ClassP;
-// int tam=ClassP.contarRegistros();
-
-// //cout<<"TAM= "<<tam<<endl;
-
-// for(int i=0; i<tam;i++){
-//     ClassP.leerRegistroPlanta(i);
-    // ClassP.MostrarPlanta();
-// }
-
 Planta ClassM;
 FILE *p;
 
@@ -115,10 +105,14 @@ if(p==NULL){
     cout<<"ERROR de ARCHIVO"<<endl;
     system("pause");
 }
-
-while(fread(&ClassM,sizeof (Planta),1,p)==1){
+for(int i=0;i<contarRegistros();i++){
+ClassM=leerRegistroPlanta(i,"planta.dat");
 ClassM.MostrarPlanta();
 }
+
+// while(fread(&ClassM,sizeof (Planta),1,p)==1){
+// ClassM.MostrarPlanta();
+// }
 
 fclose(p);
 

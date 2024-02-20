@@ -68,6 +68,7 @@ void Duenio::CargarDatosDeDuenioEnArchivo(/*int totalDeRegistros ,int TipoDeArti
 
 void Duenio::MostrarDatosDeDuenioEnArchivo()
 {
+   
     Duenio ClassM;
     FILE *p;
 

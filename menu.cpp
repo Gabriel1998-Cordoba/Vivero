@@ -175,7 +175,8 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 6:
             {
-                system("cls");
+                // system("cls");
+                system("clear");
                 ListarDatos(opcion);
             }
             break;
@@ -488,19 +489,19 @@ void ListarDatos(int opcion)
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
+
             cout << "Listado de Plantas: " << endl
                  << endl;
             obtP.ListarPlanta();
             system("pause");
-            // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
-            //  Planta ob1;
-            //  ob1.Cargar();
         }
         break;
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Listado de Herrramientas: " << endl
                  << endl;
@@ -511,6 +512,7 @@ void ListarDatos(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Listado de AgroQuimicos: " << endl
                  << endl;
@@ -521,6 +523,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             Cliente objCC;
             cout << "Listado de Cliente: " << endl
@@ -532,6 +535,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             Duenio objDD;
             cout << "Listado de Duenio: " << endl
@@ -543,6 +547,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 6:
         {
+            SaltoDeLinea();
             system("cls");
             RegistroCompra objDD;
             cout << "Listado de Registro Compra: " << endl
@@ -554,6 +559,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 7:
         {
+            SaltoDeLinea();
             system("cls");
             DetalleFacturaCompra objDD;
             cout << "Listado de Detalle Factura Compra: " << endl
@@ -565,6 +571,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 8:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Listado de Detalle Factura Venta: " << endl
                  << endl;
@@ -574,6 +581,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 9:
         {
+            SaltoDeLinea();
             system("cls");
             RegistroVenta objDD;
             cout << "Listado de Detalle Factura Venta: " << endl
@@ -585,6 +593,7 @@ void ListarDatos(int opcion)
             /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -900,11 +909,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
 
                 if (objR.GuardarCompra())
                 {
+                    system("cls");
                     bkpRegistroCompra objBkpRefistroCompra;
                     objBkpRefistroCompra.CrearBackup();
                     cout << "Se registro correctamente la compra " << endl;
                     GenerarFactura(objR, cli.getIDCliente());
-                    system("pause");
                 }
                 return;
             }

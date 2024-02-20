@@ -98,7 +98,9 @@ Herramientas Herramientas::leerRegistroHerramienta(int pos, const char *nombre)
 
 void Herramientas::ListarHerramienta()
 {
+    
     Herramientas ClassM;
+    int tam=ClassM.contarRegistros();
     FILE *p;
 
     p = fopen("herramientas.dat", "rb");
@@ -108,10 +110,16 @@ void Herramientas::ListarHerramienta()
         system("pause");
     }
 
-    while (fread(&ClassM, sizeof(Herramientas), 1, p) == 1)
-    {
-        ClassM.MostrarHerramienta();
-    }
+for(int i=0;i<tam;i++)
+{
+    ClassM=leerRegistroHerramienta(i,"herramientas.dat");
+    ClassM.MostrarHerramienta();
+}
+
+    // while (fread(&ClassM, sizeof(Herramientas), 1, p) == 1)
+    // {
+    //     ClassM.MostrarHerramienta();
+    // }
 
     fclose(p);
 }
@@ -221,12 +229,6 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
         }
     }
 }
-// void Herramientas::Opcion4Compra(){
-
-// }
-// void Herramientas::Opcion5Compra(){
-
-// }
 
 bool Herramientas::MostrarArchivoHerramienta()
 {

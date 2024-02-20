@@ -6,7 +6,7 @@
 #include "Planta.h"
 #include "Agroquimicos.h"
 void cargarCadena(char *palabra, int tamano);
-void SaltoDeLinea(int tam=10);
+void SaltoDeLinea(int tam=100);
 void GenerarFactura(RegistroCompra objR,int id);
 
 
@@ -27,3 +27,4 @@ void RecaudacionAnual(int AnioIngresado);
 void ponerEnCeroVector(int *v,int tamanio);
 void cargarVectordeAcumulacion(int *v, Cliente objC);
 int ContadorDeCliente(int idCliente);
+bool AnioBisiesto(int anio);

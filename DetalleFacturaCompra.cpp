@@ -276,6 +276,7 @@ bool DetalleFacturaCompra::leerRegistroIdCompra(int pos)
 }
 void DetalleFacturaCompra::MostrarDatosDetalleFacturaCompraEnArchivo()
 {
+    
     DetalleFacturaCompra reg;
     FILE *p;
 

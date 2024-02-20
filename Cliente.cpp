@@ -149,6 +149,8 @@ void Cliente::CargarDatosClienteEnArchivo()
 }
 void Cliente::MostrarDatosClienteEnArchivo()
 {
+    
+    
     Cliente reg;
     FILE *p;
 
