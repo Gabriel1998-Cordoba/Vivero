@@ -244,7 +244,7 @@ void Agroquimicos::Opcion3Compra(int idCompra)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    cout << "Guardado Correctamente " << endl;
+                    cout << "Guardado Correctamente el detalle del Articulo"<<endl;
                   
                     return;
                 }

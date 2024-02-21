@@ -67,16 +67,6 @@ bool bkpCliente::CrearBackup(){
 }
 /*****************************************************************/
 void bkpCliente::MostrarBackup(){
-    FILE *p;
-
-    //abre el archivo de respaldo para lectura
-    p = fopen("bkpCliente.dat","rb");
-    if(p==NULL){
-        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
-        cout << "ERROR de void bkpCliente::MostrarBackup()" << endl;
-        return;
-    }
-
     // Obtiene el número de registros en el archivo de respaldo
     int tam = objCliente.CONtarRegistros("bkpCliente.dat");
     //lee y muestra cada registro en el archivo de respaldo
@@ -85,7 +75,7 @@ void bkpCliente::MostrarBackup(){
         objCliente = objCliente.leerRegistros(i,"bkpCliente.dat");
         objCliente.Mostrar();
     }
-    fclose(p);
+
 }
 /*****************************************************************/
 bool bkpCliente::RestaurarBackup(){

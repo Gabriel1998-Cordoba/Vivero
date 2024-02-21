@@ -74,16 +74,6 @@ bool bkpDuenio::CrearBackup()
 /*****************************************************************/
 void bkpDuenio::MostrarBackup()
 {
-    FILE *p;
-
-    // Abre el archivo de respaldo para lectura
-    p = fopen("bkpduenio.dat", "rb");
-    if (p == NULL)
-    {
-        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
-        cout << "ERROR de void bkpDuenio::MostrarBackup()" << endl;
-        return;
-    }
 
     // Obtiene el número de registros en el archivo de respaldo
     int tam = objDuenio.contarRegistros("bkpduenio.dat");
@@ -94,7 +84,6 @@ void bkpDuenio::MostrarBackup()
         objDuenio = objDuenio.leerRegistro(i, "bkpduenio.dat");
         objDuenio.MostrarDuenio();
     }
-    fclose(p);
 }
 /*****************************************************************/
 bool bkpDuenio::RestaurarBackup()

@@ -67,15 +67,6 @@ bool bkpPlanta::CrearBackup(){
 }
 /*****************************************************************/
 void bkpPlanta::MostrarBackup(){
-    FILE *p;
-
-    // Abre el archivo de respaldo para lectura
-    p = fopen("bkpplanta.dat","rb");
-    if(p==NULL){
-        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
-        cout<<"ERROR de void bkpPlanta::MostrarBackup()"<<endl;
-        return;
-    }
 
     // Obtiene el número de registros en el archivo de respaldo
     int tam = objPlanta.contarRegistros("bkpplanta.dat");
@@ -85,7 +76,7 @@ void bkpPlanta::MostrarBackup(){
         objPlanta = objPlanta.leerRegistroPlanta(i,"bkpplanta.dat");
         objPlanta.MostrarPlanta();
     }
-    fclose(p);
+
 }
 /*****************************************************************/
 bool bkpPlanta::RestaurarBackup(){

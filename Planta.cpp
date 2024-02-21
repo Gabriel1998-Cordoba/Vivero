@@ -225,7 +225,7 @@ void Planta::Opcion3Compra(RegistroCompra objRegistroCompra)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    cout << "Guardado Correctamente el detalle de factura";
+                    cout << "Guardado Correctamente el detalle del Articulo"<<endl;
                     system("pause");
                     return;
                 }

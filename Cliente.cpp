@@ -202,9 +202,6 @@ Cliente reg;
            reg = reg.leerRegistros(i);
             if ((reg.getIDCliente()) == (id))//-1
             {
-                //cout<<"return 1"<<endl;                
-                // cli.setIDCliente(-3);
-                // cout<<"reg.getIDCliente(): "<<reg.getIDCliente()<<endl;
                 return true;
                 
             }else
@@ -213,11 +210,6 @@ return false;
             }
         }
     }
-    
-// cli.setIDCliente(-2);
-// cout<<"reg.getIDCliente(): "<<reg.getIDCliente()<<endl;
-// cout<<"return 2"<<endl;
-
     return false;
   
 }

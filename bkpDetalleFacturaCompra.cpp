@@ -64,16 +64,6 @@ bool bkpDetalleFacturaCompra::CrearBackup(){
 }
 /*****************************************************************/
 void bkpDetalleFacturaCompra::MostrarBackup(){
-    FILE *p;
-
-    //abre el archivo de respaldo para lectura
-    p = fopen("bkpDetalleFacturaCompra.dat", "rb");
-    if (p == NULL) {
-        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
-        cout << "ERROR de void bkpCompraFacturaCompra::MostrarBackup()" << endl;
-        return;
-    }
-
     //obtiene el número de registros en el archivo de respaldo
     int tam = objDetalleFacturaCompra.contarRegistros("bkpDetalleFacturaCompra.dat");
     //lee y muestra cada registro en el archivo de respaldo
@@ -81,9 +71,9 @@ void bkpDetalleFacturaCompra::MostrarBackup(){
     for(int i=0; i<tam; i++){
         objDetalleFacturaCompra = objDetalleFacturaCompra.leerRegistro(i,"bkpDetalleFacturaCompra.dat");
         objDetalleFacturaCompra.Mostrar();
+        cout<<"------------------------------"<<endl<<endl;
     }
 
-    fclose(p);
 }
 /*****************************************************************/
 bool bkpDetalleFacturaCompra::RestaurarBackup(){

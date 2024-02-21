@@ -25,9 +25,27 @@ void SaltoDeLinea(int tam)
 {
     for (int i = 0; i < tam; i++)
     {
-        cout << endl<< endl<< endl<< endl<< endl<< endl<< endl;
-        cout << endl<< endl<< endl<< endl<< endl<< endl<< endl;
-        cout << endl<< endl<< endl<< endl<< endl<< endl<< endl;
+        cout << endl
+             << endl
+             << endl
+             << endl
+             << endl
+             << endl
+             << endl;
+        cout << endl
+             << endl
+             << endl
+             << endl
+             << endl
+             << endl
+             << endl;
+        cout << endl
+             << endl
+             << endl
+             << endl
+             << endl
+             << endl
+             << endl;
     }
 }
 
@@ -43,37 +61,37 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
         objP = BuscarPlanta(objDF.getIdArticulo());
         if (objP.getEstado() == 1)
         {
-          printf("%-20d%-15s%-15.1f%-15d%-15.1f\n",  objP.getID() ,objP.getNombre(), objDF.getPrecio(),objDF.getCantidad(),  objDF.getPrecio() * objDF.getCantidad());
+            printf("%-20d%-15s%-15.1f%-15d%-15.1f\n", objP.getID(), objP.getNombre(), objDF.getPrecio(), objDF.getCantidad(), objDF.getPrecio() * objDF.getCantidad());
 
-//    cout<< right<<setw(15)<< objP.getID() <<left<<setw(15)<< objP.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;        }
-        // objH.Mostrar();
-        break;
+            //    cout<< right<<setw(15)<< objP.getID() <<left<<setw(15)<< objP.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;        }
+            // objH.Mostrar();
+            break;
 
-    case 2:
-        objH = BuscarHerramienta(objDF.getIdArticulo());
+        case 2:
+            objH = BuscarHerramienta(objDF.getIdArticulo());
 
-        if (objH.getEstado() == 1)
-        {
-                    printf("%-20d%-15s%-15.1f%-15d%-15.1f\n",  objH.getID() ,objH.getNombre(), objDF.getPrecio(),objDF.getCantidad(),  objDF.getPrecio() * objDF.getCantidad());
-  // cout<< right<<setw(15)<< objH.getID() <<left<<setw(15)<< objH.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;
+            if (objH.getEstado() == 1)
+            {
+                printf("%-20d%-15s%-15.1f%-15d%-15.1f\n", objH.getID(), objH.getNombre(), objDF.getPrecio(), objDF.getCantidad(), objDF.getPrecio() * objDF.getCantidad());
+                // cout<< right<<setw(15)<< objH.getID() <<left<<setw(15)<< objH.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;
+            }
+            // objP.Mostrar();
+
+            break;
+
+        case 3:
+            objA = BuscarAgroquimicos(objDF.getIdArticulo());
+            if (objA.getEstado() == 1)
+            {
+                printf("%-20d%-15s%-15.1f%-15d%-15.1f\n", objA.getID(), objA.getNombre(), objDF.getPrecio(), objDF.getCantidad(), objDF.getPrecio() * objDF.getCantidad());
+                // cout<< right<<setw(15)<< objH.getID() <<left<<setw(15)<< objH.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;
+            }
+            break;
+        default:
+
+            break;
         }
-        // objP.Mostrar();
-
-        break;
-
-    case 3:
-        objA = BuscarAgroquimicos(objDF.getIdArticulo());
-        if (objA.getEstado() == 1)
-        {
-                    printf("%-20d%-15s%-15.1f%-15d%-15.1f\n",  objA.getID() ,objA.getNombre(), objDF.getPrecio(),objDF.getCantidad(),  objDF.getPrecio() * objDF.getCantidad());
-  // cout<< right<<setw(15)<< objH.getID() <<left<<setw(15)<< objH.getNombre() <<setw(20)<< objDF.getPrecio() <<setw(15)<< objDF.getCantidad() <<setw(15)<< objDF.getPrecio() * objDF.getCantidad() << endl;
-        }
-        break;
-    default:
-
-        break;
     }
-}
 }
 
 void GenerarFactura(RegistroCompra objR)
@@ -107,11 +125,11 @@ void GenerarFactura(RegistroCompra objR)
         }
     }
     cout << "----------------" << endl;
-    cout << "Metodo de Pago: " << objR.getModoDePago();
+    cout << "Metodo de Pago: " << objR.getModoDePago() << endl;
     cout << "----------------" << endl;
 
     cout << "Detalle Factura Compra " << endl;
-
+    cout << "----------------" << endl;
     for (int i = 0; i < tam; i++)
     {
         objD = objD.leerRegistro(i);
@@ -120,21 +138,17 @@ void GenerarFactura(RegistroCompra objR)
         {
             if (cont)
             {
-               printf("%-20s%-15s%-15s%-15s%-15s\n", "Codigo Articulo" ,"Descripcion","Precio","Cantidad", "SubTotal");
-              
+                printf("%-20s%-15s%-15s%-15s%-15s\n", "Codigo Articulo", "Descripcion", "Precio", "Cantidad", "SubTotal");
+
                 cont = false;
             }
             ArticulosXFactura(objD);
             total += objD.getPrecio() * objD.getCantidad();
         }
     }
-                cout << "----------------" << endl;
-                cout << "TOTAL: " << total << endl;
-                cout << "----------------" << endl;
-
-
-
-
+    cout << "----------------" << endl;
+    cout << "TOTAL: " << total << endl;
+    cout << "----------------" << endl;
 }
 void FacturaXNroFactura()
 {
@@ -165,8 +179,8 @@ void FacturaXNroFactura()
 
         if (nroFactura == objRegistroCompra.getIdCompra())
 
-        {           
-            GenerarFactura(objRegistroCompra);         
+        {
+            GenerarFactura(objRegistroCompra);
         }
     }
 }
@@ -510,20 +524,21 @@ bool prueba(int _dia, int _mes, int _anio)
     return true;
 }
 
-
-bool existeDNI(int indice,int numero){
+bool existeDNI(int indice, int numero)
+{
     Cliente objC;
 
     int tam = objC.CONtarRegistros();
 
-    for(int i=0; i<tam; i++){
+    for (int i = 0; i < tam; i++)
+    {
         objC = objC.leerRegistros(i);
 
-       if((objC.getTipoDoc().getTipoDocu(indice-1) == numero) && (indice == objC.getTipoDoc().getIndice() )){
-        return true;
-       }
+        if ((objC.getTipoDoc().getTipoDocu(indice - 1) == numero) && (indice == objC.getTipoDoc().getIndice()))
+        {
+            return true;
+        }
     }
 
     return false;
-
 }

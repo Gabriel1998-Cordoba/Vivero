@@ -66,15 +66,6 @@ bool bkpRegistroVenta::CrearBackup(){
 }
 /*****************************************************************/
 void bkpRegistroVenta::MostrarBackup(){
-    FILE *p;
-
-    //abre el archivo de respaldo para lectura
-    p = fopen("bkpregistroVenta.dat", "rb");
-    if (p == NULL) {
-        cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
-        cout << "ERROR de void bkpRegistroVenta::MostrarBackup()" << endl;
-        return;
-    }
 
     //obtiene el número de registros en el archivo de respaldo
     int tam = objRegistroVenta.contarRegistros("bkpregistroVenta.dat");
@@ -84,7 +75,6 @@ void bkpRegistroVenta::MostrarBackup(){
         objRegistroVenta = objRegistroVenta.leerRegistro(i, "bkpregistroVenta.dat");
         objRegistroVenta.Mostrar();
     }
-    fclose(p);
 
 }
 /*****************************************************************/

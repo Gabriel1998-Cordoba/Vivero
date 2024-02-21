@@ -53,7 +53,7 @@ void menuPrincipal()
         {
             SaltoDeLinea();
             system("cls");
-            cout << "fin del programa" << endl;
+            cout << "Fin del programa" << endl;
             system("pause");
             return;
         }
@@ -87,7 +87,7 @@ void menuDuenio(int opcion)
 
         if (i <= 3)
         {
-            cout << "ingrese usuario: " << endl; // el usuario es Vivero
+            cout << "Ingrese Usuario: " << endl; // el usuario es Vivero
             cargarCadena(usuario, 30);
             cout << "Ingrese Contracenia: " << endl; // la contraceña es 123
             cargarCadena(contra, 30);
@@ -101,7 +101,7 @@ void menuDuenio(int opcion)
             }
             else
             {
-                cout << "el usuario o contracenia son incorrectos" << endl;
+                cout << "El usuario o contracenia son incorrectos" << endl;
             }
         }
 
@@ -109,7 +109,7 @@ void menuDuenio(int opcion)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "no ingresaste correctamente el usuario y contracenia" << endl;
+            cout << "No ingresaste correctamente el usuario y contracenia" << endl;
             system("pause");
             return;
         }
@@ -117,28 +117,28 @@ void menuDuenio(int opcion)
 
     if (band == 1)
     {
-        //SaltoDeLinea();
+        // SaltoDeLinea();
         system("cls");
         while (true)
         {
 
             SaltoDeLinea();
-
-            cout << "BIENVENIDO DUENIO" << endl;
-            cout << "Opcion 1 ----> Cargar Datos" << endl;    //'ab' de archivos
-            cout << "Opcion 2 ----> Modificar Datos" << endl; //'rb' que lo lea y modifique
+            cout << "---------------------------------------" << endl;
+            cout << "          BIENVENIDO DUENIO            " << endl;
+            cout << "Opcion 1 ----> Cargar Datos            " << endl; //'ab' de archivos
+            cout << "Opcion 2 ----> Modificar Datos         " << endl; //'rb' que lo lea y modifique
             // cout << "Opcion 3 ----> Mostrar Datos Duenio" << endl;
             // cout << "Opcion 4 ----> Borrar o Limpiar Datos" << endl; //'wb' de archivos == 'baja Fisica'
-            cout << "Opcion 3 ----> Listar Datos" << endl;           // seleccionar el archivo que quieres que abra y muestre
-            cout << "Opcion 4 ----> Informes" << endl;               // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 5 ----> Consulta x de factura" << endl;  // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 6----> Cargar Datos Del Duenio" << endl;
-            cout << "Opcion 7----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            cout << "Opcion 8---> Limpiar Archivos .dat" << endl;   // los borra con 'wb'
-
+            cout << "Opcion 3 ----> Listar Datos            " << endl; // seleccionar el archivo que quieres que abra y muestre
+            cout << "Opcion 4 ----> Informes                " << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 5 ----> Consulta x de factura   " << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 6----> Cargar Datos Del Duenio  " << endl;
+            cout << "Opcion 7----> Configuracion de backup  " << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+            cout << "Opcion 8---> Limpiar Archivos .dat     " << endl; // los borra con 'wb'
+            cout << "---------------------------------------" << endl;
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
-            
+
             SaltoDeLinea();
             system("cls");
             switch (opcion)
@@ -157,39 +157,38 @@ void menuDuenio(int opcion)
             {
                 SaltoDeLinea();
                 system("cls");
-                cout<<"FALTA HACERLO"<<endl;
+                cout << "FALTA HACERLO" << endl;
                 // ModificarDatos(opcion);
                 system("pause");
             }
             break;
                 /*******************************************************************/
-            
-            // case 3:
-            // {
-                 //SaltoDeLinea();
-            //     system("cls");
-            //     // Para hacer
-            //     system("pause");
-            // }
-            // break;
+
+                // case 3:
+                // {
+                // SaltoDeLinea();
+                //     system("cls");
+                //     // Para hacer
+                //     system("pause");
+                // }
+                // break;
                 /*******************************************************************/
             case 3:
             {
                 // SaltoDeLinea();
-                // system("cls");
-                system("clear");
+
                 ListarDatos(opcion);
             }
             break;
                 /*******************************************************************/
-            // case 4:
-            // {
-            //     SaltoDeLinea();
-            //     system("cls");
-            //     // ContarRegistros(opcion);
-            //     system("pause");
-            // }
-            // break;
+                // case 4:
+                // {
+                //     SaltoDeLinea();
+                //     system("cls");
+                //     // ContarRegistros(opcion);
+                //     system("pause");
+                // }
+                // break;
                 /*******************************************************************/
             case 4:
             {
@@ -239,7 +238,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-           
+
             case 0:
             {
                 SaltoDeLinea();
@@ -276,10 +275,11 @@ void CargarDatos(int opcion)
         system("cls");
         cout << "Que quieres Cargar?" << endl
              << endl;
-
-        cout << "Opcion 1 ---> Plantas" << endl;      // Crear funcion que carge plantas a un Archivos
-        cout << "Opcion 2 ---> Herramientas" << endl; // Crear funcion que carge Herramientas a un Archivos
-        cout << "Opcion 3 ---> Agroquimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
+        cout << "-----------------------------" << endl;
+        cout << "Opcion 1 ---> Plantas      " << endl; // Crear funcion que carge plantas a un Archivos
+        cout << "Opcion 2 ---> Herramientas " << endl; // Crear funcion que carge Herramientas a un Archivos
+        cout << "Opcion 3 ---> Agroquimicos " << endl; // Crear funcion que carge Agro Quimicos a un Archivos
+        cout << "-----------------------------" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
 
@@ -333,7 +333,7 @@ void CargarDatos(int opcion)
             system("cls");
             int cantidad;
             Agroquimicos objA;
-            cout << "ingrese Cantidad de Registros a Ingresar" << endl;
+            cout << "Ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
 
             SaltoDeLinea();
@@ -361,7 +361,7 @@ void CargarDatos(int opcion)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -370,111 +370,109 @@ void CargarDatos(int opcion)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void LimpiarDatos(int opcion)
-{
-    Planta obtP;
-    Herramientas obtH;
-    Agroquimicos obtA;
+// void LimpiarDatos(int opcion)
+// {
+//     Planta obtP;
+//     Herramientas obtH;
+//     Agroquimicos obtA;
 
-    SaltoDeLinea();
-    system("cls");
-    cout << "Que quieres   ? " << endl
-         << endl;
-    cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
-    cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
-    cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
-    cout << "Opcion 0 ----> salir" << endl;
-    cin >> opcion;
+//     SaltoDeLinea();
+//     system("cls");
+//     cout << "Que quieres   ? " << endl
+//          << endl;
+//     cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
+//     cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
+//     cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
+//     cout << "Opcion 0 ----> salir" << endl;
+//     cin >> opcion;
 
-    SaltoDeLinea();
-    system("cls");
-    switch (opcion)
-    {
-    /*******************************************************************/
-    case 1:
-    {
-        SaltoDeLinea();
-        system("cls");
+//     SaltoDeLinea();
+//     system("cls");
+//     switch (opcion)
+//     {
+//     /*******************************************************************/
+//     case 1:
+//     {
+//         SaltoDeLinea();
+//         system("cls");
 
-        if (obtP.borrarRegistroPlanta() == true)
-        {
-            cout << "se borro Correctamente" << endl;
-        }
-        else
-        {
-            cout << "NO se pudo borrar" << endl;
-        }
+//         if (obtP.borrarRegistroPlanta() == true)
+//         {
+//             cout << "Se borro Correctamente" << endl;
+//         }
+//         else
+//         {
+//             cout << "No se pudo borrar" << endl;
+//         }
 
-        system("pause");
-        // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
-        //  Planta ob1;
-        //  ob1.Cargar();
-    }
-    break;
-    /*******************************************************************/
-    case 2:
-    {
-        SaltoDeLinea();
-        system("cls");
-        if (obtH.borrarRegistroHerramienta() == true)
-        {
-            cout << "se borro Correctamente" << endl;
-        }
-        else
-        {
-            cout << "NO se pudo borrar" << endl;
-        }
-        system("pause");
-    }
-    break;
-    /*******************************************************************/
-    case 3:
-    {
-        SaltoDeLinea();
-        system("cls");
-        if (obtA.borrarRegistroAgroquimicos() == true)
-        {
-            cout << "se borro Correctamente" << endl;
-        }
-        else
-        {
-            cout << "NO se pudo borrar" << endl;
-        }
-        system("pause");
-    }
-    break;
-        /*******************************************************************/
-    case 0:
-    {
-        SaltoDeLinea();
-        system("cls");
-        cout << "Saliste" << endl;
-        system("pause");
-        return;
-    }
-    break;
-    /*******************************************************************/
-    default:
-    {
-        SaltoDeLinea();
-        system("cls");
-        cout << "valor ingresado no existe dentro del menu" << endl;
-        system("pause");
-    }
-    break;
-        /*******************************************************************/
-    }
-}
+//         system("pause");
+//         // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
+//         //  Planta ob1;
+//         //  ob1.Cargar();
+//     }
+//     break;
+//     /*******************************************************************/
+//     case 2:
+//     {
+//         SaltoDeLinea();
+//         system("cls");
+//         if (obtH.borrarRegistroHerramienta() == true)
+//         {
+//             cout << "Se borro Correctamente" << endl;
+//         }
+//         else
+//         {
+//             cout << "NO se pudo borrar" << endl;
+//         }
+//         system("pause");
+//     }
+//     break;
+//     /*******************************************************************/
+//     case 3:
+//     {
+//         SaltoDeLinea();
+//         system("cls");
+//         if (obtA.borrarRegistroAgroquimicos() == true)
+//         {
+//             cout << "se borro Correctamente" << endl;
+//         }
+//         else
+//         {
+//             cout << "No se pudo borrar" << endl;
+//         }
+//         system("pause");
+//     }
+//     break;
+//         /*******************************************************************/
+//     case 0:
+//     {
+//         SaltoDeLinea();
+//         system("cls");
+//         cout << "Saliste" << endl;
+//         system("pause");
+//         return;
+//     }
+//     break;
+//     /*******************************************************************/
+//     default:
+//     {
+//         SaltoDeLinea();
+//         system("cls");
+//         cout << "valor ingresado no existe dentro del menu" << endl;
+//         system("pause");
+//     }
+//     break;
+//         /*******************************************************************/
+//     }
+// }
 ///////////////////////////////////////////////////////////////////////////
 void ListarDatos(int opcion)
 {
     SaltoDeLinea();
-     system("cls");
+    system("cls");
     Planta obtP;
     Herramientas obtH;
     Agroquimicos obtA;
-
-   
 
     while (true)
     {
@@ -482,6 +480,7 @@ void ListarDatos(int opcion)
         SaltoDeLinea();
         cout << "Que quieres Listar?" << endl
              << endl;
+        cout << "-----------------------------" << endl;
         cout << "Opcion 1 ---> planta.dat" << endl;       // Crear funcion que carge plantas a un Archivos
         cout << "Opcion 2 ---> herramientas.dat" << endl; // Crear funcion que carge Herramientas a un Archivos
         cout << "Opcion 3 ---> agroquimicos.dat" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
@@ -491,6 +490,7 @@ void ListarDatos(int opcion)
         cout << "Opcion 7 ---> DetalleFacturaCompra.dat" << endl;
         cout << "Opcion 8 ---> DetalleFacturaVenta.dat" << endl;
         cout << "Opcion 9 ---> registroVenta" << endl;
+        cout << "-----------------------------" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
 
@@ -617,7 +617,7 @@ void ListarDatos(int opcion)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -639,12 +639,15 @@ void CargarDatosDelDuenio(int opcion)
         system("cls");
         cout << "Que quieres Listar?" << endl
              << endl;
-        cout << "Opcion 1 ----> Cargar Datos Del Duenio" << endl;
+        cout << "---------------------------------------" << endl;
+        cout << "Opcion 1 ----> Cargar Datos Del Duenio " << endl;
         cout << "Opcion 2 ----> Mostrar Datos Del Duenio" << endl;
         cout << "Opcion 3 ----> Cambiar Sueldo Cargado" << endl;
         cout << "Opcion 4 ----> Mostrar Sueldo Cargado" << endl;
         cout << "Opcion 5 ----> Borrar Datos Del Duenio" << endl;
-        cout << "Opcion 0 ----> salir" << endl;
+        cout << "---------------------------------------" << endl;
+
+        cout << "Opcion 0 ----> Salir" << endl;
         cin >> opcion;
 
         SaltoDeLinea();
@@ -659,7 +662,7 @@ void CargarDatosDelDuenio(int opcion)
 
             int tam = 0, cantidad;
 
-            cout << "ingrese Cantidad de Registros" << endl;
+            cout << "Ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
 
             SaltoDeLinea();
@@ -722,7 +725,7 @@ void CargarDatosDelDuenio(int opcion)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -809,7 +812,7 @@ void menuPersona(int opcion)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -841,10 +844,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
+        cout << "---------------------------------------" << endl;
         cout << "Opcion 1 ----> Herramientas" << endl;
         cout << "Opcion 2 ----> Plantas" << endl;
         cout << "Opcion 3 ----> Agroquimicos" << endl;
-
+        cout << "---------------------------------------" << endl;
         cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
 
         cin >> opcion;
@@ -896,9 +900,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
 
             do
             {
-                cout << "¿Seguro Que Quieres salir? ---> SI == 0" << endl;
-                cout << "NO quiero esta compra == 1" << endl;
-                cout << "¿Quieres Comprar otra cosa mas? == 2" << endl;
+                cout<<"---------------------------------------------"<<endl;
+                cout <<"Quieres Registrar la Compra?   --->  == 0   "<< endl;
+                cout <<"NO quiero esta compra          --->  == 1   "<< endl;
+                cout <<"Quieres Comprar otra cosa mas? --->  == 2   "<< endl;
+                cout<<"---------------------------------------------"<<endl;
                 cin >> opcion;
 
                 if ((opcion != 0) && (opcion != 1) && (opcion != 2))
@@ -916,11 +922,10 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 cout << "Ingrese ID del Cliente" << endl;
                 cin >> id;
 
-            
                 system("pause");
-// cout<<"cli.getIDCliente(): "<<cli.getIDCliente()<<endl;
-                
-                if (/*cli.getIDCliente() == -1 || cli.getIDCliente() == -2*/ValidarCliente(id)==false )
+                // cout<<"cli.getIDCliente(): "<<cli.getIDCliente()<<endl;
+
+                if (/*cli.getIDCliente() == -1 || cli.getIDCliente() == -2*/ ValidarCliente(id) == false)
                 {
                     cout << "Se registra el nuevo cliente" << endl;
 
@@ -928,13 +933,13 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
 
                     if (cli.GuardarArchivo() == true)
                     {
-                        cout << "se registro correctamente el cliente" << endl;
+                        cout << "Se registro correctamente el cliente" << endl;
                         system("pause");
                     }
                     else
                     {
 
-                        cout << "entro por aca" << endl;
+                         cout << "No se registro correctamente el cliente" << endl;
                         system("pause");
                     }
                 }
@@ -987,7 +992,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -1118,7 +1123,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
             system("pause");
         }
         break;
-        /*******************************************************************/
+            /*******************************************************************/
 
         case 0:
         {
@@ -1134,7 +1139,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -1147,7 +1152,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
 {
 
     Herramientas objH;
-    
+
     SaltoDeLinea();
     system("cls");
 
@@ -1157,9 +1162,11 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
+        cout << "----------------------------------------------------------------------" << endl;
         cout << "Opcion 1 ----> DETALLE TODAS LAS HERRAMIENTAS,PRECIO,STOCK" << endl;
         cout << "Opcion 2 ----> Cual Herramientas quiere y Mostraremos SU Precio y Stock" << endl;
         cout << "Opcion 3 ----> SELECCIONE HERRAMIENTA QUE QUIERE COMPRAR" << endl;
+        cout << "----------------------------------------------------------------------" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
         SaltoDeLinea();
@@ -1208,7 +1215,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -1295,7 +1302,7 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         {
             SaltoDeLinea();
             system("cls");
-            cout << "valor ingresado no existe dentro del menu" << endl;
+            cout << "Valor ingresado no existe dentro del menu" << endl;
             system("pause");
         }
         break;
@@ -1558,10 +1565,11 @@ void configuracionBackup()
         SaltoDeLinea();
         system("cls");
         cout << "           CONFIGURACION BACKUPS            " << endl;
-
+        cout << "----------------------------------------------"<<endl;
         cout << "1 ---> RESTAURAR BACKUP" << endl;
-        cout << "2 ---> CREAR BACKUP" << endl;
-        cout << "3 ---> MOSTRAR BACKUP" << endl;
+        cout << "2 ---> CREAR BACKUP    " << endl;
+        cout << "3 ---> MOSTRAR BACKUP  " << endl;
+        cout << "----------------------------------------------"<<endl;
         cout << "0 ---> SALIR" << endl;
 
         cout << "INGRESE UNA OPCION: ";
@@ -1578,7 +1586,7 @@ void configuracionBackup()
         }
         break;
         case 2:
-        SaltoDeLinea();
+            SaltoDeLinea();
             system("cls");
             CrearBackups();
             system("pause");
@@ -1964,7 +1972,7 @@ void MostrarBackups()
         break;
         case 2:
         {
-            
+
             SaltoDeLinea();
             system("cls");
             objBkpDuenio.MostrarBackup();
@@ -1975,6 +1983,7 @@ void MostrarBackups()
         {
             SaltoDeLinea();
             system("cls");
+            cout << "DATOS PLANTA: " << endl;
             objBkpPLanta.MostrarBackup();
             system("pause");
         }
@@ -1983,6 +1992,9 @@ void MostrarBackups()
         {
             SaltoDeLinea();
             system("cls");
+            cout << "DATOS AGROQUIMICOS: " << endl
+                 << endl
+                 << endl;
             objBkpAgroquimico.MostrarBackup();
             system("pause");
         }
@@ -1991,6 +2003,9 @@ void MostrarBackups()
         {
             SaltoDeLinea();
             system("cls");
+            cout << "DATOS HERRAMIENTAS: " << endl
+                 << endl
+                 << endl;
             objBkpHerramienta.MostrarBackup();
             system("pause");
         }
@@ -1999,6 +2014,9 @@ void MostrarBackups()
         {
             SaltoDeLinea();
             system("cls");
+            cout << "DATOS DETALLE DE FACTURA COMPRA: " << endl
+                 << endl
+                 << endl;
             objBkpDetalleFacturaCompra.MostrarBackup();
             system("pause");
         }
@@ -2007,20 +2025,28 @@ void MostrarBackups()
         {
             SaltoDeLinea();
             system("cls");
+            cout << "DATOS CLIENTE: " << endl
+                 << endl
+                 << endl;
             objBkpCliente.MostrarBackup();
             system("pause");
         }
         break;
         case 8:
-            
-        {SaltoDeLinea();
+
+        {
+            SaltoDeLinea();
             system("cls");
+            cout << "DATOS REGISTRO COMPRA: " << endl
+                 << endl
+                 << endl;
             objBkpRegistroCompra.MostrarBackup();
             system("pause");
         }
         break;
         case 9:
-        {SaltoDeLinea();
+        {
+            SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaVenta.MostrarBackup();
             system("pause");
@@ -2028,10 +2054,12 @@ void MostrarBackups()
         break;
 
         case 0: // finalizar el while
+
             return;
             break;
 
         default:
+            cout << "Valor no valido" << endl;
             break;
         }
     }
@@ -2045,26 +2073,26 @@ void LimpiarDatosDeArchivo()
     {
         SaltoDeLinea();
         system("cls");
-        cout << "1 - limpiar --> DetalleFacturaCompra.dat" << endl;
-        cout << "2 - limpiar --> registrocompra.dat" << endl;
-        cout << "3 - limpiar --> agroquimicos.dat" << endl;
-        cout << "4 - limpiar --> Cliente.dat" << endl;
-        cout << "5 - limpiar --> duenio.dat" << endl;
-        cout << "6 - limpiar --> herramientas.dat" << endl;
-        cout << "7 - limpiar --> planta.dat" << endl;
+        cout << "1 - Limpiar --> DetalleFacturaCompra.dat" << endl;
+        cout << "2 - Limpiar --> Registrocompra.dat" << endl;
+        cout << "3 - Limpiar --> Agroquimicos.dat" << endl;
+        cout << "4 - Limpiar --> Cliente.dat" << endl;
+        cout << "5 - Limpiar --> Duenio.dat" << endl;
+        cout << "6 - Limpiar --> Herramientas.dat" << endl;
+        cout << "7 - Limpiar --> Planta.dat" << endl;
 
         cout << endl
              << endl
-             << "limpiar Backups" << endl
+             << "Limpiar Backups" << endl
              << endl;
 
-        cout << "8 - limpiar --> bkpDetalleFacturaCompra.dat" << endl;
-        cout << "9 - limpiar --> bkpregistroCompra.dat" << endl;
-        cout << "10 - limpiar --> bkpAgroquimicos.dat" << endl;
-        cout << "11 - limpiar --> bkpCliente.dat" << endl;
-        cout << "12 - limpiar --> bkpduenio.dat" << endl;
-        cout << "13 - limpiar --> bkpherramientas.dat" << endl;
-        cout << "14 - limpiar --> bkpplanta.dat" << endl;
+        cout << "8 - Limpiar--> bkpDetalleFacturaCompra.dat" << endl;
+        cout << "9 - Limpiar--> bkpregistroCompra.dat" << endl;
+        cout << "10- Limpiar --> bkpAgroquimicos.dat" << endl;
+        cout << "11- Limpiar --> bkpCliente.dat" << endl;
+        cout << "12- Limpiar --> bkpduenio.dat" << endl;
+        cout << "13- Limpiar --> bkpherramientas.dat" << endl;
+        cout << "14- Limpiar --> bkpplanta.dat" << endl;
 
         cout << "0 - VOLVER" << endl;
 
@@ -2077,10 +2105,10 @@ void LimpiarDatosDeArchivo()
         {
 
             int valor;
-            cout << "si se Limpia DetalleFacturaCompra.dat" << endl;
-            cout << "se limpiara tambien registrocompra.dat" << endl;
+            cout << "Si se Limpia DetalleFacturaCompra.dat" << endl;
+            cout << "Se limpiara tambien registrocompra.dat" << endl;
             cout << "Y Viseversa" << endl;
-            cout << "quiere continuar" << endl;
+            cout << "Quiere continuar" << endl;
             cout << "SI == 1 / NO == 0" << endl;
             cin >> valor;
 
@@ -2097,7 +2125,7 @@ void LimpiarDatosDeArchivo()
                 }
                 else
                 {
-                    cout << "se limpiaron los archivos Correctamente" << endl;
+                    cout << "Se limpiaron los archivos Correctamente" << endl;
                     fclose(p1);
                     fclose(p2);
                 }
@@ -2105,7 +2133,7 @@ void LimpiarDatosDeArchivo()
             else
             {
 
-                cout << "no se limpiaron los datos" << endl;
+                cout << "No se limpiaron los datos" << endl;
             }
 
             system("pause");
@@ -2144,7 +2172,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2164,7 +2192,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2184,7 +2212,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2204,7 +2232,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2217,10 +2245,10 @@ void LimpiarDatosDeArchivo()
         {
 
             int valor;
-            cout << "si se Limpia DetalleFacturaCompra.dat" << endl;
+            cout << "Si se Limpia DetalleFacturaCompra.dat" << endl;
             cout << "se limpiara tambien registrocompra.dat" << endl;
             cout << "Y Viseversa" << endl;
-            cout << "quiere continuar" << endl;
+            cout << "Quiere continuar" << endl;
             cout << "SI == 1 / NO == 0" << endl;
             cin >> valor;
 
@@ -2237,7 +2265,7 @@ void LimpiarDatosDeArchivo()
                 }
                 else
                 {
-                    cout << "se limpiaron los archivos Correctamente" << endl;
+                    cout << "Se limpiaron los archivos Correctamente" << endl;
                     fclose(p1);
                     fclose(p2);
                 }
@@ -2245,7 +2273,7 @@ void LimpiarDatosDeArchivo()
             else
             {
 
-                cout << "no se limpiaron los datos" << endl;
+                cout << "No se limpiaron los datos" << endl;
             }
 
             system("pause");
@@ -2264,7 +2292,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2284,7 +2312,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2304,7 +2332,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2324,7 +2352,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2344,7 +2372,7 @@ void LimpiarDatosDeArchivo()
             }
             else
             {
-                cout << "se limpiaron los archivos Correctamente" << endl;
+                cout << "Se limpiaron los archivos Correctamente" << endl;
                 fclose(p1);
             }
 
@@ -2373,12 +2401,12 @@ void Informes()
         system("cls");
         cout << "1 -Recaudacion por Anio" << endl;
         cout << "2 -Recaudacion Mensual " << endl;
-        cout << "3 - Producto mas vendido" << endl;
-        cout << "4 - cantidad de Clientes" << endl;
-        cout << "5 - Cliente que mas compro " << endl;
-        cout << "6 - cantidad de compra por cliente" << endl;
+        cout << "3 -Producto mas vendido" << endl;
+        cout << "4 -Cantidad de Clientes" << endl;
+        cout << "5 -Cliente que mas compro " << endl;
+        cout << "6 -Cantidad de compra por cliente" << endl;
         cout << "-------------------------------------" << endl;
-        cout << "0- Salir" << endl;
+        cout << "0 -Salir" << endl;
         cout << "-------------------------------------" << endl;
 
         cout << "INGRESE UNA OPCION: ";
@@ -2402,12 +2430,12 @@ void Informes()
 
                 if (AnioIngresado > objF.getAnioActual())
                 {
-                    cout << "valor ingresado es mayor al anio actual, ingrese uno menor o igual" << endl;
+                    cout << "Valor ingresado es mayor al anio actual, ingrese uno menor o igual" << endl;
                 }
 
                 if (AnioIngresado < 1900)
                 {
-                    cout << "valor ingresado es menor a 1900, ingrese uno mayor o igual" << endl;
+                    cout << "Valor ingresado es menor a 1900, ingrese uno mayor o igual" << endl;
                 }
 
             } while ((AnioIngresado > objF.getAnioActual()) && (AnioIngresado < 1900));
@@ -2437,12 +2465,12 @@ void Informes()
 
                 if (mesIngresado > 12)
                 {
-                    cout << "valor ingresado es mayor a 12" << endl;
+                    cout << "Valor ingresado es mayor a 12" << endl;
                     band = false;
                 }
                 else if (mesIngresado < 1)
                 {
-                    cout << "valor ingresado es menor a 1" << endl;
+                    cout << "Valor ingresado es menor a 1" << endl;
                     band = false;
                 }
 
@@ -2673,7 +2701,7 @@ void Informes()
 
             cout << "El cliente que mas compras hizo es: " << endl;
             cout << objCliente.getApellido() << "," << objCliente.getNombre() << endl;
-            cout << "ID Cliente: " << objCliente.getIDCliente();
+            cout << "ID Cliente: " << objCliente.getIDCliente() << endl;
             cout << "Con un maximo de compra de: " << max << endl;
 
             system("pause");
