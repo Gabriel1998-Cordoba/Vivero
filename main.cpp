@@ -12,7 +12,39 @@
 
 int main()
 {
-   menuPrincipal();
+
+ menuPrincipal();
+
+  // Fecha objF;
+
+
+  // objF.Cargar();
+
+
+  //Tipo_Docu objT;
+//
+  //objT.CargarTipoDocu();
+
+
+
+
+  // Agroquimicos objP;
+  // bkpAgroquimicos objbkpPlanta;
+  
+  // objbkpPlanta.RestaurarBackup();
+
+  // objP.CargarArchivoAgroquimicos(99);
+  // objP.MostrarArchivoAgroquimicos();
+
+  // cout << "//////////////////////"<<endl<<"backup creado"<<endl<<"//////////////////////"<<endl;
+
+  // objbkpPlanta.CrearBackup();
+  // objbkpPlanta.MostrarBackup(); //o anda mal porque no muestra completo el archivo de respaldo
+
+
+
+
+
   return 0;
 }
 
