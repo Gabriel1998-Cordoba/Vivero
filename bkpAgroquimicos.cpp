@@ -44,6 +44,7 @@ bool bkpAgroquimicos::CrearBackup(){
         cout << "ERROR: No se pudo abrir el archivo de respaldo." << endl;
         cout<<"ERROR de bool bkpAgroquimicos::CrearBackup()"<<endl;
         fclose(original);  // Cierra el archivo original antes de salir
+        fclose(backup);
         return false;
     }
 
@@ -67,15 +68,15 @@ bool bkpAgroquimicos::CrearBackup(){
 }
 /*****************************************************************/
 void bkpAgroquimicos::MostrarBackup(){
-    FILE *p;
+    // FILE *p;
 
-    //abre el archivo de respaldo para lectura
-    p = fopen("bkpagroquimicos.dat","rb");
-    if(p==NULL){
-        cout<<"ERROR de void bkpAgroquimicos::MostrarBackup()"<<endl;
-        system("pause");
-        return;
-    }
+    // //abre el archivo de respaldo para lectura
+    // p = fopen("bkpagroquimicos.dat","rb");
+    // if(p==NULL){
+    //     cout<<"ERROR de void bkpAgroquimicos::MostrarBackup()"<<endl;
+    //     system("pause");
+    //     return;
+    // }
 
     //obtiene el número de registros en el archivo de respaldo
     int tam = objAgroquimicos.contarRegistros("bkpagroquimicos.dat");
@@ -85,7 +86,7 @@ void bkpAgroquimicos::MostrarBackup(){
         objAgroquimicos = objAgroquimicos.leerRegistroAgroquimicos(i,"bkpagroquimicos.dat");
         objAgroquimicos.MostrarAgroquimicos();
     }
-    fclose(p);
+    // fclose(p);
 
 }
 /*****************************************************************/

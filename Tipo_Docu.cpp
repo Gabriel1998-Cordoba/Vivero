@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "Tipo_Docu.h"
+#include "FuncionesGlobales.h"
 
 void Tipo_Docu::CargarTipoDocu()
 {
@@ -10,6 +11,7 @@ void Tipo_Docu::CargarTipoDocu()
     int indice;
     int TipoDoc[3] = {0};
     int numero;
+    bool band = true;
 
     do
     {
@@ -18,21 +20,31 @@ void Tipo_Docu::CargarTipoDocu()
         cout << "1 - DNI, 2 - Cuit, 3 - Cuil" << endl;
         cin >> indice;
 
-        indice--;
+        cout << "Ingrese numero: ";
+        cin >> numero;
 
-        if (setTipoDocu(indice, numero) == false)
+        band = existeDNI(indice, numero);
+
+        if (band == true)
         {
-            system("cls");
-            cout << "Tipo de Documento No valido" << endl
-                 << endl;
+            cout << "el DNI o CUIT o CUIL ya esta ingresado y es de alguna persona," << endl
+                 << "debe ingresar el suyo" << endl;
         }
         else
         {
-            cout << "Ingrese numero: ";
-            cin >> numero;
+
+            // cout << "indice: " << indice << endl;
+            // cout << "numero: " << numero << endl;
+
+            if (setTipoDocu(indice, numero) == false)
+            {
+                system("cls");
+                cout << "Tipo de Documento No valido" << endl
+                     << endl;
+            }
         }
 
-    } while (setTipoDocu(indice, numero) == false);
+    } while ((setTipoDocu(indice, numero) == false) | (band == true));
 }
 void Tipo_Docu::MostrarTipoDocu()
 {
@@ -51,17 +63,21 @@ void Tipo_Docu::MostrarTipoDocu()
             if (i == 0)
             {
                 cout << " DNI" << endl;
+                cout << "Su numero de documento es: " << valor << endl;
+                return;
             }
             else if (i == 1)
             {
                 cout << " Cuit" << endl;
+                cout << "Su numero de documento es: " << valor << endl;
+                return;
             }
             else if (i == 2)
             {
                 cout << " Cuil" << endl;
+                cout << "Su numero de documento es: " << valor << endl;
+                return;
             }
-
-            cout << "Ingrese numero: " << valor << endl;
         }
     }
 }

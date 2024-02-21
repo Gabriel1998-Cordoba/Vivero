@@ -8,11 +8,12 @@
 #include"Herramientas.h"
 #include"bkpHerramientas.h"
 #include"Fecha.h"
+#include"Tipo_Docu.h"
 
 int main()
 {
 
- menuPrincipal();
+ //menuPrincipal();
 
   // Fecha objF;
 
@@ -20,7 +21,9 @@ int main()
   // objF.Cargar();
 
 
+  Tipo_Docu objT;
 
+  objT.CargarTipoDocu();
 
 
 

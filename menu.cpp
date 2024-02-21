@@ -119,14 +119,14 @@ void menuDuenio(int opcion)
             cout << "BIENVENIDO DUENIO" << endl;
             cout << "Opcion 1 ----> Cargar Datos" << endl;    //'ab' de archivos
             cout << "Opcion 2 ----> Modificar Datos" << endl; //'rb' que lo lea y modifique
-            cout << "Opcion 3 ----> Mostrar Datos Duenio" << endl;
-            cout << "Opcion 4 ----> Borrar o Limpiar Datos" << endl; //'wb' de archivos == 'baja Fisica'
-            cout << "Opcion 6 ----> Listar Datos" << endl;           // seleccionar el archivo que quieres que abra y muestre
-            cout << "Opcion 8 ----> Informes" << endl;               // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 9 ----> Consulta x de factura" << endl;  // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 10----> Cargar Datos Del Duenio" << endl;
-            cout << "Opcion 11----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            cout << "Opcion 12----> Limpiar Archivos .dat" << endl;   // los borra con 'wb'
+            // cout << "Opcion 3 ----> Mostrar Datos Duenio" << endl;
+            // cout << "Opcion 4 ----> Borrar o Limpiar Datos" << endl; //'wb' de archivos == 'baja Fisica'
+            cout << "Opcion 3 ----> Listar Datos" << endl;           // seleccionar el archivo que quieres que abra y muestre
+            cout << "Opcion 4 ----> Informes" << endl;               // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 5 ----> Consulta x de factura" << endl;  // esto lo hacemos como prueba, para ver si todo funciona bien
+            cout << "Opcion 6----> Cargar Datos Del Duenio" << endl;
+            cout << "Opcion 7----> CONFIGURACION de backup" << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
+            cout << "Opcion 8---> Limpiar Archivos .dat" << endl;   // los borra con 'wb'
 
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -151,33 +151,16 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
+            
+            // case 3:
+            // {
+            //     system("cls");
+            //     // Para hacer
+            //     system("pause");
+            // }
+            // break;
+                /*******************************************************************/
             case 3:
-            {
-                SaltoDeLinea();
-                system("cls");
-                Duenio objDD;
-                objDD.MostrarDatosDeDuenioEnArchivo();
-                system("pause");
-            }
-            break;
-                /*******************************************************************/
-            case 4:
-            {
-                system("cls");
-                LimpiarDatos(opcion);
-                system("pause");
-            }
-            break;
-                /*******************************************************************/
-            case 5:
-            {
-                system("cls");
-                // Para hacer
-                system("pause");
-            }
-            break;
-                /*******************************************************************/
-            case 6:
             {
                 // system("cls");
                 system("clear");
@@ -185,16 +168,16 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 7:
-            {
+            // case 4:
+            // {
 
-                system("cls");
-                // ContarRegistros(opcion);
-                system("pause");
-            }
-            break;
+            //     system("cls");
+            //     // ContarRegistros(opcion);
+            //     system("pause");
+            // }
+            // break;
                 /*******************************************************************/
-            case 8:
+            case 4:
             {
 
                 system("cls");
@@ -203,7 +186,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 9:
+            case 5:
             {
 
                 system("cls");
@@ -214,7 +197,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 10:
+            case 6:
             {
 
                 system("cls");
@@ -223,7 +206,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 11:
+            case 7:
             {
                 system("cls");
                 configuracionBackup();
@@ -231,7 +214,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 12:
+            case 8:
             {
                 system("cls");
                 LimpiarDatosDeArchivo();
@@ -240,26 +223,7 @@ void menuDuenio(int opcion)
             }
             break;
                 /*******************************************************************/
-            case 13:
-            {
-                system("cls");
-                // Backup objBkp;
-                // objBkp.MostrarBackupDatosDuenio();
-
-                system("pause");
-            }
-            break;
-                /*******************************************************************/
-            case 14:
-            {
-                system("cls");
-                // Backup objBkp;
-                // objBkp.ReemplazarDatosDuenioConBackup();
-
-                system("pause");
-            }
-            break;
-                /*******************************************************************/
+           
             case 0:
             {
                 system("cls");
@@ -465,11 +429,13 @@ void LimpiarDatos(int opcion)
 ///////////////////////////////////////////////////////////////////////////
 void ListarDatos(int opcion)
 {
+    SaltoDeLinea();
+     system("cls");
     Planta obtP;
     Herramientas obtH;
     Agroquimicos obtA;
 
-    system("cls");
+   
 
     while (true)
     {
@@ -882,9 +848,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 cout << "Ingrese ID del Cliente" << endl;
                 cin >> id;
 
-                cli = cli.ValidarCliente(id);
-
-                if (cli.getIDCliente() == -1 || cli.getIDCliente() == -2)
+            
+                system("pause");
+// cout<<"cli.getIDCliente(): "<<cli.getIDCliente()<<endl;
+                
+                if (/*cli.getIDCliente() == -1 || cli.getIDCliente() == -2*/ValidarCliente(id)==false )
                 {
                     cout << "Se registra el nuevo cliente" << endl;
 
@@ -1793,6 +1761,7 @@ void MostrarBackups()
         {
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--.--" << endl;
             cout << "DATOS DUENIO: " << endl
@@ -1840,6 +1809,8 @@ void MostrarBackups()
         break;
         case 2:
         {
+            
+            SaltoDeLinea();
             system("cls");
             objBkpDuenio.MostrarBackup();
             system("pause");
@@ -1847,6 +1818,7 @@ void MostrarBackups()
         break;
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpPLanta.MostrarBackup();
             system("pause");
@@ -1854,6 +1826,7 @@ void MostrarBackups()
         break;
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpAgroquimico.MostrarBackup();
             system("pause");
@@ -1861,6 +1834,7 @@ void MostrarBackups()
         break;
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpHerramienta.MostrarBackup();
             system("pause");
@@ -1868,6 +1842,7 @@ void MostrarBackups()
         break;
         case 6:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaCompra.MostrarBackup();
             system("pause");
@@ -1875,20 +1850,22 @@ void MostrarBackups()
         break;
         case 7:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpCliente.MostrarBackup();
             system("pause");
         }
         break;
         case 8:
-        {
+            
+        {SaltoDeLinea();
             system("cls");
             objBkpRegistroCompra.MostrarBackup();
             system("pause");
         }
         break;
         case 9:
-        {
+        {SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaVenta.MostrarBackup();
             system("pause");

@@ -3,6 +3,7 @@
 #include <iomanip>
 using namespace std;
 #include "FuncionesGlobales.h"
+#include "Cliente.h"
 
 void cargarCadena(char *palabra, int tamano)
 {
@@ -69,7 +70,7 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
         }
         break;
     default:
-    
+
         break;
     }
 }
@@ -117,12 +118,8 @@ void GenerarFactura(RegistroCompra objR)
         {
             if (cont)
             {
-               printf("%-20s%-15s%-15s%-15s%-15s\n", "Codigo Articulo" ,"Descripcion"," Precio","Cantidad", "SubTotal");
-                // cout <<left<<setw(20)<< "Codigo Articulo "
-                //      <<setw(15)<< "Descripcion "
-                //      <<setw(15)<< "Precio "
-                //      <<setw(15)<< "Cantidad "
-                //     <<setw(15)<< "SubTotal " << endl;
+               printf("%-20s%-15s%-15s%-15s%-15s\n", "Codigo Articulo" ,"Descripcion","Precio","Cantidad", "SubTotal");
+              
                 cont = false;
             }
             ArticulosXFactura(objD);
@@ -135,27 +132,6 @@ void GenerarFactura(RegistroCompra objR)
 
 
 
-/**************************************************************************/
-
-    // // Mostrar los datos en el formato deseado
-    // cout << left << setw(15) << "Nombre" 
-    //      << setw(15) << "Apellido" 
-    //      << setw(15) << "Edad" << endl;
-
-    // cout << left << setw(15) << nombre 
-    //      << setw(15) << apellido 
-    //      << setw(15) << edad << endl;
-
-    // cout<<endl<<endl<<"////////////////////////////////"<<endl<<endl<<endl;
-    
-/**************************************************************************/
-
-    // //libreria necesaria = #include <cstdio>
-
-    // printf("%-15s%-15s%-15s\n", "Nombre", "Apellido", "Edad");
-    // printf("%-15s%-15s%-15d\n", nombre, apellido, edad);
-
-/**************************************************************************/
 
 }
 void FacturaXNroFactura()
@@ -529,4 +505,22 @@ bool prueba(int _dia, int _mes, int _anio)
     }
 
     return true;
+}
+
+
+bool existeDNI(int indice,int numero){
+    Cliente objC;
+
+    int tam = objC.CONtarRegistros();
+
+    for(int i=0; i<tam; i++){
+        objC = objC.leerRegistros(i);
+
+       if((objC.getTipoDoc().getTipoDocu(indice-1) == numero) && (indice == objC.getTipoDoc().getIndice() )){
+        return true;
+       }
+    }
+
+    return false;
+
 }

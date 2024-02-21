@@ -21,10 +21,11 @@ int CONtarRegistros(const char *ruta = "Cliente.dat");
 void CargarDatosClienteEnArchivo();
 void MostrarDatosClienteEnArchivo();
 Cliente leerRegistros(int indice,const char* ruta = "Cliente.dat");
-Cliente  ValidarCliente(int id);
+
 
 };
 /////
 bool Existe(Cliente cli );
-int contarRegistros();
+bool  ValidarCliente(int id);
+// int contarRegistros();
 //bool ValidarCliente(int dni);

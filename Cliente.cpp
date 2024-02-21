@@ -17,7 +17,7 @@ const char *Cliente::getNombre(){
 }
 void Cliente::setIDCliente(int idCliente)
 {
-    _idCliente;
+    _idCliente = idCliente;
 }
 void Cliente::setApellido(const char *apellido)
 {
@@ -33,7 +33,7 @@ const char *Cliente::getApellido()
 }
 void Cliente::Cargar()
 {
-    int auxiliarValidacion = contarRegistros();
+    int auxiliarValidacion = CONtarRegistros();
     if (auxiliarValidacion == -1)
     {
         _idCliente = auxiliarValidacion + 2;
@@ -102,23 +102,23 @@ int Cliente::CONtarRegistros(const char *ruta)
     fclose(p);
     return tam / sizeof(Cliente);
 }
-int contarRegistros()
-{
-    FILE *p;
-    p = fopen("Cliente.dat", "rb");
-    if (p == NULL)
-        return -1;
-    fseek(p, 0, 2);
-    int tam = ftell(p);
-    fclose(p);
-    return tam / sizeof(Cliente);
-}
+// int contarRegistros()
+// {
+//     FILE *p;
+//     p = fopen("Cliente.dat", "rb");
+//     if (p == NULL)
+//         return -1;
+//     fseek(p, 0, 2);
+//     int tam = ftell(p);
+//     fclose(p);
+//     return tam / sizeof(Cliente);
+// }
 
 bool Existe(Cliente cli)
 {
     Cliente reg;
     int tam = 0;
-    tam = contarRegistros();
+    tam = reg.CONtarRegistros();
 
     for (int i = 0; i < tam; i++)
     {
@@ -148,9 +148,8 @@ void Cliente::CargarDatosClienteEnArchivo()
     fclose(p);
 }
 void Cliente::MostrarDatosClienteEnArchivo()
-{
-    
-    
+{  
+   
     Cliente reg;
     FILE *p;
 
@@ -184,58 +183,41 @@ Cliente Cliente::leerRegistros(int indice, const char *ruta)
     return reg;
 }
 
-// bool ValidarCliente(int id)
-// {
-
-//     Cliente reg;
-
-//     int tam = 0;
-//     tam = contarRegistros();
-
-//     if (tam == -1)
-//     {
-//       return false;
-//     }
-//     else
-//     {
-
-//           for (int i = 0; i < tam; i++)
-//         {
-//             reg.LeerArchivo(i);
-//             if (reg.getIDCliente() == id)//-1
-//             {
-//                 return true;
-//             }
-//         }
-//     }
-
-//     return false;
-// }
-Cliente Cliente :: ValidarCliente(int id)
+bool  ValidarCliente(int id)
 {
+Cliente reg;
 
-    Cliente reg;
-
-    int tam = 0;
-    tam = contarRegistros();
+    int tam =0 ;
+    tam = reg.CONtarRegistros();
 
     if (tam == -1)
     {
-        reg.setIDCliente(tam);
-      return reg;
+      return false;
     }
     else
     {
 
           for (int i = 0; i < tam; i++)
         {
-            reg.LeerArchivo(i);
-            if (reg.getIDCliente() == id)//-1
+           reg = reg.leerRegistros(i);
+            if ((reg.getIDCliente()) == (id))//-1
             {
-                return reg;
+                //cout<<"return 1"<<endl;                
+                // cli.setIDCliente(-3);
+                // cout<<"reg.getIDCliente(): "<<reg.getIDCliente()<<endl;
+                return true;
+                
+            }else
+            {
+return false;
             }
         }
     }
-reg.setIDCliente(-2);
-    return reg ;
+    
+// cli.setIDCliente(-2);
+// cout<<"reg.getIDCliente(): "<<reg.getIDCliente()<<endl;
+// cout<<"return 2"<<endl;
+
+    return false;
+  
 }

@@ -1,28 +1,43 @@
 #pragma once
 
-class Tipo_Docu{
+using namespace std;
 
-    private:
-        int _TipoDoc[3]={-1}; //(1 DNI, 2 Cuit, 3 Cuil)
-        int _indice=-1;
-        int _numero;
+#include<iostream>
 
-    public:
+class Tipo_Docu
+{
 
-bool setTipoDocu(int index, int value) {
-if(index >= 0 && index <3) {
-_TipoDoc[index] = value;
-return true;
-    } else {
-        // Manejar el error de índice fuera de rango
-     return false;
+private:
+    int _TipoDoc[3] = {-1}; //(1 DNI, 2 Cuit, 3 Cuil)
+    int _indice = -1;
+    int _numero;
+
+public:
+    bool setTipoDocu(int index, int value)
+    {
+
+        
+
+        if (index >= 0 && index <=2)
+        {
+            _TipoDoc[index-1] = value;
+            return true;
+        }
+        else
+        {
+            // Manejar el error de índice fuera de rango
+            return false;
+        }
     }
-}
 
-    int getTipoDocu(int index) {
-        if(index >= 0 && index < 3) {
+    int getTipoDocu(int index)
+    {
+        if (index >= 0 && index < 3)
+        {
             return _TipoDoc[index];
-        } else {
+        }
+        else
+        {
             // Manejar el error de índice fuera de rango
             return -1;
         }
@@ -30,10 +45,10 @@ return true;
 
     void setNumero(int numero) { _numero = numero; }
     int getNumero() const { return _numero; }
-    
+
     void CargarTipoDocu();
     void MostrarTipoDocu();
 
     int getIndice() const { return _indice; }
-    void setIndice(int indice) { _indice = indice;}
+    void setIndice(int indice) { _indice = indice; }
 };
