@@ -57,6 +57,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Herramientas objH) // prueba
 
         if (objH.getStock() == 0)
         {
+            SaltoDeLinea();
             system("cls");
             cout << "no hay stock para esta herramienta" << endl;
             band = false;
@@ -88,6 +89,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Herramientas objH) // prueba
                 }
                 else
                 {
+                    SaltoDeLinea();
                     system("cls");
                     cout << "la cantidad disponible es: " << objH.getStock() << endl;
                     band = true;
@@ -95,6 +97,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Herramientas objH) // prueba
             }
             else if (cant < 0)
             {
+                SaltoDeLinea();
                 system("cls");
                 cout << "la cantidad debe de ser positivo" << endl;
                 band = true;
@@ -120,6 +123,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Planta objP) // prueba
 
         if (objP.getStock() == 0)
         {
+            SaltoDeLinea();
             system("cls");
             cout << "no hay stock para esta herramienta" << endl;
             band = false;
@@ -151,6 +155,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Planta objP) // prueba
                 }
                 else
                 {
+                    SaltoDeLinea();
                     system("cls");
                     cout << "la cantidad disponible es: " << objP.getStock() << endl;
                     band = true;
@@ -158,6 +163,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Planta objP) // prueba
             }
             else if (cant < 0)
             {
+                SaltoDeLinea();
                 system("cls");
                 cout << "la cantidad debe de ser positivo" << endl;
                 band = true;
@@ -183,6 +189,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Agroquimicos objA) // prueba
 
         if (objA.getStock() == 0)
         {
+            SaltoDeLinea();
             system("cls");
             cout << "no hay stock para esta herramienta" << endl;
             band = false;
@@ -214,6 +221,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Agroquimicos objA) // prueba
                 }
                 else
                 {
+                    SaltoDeLinea();
                     system("cls");
                     cout << "la cantidad disponible es: " << objA.getStock() << endl;
                     band = true;
@@ -221,6 +229,7 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Agroquimicos objA) // prueba
             }
             else if (cant < 0)
             {
+                SaltoDeLinea();
                 system("cls");
                 cout << "la cantidad debe de ser positivo" << endl;
                 band = true;

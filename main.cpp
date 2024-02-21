@@ -13,7 +13,7 @@
 int main()
 {
 
- //menuPrincipal();
+ menuPrincipal();
 
   // Fecha objF;
 
@@ -21,9 +21,9 @@ int main()
   // objF.Cargar();
 
 
-  Tipo_Docu objT;
-
-  objT.CargarTipoDocu();
+  //Tipo_Docu objT;
+//
+  //objT.CargarTipoDocu();
 
 
 

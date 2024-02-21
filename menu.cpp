@@ -10,12 +10,14 @@ void menuPrincipal()
     while (true)
     {
 
+        SaltoDeLinea();
         system("cls");
         cout << "opcion 1 ----> Movimientos Empresa" << endl;
         cout << "opcion 2 ----> Movimientos Persona" << endl;
         cout << "opcion 3 ----> Movimientos Duenio" << endl;
         cout << "opcion 0 ----> Fin del Programa" << endl;
         cin >> opcion;
+        SaltoDeLinea();
         system("cls");
 
         switch (opcion)
@@ -26,6 +28,7 @@ void menuPrincipal()
         {
             // menuEmpresa(opcion);
             cout << "En construccion" << endl;
+            SaltoDeLinea();
             system("cls");
         }
         break;
@@ -33,6 +36,7 @@ void menuPrincipal()
         case 2:
         {
             menuPersona(opcion);
+            SaltoDeLinea();
             system("cls");
         }
         break;
@@ -40,12 +44,14 @@ void menuPrincipal()
         case 3:
         {
             menuDuenio(opcion);
+            SaltoDeLinea();
             system("cls");
         }
         break;
             /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "fin del programa" << endl;
             system("pause");
@@ -55,6 +61,7 @@ void menuPrincipal()
             /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -100,6 +107,7 @@ void menuDuenio(int opcion)
 
         if ((i == 4) && (band == 0))
         {
+            SaltoDeLinea();
             system("cls");
             cout << "no ingresaste correctamente el usuario y contracenia" << endl;
             system("pause");
@@ -131,12 +139,14 @@ void menuDuenio(int opcion)
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
             
+            SaltoDeLinea();
             system("cls");
             switch (opcion)
             {
                 /*******************************************************************/
             case 1:
             {
+                SaltoDeLinea();
                 system("cls");
                 CargarDatos(opcion);
                 system("pause");
@@ -145,6 +155,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 2:
             {
+                SaltoDeLinea();
                 system("cls");
                 // ModificarDatos(opcion);
                 system("pause");
@@ -154,6 +165,7 @@ void menuDuenio(int opcion)
             
             // case 3:
             // {
+                 //SaltoDeLinea();
             //     system("cls");
             //     // Para hacer
             //     system("pause");
@@ -162,6 +174,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 3:
             {
+                // SaltoDeLinea();
                 // system("cls");
                 system("clear");
                 ListarDatos(opcion);
@@ -170,7 +183,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             // case 4:
             // {
-
+            //     SaltoDeLinea();
             //     system("cls");
             //     // ContarRegistros(opcion);
             //     system("pause");
@@ -179,7 +192,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 4:
             {
-
+                SaltoDeLinea();
                 system("cls");
                 Informes();
                 system("pause");
@@ -188,7 +201,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 5:
             {
-
+                SaltoDeLinea();
                 system("cls");
 
                 FacturaXNroFactura();
@@ -199,7 +212,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 6:
             {
-
+                SaltoDeLinea();
                 system("cls");
                 CargarDatosDelDuenio(opcion);
                 system("pause");
@@ -208,6 +221,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 7:
             {
+                SaltoDeLinea();
                 system("cls");
                 configuracionBackup();
                 system("pause");
@@ -216,6 +230,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             case 8:
             {
+                SaltoDeLinea();
                 system("cls");
                 LimpiarDatosDeArchivo();
 
@@ -226,6 +241,7 @@ void menuDuenio(int opcion)
            
             case 0:
             {
+                SaltoDeLinea();
                 system("cls");
                 cout << "Saliste" << endl;
                 system("pause");
@@ -235,6 +251,7 @@ void menuDuenio(int opcion)
                 /*******************************************************************/
             default:
             {
+                SaltoDeLinea();
                 system("cls");
                 cout << "valor ingresado no existe dentro del menu" << endl;
                 system("pause");
@@ -254,6 +271,7 @@ void CargarDatos(int opcion)
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Cargar?" << endl
              << endl;
@@ -263,6 +281,8 @@ void CargarDatos(int opcion)
         cout << "Opcion 3 ---> Agroquimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
@@ -270,12 +290,15 @@ void CargarDatos(int opcion)
         case 1:
         {
 
+            SaltoDeLinea();
             system("cls");
             int tam = 0, cantidad;
             Planta obtP;
             tam = obtP.contarRegistros();
             cout << "Ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
+
+            SaltoDeLinea();
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
@@ -287,11 +310,13 @@ void CargarDatos(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             Herramientas objH;
             int cantidad;
             cout << "Ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
+            SaltoDeLinea();
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
@@ -303,11 +328,14 @@ void CargarDatos(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             int cantidad;
             Agroquimicos objA;
             cout << "ingrese Cantidad de Registros a Ingresar" << endl;
             cin >> cantidad;
+
+            SaltoDeLinea();
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
@@ -320,6 +348,7 @@ void CargarDatos(int opcion)
             /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -329,6 +358,7 @@ void CargarDatos(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -345,6 +375,7 @@ void LimpiarDatos(int opcion)
     Herramientas obtH;
     Agroquimicos obtA;
 
+    SaltoDeLinea();
     system("cls");
     cout << "Que quieres   ? " << endl
          << endl;
@@ -353,12 +384,15 @@ void LimpiarDatos(int opcion)
     cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
     cout << "Opcion 0 ----> salir" << endl;
     cin >> opcion;
+
+    SaltoDeLinea();
     system("cls");
     switch (opcion)
     {
     /*******************************************************************/
     case 1:
     {
+        SaltoDeLinea();
         system("cls");
 
         if (obtP.borrarRegistroPlanta() == true)
@@ -379,6 +413,7 @@ void LimpiarDatos(int opcion)
     /*******************************************************************/
     case 2:
     {
+        SaltoDeLinea();
         system("cls");
         if (obtH.borrarRegistroHerramienta() == true)
         {
@@ -394,6 +429,7 @@ void LimpiarDatos(int opcion)
     /*******************************************************************/
     case 3:
     {
+        SaltoDeLinea();
         system("cls");
         if (obtA.borrarRegistroAgroquimicos() == true)
         {
@@ -409,6 +445,7 @@ void LimpiarDatos(int opcion)
         /*******************************************************************/
     case 0:
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Saliste" << endl;
         system("pause");
@@ -418,6 +455,7 @@ void LimpiarDatos(int opcion)
     /*******************************************************************/
     default:
     {
+        SaltoDeLinea();
         system("cls");
         cout << "valor ingresado no existe dentro del menu" << endl;
         system("pause");
@@ -440,6 +478,7 @@ void ListarDatos(int opcion)
     while (true)
     {
         system("cls");
+        SaltoDeLinea();
         cout << "Que quieres Listar?" << endl
              << endl;
         cout << "Opcion 1 ---> planta.dat" << endl;       // Crear funcion que carge plantas a un Archivos
@@ -453,6 +492,8 @@ void ListarDatos(int opcion)
         cout << "Opcion 9 ---> registroVenta" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
@@ -573,6 +614,7 @@ void ListarDatos(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -592,6 +634,7 @@ void CargarDatosDelDuenio(int opcion)
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Listar?" << endl
              << endl;
@@ -602,18 +645,23 @@ void CargarDatosDelDuenio(int opcion)
         cout << "Opcion 5 ----> Borrar Datos Del Duenio" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
 
             int tam = 0, cantidad;
 
             cout << "ingrese Cantidad de Registros" << endl;
             cin >> cantidad;
+
+            SaltoDeLinea();
             system("cls");
             for (int i = 0; i < cantidad; i++)
             {
@@ -625,6 +673,7 @@ void CargarDatosDelDuenio(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             objD.MostrarDatosDeDuenioEnArchivo();
             system("pause");
@@ -633,6 +682,7 @@ void CargarDatosDelDuenio(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objD.CambiarSueldoCargadoEnArchivo();
             system("pause");
@@ -641,6 +691,7 @@ void CargarDatosDelDuenio(int opcion)
             /*******************************************************************/
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             objD.MostrarSueldoCargadoEnArchivo();
             system("pause");
@@ -649,6 +700,7 @@ void CargarDatosDelDuenio(int opcion)
             /*******************************************************************/
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             objD.BorrarDatosDelDuenio();
             system("pause");
@@ -657,6 +709,7 @@ void CargarDatosDelDuenio(int opcion)
             /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -666,6 +719,7 @@ void CargarDatosDelDuenio(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -679,15 +733,19 @@ void CargarDatosDelDuenio(int opcion)
 void menuPersona(int opcion)
 {
 
+    SaltoDeLinea();
     system("cls");
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Opcion 1 ----> Comprar" << endl;
         cout << "Opcion 2 ----> Vender" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
@@ -720,6 +778,7 @@ void menuPersona(int opcion)
                 objR.setIdCompra(tam + 1);
             }
 
+            SaltoDeLinea();
             system("cls");
             menuCompraPersona(opcion, objR);
             system("pause");
@@ -728,6 +787,7 @@ void menuPersona(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             menuVentaPersona(opcion);
             system("pause");
@@ -736,6 +796,7 @@ void menuPersona(int opcion)
         /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -745,6 +806,7 @@ void menuPersona(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -757,6 +819,7 @@ void menuPersona(int opcion)
 ///////////////////////////////////////////////////////////////////////////
 void menuCompraPersona(int opcion, RegistroCompra objR)
 {
+    SaltoDeLinea();
     system("cls");
 
     bkpAgroquimicos objBkpAgroquimico;
@@ -773,6 +836,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
     bool bandAgroquimicos = false;
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
@@ -783,13 +847,14 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         cout << "¿Opcion 0 ----> Ya termino de Comprar?" << endl;
 
         cin >> opcion;
-
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
 
             bandHerramientas = true;
@@ -801,6 +866,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
 
             bandPlanta = true;
@@ -812,6 +878,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
 
             bandAgroquimicos = true;
@@ -823,7 +890,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
 
         case 0:
         {
-
+            SaltoDeLinea();
             system("cls");
 
             do
@@ -876,11 +943,13 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                     cout << "EL CLIENTE ESTA REGISTRADO..." << endl;
                     system("pause");
                 }
+                SaltoDeLinea();
                 system("cls");
                 objR.CargarCompra(objR, cli.getIDCliente());
 
                 if (objR.GuardarCompra())
                 {
+                    SaltoDeLinea();
                     system("cls");
                     bkpRegistroCompra objBkpRefistroCompra;
                     objBkpRefistroCompra.CrearBackup();
@@ -915,6 +984,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -929,6 +999,7 @@ void menuVentaPersona(int opcion)
 {
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Vender?" << endl
              << endl;
@@ -941,12 +1012,14 @@ void menuVentaPersona(int opcion)
 
         cin >> opcion;
 
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             menuVentaHerramientaPersona(opcion);
             system("pause");
@@ -955,6 +1028,7 @@ void menuVentaPersona(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             menuVentaPlantaPersona(opcion);
             system("pause");
@@ -963,6 +1037,7 @@ void menuVentaPersona(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             menuVentaAgroquimicosPersona(opcion);
             system("pause");
@@ -971,7 +1046,7 @@ void menuVentaPersona(int opcion)
         /*******************************************************************/
         case 0:
         {
-
+            SaltoDeLinea();
             system("cls");
             return;
         }
@@ -979,6 +1054,7 @@ void menuVentaPersona(int opcion)
             //     /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -992,11 +1068,13 @@ void menuVentaPersona(int opcion)
 
 void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
 {
+    SaltoDeLinea();
     system("cls");
     Planta objP;
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Comprar?" << endl;
         cout << "----------------------------------------------------------------------" << endl;
@@ -1007,12 +1085,15 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
 
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             objP.Opcion1Compra();
             system("pause");
@@ -1021,6 +1102,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             objP.Opcion2Compra();
             system("pause");
@@ -1029,6 +1111,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objP.Opcion3Compra(objR);
             system("pause");
@@ -1038,6 +1121,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
 
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -1047,6 +1131,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -1061,11 +1146,13 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
 {
 
     Herramientas objH;
-
+    
+    SaltoDeLinea();
     system("cls");
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Comprar?" << endl
              << endl;
@@ -1074,12 +1161,14 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         cout << "Opcion 3 ----> SELECCIONE HERRAMIENTA QUE QUIERE COMPRAR" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             objH.Opcion1Compra();
             system("pause");
@@ -1088,6 +1177,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             objH.Opcion2Compra();
             system("pause");
@@ -1096,6 +1186,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objH.Opcion3Compra(objR);
             system("pause");
@@ -1104,6 +1195,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -1113,6 +1205,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -1125,6 +1218,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
 ///////////////////////////////////////////////////////////////////////////
 void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
 {
+    SaltoDeLinea();
     system("cls");
 
     Agroquimicos objA;
@@ -1143,6 +1237,7 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Comprar?" << endl;
         cout << "----------------------------------------------------------------------" << endl;
@@ -1152,12 +1247,15 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         cout << "----------------------------------------------------------------------" << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             objA.Opcion1Compra();
             system("pause");
@@ -1166,6 +1264,7 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             objA.Opcion2Compra();
             system("pause");
@@ -1174,6 +1273,7 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objA.Opcion3Compra(idCompra);
             system("pause");
@@ -1182,6 +1282,7 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -1191,6 +1292,7 @@ void menuCompraAgroquimicosPersona(int opcion, RegistroCompra objR)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -1205,6 +1307,7 @@ void menuVentaPlantaPersona(int opcion)
 {
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Vender?" << endl
              << endl;
@@ -1213,12 +1316,14 @@ void menuVentaPlantaPersona(int opcion)
         cout << "Opcion 3 ----> " << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1226,6 +1331,7 @@ void menuVentaPlantaPersona(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1233,6 +1339,7 @@ void menuVentaPlantaPersona(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1240,6 +1347,7 @@ void menuVentaPlantaPersona(int opcion)
         /*******************************************************************/
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1247,6 +1355,7 @@ void menuVentaPlantaPersona(int opcion)
             /*******************************************************************/
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1254,6 +1363,7 @@ void menuVentaPlantaPersona(int opcion)
         /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -1263,6 +1373,7 @@ void menuVentaPlantaPersona(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -1278,6 +1389,7 @@ void menuVentaHerramientaPersona(int opcion)
 {
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Vender?" << endl
              << endl;
@@ -1286,12 +1398,14 @@ void menuVentaHerramientaPersona(int opcion)
         cout << "Opcion 3 ----> " << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1299,6 +1413,7 @@ void menuVentaHerramientaPersona(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1306,6 +1421,7 @@ void menuVentaHerramientaPersona(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1313,6 +1429,7 @@ void menuVentaHerramientaPersona(int opcion)
         /*******************************************************************/
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1320,6 +1437,7 @@ void menuVentaHerramientaPersona(int opcion)
             /*******************************************************************/
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1327,6 +1445,7 @@ void menuVentaHerramientaPersona(int opcion)
         /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -1336,6 +1455,7 @@ void menuVentaHerramientaPersona(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -1350,6 +1470,7 @@ void menuVentaAgroquimicosPersona(int opcion)
 {
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "Que quieres Vender?" << endl
              << endl;
@@ -1358,12 +1479,14 @@ void menuVentaAgroquimicosPersona(int opcion)
         cout << "Opcion 3 ----> " << endl;
         cout << "Opcion 0 ----> salir" << endl;
         cin >> opcion;
+        SaltoDeLinea();
         system("cls");
         switch (opcion)
         {
         /*******************************************************************/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1371,6 +1494,7 @@ void menuVentaAgroquimicosPersona(int opcion)
         /*******************************************************************/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1378,6 +1502,7 @@ void menuVentaAgroquimicosPersona(int opcion)
         /*******************************************************************/
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1385,6 +1510,7 @@ void menuVentaAgroquimicosPersona(int opcion)
         /*******************************************************************/
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1392,6 +1518,7 @@ void menuVentaAgroquimicosPersona(int opcion)
             /*******************************************************************/
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             system("pause");
         }
@@ -1399,6 +1526,7 @@ void menuVentaAgroquimicosPersona(int opcion)
         /*******************************************************************/
         case 0:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "Saliste" << endl;
             system("pause");
@@ -1408,6 +1536,7 @@ void menuVentaAgroquimicosPersona(int opcion)
         /*******************************************************************/
         default:
         {
+            SaltoDeLinea();
             system("cls");
             cout << "valor ingresado no existe dentro del menu" << endl;
             system("pause");
@@ -1425,6 +1554,7 @@ void configuracionBackup()
     int opc;
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "           CONFIGURACION BACKUPS            " << endl;
 
@@ -1439,6 +1569,7 @@ void configuracionBackup()
         {
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             RestarurarBackups();
 
@@ -1446,12 +1577,14 @@ void configuracionBackup()
         }
         break;
         case 2:
+        SaltoDeLinea();
             system("cls");
             CrearBackups();
             system("pause");
 
             break;
         case 3:
+            SaltoDeLinea();
             system("cls");
             MostrarBackups();
             system("pause");
@@ -1481,6 +1614,7 @@ void CrearBackups()
     int opc;
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "1 - CREAR TODOS LOS BACKUPS     " << endl;
         cout << "2 - CREAR BACKUP DUENIO         " << endl;
@@ -1500,6 +1634,7 @@ void CrearBackups()
         {
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDuenio.CrearBackup();
             objBkpPLanta.CrearBackup();
@@ -1514,6 +1649,7 @@ void CrearBackups()
         break;
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDuenio.CrearBackup();
             system("pause");
@@ -1521,6 +1657,7 @@ void CrearBackups()
         break;
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpPLanta.CrearBackup();
             system("pause");
@@ -1528,6 +1665,7 @@ void CrearBackups()
         break;
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpAgroquimico.CrearBackup();
             system("pause");
@@ -1535,6 +1673,7 @@ void CrearBackups()
         break;
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpHerramienta.CrearBackup();
             system("pause");
@@ -1542,6 +1681,7 @@ void CrearBackups()
         break;
         case 6:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaCompra.CrearBackup();
             system("pause");
@@ -1549,6 +1689,7 @@ void CrearBackups()
         break;
         case 7:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpCliente.CrearBackup();
             system("pause");
@@ -1556,6 +1697,7 @@ void CrearBackups()
         break;
         case 8:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpRegistroCompra.CrearBackup();
             system("pause");
@@ -1563,6 +1705,7 @@ void CrearBackups()
         break;
         case 9:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaVenta.CrearBackup();
             system("pause");
@@ -1581,7 +1724,7 @@ void CrearBackups()
 /*******************************************************************/
 void RestarurarBackups()
 {
-
+    SaltoDeLinea();
     system("cls");
 
     bkpDuenio objBkpDuenio;
@@ -1596,6 +1739,7 @@ void RestarurarBackups()
     int opc;
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "1 - RESTAURAR TODOS LOS BACKUPS     " << endl;
         cout << "2 - RESTAURAR BACKUP DUENIO         " << endl;
@@ -1615,6 +1759,7 @@ void RestarurarBackups()
         {
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
 
             int cont = 0;
@@ -1662,6 +1807,7 @@ void RestarurarBackups()
         break;
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDuenio.RestaurarBackup();
             system("pause");
@@ -1669,6 +1815,7 @@ void RestarurarBackups()
         break;
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpPLanta.RestaurarBackup();
             system("pause");
@@ -1676,6 +1823,7 @@ void RestarurarBackups()
         break;
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpAgroquimico.RestaurarBackup();
             system("pause");
@@ -1683,6 +1831,7 @@ void RestarurarBackups()
         break;
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpHerramienta.RestaurarBackup();
             system("pause");
@@ -1690,6 +1839,7 @@ void RestarurarBackups()
         break;
         case 6:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaCompra.RestaurarBackup();
             system("pause");
@@ -1697,6 +1847,7 @@ void RestarurarBackups()
         break;
         case 7:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpCliente.RestaurarBackup();
             system("pause");
@@ -1704,6 +1855,7 @@ void RestarurarBackups()
         break;
         case 8:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpRegistroCompra.RestaurarBackup();
             system("pause");
@@ -1711,6 +1863,7 @@ void RestarurarBackups()
         break;
         case 9:
         {
+            SaltoDeLinea();
             system("cls");
             objBkpDetalleFacturaVenta.RestaurarBackup();
             system("pause");
@@ -1742,6 +1895,7 @@ void MostrarBackups()
     int opc;
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "1 - MOSTRAR TODOS LOS BACKUPS     " << endl;
         cout << "2 - MOSTRAR BACKUP DUENIO         " << endl;
@@ -1888,6 +2042,7 @@ void LimpiarDatosDeArchivo()
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "1 - limpiar --> DetalleFacturaCompra.dat" << endl;
         cout << "2 - limpiar --> registrocompra.dat" << endl;
@@ -1930,6 +2085,7 @@ void LimpiarDatosDeArchivo()
 
             if (valor == 1)
             {
+                SaltoDeLinea();
                 system("cls");
                 FILE *p1, *p2;
                 p1 = fopen("DetalleFacturaCompra.dat", "wb");
@@ -1957,6 +2113,7 @@ void LimpiarDatosDeArchivo()
 
         case 3:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("agroquimicos.dat", "wb");
@@ -1976,6 +2133,7 @@ void LimpiarDatosDeArchivo()
 
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("Cliente.dat", "wb");
@@ -1995,6 +2153,7 @@ void LimpiarDatosDeArchivo()
 
         case 5:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("duenio.dat", "wb");
@@ -2014,6 +2173,7 @@ void LimpiarDatosDeArchivo()
 
         case 6:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("herramientas.dat", "wb");
@@ -2033,6 +2193,7 @@ void LimpiarDatosDeArchivo()
 
         case 7:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("planta.dat", "wb");
@@ -2064,6 +2225,7 @@ void LimpiarDatosDeArchivo()
 
             if (valor == 1)
             {
+                SaltoDeLinea();
                 system("cls");
                 FILE *p1, *p2;
                 p1 = fopen("bkpDetalleFacturaCompra.dat", "wb");
@@ -2091,6 +2253,7 @@ void LimpiarDatosDeArchivo()
 
         case 10:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("bkpagroquimicos.dat", "wb");
@@ -2110,6 +2273,7 @@ void LimpiarDatosDeArchivo()
 
         case 11:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("bkpCliente.dat", "wb");
@@ -2129,6 +2293,7 @@ void LimpiarDatosDeArchivo()
 
         case 12:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("bkpduenio.dat", "wb");
@@ -2148,6 +2313,7 @@ void LimpiarDatosDeArchivo()
 
         case 13:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("bkpherramientas.dat", "wb");
@@ -2167,6 +2333,7 @@ void LimpiarDatosDeArchivo()
 
         case 14:
         {
+            SaltoDeLinea();
             system("cls");
             FILE *p1;
             p1 = fopen("bkpplanta.dat", "wb");
@@ -2201,6 +2368,7 @@ void Informes()
 
     while (true)
     {
+        SaltoDeLinea();
         system("cls");
         cout << "1 -Recaudacion por Anio" << endl;
         cout << "2 -Recaudacion Mensual " << endl;
@@ -2220,6 +2388,7 @@ void Informes()
             /*//////////////////////////////////*/
         case 1:
         {
+            SaltoDeLinea();
             system("cls");
 
             Fecha objF;
@@ -2250,6 +2419,7 @@ void Informes()
             /*//////////////////////////////////*/
         case 2:
         {
+            SaltoDeLinea();
             system("cls");
 
             // nos falta poner que dectecte si el año es bisiesto
@@ -2292,7 +2462,7 @@ void Informes()
 
         case 3:
         {
-
+            SaltoDeLinea();
             system("cls");
 
             int indicePlanta = 0;
@@ -2457,6 +2627,7 @@ void Informes()
             /*//////////////////////////////////*/
         case 4:
         {
+            SaltoDeLinea();
             system("cls");
             // cout << "4 - cantidad de Clientes" << endl;
             Cliente objCliente;
@@ -2469,6 +2640,7 @@ void Informes()
         case 5:
 
         {
+            SaltoDeLinea();
             system("cls");
 
             // cout << "5 - Cliente que mas compro " << endl;
@@ -2512,6 +2684,7 @@ void Informes()
         case 6:
         {
             // cout << "6 - cantidad de compra por cliente" << endl;
+            SaltoDeLinea();
             system("cls");
             Cliente objCliente;
             const int tam = objCliente.CONtarRegistros();

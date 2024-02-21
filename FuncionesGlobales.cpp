@@ -77,7 +77,9 @@ void ArticulosXFactura(DetalleFacturaCompra objDF)
 }
 
 void GenerarFactura(RegistroCompra objR)
-{system("cls");
+{
+    SaltoDeLinea();
+    system("cls");
     int tam = 0, total = 0;
     bool cont = true;
     DetalleFacturaCompra objD;
@@ -143,6 +145,7 @@ void FacturaXNroFactura()
     cout << "ingrese numero de factura" << endl;
     cin >> nroFactura;
 
+    SaltoDeLinea();
     system("cls");
 
     RegistroCompra objRegistroCompra;

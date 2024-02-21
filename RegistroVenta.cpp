@@ -129,6 +129,7 @@ RegistroVenta RegistroVenta::leerRegistro(int pos, const char *nombre)
 
 void RegistroVenta::MostrarArchivoVenta()
 {
+    SaltoDeLinea();
     system("cls");
     RegistroVenta ClassM;
     FILE *p;
