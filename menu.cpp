@@ -157,6 +157,7 @@ void menuDuenio(int opcion)
             {
                 SaltoDeLinea();
                 system("cls");
+                cout<<"FALTA HACERLO"<<endl;
                 // ModificarDatos(opcion);
                 system("pause");
             }
