@@ -39,7 +39,7 @@ void Sujeto::CargarSujeto(/*int totalDeRegistros,int TipoDeArticulo*/)
     cout << "TELEFONO: ";
     cargarCadena(telefono, 50);
     setTelefono(telefono);
-    cout << "ESTADO: " << estado << endl;
+    //cout << "ESTADO: " << estado << endl;
     setEstado(estado);
     cout << "EMAIL: ";
     cargarCadena(email, 50);
@@ -51,7 +51,7 @@ void Sujeto::MostrarSujeto()
     _TipoDoc.MostrarTipoDocu();
     _direccion.MostrarDireccion();
     cout << "Su telefono es: " << getTelefono() << endl;
-    cout << "Su estado es: " << getEstado() << endl;
+    // cout << "Su estado es: " << getEstado() << endl;
     cout << "Su email es: " << getEmail() << endl
          << endl;
     cout << ".........................." << endl;

@@ -102,18 +102,6 @@ int Cliente::CONtarRegistros(const char *ruta)
     fclose(p);
     return tam / sizeof(Cliente);
 }
-// int contarRegistros()
-// {
-//     FILE *p;
-//     p = fopen("Cliente.dat", "rb");
-//     if (p == NULL)
-//         return -1;
-//     fseek(p, 0, 2);
-//     int tam = ftell(p);
-//     fclose(p);
-//     return tam / sizeof(Cliente);
-// }
-
 bool Existe(Cliente cli)
 {
     Cliente reg;
