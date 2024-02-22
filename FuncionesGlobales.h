@@ -30,3 +30,4 @@ int ContadorDeCliente(int idCliente);
 bool AnioBisiesto(int anio);
 bool prueba(int _dia,int _mes,int _anio);
 bool existeDNI(int indice,int numero);
+void MostrarMaximo(int *vP ,int indice1 ,int *vH2,int indice2 ,int *vA3,int indice3);

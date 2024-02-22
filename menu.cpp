@@ -2582,71 +2582,7 @@ void Informes()
                     indiceAgroquimicos = buscarMaximo(vAgroquimicos, tamRegAgroquimicos);
                 }
             }
-
-            int max1 = vPlanta[indicePlanta];
-            int maxPrime = max1;
-            int indicePrime = indicePlanta;
-            int max2 = vHerramienta[indiceHerramientas];
-            int max3 = vAgroquimicos[indiceAgroquimicos];
-
-            if (max2 > maxPrime)
-            {
-
-                maxPrime = max2;
-                indicePrime = indiceHerramientas;
-
-                if (max3 > maxPrime)
-                {
-
-                    maxPrime = max3;
-                    indicePrime = indiceAgroquimicos;
-
-                    objA = BuscarAgroquimicos(indicePrime + 1);
-                    cout << "El Producto mas vendido es: " << endl;
-                    cout << "----------------------------" << endl;
-                    objA.Mostrar();
-                    cout << "----------------------------" << endl;
-                    cout << "con un maximo de ventas de : " << maxPrime << endl;
-                    system("pause");
-                }
-                else
-                {
-
-                    objH = BuscarHerramienta(indicePrime + 1);
-                    cout << "El Producto mas vendido es: " << endl;
-                    cout << "----------------------------" << endl;
-                    objH.Mostrar();
-                    cout << "----------------------------" << endl;
-                    cout << "con un maximo de ventas de : " << maxPrime << endl;
-                    system("pause");
-                }
-            }
-            else if (max3 > maxPrime)
-            {
-
-                maxPrime = max3;
-                indicePrime = indiceAgroquimicos;
-                objA = BuscarAgroquimicos(indicePrime + 1);
-                cout << "El Producto mas vendido es: " << endl;
-                cout << "----------------------------" << endl;
-                objA.Mostrar();
-                cout << "----------------------------" << endl;
-                cout << "con un maximo de ventas de : " << maxPrime << endl;
-                system("pause");
-            }
-            else
-            {
-
-                int maxPrime = max1;
-                int indicePrime = indicePlanta;
-                objP = BuscarPlanta(indicePrime + 1);
-                cout << "El Producto mas vendido es: " << endl;
-                cout << "----------------------------" << endl;
-                objP.Mostrar();
-                cout << "----------------------------" << endl;
-                cout << "con un maximo de ventas de : " << maxPrime << endl;
-                system("pause");
-            }
+MostrarMaximo(vPlanta,indicePlanta,vHerramienta,indiceHerramientas,vAgroquimicos,indiceAgroquimicos);
             system("pause");
             delete[] vPlanta;
             delete[] vHerramienta;

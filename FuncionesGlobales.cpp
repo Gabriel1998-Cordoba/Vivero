@@ -542,3 +542,75 @@ bool existeDNI(int indice, int numero)
 
     return false;
 }
+
+void MostrarMaximo(int *vP, int indiceP, int *vH, int indiceH, int *vA, int indiceA)
+{
+    Planta objP;
+    Herramientas objH;
+    Agroquimicos objA;
+    
+    int max1 = vP[indiceP];
+    int maxPrime = max1;
+    int indicePrime = indiceP;
+    int max2 = vH[indiceH];
+    int max3 = vA[indiceH];
+
+    if (max2 > maxPrime)
+    {
+
+        maxPrime = max2;
+        indicePrime = indiceH;
+
+        if (max3 > maxPrime)
+        {
+
+            maxPrime = max3;
+            indicePrime = indiceA;
+
+            objA = BuscarAgroquimicos(indicePrime + 1);
+            cout << "El Producto mas vendido es: " << endl;
+            cout << "----------------------------" << endl;
+            objA.Mostrar();
+            cout << "----------------------------" << endl;
+            cout << "con un maximo de ventas de : " << maxPrime << endl;
+            system("pause");
+        }
+        else
+        {
+
+            objH = BuscarHerramienta(indicePrime + 1);
+            cout << "El Producto mas vendido es: " << endl;
+            cout << "----------------------------" << endl;
+            objH.Mostrar();
+            cout << "----------------------------" << endl;
+            cout << "con un maximo de ventas de : " << maxPrime << endl;
+            system("pause");
+        }
+    }
+    else if (max3 > maxPrime)
+    {
+
+        maxPrime = max3;
+        indicePrime = indiceA;
+        objA = BuscarAgroquimicos(indicePrime + 1);
+        cout << "El Producto mas vendido es: " << endl;
+        cout << "----------------------------" << endl;
+        objA.Mostrar();
+        cout << "----------------------------" << endl;
+        cout << "con un maximo de ventas de : " << maxPrime << endl;
+        system("pause");
+    }
+    else
+    {
+
+        int maxPrime = max1;
+        int indicePrime = indiceP;
+        objP = BuscarPlanta(indicePrime + 1);
+        cout << "El Producto mas vendido es: " << endl;
+        cout << "----------------------------" << endl;
+        objP.Mostrar();
+        cout << "----------------------------" << endl;
+        cout << "con un maximo de ventas de : " << maxPrime << endl;
+        system("pause");
+    }
+}
