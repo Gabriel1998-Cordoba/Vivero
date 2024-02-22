@@ -43,11 +43,12 @@ void RegistroCompra::CargarCompra(RegistroCompra objR ,int idcliente) // Desarro
     cout << "CARGAR REGISTRO COMPRA : " << endl;
     //cout << "Fecha: " << endl;
     //f.Cargar();
-    //setFecha(f);
 
     f.setDia(f.getDiaActual());
     f.setMes(f.getMesActual());
     f.setAnio(f.getAnioActual());
+    
+    setFecha(f);
 
     int band = false;
     do

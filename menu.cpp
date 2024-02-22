@@ -28,6 +28,7 @@ void menuPrincipal()
         {
             // menuEmpresa(opcion);
             cout << "En construccion" << endl;
+            system("pause");
             SaltoDeLinea();
             system("cls");
         }

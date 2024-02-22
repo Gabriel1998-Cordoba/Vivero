@@ -32,6 +32,7 @@ void Sujeto::CargarSujeto(/*int totalDeRegistros,int TipoDeArticulo*/)
     cout << "FECHA DE NACIMIENTO: " << endl;
     _fecha.Cargar(); // hay que tomarla del sistema,hacer una funcion para cargar la fecha
 
+
     _TipoDoc.CargarTipoDocu();
 
     _direccion.CargarDireccion();
