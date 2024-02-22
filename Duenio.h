@@ -19,6 +19,8 @@ public:
     void CargarDuenio();/*int totalDeRegistros,int TipoDeArticulo*/
     void MostrarDuenio();
 
+    void Mostrarr();
+
     void CargarDatosDeDuenioEnArchivo();/*int totalDeRegistros,int TipoDeArticulo*/
     void MostrarDatosDeDuenioEnArchivo(); 
     void CambiarSueldoCargadoEnArchivo();
@@ -35,5 +37,6 @@ void vaciar(const char *);
 bool guardar(Duenio*vec, int cantidadRegistrosAEscribir,const char *);
     bool reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar);
     
+
 
 };

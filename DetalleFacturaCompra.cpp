@@ -21,6 +21,10 @@ int DetalleFacturaCompra::getCantidad() { return _cantidad; }
 float DetalleFacturaCompra::getPrecio() { return _precio; }
 int DetalleFacturaCompra::getTipoDeArticulo() { return _TipoDeArticulo; }
 
+void DetalleFacturaCompra::Mostrarr(){
+    Mostrar();
+}
+
 void DetalleFacturaCompra::Mostrar()
 {
     // cout<<"ID Articulo: "<<getIdArticulo()<<endl;

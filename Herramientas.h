@@ -13,6 +13,10 @@ public:
 
         void CargarHerramienta(int totalDeRegistros, int TipoDeArticulo);
         void MostrarHerramienta();
+
+        void Mostrarr();
+
+
         void setMaterial(const char *);
         int contarRegistros(const char *nombre = "herramientas.dat");
         bool borrarRegistroHerramienta();

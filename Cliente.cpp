@@ -5,6 +5,10 @@ using namespace std;
 #include "Cliente.h"
 #include "FuncionesGlobales.h"
 
+void Cliente::Mostrarr(){
+    Mostrar();
+}
+
 Cliente::Cliente()
 {
     _idCliente = 0;
@@ -200,4 +204,16 @@ return false;
     }
     return false;
   
+}
+bool Cliente::reemplazarRegistroCliente(Cliente reg, int posicionAReemplazar)
+{
+    FILE *p = fopen("Cliente.dat", "rb+");
+    if (p == NULL)
+    {
+        return false;
+    }
+    fseek(p, posicionAReemplazar * sizeof(Duenio), SEEK_SET);
+    bool pudoEscribir = fwrite(&reg, sizeof(Duenio), 1, p);
+    fclose(p);
+    return pudoEscribir;
 }

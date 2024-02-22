@@ -9,6 +9,10 @@ using namespace std;
 #include "Articulo.h"
 #include "Herramientas.h"
 
+void Herramientas::Mostrarr(){
+    MostrarHerramienta();
+}
+
 void Herramientas::setMaterial(const char *material)
 {
     strcpy(_material, material);

@@ -5,7 +5,7 @@
 void menuPrincipal()
 {
 
-    int opcion;
+ int opcion;
 
     while (true)
     {
@@ -133,9 +133,9 @@ void menuDuenio(int opcion)
             cout << "Opcion 3 ----> Listar Datos            " << endl; // seleccionar el archivo que quieres que abra y muestre
             cout << "Opcion 4 ----> Informes                " << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
             cout << "Opcion 5 ----> Consulta x de factura   " << endl; // esto lo hacemos como prueba, para ver si todo funciona bien
-            cout << "Opcion 6----> Cargar Datos Del Duenio  " << endl;
-            cout << "Opcion 7----> Configuracion de backup  " << endl; // Crear una solapa de configuracion,que contenga las copias de seguridad
-            cout << "Opcion 8---> Limpiar Archivos .dat     " << endl; // los borra con 'wb'
+            cout << "Opcion 6 ----> Cargar Datos Del Duenio  " << endl;
+            cout << "Opcion 7 ----> Configuracion de backup  " << endl;  // Crear una solapa de configuracion,que contenga las copias de seguridad
+            cout << "Opcion 8 ----> Limpiar Archivos .dat     " << endl; // los borra con 'wb'
             cout << "---------------------------------------" << endl;
             cout << "Opcion 0 ----> salir" << endl; //--> Salir a Menu Principal
             cin >> opcion;
@@ -158,8 +158,7 @@ void menuDuenio(int opcion)
             {
                 SaltoDeLinea();
                 system("cls");
-                cout << "FALTA HACERLO" << endl;
-                // ModificarDatos(opcion);
+                ModificarDatos(opcion);
                 system("pause");
             }
             break;
@@ -371,102 +370,7 @@ void CargarDatos(int opcion)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-// void LimpiarDatos(int opcion)
-// {
-//     Planta obtP;
-//     Herramientas obtH;
-//     Agroquimicos obtA;
 
-//     SaltoDeLinea();
-//     system("cls");
-//     cout << "Que quieres   ? " << endl
-//          << endl;
-//     cout << "Opcion 1 ---> Plantas" << endl;       // Crear funcion que carge plantas a un Archivos
-//     cout << "Opcion 2 ---> Herramientas" << endl;  // Crear funcion que carge Herramientas a un Archivos
-//     cout << "Opcion 3 ---> Agro Quimicos" << endl; // Crear funcion que carge Agro Quimicos a un Archivos
-//     cout << "Opcion 0 ----> salir" << endl;
-//     cin >> opcion;
-
-//     SaltoDeLinea();
-//     system("cls");
-//     switch (opcion)
-//     {
-//     /*******************************************************************/
-//     case 1:
-//     {
-//         SaltoDeLinea();
-//         system("cls");
-
-//         if (obtP.borrarRegistroPlanta() == true)
-//         {
-//             cout << "Se borro Correctamente" << endl;
-//         }
-//         else
-//         {
-//             cout << "No se pudo borrar" << endl;
-//         }
-
-//         system("pause");
-//         // ARMAR UNA FUNCION QUE PERMITA CARGAR EN ARCHIVO Planta
-//         //  Planta ob1;
-//         //  ob1.Cargar();
-//     }
-//     break;
-//     /*******************************************************************/
-//     case 2:
-//     {
-//         SaltoDeLinea();
-//         system("cls");
-//         if (obtH.borrarRegistroHerramienta() == true)
-//         {
-//             cout << "Se borro Correctamente" << endl;
-//         }
-//         else
-//         {
-//             cout << "NO se pudo borrar" << endl;
-//         }
-//         system("pause");
-//     }
-//     break;
-//     /*******************************************************************/
-//     case 3:
-//     {
-//         SaltoDeLinea();
-//         system("cls");
-//         if (obtA.borrarRegistroAgroquimicos() == true)
-//         {
-//             cout << "se borro Correctamente" << endl;
-//         }
-//         else
-//         {
-//             cout << "No se pudo borrar" << endl;
-//         }
-//         system("pause");
-//     }
-//     break;
-//         /*******************************************************************/
-//     case 0:
-//     {
-//         SaltoDeLinea();
-//         system("cls");
-//         cout << "Saliste" << endl;
-//         system("pause");
-//         return;
-//     }
-//     break;
-//     /*******************************************************************/
-//     default:
-//     {
-//         SaltoDeLinea();
-//         system("cls");
-//         cout << "valor ingresado no existe dentro del menu" << endl;
-//         system("pause");
-//     }
-//     break;
-//         /*******************************************************************/
-//     }
-// }
-///////////////////////////////////////////////////////////////////////////
 void ListarDatos(int opcion)
 {
     SaltoDeLinea();
@@ -901,11 +805,11 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
 
             do
             {
-                cout<<"---------------------------------------------"<<endl;
-                cout <<"Quieres Registrar la Compra?   --->  == 0   "<< endl;
-                cout <<"NO quiero esta compra          --->  == 1   "<< endl;
-                cout <<"Quieres Comprar otra cosa mas? --->  == 2   "<< endl;
-                cout<<"---------------------------------------------"<<endl;
+                cout << "---------------------------------------------" << endl;
+                cout << "Quieres Registrar la Compra?   --->  == 0   " << endl;
+                cout << "NO quiero esta compra          --->  == 1   " << endl;
+                cout << "Quieres Comprar otra cosa mas? --->  == 2   " << endl;
+                cout << "---------------------------------------------" << endl;
                 cin >> opcion;
 
                 if ((opcion != 0) && (opcion != 1) && (opcion != 2))
@@ -940,7 +844,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                     else
                     {
 
-                         cout << "No se registro correctamente el cliente" << endl;
+                        cout << "No se registro correctamente el cliente" << endl;
                         system("pause");
                     }
                 }
@@ -1566,11 +1470,11 @@ void configuracionBackup()
         SaltoDeLinea();
         system("cls");
         cout << "           CONFIGURACION BACKUPS            " << endl;
-        cout << "----------------------------------------------"<<endl;
+        cout << "----------------------------------------------" << endl;
         cout << "1 ---> RESTAURAR BACKUP" << endl;
         cout << "2 ---> CREAR BACKUP    " << endl;
         cout << "3 ---> MOSTRAR BACKUP  " << endl;
-        cout << "----------------------------------------------"<<endl;
+        cout << "----------------------------------------------" << endl;
         cout << "0 ---> SALIR" << endl;
 
         cout << "INGRESE UNA OPCION: ";
@@ -2583,7 +2487,7 @@ void Informes()
                     indiceAgroquimicos = buscarMaximo(vAgroquimicos, tamRegAgroquimicos);
                 }
             }
-MostrarMaximo(vPlanta,indicePlanta,vHerramienta,indiceHerramientas,vAgroquimicos,indiceAgroquimicos);
+            MostrarMaximo(vPlanta, indicePlanta, vHerramienta, indiceHerramientas, vAgroquimicos, indiceAgroquimicos);
             system("pause");
             delete[] vPlanta;
             delete[] vHerramienta;
@@ -2683,6 +2587,258 @@ MostrarMaximo(vPlanta,indicePlanta,vHerramienta,indiceHerramientas,vAgroquimicos
         }
         break;
             /*//////////////////////////////////*/
+        }
+    }
+}
+void ModificarDatos(int opc)
+{
+
+    while (true)
+    {
+        SaltoDeLinea();
+        system("cls");
+        cout << "1 - MODIFICAR  DUENIO         " << endl;
+        cout << "2 - MODIFICAR  PLANTA         " << endl;
+        cout << "3 - MODIFICAR  AGROQUIMICOS   " << endl;
+        cout << "4 - MODIFICAR  HERRAMIENTA               " << endl;
+        cout << "5 - MODIFICAR  CLIENTE                  " << endl;
+
+        cout << "0 - VOLVER" << endl;
+
+        cout << "INGRESE UNA OPCION: ";
+        cin >> opc;
+        switch (opc)
+        {
+        /*************************************/
+        case 1:
+        {
+            SaltoDeLinea();
+            system("cls");
+
+            Duenio objD;
+            Direccion objDirec;
+            char email[30];
+            char telefono[50];
+            Fecha f;
+            bool estado;
+            int sueldo;
+            Tipo_Docu objTD;
+            MostrarPorPosicion("duenio.dat", objD);
+
+            int posi;
+
+            cout << "Ingrese Posicion Que Quiera Reemplazar" << endl;
+            cin >> posi;
+
+            objD = objD.leerRegistro(posi - 1, "duenio.dat");
+            cout << "Telefono: ";
+            cin >> telefono;
+            objD.setTelefono(telefono);
+            cout << "Documento: ";
+            objTD.CargarTipoDocu();
+            objD.setTipoDoc(objTD);
+            cout << "Email: ";
+            cargarCadena(email, 30);
+            objD.setEmail(email);
+            cout << "Direccion: ";
+            objDirec.CargarDireccion();
+            objD.setDireccion(objDirec);
+            cout << "Fecha: " << endl;
+            f.Cargar();
+            objD.setFecha(f);
+            cout << "Sueldo: ";
+            cin >> sueldo;
+         cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cin >> estado;
+            objD.setEstado(estado),
+            objD.reemplazarRegistroDuenio(objD, posi - 1);
+
+            system("pause");
+        }
+        break;
+        /*************************************/
+        case 2:
+        {
+            SaltoDeLinea();
+            system("cls");
+
+            Planta objP;
+            int indice = 0, stock;
+            float precio;
+            bool estado;
+            objP.MostrarArchivoPlanta();
+            cout << "Elije Posicion(ID) Que Quieres Modificar" << endl;
+            cin >> indice;
+            objP = BuscarPlanta(indice);
+            cout << "Precio: ";
+            cin >> precio;
+            cout << "Stock: ";
+            cin >> stock;
+        cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cin >> estado;
+            objP.setPrecio(precio);
+            objP.setStock(stock);
+            objP.setEstado(estado);
+            if (objP.reemplazarRegistroPlanta(objP, (indice - 1)) == true)
+            {
+                cout << "Se Reemplazo Correctamente" << endl;
+            }
+            else
+            {
+                cout << "No se Reemplazo Correctamente" << endl;
+            }
+
+            system("pause");
+        }
+        break;
+        /*************************************/
+        case 3:
+        {
+            SaltoDeLinea();
+            system("cls");
+            Agroquimicos objAgro;
+            MostrarPorPosicion("agroquimicos.dat", objAgro);
+
+            int indice = 0, stock;
+            float precio;
+            bool estado;
+            cout << "Elije Posicion(ID) Que Quieres Modificar" << endl;
+            cin >> indice;
+            objAgro = BuscarAgroquimicos(indice);
+            cout << "Precio: ";
+            cin >> precio;
+            cout << "Stock: ";
+            cin >> stock;
+         cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cin >> estado;
+            objAgro.setPrecio(precio);
+            objAgro.setStock(stock);
+            objAgro.setEstado(estado);
+            if (objAgro.reemplazarRegistroAgroquimicos(objAgro, (indice - 1)) == true)
+            {
+                cout << "Se Reemplazo Correctamente" << endl;
+            }
+            else
+            {
+                cout << "No se Reemplazo Correctamente" << endl;
+            }
+
+            system("pause");
+        }
+        break;
+        /*************************************/
+        case 4:
+        {
+            SaltoDeLinea();
+            system("cls");
+            Herramientas objH;
+            FuncionesGlobales objFG;
+
+            objFG.MostrarPorPosicion("agroquimicos.dat", objH);
+
+
+            int indice = 0, stock;
+            float precio;
+            bool estado;
+            cout << "Elije Posicion(ID) Que Quieres Modificar" << endl;
+            cin >> indice;
+            objH = BuscarHerramienta(indice);
+            cout << "Precio: ";
+            cin >> precio;
+            cout << "Stock: ";
+            cin >> stock;
+           cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cin >> estado;
+            objH.setPrecio(precio);
+            objH.setStock(stock);
+            objH.setEstado(estado);
+            if (objH.reemplazarRegistroHerramienta(objH, (indice - 1)) == true)
+            {
+                cout << "Se Reemplazo Correctamente" << endl;
+            }
+            else
+            {
+                cout << "No se Reemplazo Correctamente" << endl;
+            }
+
+            system("pause");
+        }
+        break;
+        /*************************************/
+        /*************************************/
+        case 5:
+        {
+           
+            SaltoDeLinea();
+            system("cls");
+            Cliente objC;
+            Direccion objDirec;
+            char email[30];
+            char telefono[50];
+            Fecha f;
+            bool estado;
+            int sueldo;
+            Tipo_Docu objTD;
+            
+            MostrarPorPosicion("Cliente.dat", objC);
+
+            int posi;
+
+            cout << "Ingrese Posicion Que Quiera Reemplazar" << endl;
+            cin >> posi;
+
+            objC = objC.leerRegistros(posi - 1);
+            cout << "Telefono: ";
+            cin >> telefono;
+            objC.setTelefono(telefono);
+            cout << "Documento: ";
+            objTD.CargarTipoDocu();
+            objC.setTipoDoc(objTD);
+            cout << "Email: ";
+            cargarCadena(email, 30);
+            objC.setEmail(email);
+            cout << "Direccion: ";
+            objDirec.CargarDireccion();
+            objC.setDireccion(objDirec);
+            cout << "Fecha: " << endl;
+            f.Cargar();
+            objC.setFecha(f);
+            cout << "Sueldo: ";
+            cin >> sueldo;
+
+            cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cin >> estado;
+            objC.setEstado(estado),
+                objC.reemplazarRegistroCliente(objC, posi - 1);
+
+            system("pause");
+        }
+        break;
+        /*************************************/
+       
+        
+        case 0:
+        {
+            SaltoDeLinea();
+            system("cls");
+
+            cout << "Saliste" << endl;
+
+            system("pause");
+            return;
+        } // finalizar el while
+        /*************************************/
+        default:
+        {
+            SaltoDeLinea();
+            system("cls");
+
+            cout << "Opcion ingresada no existe en el menu, vuelva a ingresar otro valor" << endl;
+
+            system("pause");
+        }
+        break;
+            /*************************************/
         }
     }
 }

@@ -16,6 +16,10 @@ public:
     void CargarAgroquimicos(int TipoDeArticulo);
     void MostrarAgroquimicos();
 
+    void Mostrarr();
+
+
+
     int contarRegistros(const char *ruta = "agroquimicos.dat");
     bool borrarRegistroAgroquimicos();
     Agroquimicos leerRegistroAgroquimicos(int pos, const char *ruta = "agroquimicos.dat");

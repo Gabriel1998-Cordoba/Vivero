@@ -62,6 +62,9 @@ void Planta::MostrarPlanta()
     cout << "Estacion: " << getEstacion() << endl
          << endl;
 }
+void Planta::Mostrarr(){
+    MostrarPlanta();
+}
 
 int Planta::contarRegistros(const char *nombre)
 {
@@ -255,3 +258,4 @@ bool Planta::MostrarArchivoPlanta()
 
     return true;
 }
+

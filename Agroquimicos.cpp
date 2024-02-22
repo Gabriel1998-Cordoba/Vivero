@@ -10,6 +10,10 @@ using namespace std;
 #include "bkpDetalleFacturaCompra.h"
 
 /***************************************************************/
+void Agroquimicos::Mostrarr(){
+    MostrarAgroquimicos();
+}
+/***************************************************************/
 void Agroquimicos::setTipoAgroquimico(int tipoAgroquimico)
 {
     _tipoAgroquimico = tipoAgroquimico;

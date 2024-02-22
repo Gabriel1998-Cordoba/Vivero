@@ -60,5 +60,7 @@ void MostrarDatosDetalleFacturaCompraEnArchivo();
 
 void Mostrar();
 
+void Mostrarr();
+
 ~DetalleFacturaCompra();
 };

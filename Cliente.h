@@ -22,6 +22,9 @@ void CargarDatosClienteEnArchivo();
 void MostrarDatosClienteEnArchivo();
 Cliente leerRegistros(int indice,const char* ruta = "Cliente.dat");
 
+void Mostrarr();
+bool reemplazarRegistroCliente(Cliente reg, int posicionAReemplazar);
+
 
 };
 /////

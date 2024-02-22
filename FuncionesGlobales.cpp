@@ -4,6 +4,96 @@
 using namespace std;
 #include "FuncionesGlobales.h"
 #include "Cliente.h"
+#include "Duenio.h"
+
+int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta){
+
+
+    bool band=false;
+    string iComoCadena1;
+
+    int numeroInt;
+
+    for(int i=0; i<=hasta; i++){
+
+        iComoCadena1 = to_string(i);
+
+        if(strcmp(texto,iComoCadena1.c_str()) == 0){
+            band=true;
+        }
+
+    }
+
+
+    if(band==true){
+
+        numeroInt = atoi(texto);
+
+        return numeroInt;
+    }else{
+        return -1;
+    }
+
+}
+
+/*******************************************************************************/
+template <typename T>
+void FuncionesGlobales<T>::MostrarPorPosicion(const char* ruta, T& obj){
+    int cont=0;
+    FILE *p;
+    p=fopen(ruta,"rb");
+    if(p==NULL){
+        std::cout<<"ERROR --> MostrarPorPosicion()"<<std::endl;
+        return;
+    }
+
+    while(fread(&obj,sizeof obj,1,p)==1){
+        cont++;
+        std::cout<<"Posicion "<<cont<<std::endl;
+        obj.Mostrarr();    
+    }
+    
+    fclose(p);
+}
+/*******************************************************************************/
+
+
+int EsUnNumero(const char* texto, int hasta){
+
+
+    bool band=false;
+    string iComoCadena1;
+
+    for(int i=0; i<=hasta; i++){
+
+        iComoCadena1 = to_string(i);
+
+        if(strcmp(texto,iComoCadena1.c_str()) == 0){
+            band=true;
+        }
+
+    }
+
+    // for(int i=-1; i<=-1000; i--){
+
+    //     string iComoCadena2 = to_string(i);
+
+    //     if(strcmp(texto,iComoCadena2.c_str()) == 0){
+    //         band=true;
+    //     }
+
+    // }
+
+
+
+    if(band==true){
+
+        return true;
+    }else{
+        return false;
+    }
+
+}
 
 void cargarCadena(char *palabra, int tamano)
 {

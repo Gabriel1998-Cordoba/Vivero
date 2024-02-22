@@ -4,6 +4,12 @@ using namespace std;
 
 #include "Duenio.h"
 
+void Duenio::Mostrarr(){
+
+    MostrarDuenio();
+
+}
+
 void Duenio::CargarDuenio(/*int totalDeRegistros ,int TipoDeArticulo*/)
 {
 

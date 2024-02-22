@@ -4,6 +4,9 @@
         "ostream": "cpp",
         "utility": "cpp",
         "iomanip": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "cstring": "cpp",
+        "string": "cpp",
+        "istream": "cpp"
     }
 }
