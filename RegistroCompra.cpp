@@ -78,7 +78,7 @@ void RegistroCompra::Mostrar()
 {
     cout << "ID COMPRA: " << getIdCompra() << endl;
     cout << "ID CLIENTE: " << getIdCliente()  << endl;
-    cout << "FECHA ACTUAL: " ;
+    cout << "FECHA : " ;
     _Fecha.MostrarEnLinea();
     cout << "MODO DE PAGO: " << getModoDePago() << endl
          << endl;
@@ -171,20 +171,3 @@ RegistroCompra RegistroCompra::leerRegistro(int pos,const char * nombre)
     return reg;
 }
 
-// RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra){
-//     RegistroCompra reg;
-//     FILE *p;
-//     p=fopen("registrocompra.dat", "rb");
-//     if(p==NULL){
-//         cout<<"NO PUDO LEERLO : RegistroCompra RegistroCompra::LeerRegistrosPorIdCompra(int IdCompra)"<<endl;
-//          return reg;
-//     }
-//     while(fread(&reg, sizeof reg,1, p)){
-//         if(reg.getIdCompra() == IdCompra){
-//             fclose(p);
-//             return reg;
-//         }
-//     }
-//     fclose(p);
-//     return reg;
-// }

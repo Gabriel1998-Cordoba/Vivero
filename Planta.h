@@ -24,7 +24,7 @@ class Planta : public Articulo{
     void ListarPlanta();
     bool reemplazarRegistroPlanta(Planta reg, int posicionAReemplazar);
     bool MostrarArchivoPlanta();
-    void Modificar();
+    
 
 
 void Opcion1Compra();

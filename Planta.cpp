@@ -3,10 +3,10 @@
 
 using namespace std;
 
-#include "RegistroCompra.h"
+// #include "RegistroCompra.h"
 #include "Planta.h"
 #include "FuncionesGlobales.h"
-#include "Articulo.h"
+// #include "Articulo.h"
 #include "DetalleFacturaCompra.h"
 #include "bkpDetalleFacturaCompra.h"
 

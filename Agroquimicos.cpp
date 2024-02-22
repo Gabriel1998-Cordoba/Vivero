@@ -5,7 +5,7 @@ using namespace std;
 
 #include "Agroquimicos.h"
 #include "FuncionesGlobales.h"
-#include "Articulo.h"
+// #include "Articulo.h"
 #include "DetalleFacturaCompra.h"
 #include "bkpDetalleFacturaCompra.h"
 

@@ -6,7 +6,7 @@ using namespace std;
 #include "FuncionesGlobales.h"
 #include "DetalleFacturaCompra.h"
 #include "bkpDetalleFacturaCompra.h"
-#include "Articulo.h"
+// #include "Articulo.h"
 #include "Herramientas.h"
 
 void Herramientas::Mostrarr()

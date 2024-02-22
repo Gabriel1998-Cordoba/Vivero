@@ -6,7 +6,7 @@
 // #include"Herramientas.h"
 // #include"Planta.h"
 // #include"Agroquimicos.h"
-#include"Sujeto.h"
+// #include"Sujeto.h"
 
 
 class RegistroCompra{
@@ -40,8 +40,5 @@ void CargarDatosRegistroCompraEnArchivo(RegistroCompra objR ,int idcliente);
 void MostrarArchivoCompra();
 
 RegistroCompra leerRegistro(int pos,const char * nombre = "registrocompra.dat");
-// RegistroCompra LeerRegistrosPorIdCompra(int IdCompra);
 
-//     Sujeto& getSujeto() { return _Sujeto; }
-//     void setSujeto(const Sujeto &Sujeto) { _Sujeto = Sujeto; }
  };

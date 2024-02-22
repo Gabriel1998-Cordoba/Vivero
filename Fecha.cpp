@@ -1,11 +1,10 @@
 #include <iostream>
-#include <string>
-#include "Fecha.h"
+// #include <string>
+
 #include <ctime>
-#include "FuncionesGlobales.h"
-
 using namespace std;
-
+#include "Fecha.h"
+#include "FuncionesGlobales.h"
 Fecha::Fecha()
 {
     _dia = 0;

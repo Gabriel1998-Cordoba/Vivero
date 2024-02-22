@@ -862,7 +862,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 {
                     SaltoDeLinea();
                     system("cls");
-                    bkpRegistroCompra objBkpRefistroCompra;
+                    bkpRegistroCompra objBkpRefistroCompra;//no es correcto hacerlo cada vez que se realice una compra
                     objBkpRefistroCompra.CrearBackup();
                     cout << "Se registro correctamente la compra " << endl;
                     GenerarFactura(objR);

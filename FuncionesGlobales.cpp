@@ -5,8 +5,8 @@
 #include <iomanip>
 using namespace std;
 #include "FuncionesGlobales.h"
-#include "Cliente.h"
-#include "Duenio.h"
+// #include "Cliente.h"
+// #include "Duenio.h"
 
 // int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta){
 
