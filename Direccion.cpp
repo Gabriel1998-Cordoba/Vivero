@@ -37,15 +37,20 @@ char ciudad[30];
 char CP[30]; //Codigo Postal
 char provincia[30];
 char pais[30];
+char texto [30];
 
 cout<<"Su Calle es: ";
 cargarCadena(calle,30);
 setCalle(calle);
 
-cout<<"Su numero es: ";
-cin>>numero;
-setNumero(numero);
 
+cout<<"Su numero  de calle es: ";
+cargarCadena(texto,30);
+numero=EsUnNumeroYConvierteEnNumero(texto);
+if(numero>=0)
+{
+    setNumero(numero);
+}
 cout<<"Su ciudad es: ";
 cargarCadena(ciudad,30);
 setCiudad(ciudad);
