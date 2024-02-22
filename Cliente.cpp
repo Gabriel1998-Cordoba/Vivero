@@ -5,7 +5,8 @@ using namespace std;
 #include "Cliente.h"
 #include "FuncionesGlobales.h"
 
-void Cliente::Mostrarr(){
+void Cliente::Mostrarr()
+{
     Mostrar();
 }
 
@@ -13,10 +14,12 @@ Cliente::Cliente()
 {
     _idCliente = 0;
 }
-void Cliente::setNombre(const char *nombre){
+void Cliente::setNombre(const char *nombre)
+{
     strcpy(_nombre, nombre);
 }
-const char *Cliente::getNombre(){
+const char *Cliente::getNombre()
+{
     return _nombre;
 }
 void Cliente::setIDCliente(int idCliente)
@@ -50,12 +53,12 @@ void Cliente::Cargar()
     char apellido[50];
     char nombre[50];
     cout << "ID CLIENTE: " << this->getIDCliente() << endl;
-    
+
     cout << "APELLIDO: ";
     cargarCadena(apellido, 50);
     setApellido(apellido);
-     cout << "NOMBRE: ";
- cargarCadena(nombre, 50);
+    cout << "NOMBRE: ";
+    cargarCadena(nombre, 50);
     setNombre(nombre);
     Sujeto::CargarSujeto(/*0*/);
 }
@@ -140,8 +143,8 @@ void Cliente::CargarDatosClienteEnArchivo()
     fclose(p);
 }
 void Cliente::MostrarDatosClienteEnArchivo()
-{  
-   
+{
+
     Cliente reg;
     FILE *p;
 
@@ -154,7 +157,10 @@ void Cliente::MostrarDatosClienteEnArchivo()
 
     while (fread(&reg, sizeof reg, 1, p) == 1)
     {
-        reg.Mostrar();
+        if (reg.getEstado() == 1)
+        {
+            reg.Mostrar();
+        }
     }
 
     fclose(p);
@@ -175,35 +181,34 @@ Cliente Cliente::leerRegistros(int indice, const char *ruta)
     return reg;
 }
 
-bool  ValidarCliente(int id)
+bool ValidarCliente(int id)
 {
-Cliente reg;
+    Cliente reg;
 
-    int tam =0 ;
+    int tam = 0;
     tam = reg.CONtarRegistros();
 
     if (tam == -1)
     {
-      return false;
+        return false;
     }
     else
     {
 
-          for (int i = 0; i < tam; i++)
+        for (int i = 0; i < tam; i++)
         {
-           reg = reg.leerRegistros(i);
-            if ((reg.getIDCliente()) == (id))//-1
+            reg = reg.leerRegistros(i);
+            if ((reg.getIDCliente()) == (id)) //-1
             {
                 return true;
-                
-            }else
+            }
+            else
             {
-return false;
+                return false;
             }
         }
     }
     return false;
-  
 }
 bool Cliente::reemplazarRegistroCliente(Cliente reg, int posicionAReemplazar)
 {

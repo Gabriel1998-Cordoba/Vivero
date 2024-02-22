@@ -45,14 +45,26 @@ void MostrarMaximo(int *vP ,int indice1 ,int *vH2,int indice2 ,int *vA3,int indi
 
 
 
-int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta=1000);
+// int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta=1000);
+float EsUnNumeroYConvierteEnNumero(const char* texto);
 
 int EsUnNumero(const char* texto, int hasta=1000);
 
-/*******************************************************************/
 template <typename T>
-class FuncionesGlobales {
-public:
-    void MostrarPorPosicion(const char* ruta, T& obj);
-};
-/*******************************************************************/
+void MostrarPorPosicion(const char* ruta, T& obj){
+    int cont=0;
+    FILE *p;
+    p=fopen(ruta,"rb");
+    if(p==NULL){
+        std::cout<<"ERROR --> MostrarPorPosicion()"<<std::endl;
+        return;
+    }
+
+    while(fread(&obj,sizeof obj,1,p)==1){
+        cont++;
+        std::cout<<"Posicion "<<cont<<std::endl;
+        obj.Mostrarr();    
+    }
+    
+    fclose(p);
+}

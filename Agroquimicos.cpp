@@ -10,7 +10,8 @@ using namespace std;
 #include "bkpDetalleFacturaCompra.h"
 
 /***************************************************************/
-void Agroquimicos::Mostrarr(){
+void Agroquimicos::Mostrarr()
+{
     MostrarAgroquimicos();
 }
 /***************************************************************/
@@ -55,6 +56,7 @@ void Agroquimicos::CargarAgroquimicos(int TipoDeArticulo)
     Articulo::Cargar(totalDeRegistros, TipoDeArticulo);
 
     int tipoAgroquimico = 0;
+    char texto[30];
 
     do
     {
@@ -63,7 +65,9 @@ void Agroquimicos::CargarAgroquimicos(int TipoDeArticulo)
              << endl;
 
         cout << "Ingrese tipo Agroquimico" << endl;
-        cin >> tipoAgroquimico;
+        cargarCadena(texto,30);
+        tipoAgroquimico = EsUnNumeroYConvierteEnNumero(texto);
+        
         if ((tipoAgroquimico != 1) && (tipoAgroquimico != 2))
         {
             cout << "El valor ingresado en tipo Agroquimico no existe" << endl;
@@ -128,7 +132,6 @@ Agroquimicos Agroquimicos::leerRegistroAgroquimicos(int pos, const char *ruta)
 void Agroquimicos::ListarAgroquimicos()
 {
 
-
     Agroquimicos ClassM;
     FILE *p;
 
@@ -141,12 +144,14 @@ void Agroquimicos::ListarAgroquimicos()
 
     while ((fread(&ClassM, sizeof(Agroquimicos), 1, p)) == 1)
     {
-        ClassM.MostrarAgroquimicos();
+        if (ClassM.getEstado() == 1)
+        {
+            ClassM.MostrarAgroquimicos();
+        }
     }
 
     fclose(p);
 }
-
 
 bool Agroquimicos::reemplazarRegistroAgroquimicos(Agroquimicos objAgroquimico, int posicionAReemplazar)
 {
@@ -233,23 +238,21 @@ void Agroquimicos::Opcion3Compra(int idCompra)
     cargarCadena(nombreP, 30);
     strlwr(nombreP);
 
-    
     for (int i = 0; i < tam; i++)
     {
         aux = reg.leerRegistroAgroquimicos(i);
-        
-        strcpy(auxnombre,aux.getNombre());
+
+        strcpy(auxnombre, aux.getNombre());
         strlwr(auxnombre);
 
-
-        if (strcmp(  auxnombre , nombreP) == 0)
+        if (strcmp(auxnombre, nombreP) == 0)
         {
             if (descripcionFactura.AutoCargar(idCompra, aux) == true)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    cout << "Guardado Correctamente el detalle del Articulo"<<endl;
-                  
+                    cout << "Guardado Correctamente el detalle del Articulo" << endl;
+
                     return;
                 }
             }

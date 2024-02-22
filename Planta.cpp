@@ -62,7 +62,8 @@ void Planta::MostrarPlanta()
     cout << "Estacion: " << getEstacion() << endl
          << endl;
 }
-void Planta::Mostrarr(){
+void Planta::Mostrarr()
+{
     MostrarPlanta();
 }
 
@@ -122,12 +123,11 @@ void Planta::ListarPlanta()
     for (int i = 0; i < contarRegistros(); i++)
     {
         ClassM = leerRegistroPlanta(i, "planta.dat");
-        ClassM.MostrarPlanta();
+        if (ClassM.getEstado() == 1)
+        {
+            ClassM.MostrarPlanta();
+        }
     }
-
-    // while(fread(&ClassM,sizeof (Planta),1,p)==1){
-    // ClassM.MostrarPlanta();
-    // }
 
     fclose(p);
 }
@@ -228,7 +228,7 @@ void Planta::Opcion3Compra(RegistroCompra objRegistroCompra)
             {
                 if (descripcionFactura.GuardarEnArchivo())
                 {
-                    cout << "Guardado Correctamente el detalle del Articulo"<<endl;
+                    cout << "Guardado Correctamente el detalle del Articulo" << endl;
                     system("pause");
                     return;
                 }
@@ -236,8 +236,6 @@ void Planta::Opcion3Compra(RegistroCompra objRegistroCompra)
         }
     }
 }
-
-
 
 bool Planta::MostrarArchivoPlanta()
 {
@@ -258,4 +256,3 @@ bool Planta::MostrarArchivoPlanta()
 
     return true;
 }
-

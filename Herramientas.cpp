@@ -9,7 +9,8 @@ using namespace std;
 #include "Articulo.h"
 #include "Herramientas.h"
 
-void Herramientas::Mostrarr(){
+void Herramientas::Mostrarr()
+{
     MostrarHerramienta();
 }
 
@@ -226,7 +227,7 @@ void Herramientas::Opcion3Compra(RegistroCompra objR)
 
                     objBkpDetalleFCompra.CrearBackup();
 
-                    cout << "Guardado Correctamente el detalle del Articulo"<<endl;
+                    cout << "Guardado Correctamente el detalle del Articulo" << endl;
                     // system("pause");
                     return;
                 }
@@ -250,9 +251,11 @@ bool Herramientas::MostrarArchivoHerramienta()
     while (fread(&ClassM, sizeof(Herramientas), 1, p) == 1)
     {
 
-        ClassM.MostrarHerramienta();
+        if (ClassM.getEstado() == 1)
+        {
+            ClassM.MostrarHerramienta();
+        }
     }
-
     fclose(p);
     return true;
 }

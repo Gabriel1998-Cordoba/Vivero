@@ -183,36 +183,36 @@ bool Duenio::reemplazarRegistroDuenio(Duenio reg, int posicionAReemplazar)
     return pudoEscribir;
 }
 
-void Duenio::leer(Duenio *vec, int cantidadRegistrosALeer, const char *ruta)
-{
-    FILE *p = fopen(ruta, "rb");
-    if (p == NULL)
-    {
-        return;
-    }
+// void Duenio::leer(Duenio *vec, int cantidadRegistrosALeer, const char *ruta)
+// {
+//     FILE *p = fopen(ruta, "rb");
+//     if (p == NULL)
+//     {
+//         return;
+//     }
 
-    fread(vec, sizeof(Duenio), cantidadRegistrosALeer, p);
-    fclose(p);
-}
-void Duenio::vaciar(const char *ruta)
-{
-    FILE *p = fopen(ruta, "wb");
-    if (p == NULL)
-    {
-        return;
-    }
-    fclose(p);
-}
+//     fread(vec, sizeof(Duenio), cantidadRegistrosALeer, p);
+//     fclose(p);
+// }
+// void Duenio::vaciar(const char *ruta)
+// {
+//     FILE *p = fopen(ruta, "wb");
+//     if (p == NULL)
+//     {
+//         return;
+//     }
+//     fclose(p);
+// }
 
-bool Duenio::guardar(Duenio *vec, int cantidadRegistrosAEscribir, const char *ruta)
-{
-    FILE *p = fopen(ruta, "ab");
-    if (p == NULL)
-    {
-        return false;
-    }
+// bool Duenio::guardar(Duenio *vec, int cantidadRegistrosAEscribir, const char *ruta)
+// {
+//     FILE *p = fopen(ruta, "ab");
+//     if (p == NULL)
+//     {
+//         return false;
+//     }
 
-    int cantidadRegistrosEscritos = fwrite(vec, sizeof(Duenio), cantidadRegistrosAEscribir, p);
-    fclose(p);
-    return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
-}
+//     int cantidadRegistrosEscritos = fwrite(vec, sizeof(Duenio), cantidadRegistrosAEscribir, p);
+//     fclose(p);
+//     return cantidadRegistrosEscritos == cantidadRegistrosAEscribir;
+// }

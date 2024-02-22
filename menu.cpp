@@ -2623,6 +2623,9 @@ void ModificarDatos(int opc)
             bool estado;
             int sueldo;
             Tipo_Docu objTD;
+
+
+
             MostrarPorPosicion("duenio.dat", objD);
 
             int posi;
@@ -2697,6 +2700,7 @@ void ModificarDatos(int opc)
             SaltoDeLinea();
             system("cls");
             Agroquimicos objAgro;
+
             MostrarPorPosicion("agroquimicos.dat", objAgro);
 
             int indice = 0, stock;
@@ -2732,10 +2736,8 @@ void ModificarDatos(int opc)
             SaltoDeLinea();
             system("cls");
             Herramientas objH;
-            FuncionesGlobales objFG;
-
-            objFG.MostrarPorPosicion("agroquimicos.dat", objH);
-
+            
+            MostrarPorPosicion("agroquimicos.dat", objH);
 
             int indice = 0, stock;
             float precio;

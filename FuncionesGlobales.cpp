@@ -1,61 +1,53 @@
 #include <iostream>
 #include <cstdio>
+#include <cstdlib>
+#include <string>
 #include <iomanip>
 using namespace std;
 #include "FuncionesGlobales.h"
 #include "Cliente.h"
 #include "Duenio.h"
 
-int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta){
+// int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta){
 
 
-    bool band=false;
-    string iComoCadena1;
+//     bool band=false;
+//     string iComoCadena1;
 
-    int numeroInt;
+//     int numeroInt;
 
-    for(int i=0; i<=hasta; i++){
+//     for(int i=0; i<=hasta; i++){
 
-        iComoCadena1 = to_string(i);
+//         iComoCadena1 = to_string(i);
 
-        if(strcmp(texto,iComoCadena1.c_str()) == 0){
-            band=true;
-        }
+//         if(strcmp(texto,iComoCadena1.c_str()) == 0){
+//             band=true;
+//         }
 
-    }
+//     }
 
 
-    if(band==true){
+//     if(band==true){
 
-        numeroInt = atoi(texto);
+//         numeroInt = atoi(texto);
 
-        return numeroInt;
-    }else{
+//         return numeroInt;
+//     }else{
+//         return -1;
+//     }
+
+// }
+float EsUnNumeroYConvierteEnNumero(const char* texto){
+    char* end;
+    float numeroFloat = std::strtof(texto, &end);
+
+    if (end != texto) { // Si se pudo convertir a float
+        return numeroFloat;
+    } else { // Si no se pudo convertir a float
         return -1;
     }
-
 }
 
-/*******************************************************************************/
-template <typename T>
-void FuncionesGlobales<T>::MostrarPorPosicion(const char* ruta, T& obj){
-    int cont=0;
-    FILE *p;
-    p=fopen(ruta,"rb");
-    if(p==NULL){
-        std::cout<<"ERROR --> MostrarPorPosicion()"<<std::endl;
-        return;
-    }
-
-    while(fread(&obj,sizeof obj,1,p)==1){
-        cont++;
-        std::cout<<"Posicion "<<cont<<std::endl;
-        obj.Mostrarr();    
-    }
-    
-    fclose(p);
-}
-/*******************************************************************************/
 
 
 int EsUnNumero(const char* texto, int hasta){
