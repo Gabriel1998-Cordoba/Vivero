@@ -5,7 +5,7 @@
 void menuPrincipal()
 {
 
- int opcion;
+    int opcion;
 
     while (true)
     {
@@ -674,22 +674,22 @@ void menuPersona(int opcion)
             ///////////////////////////////////
 
             // hacer una funcion que me cuente cuantos registros hay
-            RegistroCompra objR;
-            int tam = objR.contarRegistros();
-            // int idcompra;
+            // RegistroCompra objR;
+            // int tam = objR.contarRegistros();
+            // // int idcompra;
 
-            if (tam == -1)
-            {
-                objR.setIdCompra(tam + 2);
-            }
-            else
-            {
-                objR.setIdCompra(tam + 1);
-            }
+            // if (tam == -1)
+            // {
+            //     objR.setIdCompra(tam + 2);
+            // }
+            // else
+            // {
+            //     objR.setIdCompra(tam + 1);
+            // }
 
             SaltoDeLinea();
             system("cls");
-            menuCompraPersona(opcion, objR);
+            menuCompraPersona(opcion);
             system("pause");
         }
         break;
@@ -726,27 +726,59 @@ void menuPersona(int opcion)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraPersona(int opcion, RegistroCompra objR)
+void menuCompraPersona(int opcion /*, RegistroCompra objR*/)
 {
     SaltoDeLinea();
     system("cls");
 
-    bkpAgroquimicos objBkpAgroquimico;
-    objBkpAgroquimico.CrearBackup();
+    RegistroCompra objR;
+    int tamRegistroArchivoCompra = objR.contarRegistros();
+    // int idcompra;
 
-    bkpHerramientas objBkpHerramienta;
-    objBkpHerramienta.CrearBackup();
+    if (tamRegistroArchivoCompra == -1)
+    {
+        objR.setIdCompra(tamRegistroArchivoCompra + 2);
+    }
+    else
+    {
+        objR.setIdCompra(tamRegistroArchivoCompra + 1);
+    }
 
-    bkpPlanta objBkpPlanta;
-    objBkpPlanta.CrearBackup();
+    // bkpAgroquimicos objBkpAgroquimico;
+    // objBkpAgroquimico.CrearBackup();
 
-    bool bandHerramientas = false;
-    bool bandPlanta = false;
-    bool bandAgroquimicos = false;
+    // bkpHerramientas objBkpHerramienta;
+    // objBkpHerramienta.CrearBackup();
+
+    // bkpPlanta objBkpPlanta;
+    // objBkpPlanta.CrearBackup();
+
+    // bool bandHerramientas = false;
+    // bool bandPlanta = false;
+    // bool bandAgroquimicos = false;
+
+    // se van a crear lovs vectores
+    Herramientas objH;
+    int tamArchivoHerramienta = objH.contarRegistros();
+    Herramientas *vecHerramienta = new Herramientas[tamArchivoHerramienta];
+    if (vecHerramienta == NULL)
+    {
+        cout << "error memoria" << endl;
+        return;
+    }
+   int *vecPosH = new int[tamArchivoHerramienta];
+    if (vecPosH == NULL)
+    {
+        cout << "error memoria" << endl;
+        return;
+    }
+    ponerEnCeroVector(vecPosH, tamArchivoHerramienta);
+
     while (true)
     {
         SaltoDeLinea();
         system("cls");
+
         cout << "Que quieres Comprar?" << endl
              << endl;
         cout << "---------------------------------------" << endl;
@@ -767,8 +799,8 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             SaltoDeLinea();
             system("cls");
 
-            bandHerramientas = true;
-            menuCompraHerramientaPersona(opcion, objR);
+            // bandHerramientas = true;
+            menuCompraHerramientaPersona(opcion, vecHerramienta, tamArchivoHerramienta, vecPosH);
 
             // system("pause");
         }
@@ -779,7 +811,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             SaltoDeLinea();
             system("cls");
 
-            bandPlanta = true;
+            // bandPlanta = true;
             menuCompraPlantaPersona(opcion, objR);
 
             // system("pause");
@@ -791,7 +823,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
             SaltoDeLinea();
             system("cls");
 
-            bandAgroquimicos = true;
+            // bandAgroquimicos = true;
             menuCompraAgroquimicosPersona(opcion, objR);
 
             // system("pause");
@@ -802,7 +834,7 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
         {
             SaltoDeLinea();
             system("cls");
-
+            DetalleFacturaCompra objDF;
             do
             {
                 cout << "---------------------------------------------" << endl;
@@ -828,9 +860,8 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 cin >> id;
 
                 system("pause");
-                // cout<<"cli.getIDCliente(): "<<cli.getIDCliente()<<endl;
 
-                if (/*cli.getIDCliente() == -1 || cli.getIDCliente() == -2*/ ValidarCliente(id) == false)
+                if (ValidarCliente(id) == false)
                 {
                     cout << "Se registra el nuevo cliente" << endl;
 
@@ -856,37 +887,47 @@ void menuCompraPersona(int opcion, RegistroCompra objR)
                 }
                 SaltoDeLinea();
                 system("cls");
+
+                ///// zona para cargar el registro de compra
                 objR.CargarCompra(objR, cli.getIDCliente());
+                /// detalle de factura
+                /// cosas que necita,os para cargar el detalle
+                // id articulo,idcompra
+                // vecPos{   if(vecPos[i]==true){detalledeFactura.AutoCargar(objR.getIdCompra(),vecHerramienta[i].getID());}   }
+                for (int i = 0; i < tamArchivoHerramienta; i++)
+                {
+                    if (vecPosH[i] > 0)
+                    {
+                        if (objDF.AutoCargar(objR.getIdCompra(), vecHerramienta[i],vecPosH[i]))
+                        {
+                            if (objDF.GuardarEnArchivo())
+                            {
+
+vecHerramienta[i].reemplazarRegistroHerramienta(vecHerramienta[i],i);
+
+
+                            }
+                        }
+                    }
+                }
 
                 if (objR.GuardarCompra())
                 {
                     SaltoDeLinea();
                     system("cls");
-                    bkpRegistroCompra objBkpRefistroCompra;//no es correcto hacerlo cada vez que se realice una compra
-                    objBkpRefistroCompra.CrearBackup();
+                
                     cout << "Se registro correctamente la compra " << endl;
                     GenerarFactura(objR);
                 }
+                delete[] vecHerramienta;
+                delete[] vecPosH;
                 return;
             }
             else if (opcion == 1)
             {
-                bkpRegistroCompra objBkpRegistroCompra;
-                objBkpRegistroCompra.RestaurarBackup();
-                bkpDetalleFacturaCompra ojbBkpDetalleFCompra;
-                ojbBkpDetalleFCompra.RestaurarBackup(); // cout<<"<--aqui?"<<endl;
-                if (bandHerramientas == true)
-                {
-                    objBkpHerramienta.RestaurarBackup();
-                }
-                if (bandAgroquimicos == true)
-                {
-                    objBkpAgroquimico.RestaurarBackup();
-                }
-                if (bandPlanta == true)
-                {
-                    objBkpPlanta.RestaurarBackup();
-                }
+                SaltoDeLinea();
+                delete[] vecHerramienta;
+                delete[] vecPosH;
                 return;
                 system("pause"); //
             }
@@ -1053,7 +1094,7 @@ void menuCompraPlantaPersona(int opcion, RegistroCompra objR)
     }
 }
 ///////////////////////////////////////////////////////////////////////////
-void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
+void menuCompraHerramientaPersona(int opcion, Herramientas *vHerramienta, int tam, int *vecPosH)
 {
 
     Herramientas objH;
@@ -1101,7 +1142,7 @@ void menuCompraHerramientaPersona(int opcion, RegistroCompra objR)
         {
             SaltoDeLinea();
             system("cls");
-            objH.Opcion3Compra(objR);
+            objH.Opcion3Compra(vHerramienta, tam, vecPosH);
             system("pause");
         }
         break;
@@ -2624,8 +2665,6 @@ void ModificarDatos(int opc)
             int sueldo;
             Tipo_Docu objTD;
 
-
-
             MostrarPorPosicion("duenio.dat", objD);
 
             int posi;
@@ -2651,10 +2690,10 @@ void ModificarDatos(int opc)
             objD.setFecha(f);
             cout << "Sueldo: ";
             cin >> sueldo;
-         cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cout << "Para Activar (1) o Desactivar(0) Registro: ";
             cin >> estado;
             objD.setEstado(estado),
-            objD.reemplazarRegistroDuenio(objD, posi - 1);
+                objD.reemplazarRegistroDuenio(objD, posi - 1);
 
             system("pause");
         }
@@ -2677,7 +2716,7 @@ void ModificarDatos(int opc)
             cin >> precio;
             cout << "Stock: ";
             cin >> stock;
-        cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cout << "Para Activar (1) o Desactivar(0) Registro: ";
             cin >> estado;
             objP.setPrecio(precio);
             objP.setStock(stock);
@@ -2713,7 +2752,7 @@ void ModificarDatos(int opc)
             cin >> precio;
             cout << "Stock: ";
             cin >> stock;
-         cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cout << "Para Activar (1) o Desactivar(0) Registro: ";
             cin >> estado;
             objAgro.setPrecio(precio);
             objAgro.setStock(stock);
@@ -2736,7 +2775,7 @@ void ModificarDatos(int opc)
             SaltoDeLinea();
             system("cls");
             Herramientas objH;
-            
+
             MostrarPorPosicion("agroquimicos.dat", objH);
 
             int indice = 0, stock;
@@ -2749,7 +2788,7 @@ void ModificarDatos(int opc)
             cin >> precio;
             cout << "Stock: ";
             cin >> stock;
-           cout << "Para Activar (1) o Desactivar(0) Registro: ";
+            cout << "Para Activar (1) o Desactivar(0) Registro: ";
             cin >> estado;
             objH.setPrecio(precio);
             objH.setStock(stock);
@@ -2770,7 +2809,7 @@ void ModificarDatos(int opc)
         /*************************************/
         case 5:
         {
-           
+
             SaltoDeLinea();
             system("cls");
             Cliente objC;
@@ -2781,7 +2820,7 @@ void ModificarDatos(int opc)
             bool estado;
             int sueldo;
             Tipo_Docu objTD;
-            
+
             MostrarPorPosicion("Cliente.dat", objC);
 
             int posi;
@@ -2816,9 +2855,8 @@ void ModificarDatos(int opc)
             system("pause");
         }
         break;
-        /*************************************/
-       
-        
+            /*************************************/
+
         case 0:
         {
             SaltoDeLinea();

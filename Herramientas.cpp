@@ -192,48 +192,87 @@ bool Herramientas::reemplazarRegistroHerramienta(Herramientas objHerramienta, in
     fclose(p);
     return pudoEscribir;
 }
-void Herramientas::Opcion3Compra(RegistroCompra objR)
+void Herramientas::Opcion3Compra(Herramientas *vHerramienta,int tam,int *vPosH)
 {
     ///// ECHO POR GABI
 
+    /* Prueba*/
+
+    // int tam = this->contarRegistros();
+    bool bandera = true;
+    // Herramientas *vecHerramienta = new Herramientas[tam];
+    // if (vecHerramienta == NULL)
+    // {
+    //     cout << "error memoria" << endl;
+    //     return;
+    // }
+    ////
+
     char nombreH[30], auxnombre[30];
-    int tam = 0;
+    int cantidad = 0;
 
-    bkpDetalleFacturaCompra objBkpDetalleFCompra;
-    objBkpDetalleFCompra.CrearBackup();
+    // bkpDetalleFacturaCompra objBkpDetalleFCompra;
+    // objBkpDetalleFCompra.CrearBackup();
 
-    DetalleFacturaCompra descripcionFactura;
+    // DetalleFacturaCompra descripcionFactura;
 
-    Herramientas herramienta, aux;
-
-    tam = herramienta.contarRegistros();
+    Herramientas /*herramienta,*/ aux;
+    aux.leerHerramienta(vHerramienta, tam);
+    // tam = herramienta.contarRegistros();
 
     cout << "Ingrese Nombre de la Herramienta: ";
     cargarCadena(nombreH, 30);
     strlwr(nombreH);
     for (int i = 0; i < tam; i++)
     {
-        aux = herramienta.leerRegistroHerramienta(i);
-        strcpy(auxnombre, aux.getNombre());
+        // aux =aux.leerRegistroHerramienta(i);
+
+        strcpy(auxnombre, vHerramienta[i].getNombre());
         strlwr(auxnombre);
 
         if (strcmp(auxnombre, nombreH) == 0)
         {
 
-            if (descripcionFactura.AutoCargar(objR.getIdCompra(), aux) == true)
+            do
             {
-                if (descripcionFactura.GuardarEnArchivo())
+                cout << " Cuantos quieres llevar? " << endl;
+                cin >> cantidad;
+                if (cantidad >= 0 && cantidad <= vHerramienta[i].getStock())
                 {
-
-                    objBkpDetalleFCompra.CrearBackup();
-
-                    cout << "Guardado Correctamente el detalle del Articulo" << endl;
-                    // system("pause");
-                    return;
+                    vHerramienta[i].setStock(vHerramienta[i].getStock() - cantidad);
+                    vPosH[i]+=cantidad;
+                    bandera = true;
                 }
-            }
+                else
+                {
+                    cout << "No se puede llevar esa cantidad" << endl;
+                    bandera = false;
+                }
+            } while (bandera == false);
+
+         
+
+            // if (descripcionFactura.AutoCargar(objR.getIdCompra(), aux) == true)
+            // {
+            //     if (descripcionFactura.GuardarEnArchivo())
+            //     {
+
+            //         objBkpDetalleFCompra.CrearBackup();
+
+            //         cout << "Guardado Correctamente el detalle del Articulo" << endl;
+            //         // system("pause");
+            //         return;
+            //     }
+            // }
         }
+           for (int j = 0; j < cantidad; j++)
+            {
+                vHerramienta[i].Mostrar();
+
+            }
     }
+    system("pause");
+    // delete[]vHerramienta;
 }
 
 bool Herramientas::MostrarArchivoHerramienta()
@@ -258,4 +297,15 @@ bool Herramientas::MostrarArchivoHerramienta()
     }
     fclose(p);
     return true;
+}
+void Herramientas::leerHerramienta(Herramientas *v, int tamanio)
+{
+    FILE *p = fopen("herramientas.dat", "rb");
+    if (p == NULL)
+    {
+        return;
+    }
+
+    fread(v, sizeof(Herramientas), tamanio, p);
+    fclose(p);
 }

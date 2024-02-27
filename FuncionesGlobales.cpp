@@ -524,6 +524,13 @@ void ponerEnCeroVector(int *v, int tamanio)
         v[i] = 0;
     }
 }
+void ponerEnCeroVector(bool *v, int tamanio)
+{
+    for (int i = 0; i < tamanio; i++)
+    {
+        v[i] = 0;
+    }
+}
 void cargarVectordeAcumulacion(int *v, Cliente objCliente)
 {
     RegistroCompra objRCompra;

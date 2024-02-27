@@ -22,6 +22,7 @@ public:
         bool borrarRegistroHerramienta();
         Herramientas leerRegistroHerramienta(int pos, const char *nombre = "herramientas.dat");
         void ListarHerramienta();
+        void leerHerramienta(Herramientas *,int);
         bool reemplazarRegistroHerramienta(Herramientas objHerramienta, int posicionAReemplazar) ;
 
         bool ListarHerramientaPorCodigoHerramienta(int codigoHerramienta);
@@ -29,7 +30,7 @@ public:
 
         void Opcion1Compra();                    // HACER
         void Opcion2Compra();                    // HACER
-        void Opcion3Compra(RegistroCompra objR); // HACER
+        void Opcion3Compra(Herramientas *,int,int *); // HACER
         // void Opcion4Compra();   //HACER
         // void Opcion5Compra();   //HACER
 };

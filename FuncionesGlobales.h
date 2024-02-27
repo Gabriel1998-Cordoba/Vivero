@@ -41,8 +41,8 @@ bool prueba(int _dia,int _mes,int _anio);
 bool existeDNI(int indice,int numero);
 void MostrarMaximo(int *vP ,int indice1 ,int *vH2,int indice2 ,int *vA3,int indice3);
 
-
-
+void ponerEnCeroVector(int *v, int tamanio);
+void ponerEnCeroVector(bool *v, int tamanio);
 
 
 // int EsUnNumeroYConvierteEnNumero(const char* texto, int hasta=1000);

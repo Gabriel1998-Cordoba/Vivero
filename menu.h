@@ -39,10 +39,10 @@ void menuEmpresa(int opcion);
 //                PERSONA
 void menuPersona(int opcion);
 // Compra
-void menuCompraPersona(int opcion, RegistroCompra objR);
+void menuCompraPersona(int opcion/*, RegistroCompra objR*/);
 
 void menuCompraPlantaPersona(int opcion);
-void menuCompraHerramientaPersona(int opcion);
+void menuCompraHerramientaPersona(int opcion,Herramientas *v,int tam,int *vPosH);
 void menuCompraAgroquimicosPersona(int opcion);
 
 // Venta

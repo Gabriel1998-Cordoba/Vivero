@@ -49,7 +49,7 @@ int getCantidad();
 float getPrecio();
 
 /*METODOS DE MANEJOS DE ARCHIVO*/
-bool AutoCargar(int idCompra,Herramientas objH); //prueba
+bool AutoCargar(int idCompra,Herramientas objH,int); //prueba
 bool AutoCargar(int idCompra,Planta objP); //prueba
 bool AutoCargar(int idCompra,Agroquimicos objH); //prueba
 bool GuardarEnArchivo();

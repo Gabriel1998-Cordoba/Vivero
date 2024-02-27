@@ -21,7 +21,8 @@ int DetalleFacturaCompra::getCantidad() { return _cantidad; }
 float DetalleFacturaCompra::getPrecio() { return _precio; }
 int DetalleFacturaCompra::getTipoDeArticulo() { return _TipoDeArticulo; }
 
-void DetalleFacturaCompra::Mostrarr(){
+void DetalleFacturaCompra::Mostrarr()
+{
     Mostrar();
 }
 
@@ -46,71 +47,18 @@ DetalleFacturaCompra::DetalleFacturaCompra()
     setEstado(false);
 }
 DetalleFacturaCompra::~DetalleFacturaCompra() {}
-bool DetalleFacturaCompra::AutoCargar(int idCompra, Herramientas objH) // prueba
+bool DetalleFacturaCompra::AutoCargar(int idCompra, Herramientas objH,int cantidad) // prueba
 {
-
-    int cant = 0, PosicionHerramienta;
+    
 
     setIdCompra(idCompra);
     setIdArticulo(objH.getID());
+    setCantidad(cantidad);
+    setPrecio(objH.getPrecio());
+    setTipoDeArticulo(objH.getTipoDeArticulo()); // prueba
+    setEstado(true);
+    return true;
 
-    int band = true;
-
-    do
-    {
-
-        if (objH.getStock() == 0)
-        {
-            SaltoDeLinea();
-            system("cls");
-            cout << "no hay stock para esta herramienta" << endl;
-            band = false;
-        }
-        else
-        {
-
-            cout << "Ingrese la Cantidad que desea llevar: ";
-            cin >> cant;
-
-            if (cant >= 0)
-            {
-
-                if (cant <= objH.getStock())
-                {
-                    setCantidad(cant);
-                    setPrecio(objH.getPrecio());
-                    setTipoDeArticulo(objH.getTipoDeArticulo()); // prueba
-                    PosicionHerramienta = BuscarPosicion(objH);
-
-
-                    if (PosicionHerramienta > 0)
-                    {
-                        objH.setStock(objH.getStock()-cant);
-                        objH.reemplazarRegistroHerramienta(objH, PosicionHerramienta);
-                    }
-
-                    return true;
-                }
-                else
-                {
-                    SaltoDeLinea();
-                    system("cls");
-                    cout << "la cantidad disponible es: " << objH.getStock() << endl;
-                    band = true;
-                }
-            }
-            else if (cant < 0)
-            {
-                SaltoDeLinea();
-                system("cls");
-                cout << "la cantidad debe de ser positivo" << endl;
-                band = true;
-            }
-        }
-
-    } while (band == true);
-
-    return false;
 }
 bool DetalleFacturaCompra::AutoCargar(int idCompra, Planta objP) // prueba
 {
@@ -148,10 +96,9 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Planta objP) // prueba
                     setTipoDeArticulo(objP.getTipoDeArticulo()); // prueba
                     PosicionPlanta = BuscarPosicion(objP);
 
-
                     if (PosicionPlanta > 0)
                     {
-                        objP.setStock(objP.getStock()-cant);
+                        objP.setStock(objP.getStock() - cant);
                         objP.reemplazarRegistroPlanta(objP, PosicionPlanta);
                     }
 
@@ -214,10 +161,9 @@ bool DetalleFacturaCompra::AutoCargar(int idCompra, Agroquimicos objA) // prueba
                     setTipoDeArticulo(objA.getTipoDeArticulo()); // prueba
                     PosicionAgroquimicos = BuscarPosicion(objA);
 
-
                     if (PosicionAgroquimicos > 0)
                     {
-                        objA.setStock(objA.getStock()-cant);
+                        objA.setStock(objA.getStock() - cant);
                         objA.reemplazarRegistroAgroquimicos(objA, PosicionAgroquimicos);
                     }
 
@@ -289,7 +235,7 @@ bool DetalleFacturaCompra::leerRegistroIdCompra(int pos)
 }
 void DetalleFacturaCompra::MostrarDatosDetalleFacturaCompraEnArchivo()
 {
-    
+
     DetalleFacturaCompra reg;
     FILE *p;
 
